@@ -1,5 +1,10 @@
 [
   {
+    "name": "constexpr.js",
+    "description": "A static site generator without a DSL",
+    "url": "https://github.com/fctorial/ConstexprJS"
+  },
+  {
     "name": "tst",
     "description": "Minimalist functional repl oriented testing framework for clojure(script)",
     "url": "https://github.com/fctorial/tst"
@@ -23,10 +28,5 @@
     "name": "crisp",
     "description": "Yet another lisp interpreter",
     "url": "https://github.com/fctorial/crisp"
-  },
-  {
-    "name": "ConstexprJS",
-    "description": "A static site generator without a DSL",
-    "url": "https://github.com/fctorial/ConstexprJS"
   }
 ]
