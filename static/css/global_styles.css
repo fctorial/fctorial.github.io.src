@@ -1,0 +1,147 @@
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, var,
+b, u, i, center,
+dl, dt, dd, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/********************************************************************************/
+
+:root {
+    background: white;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+body {
+    width: 50%;
+    margin: auto;
+    padding: 1em;
+    background: #e7e3e3;
+    font-family: monospace !important;
+}
+
+noscript {
+    color: #00000066;
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    margin-bottom: 1em;
+    grid-gap: 1em;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 0.5em 1em;
+    background: #c7c5c5;
+    min-width: 10em;
+    text-align: center;
+}
+
+nav a.current {
+    background: #a2c0ff;
+}
+
+header {
+    width: 100%;
+    margin-bottom: 2em;
+    border-bottom: 1px solid black;
+    padding-bottom: 1em;
+}
+
+#main_title {
+    width: 100%;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 2em;
+}
+
+@media(max-width: 1024px) {
+    body {
+        width: 100%;
+        font-size: 2em;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header > * {
+        order: 10;
+        margin-top: 0.5em;
+    }
+
+    #main_title {
+        order: 1;
+    }
+}
+
+article > p {
+    margin: 1em 0;
+}
+
+code {
+    display: block;
+    white-space: pre;
+    background: #eac6c6;
+    padding: 0.5em;
+}
+
+code.inline {
+    display: inline;
+    white-space: normal;
+    word-break: break-all;
+    padding: 0.1em 0.3em;
+}
+
+article {
+    line-height: 1.6;
+}
