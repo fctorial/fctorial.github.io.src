@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <title>My Website</title>
     <link rel="stylesheet" href="/static/css/global_styles.css">
-    <script constexpr src="/static/js/constexpr/index.js" defer></script>
-    <script constexpr src="/static/js/constexpr/nav.js" defer></script>
+    <script constexpr src="/static/js/constexpr/index.js"></script>
 </head>
 <body>
 <noscript constexpr>
@@ -26,9 +25,11 @@
     }
 </style>
 
+<script constexpr src="/static/js/constexpr/nav.js"></script>
 <script constexpr src="/static/js/lib.js"></script>
-<script constexpr defer>
+<script constexpr>
   const postsEl = document.querySelector('#posts')
+  startLoading()
   fetch("/collections/posts.json")
     .then(res => res.json())
     .then(posts => posts.forEach(post => {
@@ -38,6 +39,6 @@
       link.innerText = post.title
       postsEl.appendChild(el)
     }))
-    .then(() => window._ConstexprJS_.compile())
+    .then(finishLoading)
 </script>
 </html>

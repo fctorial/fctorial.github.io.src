@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>Intellij Logos</title>
     <link rel="stylesheet" href="/static/css/global_styles.css">
-    <script constexpr src="/static/js/constexpr/index.js" defer></script>
-    <script constexpr src="/static/js/constexpr/nav.js" defer></script>
 </head>
 <body>
 <noscript constexpr>
@@ -23,6 +21,8 @@
 </body>
 
 <script constexpr src="/static/js/lib.js"></script>
+<script constexpr src="/static/js/constexpr/index.js"></script>
+<script constexpr src="/static/js/constexpr/nav.js"></script>
 <script constexpr>
   function last(l) {
     return l[l.length - 1]
@@ -41,7 +41,9 @@
   }
 
   const list = document.querySelector('#logos')
-  fetch('collections/intellij_logos.json')
+
+  startLoading()
+  fetch('/collections/intellij_logos.json')
     .then(res => res.json())
     .then(ll => {
       ll.map(make_view)
@@ -50,9 +52,7 @@
     .then(() => {
       document.querySelector('#logos li:last-child .divider').remove()
     })
-    .then(() => {
-      window._ConstexprJS_.compile()
-    })
+    .then(finishLoading)
 </script>
 
 <style>

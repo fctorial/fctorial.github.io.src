@@ -1,6 +1,7 @@
 const ne = document.createElement("nav")
 const header = document.querySelector('header');
 
+startLoading()
 fetch("/collections/nav.json")
   .then(res => res.json())
   .then(res => Object.keys(res).forEach(k => {
@@ -13,6 +14,7 @@ fetch("/collections/nav.json")
     ne.appendChild(item)
   }))
   .then(() => header.parentElement.insertBefore(ne, header))
+  .then(() => finishLoading())
 
 window.onfocus = () => {
   window.location.reload()

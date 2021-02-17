@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>Projects</title>
     <link rel="stylesheet" href="/static/css/global_styles.css">
-    <script constexpr src="/static/js/constexpr/index.js" defer></script>
-    <script constexpr src="/static/js/constexpr/nav.js" defer></script>
 </head>
 <body>
 <noscript constexpr>
@@ -16,8 +14,11 @@
 </header>
 
 <script constexpr src="/static/js/lib.js"></script>
+<script constexpr src="/static/js/constexpr/index.js"></script>
+<script constexpr src="/static/js/constexpr/nav.js"></script>
 <script constexpr>
-    fetch("/collections/projects.json")
+  startLoading()
+  fetch("/collections/projects.json")
     .then(res => res.json())
     .then(ps => {
       const el = make_element(`<table><tbody></tbody></table>`)
@@ -40,9 +41,7 @@
       const header = document.querySelector("header")
       header.parentNode.insertBefore(el, header.nextSibling)
     })
-      .then(() => {
-        window._ConstexprJS_.compile()
-      })
+    .then(finishLoading)
 
 </script>
 <style>
