@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>My Website</title>
-    <link rel="stylesheet" href="static/css/global_styles.css">
-    <script constexpr src="/static/js/nav.js" defer></script>
+    <link rel="stylesheet" href="/static/css/global_styles.css">
+    <script constexpr src="/static/js/constexpr/index.js" defer></script>
+    <script constexpr src="/static/js/constexpr/nav.js" defer></script>
 </head>
 <body>
 <noscript constexpr>
@@ -13,18 +14,30 @@
 <header>
     <h3 id="main_title">My Website</h3>
 </header>
-<ul>
-    <li><a href="/intellij_logos.html">All Intellij Idea CE Logos</a></li>
-    <li><a href="/modifying_idea.html">Modifying Intellij Idea without using SDK or compiling it from source</a></li>
-</ul>
-<a href="mailto:fctorial@gmail.com?subject=I want to subscribe&body=I want to subscribe">Drop a mail if you want to subscribe to this blog</a>
+<a href="mailto:fctorial@gmail.com?subject=I want to subscribe&body=I want to subscribe">Drop a mail if you would like to recieve email notification of new posts</a>
+<ul id="posts"></ul>
 </body>
 <style>
+    ul {
+        margin-top: 2em;
+    }
     ul li {
         margin: 1em;
     }
 </style>
+
+<script constexpr src="/static/js/lib.js"></script>
 <script constexpr defer>
-  setTimeout(() => window._ConstexprJS_.compile(), 100)
+  const postsEl = document.querySelector('#posts')
+  fetch("/collections/posts.json")
+    .then(res => res.json())
+    .then(posts => posts.forEach(post => {
+      const el = make_element("<li><a></a></li>")
+      const link = el.querySelector('a')
+      link.setAttribute('href', post.url)
+      link.innerText = post.title
+      postsEl.appendChild(el)
+    }))
+    .then(() => window._ConstexprJS_.compile())
 </script>
 </html>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Projects</title>
-    <link rel="stylesheet" href="static/css/global_styles.css">
-    <script constexpr src="/static/js/lib.js"></script>
-    <script constexpr src="/static/js/nav.js" defer></script>
+    <link rel="stylesheet" href="/static/css/global_styles.css">
+    <script constexpr src="/static/js/constexpr/index.js" defer></script>
+    <script constexpr src="/static/js/constexpr/nav.js" defer></script>
 </head>
 <body>
 <noscript constexpr>
@@ -14,12 +14,13 @@
 <header>
     <h3 id="main_title">Projects</h3>
 </header>
+
+<script constexpr src="/static/js/lib.js"></script>
 <script constexpr>
     fetch("/collections/projects.json")
     .then(res => res.json())
     .then(ps => {
       const el = make_element(`<table><tbody></tbody></table>`)
-      console.log(el)
       ps.forEach(
         p => {
           const newChild = make_element(

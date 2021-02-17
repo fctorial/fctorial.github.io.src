@@ -3,3 +3,8 @@ function make_element (str) {
   p.innerHTML = str
   return p.content.cloneNode(true).children[0]
 }
+
+function trace(data) {
+  console.log(JSON.stringify(data, null, 4))
+  return data
+}

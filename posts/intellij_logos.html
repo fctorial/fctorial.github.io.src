@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Intellij Logos</title>
-    <link rel="stylesheet" href="static/css/global_styles.css">
-    <script constexpr src="/static/js/lib.js"></script>
-    <script constexpr src="/static/js/nav.js" defer></script>
+    <link rel="stylesheet" href="/static/css/global_styles.css">
+    <script constexpr src="/static/js/constexpr/index.js" defer></script>
+    <script constexpr src="/static/js/constexpr/nav.js" defer></script>
 </head>
 <body>
 <noscript constexpr>
@@ -22,6 +22,7 @@
 
 </body>
 
+<script constexpr src="/static/js/lib.js"></script>
 <script constexpr>
   function last(l) {
     return l[l.length - 1]
@@ -52,8 +53,8 @@
     .then(() => {
       window._ConstexprJS_.compile()
     })
-
 </script>
+
 <style>
 
     #logos {
