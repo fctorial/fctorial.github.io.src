@@ -20,3 +20,12 @@ window.onfocus = () => {
   setTimeout(() => window.location.reload(), 100)
 }
 
+document.head.appendChild(
+  make_element(`
+<style constexpr>
+    body {
+        border: 2px solid red;
+    }
+</style>
+  `)
+)
