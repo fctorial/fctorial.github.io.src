@@ -10,9 +10,14 @@ function startLoading() {
   startedLoading = true
   loadersCount += 1
 }
-function finishLoading() {
+
+function _finishLoading() {
   loadersCount -= 1
   if (loadersCount === 0 && startedLoading) {
     window._ConstexprJS_.compile()
   }
+}
+
+function finishLoading() {
+  setTimeout(_finishLoading, 300)
 }

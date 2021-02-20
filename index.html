@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>My Website</title>
-    <link rel="stylesheet" href="/static/css/global_styles.css">
 </head>
 <body>
-<noscript constexpr>
-    Please enable javascript
-</noscript>
-<header>
-    <h3 id="main_title">My Website</h3>
-</header>
-<a href="mailto:fctorial@gmail.com?subject=I want to subscribe&body=I want to subscribe">Drop a mail if you would like to recieve email notification of new posts</a>
-<ul id="posts"></ul>
+<article>
+    <header>
+        <h3 id="main_title">My Website</h3>
+    </header>
+    <a href="mailto:fctorial@gmail.com?subject=I want to subscribe&body=I want to subscribe">Drop a mail if you would like to recieve email notification of new posts</a>
+    <ul id="posts"></ul>
+</article>
 </body>
+<script constexpr src="/static/js/constexpr/lib.js"></script>
+<script constexpr src="/static/js/constexpr/index.js"></script>
+<script constexpr src="/static/js/constexpr/nav.js"></script>
+
 <style>
     ul {
         margin-top: 2em;
@@ -23,10 +24,6 @@
         margin: 1em;
     }
 </style>
-
-<script constexpr src="/static/js/constexpr/lib.js"></script>
-<script constexpr src="/static/js/constexpr/index.js"></script>
-<script constexpr src="/static/js/constexpr/nav.js"></script>
 
 <script constexpr>
   const postsEl = document.querySelector('#posts')

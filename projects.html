@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Projects</title>
-    <link rel="stylesheet" href="/static/css/global_styles.css">
 </head>
 <body>
-<noscript constexpr>
-    Please enable javascript
-</noscript>
-<header>
-    <h3 id="main_title">Projects</h3>
-</header>
+<article>
+    <header>
+        <h3 id="main_title">Projects</h3>
+    </header>
+    <ol id="proj_list">
+    </ol>
+</article>
 
 <script constexpr src="/static/js/constexpr/lib.js"></script>
 <script constexpr src="/static/js/constexpr/index.js"></script>
@@ -21,33 +20,53 @@
   fetch("/collections/projects.json")
     .then(res => res.json())
     .then(ps => {
-      const el = make_element(`<table><tbody></tbody></table>`)
+      const list = document.querySelector('#proj_list')
       ps.forEach(
         p => {
-          const newChild = make_element(
+          const container = make_element(
             `
-          <tr>
-              <td><a href="${p.url}">${p.name}</a></td>
-              <td>${p.description}</td>
-          </tr>
+          <div>
+              <li class="title"><a href="${p.url}">${p.name}</a></li>
+              <li class="desc">${p.description}</li>
+          </div>
           `,
             "table"
           );
-          el.children[0].appendChild(
-            newChild
+          [...container.children].forEach(
+            ch => list.appendChild(ch)
+          )
+          list.appendChild(
+            make_element(
+              `<li class="divider"/>`
+            )
           )
         }
       )
-      const header = document.querySelector("header")
-      header.parentNode.insertBefore(el, header.nextSibling)
+      article.appendChild(list)
     })
     .then(finishLoading)
 
 </script>
 <style>
-    table td {
-        padding: 1em;
-        border: 1px solid black;
+    ol {
+        width: 100%;
+        max-width: 100%;
+        list-style: none;
+        padding: 0;
+    }
+    ol > * {
+        width: 100%;
+        text-align: center;
+        margin: 1em 0;
+    }
+    ol > .title {
+        font-size: 1.5em;
+    }
+    .divider {
+        width: 10em;
+        margin: auto;
+        height: 1px;
+        background: grey;
     }
 </style>
 </body>
