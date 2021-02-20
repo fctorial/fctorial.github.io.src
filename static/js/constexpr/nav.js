@@ -17,6 +17,6 @@ fetch("/collections/nav.json")
   .then(() => finishLoading())
 
 window.onfocus = () => {
-  window.location.reload()
+  setTimeout(() => window.location.reload(), 100)
 }
 

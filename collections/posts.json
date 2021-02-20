@@ -6,5 +6,9 @@
   {
     "title": "Modifying Intellij Idea without using SDK or compiling it from source",
     "url": "/posts/modifying_idea.html"
+  },
+  {
+    "title": "constexpr.js",
+    "url": "/posts/constexpr.js.html"
   }
 ]
