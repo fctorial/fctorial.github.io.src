@@ -49,18 +49,6 @@
         that are requested by pages being rendered. HTML files/resources inside paths given in <progi>--exclusions</progi> are not processed/copied.
     </p>
 
-    <p>
-        You can mark tags other than <progi>script</progi> with <progi>constexpr</progi> as well.
-        In the above example, the box at the top is marked constexpr, so it isn't present in the output page.
-        This can be used to differentiate original website from generated website:
-        <prog>
-&lt;style constexpr>
-    body {
-        border: 2px solid red;
-    }
-&lt;/style>
-        </prog>
-    </p>
 
     <h4>Notes</h4>
 
@@ -77,6 +65,18 @@ function MyPage(props) {
     }, [])
     return &lt;div>Page content&lt;/div>
 }
+            </prog>
+        </li>
+        <li>
+            You can mark tags other than <progi>script</progi> with <progi>constexpr</progi> as well.
+            In the above example, the box at the top is marked constexpr, so it isn't present in the output page.
+            This can be used to differentiate original website from generated website:
+            <prog>
+&lt;style constexpr>
+body {
+    border: 2px solid red;
+}
+&lt;/style>
             </prog>
         </li>
         <li>

@@ -8,6 +8,11 @@ function make_page() {
   )
   document.head.appendChild(
     make_element(
+      `<link rel="icon" href="/favicon.png" sizes="420x420" type="image/png">`
+    )
+  )
+  document.head.appendChild(
+    make_element(
       `<meta name="viewport" content="width=device-width">`
     )
   )
