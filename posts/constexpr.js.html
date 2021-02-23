@@ -26,7 +26,7 @@
     <p>
         You will have to divide the javascript being used in your page into two groups. Runtime javascript and
         compile time javascript, and annotate all compile time script tags with <progi>constexpr</progi> attribute:
-        <prog>
+        <prog class="language-html">
 &lt;script constexpr>
     ...
 &lt;/script>
@@ -41,9 +41,9 @@
     </p>
 
     <p>
-        The compiler can be installed like this: <prog>npm i -g constexpr.js</prog><br/>
+        The compiler can be installed like this: <prog class="language-bash">npm i -g constexpr.js</prog><br/>
 
-        Command line usage: <prog>constexpr.js --input=&lt;input_directory> --output=&lt;output_directory> [--exclusions=path1:path2] [--verbose] [--jobs=n] [--noheadless]</prog><br/>
+        Command line usage: <prog class="language-bash">constexpr.js --input="&lt;input_directory>" --output="&lt;output_directory>" [--exclusions=path1:path2] [--verbose] [--jobs=n] [--noheadless]</prog><br/>
 
         The tool also copies resources (<progi>css</progi>, <progi>images</progi> etcetra)
         that are requested by pages being rendered. HTML files/resources inside paths given in <progi>--exclusions</progi> are not processed/copied.
@@ -58,7 +58,7 @@
             <progi>window._ConstexprJS_.compile()</progi> is called <span style="font-style: italic;">after</span>
             the page has finished rendering. React example:
 
-            <prog>
+            <prog class="language-jsx">
 function MyPage(props) {
     React.useEffect(() => {
         window._ConstexprJS_.compile()
@@ -71,7 +71,7 @@ function MyPage(props) {
             You can mark tags other than <progi>script</progi> with <progi>constexpr</progi> as well.
             In the above example, the box at the top is marked constexpr, so it isn't present in the output page.
             This can be used to differentiate original website from generated website:
-            <prog>
+            <prog class="language-html">
 &lt;style constexpr>
 body {
     border: 2px solid red;
@@ -83,7 +83,7 @@ body {
             In the original webpage, you'll see a console error when the code tries to call the compilation trigger function,
             since that function is injected by the compiler. You can add this snippet near the top to fix that error:
 
-            <prog>
+            <prog class="language-js">
 &lt;script constexpr>
   if (!window._ConstexprJS_) {
     window._ConstexprJS_ = {
@@ -111,7 +111,8 @@ body {
             original website. It reloads the page whenever it's focused. It won't be in the output since it's used as constexpr.
         </li>
         <li>
-            This whole website is rendered using javascript and constexpr.js. The original sources can be found <a href="https://github.com/fctorial/fctorial.github.io.src">here</a>.
+            This whole website is rendered using javascript and constexpr.js (syntax highlighting too). Nothing other than the demo uses runtime javascript.
+            The original sources can be found <a href="https://github.com/fctorial/fctorial.github.io.src">here</a>.
         </li>
     </ol>
 </article>

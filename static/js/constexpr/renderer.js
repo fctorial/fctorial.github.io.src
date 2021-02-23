@@ -56,27 +56,26 @@ function render_base_page() {
 }
 
 function syntax_highlight() {
-  document.head.appendChild(
-    make_element(`<link rel="stylesheet" href="/static/css/shjs.css">`)
-  )
-  document.querySelectorAll('prog')
   startLoading()
-  fetch("/static/js/constexpr/shjs/html.js")
+  document.head.appendChild(
+    make_element(`<link rel="stylesheet" href="/static/css/prism.css">`)
+  )
+  window.Prism = {manual: true}
+  fetch("/static/js/constexpr/prism.js")
     .then(res => res.text())
     .then(code => eval(code))
     .then(() => {
-      fetch("/static/js/constexpr/shjs/main.js")
-        .then(res => res.text())
-        .then(code => eval(code))
-        .then(() => window.func())
-        .then(() => finishLoading())
-
+      Promise.all([...document.querySelectorAll('prog')].map(
+        el => new Promise((resolve) => {
+          Prism.highlightElement(el, null, () => resolve())
+        })
+      )).then(() => finishLoading())
     })
 }
 
 (() => {
   render_base_page()
-  // syntax_highlight()
+  syntax_highlight()
 })()
 
 // window.onfocus = () => {
