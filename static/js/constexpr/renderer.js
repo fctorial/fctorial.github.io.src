@@ -1,6 +1,6 @@
 const article = document.querySelector('article');
 
-function make_page() {
+function render_base_page() {
   document.head.appendChild(
     make_element(
       `<meta charset="UTF-8">`
@@ -54,7 +54,30 @@ function make_page() {
     }))
     .then(() => finishLoading())
 }
-make_page()
+
+function syntax_highlight() {
+  document.head.appendChild(
+    make_element(`<link rel="stylesheet" href="/static/css/shjs.css">`)
+  )
+  document.querySelectorAll('prog')
+  startLoading()
+  fetch("/static/js/constexpr/shjs/html.js")
+    .then(res => res.text())
+    .then(code => eval(code))
+    .then(() => {
+      fetch("/static/js/constexpr/shjs/main.js")
+        .then(res => res.text())
+        .then(code => eval(code))
+        .then(() => window.func())
+        .then(() => finishLoading())
+
+    })
+}
+
+(() => {
+  render_base_page()
+  // syntax_highlight()
+})()
 
 // window.onfocus = () => {
 //   setTimeout(() => window.location.reload(), 100)
