@@ -78,6 +78,6 @@ function syntax_highlight() {
   syntax_highlight()
 })()
 
-// window.onfocus = () => {
-//   setTimeout(() => window.location.reload(), 100)
-// }
+window.onfocus = () => {
+  setTimeout(() => window.location.reload(), 100)
+}

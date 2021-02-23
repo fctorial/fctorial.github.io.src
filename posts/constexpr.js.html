@@ -43,12 +43,12 @@
     <p>
         The compiler can be installed like this: <prog class="language-bash">npm i -g constexpr.js</prog><br/>
 
-        Command line usage: <prog class="language-bash">constexpr.js --input="&lt;input_directory>" --output="&lt;output_directory>" [--exclusions=path1:path2] [--verbose] [--jobs=n] [--noheadless]</prog><br/>
+        Command line usage:
+        <prog class="language-bash">constexpr.js --input="&lt;input_directory>" --output="&lt;output_directory>" [--exclusions=path1:path2] [--verbose] [--jobs=n] [--noheadless] [--jobtimeout]</prog><br/>
 
         The tool also copies resources (<progi>css</progi>, <progi>images</progi> etcetra)
         that are requested by pages being rendered. HTML files/resources inside paths given in <progi>--exclusions</progi> are not processed/copied.
     </p>
-
 
     <h4>Notes</h4>
 
@@ -80,6 +80,9 @@ body {
             </prog>
         </li>
         <li>
+            Client code in the page can signal the compiler to skip the current file by calling <progi>window._ConstexprJS_.abort(message)</progi>.
+        </li>
+        <li>
             In the original webpage, you'll see a console error when the code tries to call the compilation trigger function,
             since that function is injected by the compiler. You can add this snippet near the top to fix that error:
 
@@ -87,7 +90,8 @@ body {
 &lt;script constexpr>
   if (!window._ConstexprJS_) {
     window._ConstexprJS_ = {
-      compile: () => {}
+      compile: () => {},
+      abort: () => {}
     }
   }
 &lt;/script>

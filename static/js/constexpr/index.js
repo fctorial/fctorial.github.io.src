@@ -1,6 +1,7 @@
 if (!window._ConstexprJS_) {
   window._ConstexprJS_ = {
-    compile: () => {}
+    compile: () => {},
+    abort: () => {}
   }
 }
 
@@ -20,4 +21,8 @@ function _finishLoading() {
 
 function finishLoading() {
   setTimeout(_finishLoading, 300)
+}
+
+function abortCompilation(message) {
+  window._ConstexprJS_.abort(message)
 }
