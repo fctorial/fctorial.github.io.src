@@ -61,7 +61,7 @@ function syntax_highlight() {
     make_element(`<link rel="stylesheet" href="/static/css/prism.css">`)
   )
   window.Prism = {manual: true}
-  fetch("/static/js/constexpr/prism.js")
+  fetch("/static/js/constexpr/third_party/prism.js")
     .then(res => res.text())
     .then(code => eval(code))
     .then(() => {

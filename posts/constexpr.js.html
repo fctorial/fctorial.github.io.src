@@ -56,16 +56,13 @@
         <li>
             You can use any web development technology to generate the html (react, angular, jquery, prism.js etc). Just make sure that
             <progi>window._ConstexprJS_.compile()</progi> is called <span style="font-style: italic;">after</span>
-            the page has finished rendering. React example:
-
-            <prog class="language-jsx">
-function MyPage(props) {
-    React.useEffect(() => {
-        window._ConstexprJS_.compile()
-    }, [])
-    return &lt;div>Page content&lt;/div>
-}
-            </prog>
+            the page has finished rendering.
+            <br/>
+            <br/>
+            Pivottable.js example:
+            <br/>
+            <br />
+            <div id="pt_output"></div>
         </li>
         <li>
             You can mark tags other than <progi>script</progi> with <progi>constexpr</progi> as well.
@@ -105,7 +102,7 @@ body {
             when they've finished loading. The compilation will be triggered when all the tasks have finished.
         </li>
         <li>
-            You should keep all the list data separate from the html in <a href="https://github.com/fctorial/fctorial.github.io.src/tree/master/collections">json files</a>.
+            You should keep all list data separate from the html in <a href="https://github.com/fctorial/fctorial.github.io.src/tree/master/collections">json files</a>.
             <progi>constexpr</progi> code in the html will fetch these json files and render the page using them.
             The directory containing this data should be excluded using <progi>--exclusions</progi> flag, so that the
             resources inside it aren't copied over.
@@ -125,6 +122,28 @@ body {
 <script constexpr src="/static/js/constexpr/index.js"></script>
 <script constexpr src="/static/js/constexpr/renderer.js"></script>
 
+<link rel="stylesheet" type="text/css" href="/static/css/pivot.css">
+<script constexpr type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script constexpr type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.min.js"></script>
+<script constexpr type="text/javascript" src="/static/js/constexpr/third_party/pivot.js"></script>
+<script constexpr>
+    startLoading()
+    $(function(){
+      Papa.parse("https://raw.githubusercontent.com/nicolaskruchten/Rdatasets/master/csv/reshape2/tips.csv", {
+        download: true,
+        skipEmptyLines: true,
+        complete: function(parsed){
+          $("#pt_output").pivot(parsed.data, {
+            rows: ["sex", "smoker"],
+            cols: ["day"],
+            renderer: $.pivotUtilities.renderers["Heatmap"],
+            aggregator: $.pivotUtilities.aggregators.Sum(["tip"])
+          });
+          finishLoading()
+        }
+      });
+    });
+</script>
 <style>
     ol li {
         margin: 2em 0;
