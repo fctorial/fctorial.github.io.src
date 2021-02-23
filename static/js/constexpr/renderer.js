@@ -65,7 +65,7 @@ function syntax_highlight() {
     .then(res => res.text())
     .then(code => eval(code))
     .then(() => {
-      Promise.all([...document.querySelectorAll('prog')].map(
+      Promise.all([...document.querySelectorAll('prog[class]')].map(
         el => new Promise((resolve) => {
           Prism.highlightElement(el, null, () => resolve())
         })
