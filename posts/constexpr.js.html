@@ -44,8 +44,10 @@
         The compiler can be installed like this: <prog class="language-bash">npm i -g constexpr.js</prog><br/>
 
         Command line usage:
-        <prog class="language-bash">constexpr.js --input="&lt;input_directory>" --output="&lt;output_directory>" [--exclusions=path1:path2] [--verbose] [--jobs=n] [--noheadless] [--jobtimeout]</prog><br/>
+        <prog class="language-bash">constexpr.js --input="&lt;input_directory>" --output="&lt;output_directory>" [--exclusions=path1:path2] [--verbose] [--jobs=n] [--noheadless] [--jobtimeout] [--depfile=&amp;depfile>]</prog><br/>
 
+        A json object with the command line args, compilation results and dependencies will be written to the path specified by <progi>--depfile</progi> option.
+        <br/>
         The tool also copies resources (<progi>css</progi>, <progi>images</progi> etcetra)
         that are requested by pages being rendered. HTML files/resources inside paths given in <progi>--exclusions</progi> are not processed/copied.
     </p>
