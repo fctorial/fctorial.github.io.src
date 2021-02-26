@@ -2,7 +2,7 @@
   {
     "name": "constexpr.js",
     "description": "A static site generator without a DSL",
-    "url": "https://fctorial.github.io/posts/constexpr.js.html"
+    "url": "/posts/constexpr.js.html"
   },
   {
     "name": "tst",
