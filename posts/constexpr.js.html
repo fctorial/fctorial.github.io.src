@@ -17,6 +17,11 @@
         For example, the tool converts <a href="/demos/constexpr.js/input.html">this</a> page into <a
             href="/demos/constexpr.js/output.html">this</a> page.
         <br/>
+        <br/>
+        It also strips the constexpr javascript out, thereby drastically reducing download size for the website users. Any piece of javascript
+        code that just generates some html can be made constexpr.
+        <br/>
+        <br/>
         The generated page doesn't have to be completely static. In the above example, the heading is being animated
         with javascript.
     </p>
@@ -49,7 +54,7 @@
         This is what an invocation looks like:
 
         <div id="asciinema_cont">
-            <asciinema-player rows="110" src="/static/files/build.cast"></asciinema-player>
+            <asciinema-player speed="10" rows="110" src="/static/files/build.cast"></asciinema-player>
         </div>
 
         The tool also copies resources (<progi>css</progi>, <progi>images</progi> etcetra)
@@ -92,8 +97,8 @@ body {
             Client code in the page can signal the compiler to skip the current file by calling <progi>window._ConstexprJS_.abort(message)</progi>.
         </li>
         <li>
-            In the original webpage, you'll see a console error when the code tries to call the compilation trigger function,
-            since that function is injected by the compiler. You can add this snippet near the top to fix that error:
+            In the original webpage, you'll see a console error when the code tries to call the compilation trigger functions,
+            since those functions are injected by the compiler. You can add this snippet near the top to fix that error:
 
             <prog class="language-js">
 &lt;script constexpr>
@@ -167,7 +172,7 @@ Total                   1            2            1            0            1
     });
 </script>
 <link rel="stylesheet" type="text/css" href="/static/css/asciinema-player.css" />
-<script src="/static/js/constexpr/third_party/asciinema-player.js"></script>
+<script constexpr src="/static/js/constexpr/third_party/asciinema-player.js"></script>
 <script constexpr>
     startLoading()
     setTimeout(() => {
