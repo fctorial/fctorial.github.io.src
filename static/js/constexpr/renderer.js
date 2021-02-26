@@ -13,7 +13,7 @@ function render_base_page() {
   )
   document.head.appendChild(
     make_element(
-      `<meta name="viewport" content="width=device-width, min-width=1024">`
+      `<meta name="viewport" content="width=device-width, min-width=800">`
     )
   )
   document.head.appendChild(
