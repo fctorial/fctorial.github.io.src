@@ -180,6 +180,12 @@ Total                   1            2            1            0            1
       player.querySelector('.play-button').click()
       function checker() {
         if (player.innerHTML.indexOf('ALL_DONE') !== -1) {
+          const lines = player.querySelectorAll('.line')
+          for (let i=0; i<lines.length; i++) {
+            const line = lines[i]
+            const last = line.children[line.children.length-1]
+            last.innerText = last.innerText.trim() + ' '
+          }
           player.innerHTML = player.innerHTML.replace('ALL_DONE', '')
           finishLoading()
         } else {
