@@ -79,5 +79,5 @@ function syntax_highlight() {
 })()
 
 window.onfocus = () => {
-  setTimeout(() => window.location.reload(), 100)
+  // setTimeout(() => window.location.reload(), 100)
 }

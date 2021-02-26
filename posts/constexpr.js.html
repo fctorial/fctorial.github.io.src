@@ -44,12 +44,19 @@
         The compiler can be installed like this: <prog class="language-bash">npm i -g constexpr.js</prog><br/>
 
         Command line usage:
-        <prog class="language-bash">constexpr.js --input="&lt;input_directory>" --output="&lt;output_directory>" [--exclusions=path1:path2] [--verbose] [--jobs=n] [--noheadless] [--jobtimeout] [--depfile=&amp;depfile>]</prog><br/>
+        <prog class="language-bash">constexpr.js --input="&lt;input_directory>" --output="&lt;output_directory>" [--exclusions=path1:path2] [--verbose] [--jobs=n] [--noheadless] [--jobtimeout] [--depfile=&lt;depfile>]</prog><br/>
 
-        A json object with the command line args, compilation results and dependencies will be written to the path specified by <progi>--depfile</progi> option.
-        <br/>
+        This is what an invocation looks like:
+
+        <div id="asciinema_cont">
+            <asciinema-player rows="110" src="/static/files/build.cast"></asciinema-player>
+        </div>
+
         The tool also copies resources (<progi>css</progi>, <progi>images</progi> etcetra)
         that are requested by pages being rendered. HTML files/resources inside paths given in <progi>--exclusions</progi> are not processed/copied.
+        <br/>
+
+        A json object with the command line args, compilation results and dependencies will be written to the path specified by <progi>--depfile</progi> option.
     </p>
 
     <h4>Notes</h4>
@@ -137,13 +144,13 @@ Total                   1            2            1            0            1
 <script constexpr src="/static/js/constexpr/renderer.js"></script>
 
 <link rel="stylesheet" type="text/css" href="/static/css/pivot.css">
-<script constexpr type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script constexpr type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.min.js"></script>
-<script constexpr type="text/javascript" src="/static/js/constexpr/third_party/pivot.js"></script>
+<script constexpr src="/static/js/constexpr/third_party/jquery.js"></script>
+<script constexpr src="/static/js/constexpr/third_party/pivot.js"></script>
+<script constexpr src="/static/js/constexpr/third_party/papaparse.js"></script>
 <script constexpr>
     startLoading()
     $(function(){
-      Papa.parse("https://raw.githubusercontent.com/nicolaskruchten/Rdatasets/master/csv/reshape2/tips.csv", {
+      Papa.parse("/static/files/tips.csv", {
         download: true,
         skipEmptyLines: true,
         complete: function(parsed){
@@ -158,9 +165,35 @@ Total                   1            2            1            0            1
       });
     });
 </script>
+<link rel="stylesheet" type="text/css" href="/static/css/asciinema-player.css" />
+<script src="/static/js/constexpr/third_party/asciinema-player.js"></script>
+<script constexpr>
+    startLoading()
+    setTimeout(() => {
+      const player = document.querySelector('asciinema-player')
+      player.querySelector('.play-button').click()
+      function checker() {
+        if (player.innerHTML.indexOf('ALL_DONE') !== -1) {
+          player.innerHTML = player.innerHTML.replace('ALL_DONE', '')
+          finishLoading()
+        } else {
+          setTimeout(checker, 200)
+        }
+      }
+      checker()
+    }, 0)
+</script>
 <style>
     ol li {
         margin: 2em 0;
+    }
+    #asciinema_cont {
+        width: 100%;
+        height: 400px;
+        overflow-y: auto;
+    }
+    asciinema-player .control-bar {
+        display: none;
     }
 </style>
 </html>
