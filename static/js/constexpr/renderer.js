@@ -13,7 +13,7 @@ function render_base_page() {
   )
   document.head.appendChild(
     make_element(
-      `<meta name="viewport" content="width=device-width">`
+      `<meta name="viewport" content="width=device-width, min-width=1024">`
     )
   )
   document.head.appendChild(
@@ -57,7 +57,7 @@ function render_base_page() {
 
 function setup_bg() {
   insertFirst(document.body, make_element('<div style="background: #00000044;z-index: -1; position: fixed; top: 0; left: 0; bottom: 0; right: 0;"></div>'))
-  insertFirst(document.body, make_element('<img src="/static/img/bg.jpg" style="z-index: -2; position: fixed; top: 0; left: 0; bottom: 0; right: 0;" />'))
+  insertFirst(document.body, make_element('<img src="/static/img/bg.jpg" style="z-index: -2; position: fixed; top: 0; left: 0; width: 100%; height: 100%;" />'))
 }
 
 function syntax_highlight() {
