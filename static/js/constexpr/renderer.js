@@ -55,6 +55,11 @@ function render_base_page() {
     .then(() => finishLoading())
 }
 
+function setup_bg() {
+  insertFirst(document.body, make_element('<div style="background: #00000044;z-index: -2; position: fixed; top: 0; left: 0; bottom: 0; right: 0;"></div>'))
+  insertFirst(document.body, make_element('<img src="/static/img/bg.jpg" style="z-index: -2; position: fixed; top: 0; left: 0; bottom: 0; right: 0;" />'))
+}
+
 function syntax_highlight() {
   startLoading()
   document.head.appendChild(
@@ -75,6 +80,7 @@ function syntax_highlight() {
 
 (() => {
   render_base_page()
+  setup_bg()
   syntax_highlight()
 })()
 
