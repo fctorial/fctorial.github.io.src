@@ -7,6 +7,12 @@ function make_element (str) {
 function insertFirst(par, ch) {
   par.insertBefore(ch, par.children[0])
 }
+function insertBefore(sib, el) {
+  sib.parentNode.insertBefore(el, sib.parentNode.firstChild)
+}
+function insertAfter(sib, el) {
+  sib.parentNode.insertBefore(el, sib.nextSibling)
+}
 
 function trace(data) {
   console.log(JSON.stringify(data, null, 4))

@@ -1,6 +1,8 @@
 const article = document.querySelector('article');
+const header = document.querySelector('header');
 
 function render_base_page() {
+  startLoading()
   document.head.appendChild(
     make_element(
       `<meta charset="UTF-8">`
@@ -30,12 +32,9 @@ function render_base_page() {
 </style>
   `)
   )
-  document.body.insertBefore(
-    make_element(`<noscript constexpr>Please enable javascript</noscript>`),
-    document.body.firstChild
-  )
+  insertFirst(document.body, make_element(`<noscript constexpr>Please enable javascript</noscript>`))
+  insertAfter(header, make_element(`<div style="width: 100%; height: 5px; margin: 1em 0 2em; border: solid black; border-width: 1px 0;"></div>`))
   const ne = document.createElement("nav")
-  startLoading()
   fetch("/collections/nav.json")
     .then(res => res.json())
     .then(nav_items => Object.keys(nav_items).forEach(name => {
