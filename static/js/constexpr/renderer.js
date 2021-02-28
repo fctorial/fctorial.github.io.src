@@ -55,7 +55,6 @@ function render_base_page() {
 }
 
 function setup_bg() {
-  insertFirst(document.body, make_element('<div style="background: #000000cc;z-index: -1; position: fixed; top: 0; left: 0; bottom: 0; right: 0; "></div>'))
   insertFirst(document.body, make_element('<img class="bg" id="main_bg" src="/static/img/bg.jpg" />'))
 }
 
