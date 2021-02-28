@@ -27,6 +27,8 @@
 
   function make_view(url) {
     const name = last(url.split('/')).replace('.png', '')
+    const orig_bg = document.querySelector('#bg')
+
     const str = `
 <li>
     <img src="${url}" title="${name}" />
@@ -34,7 +36,26 @@
     <div class="divider"></div>
 </li>
 `
-    return make_element(str);
+
+    const result = make_element(str);
+    const m_bg = orig_bg.cloneNode(true)
+    m_bg.setAttribute('id', null)
+    m_bg.src = url;
+    m_bg.style.opacity = '0';
+    insertBefore(orig_bg, m_bg)
+    result.querySelector('img').addEventListener('mouseover', () => {
+      console.log('fuck')
+      console.log(url)
+      orig_bg.style.opacity = '0'
+      m_bg.style.opacity = '1'
+    })
+    result.querySelector('img').addEventListener('mouseout', () => {
+      console.log('this')
+      console.log(url)
+      orig_bg.style.opacity = '1'
+      m_bg.style.opacity = '0'
+    })
+    return result
   }
 
   const list = document.querySelector('#logos')
@@ -49,6 +70,7 @@
     .then(() => {
       document.querySelector('#logos li:last-child .divider').remove()
     })
+    .then(() => {})
     .then(finishLoading)
 </script>
 

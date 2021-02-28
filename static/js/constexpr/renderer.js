@@ -55,8 +55,8 @@ function render_base_page() {
 }
 
 function setup_bg() {
-  insertFirst(document.body, make_element('<div style="background: #00000044;z-index: -1; position: fixed; top: 0; left: 0; bottom: 0; right: 0;"></div>'))
-  insertFirst(document.body, make_element('<img src="/static/img/bg.jpg" style="z-index: -2; position: fixed; top: 0; left: 0; width: 100%; height: 100%;" />'))
+  insertFirst(document.body, make_element('<div style="background: #00000044;z-index: -1; position: fixed; top: 0; left: 0; bottom: 0; right: 0; "></div>'))
+  insertFirst(document.body, make_element('<img id="bg" src="/static/img/bg.jpg" style="z-index: -2; position: fixed; top: 0; left: 0; width: 100%; height: 100%; filter: blur(10px); transition: opacity 500ms;" />'))
 }
 
 function syntax_highlight() {
