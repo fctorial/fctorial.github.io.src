@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Runtime/Compile time code separation with constexpr.js</title>
+</head>
+<body>
+<article>
+    <header>
+        <h3 id="main_title">Runtime/Compile time code separation with constexpr.js</h3>
+    </header>
+    <p>
+        <a href="/posts/constexpr.js.html">constexpr.js</a> is a static site generator. However, the sites generated with constexpr.js don't have to be
+        completely javascript free. Try hovering over the images in <a href="/posts/intellij_logos.html">this</a> page.
+        The html in this page is generated statically with constexpr.js but the background is being manipulated at runtime with javascript.
+    </p>
+    <p>
+        The constexpr code used for generating html is stripped out during site generation, so the runtime code must not
+        depend on it. So there has to be a clear boundary between the runtime code and compile time code. In this article
+        I'll share some tips for managing code when building a site with constexpr.js.
+    </p>
+    <p>
+        The first thing you should do when building a site is to write the html generation code. In the above example, it's
+        the code that generates the images list, the background and the navbar.
+        <br/>
+        The code for generating images list is kept in the html file itself since it does page specific stuff and the rest is
+        kept in a file named <a href="https://github.com/fctorial/fctorial.github.io.src/blob/master/static/js/constexpr/renderer.js">renderer.js</a>,
+        which contains site global theming, and it's included by every page on the site. If I want something to appear on every page
+        on this site (A footer, syntax highlighting etc), this is where I'll add it.
+    </p>
+    <p>
+        Constexpr javascript in the <a href="https://github.com/fctorial/fctorial.github.io.src/blob/master/posts/intellij_logos.html">html</a>
+        also generates a <progi>fixed</progi> background image for each logo in the page, with initial opacity set to <progi>0</progi>.
+        There's a non-constexpr function called <progi>initHover</progi> that sets up event handlers for the logo images, which just
+        toggle the <progi>opacity</progi> value for the background images. This function is supposed to trigger the runtime javascript.
+    </p>
+    <p>
+        Once the html generation code has done it's job, it appends a script tag that calls the initialization function
+        right before it signals to the compiler that it has finished:
+        <prog class="language-javascript">
+...
+.then(() => {
+    const init = document.createElement('script')
+    init.innerText = 'initHover()'
+    document.querySelector('html').appendChild(init)
+})
+.then(finishLoading)
+        </prog>
+        Always add new script tags at the end of the document (or at least after the last script tag). This ensures that the
+        resulting page state is what you would've gotten if you'd loaded a document containing the final HTML. Do not
+        use <progi>defer</progi> attribute on script tags. Keep the javascript execution as predictable as possible.
+    </p>
+    <p>
+        The <a href="https://github.com/fctorial/fctorial.github.io/blob/master/posts/intellij_logos.html">output HTML</a> will
+        contain the generated list of images, a script tag defining the initialization function, and a script tag calling the
+        initialization function. All the <em>compilation/generation</em> code will be stripped out.
+    </p>
+</article>
+</body>
+<script constexpr src="/static/js/constexpr/lib.js"></script>
+<script constexpr src="/static/js/constexpr/index.js"></script>
+<script constexpr src="/static/js/constexpr/renderer.js"></script>
+</html>
