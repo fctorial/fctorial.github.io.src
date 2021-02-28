@@ -16,9 +16,28 @@
 </article>
 
 </body>
-<script constexpr src="/static/js/constexpr/lib.js"></script>
+<script src="/static/js/constexpr/lib.js"></script>
 <script constexpr src="/static/js/constexpr/index.js"></script>
 <script constexpr src="/static/js/constexpr/renderer.js"></script>
+
+<script>
+  const orig_bg = document.querySelector('#bg')
+  function initHover() {
+      const logos = document.querySelectorAll('#logos img')
+      for (let i=0; i<logos.length; i++) {
+        let selectors = `img#logo_bg_${logos[i].title.replaceAll('.', '_')}`;
+        const m_bg = document.querySelector(selectors)
+        logos[i].addEventListener('mouseover', () => {
+          orig_bg.style.opacity = '0'
+          m_bg.style.opacity = '1'
+        })
+        logos[i].addEventListener('mouseout', () => {
+          orig_bg.style.opacity = '1'
+          m_bg.style.opacity = '0'
+        })
+      }
+    }
+</script>
 
 <script constexpr>
   function last(l) {
@@ -27,7 +46,6 @@
 
   function make_view(url) {
     const name = last(url.split('/')).replace('.png', '')
-    const orig_bg = document.querySelector('#bg')
 
     const str = `
 <li>
@@ -36,25 +54,14 @@
     <div class="divider"></div>
 </li>
 `
+    const result = make_element(str)
 
-    const result = make_element(str);
     const m_bg = orig_bg.cloneNode(true)
-    m_bg.setAttribute('id', null)
+    m_bg.id = `logo_bg_${name.replaceAll('.', '_')}`
     m_bg.src = url;
     m_bg.style.opacity = '0';
     insertBefore(orig_bg, m_bg)
-    result.querySelector('img').addEventListener('mouseover', () => {
-      console.log('fuck')
-      console.log(url)
-      orig_bg.style.opacity = '0'
-      m_bg.style.opacity = '1'
-    })
-    result.querySelector('img').addEventListener('mouseout', () => {
-      console.log('this')
-      console.log(url)
-      orig_bg.style.opacity = '1'
-      m_bg.style.opacity = '0'
-    })
+
     return result
   }
 
@@ -70,12 +77,15 @@
     .then(() => {
       document.querySelector('#logos li:last-child .divider').remove()
     })
-    .then(() => {})
+    .then(() => {
+      const init = document.createElement('script')
+      init.innerText = 'initHover()'
+      document.querySelector('html').appendChild(init)
+    })
     .then(finishLoading)
 </script>
 
 <style>
-
     #logos {
         width: 100%;
         padding: 0 1em;
