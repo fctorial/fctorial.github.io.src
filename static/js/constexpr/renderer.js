@@ -10,7 +10,7 @@ function render_base_page() {
   )
   document.head.appendChild(
     make_element(
-      `<link rel="icon" href="/favicon.png" sizes="420x420" type="image/png">`
+      `<link rel="icon" href="/favicon.ico" sizes="26x26" type="image/x-icon">`
     )
   )
   document.head.appendChild(
