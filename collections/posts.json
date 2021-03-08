@@ -14,5 +14,9 @@
   {
     "title": "Runtime/Compile time code separation with constexpr.js",
     "url": "/posts/runtime_compiletime_constexpr.js.html"
+  },
+  {
+    "title": "Zircon Standalone",
+    "url": "/posts/zircon_standalone.html"
   }
 ]

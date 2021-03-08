@@ -5,6 +5,11 @@
     "url": "/posts/constexpr.js.html"
   },
   {
+    "name": "Zircon Standalone",
+    "description": "Run code on zircon kernel",
+    "url": "/posts/zircon_standalone.html"
+  },
+  {
     "name": "tst",
     "description": "Minimalist functional repl oriented testing framework for clojure(script)",
     "url": "https://github.com/fctorial/tst"
