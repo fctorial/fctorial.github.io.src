@@ -10,7 +10,7 @@ function render_base_page() {
   )
   document.head.appendChild(
     make_element(
-      `<link rel="icon" href="/favicon.ico" sizes="26x26" type="image/x-icon">`
+      `<link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon">`
     )
   )
   document.head.appendChild(
@@ -70,7 +70,7 @@ function syntax_highlight() {
     .then(() => {
       Promise.all([...document.querySelectorAll('prog[class]')].map(
         el => new Promise((resolve) => {
-          el.innerText = el.innerText.trim()
+          el.textContent = el.textContent.trim()
           Prism.highlightElement(el, null, () => resolve())
         })
       )).then(() => finishLoading())
