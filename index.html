@@ -16,6 +16,25 @@
 <script constexpr src="/static/js/constexpr/index.js"></script>
 <script constexpr src="/static/js/constexpr/renderer.js"></script>
 
+<script constexpr>
+  async function page_specific_stuff() {
+    const postsEl = document.querySelector('#posts')
+    const posts = await (await fetch("/collections/posts.json")).json()
+    posts.forEach(post => {
+      const el = make_element("<li><a></a></li>")
+      const link = el.querySelector('a')
+      link.setAttribute('href', post.url)
+      link.innerText = post.title
+      postsEl.appendChild(el)
+    })
+  }
+</script>
+
+<script constexpr>
+  Promise.all([render_page(), page_specific_stuff()])
+    .then(window._ConstexprJS_.compile())
+</script>
+
 <style>
     ul {
         margin-top: 2em;
@@ -24,19 +43,4 @@
         margin: 1em;
     }
 </style>
-
-<script constexpr>
-  const postsEl = document.querySelector('#posts')
-  startLoading()
-  fetch("/collections/posts.json")
-    .then(res => res.json())
-    .then(posts => posts.forEach(post => {
-      const el = make_element("<li><a></a></li>")
-      const link = el.querySelector('a')
-      link.setAttribute('href', post.url)
-      link.innerText = post.title
-      postsEl.appendChild(el)
-    }))
-    .then(finishLoading)
-</script>
 </html>

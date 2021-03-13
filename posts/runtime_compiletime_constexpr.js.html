@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Runtime/Compile time code separation with constexpr.js</title>
-</head>
 <body>
 <article>
-    <header>
-        <h3 id="main_title">Runtime/Compile time code separation with constexpr.js</h3>
-    </header>
     <p>
         <a href="/posts/constexpr.js.html">constexpr.js</a> is a static site generator. However, the sites generated with constexpr.js don't have to be
         completely javascript free. Try hovering over the images in <a href="/posts/intellij_logos.html">this</a> page.
@@ -59,4 +53,15 @@
 <script constexpr src="/static/js/constexpr/lib.js"></script>
 <script constexpr src="/static/js/constexpr/index.js"></script>
 <script constexpr src="/static/js/constexpr/renderer.js"></script>
+
+<script constexpr>
+  async function page_specific_stuff() {
+  }
+</script>
+
+<script constexpr>
+  Promise.all([render_page(), page_specific_stuff()])
+    .then(window._ConstexprJS_.compile())
+</script>
+
 </html>

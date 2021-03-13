@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Intellij Logos</title>
-</head>
 <body>
 <article>
-    <header>
-        <h3 id="main_title">
-            All Intellij Idea CE Logos
-        </h3>
-    </header>
-
     <ul id="logos">
     </ul>
 </article>
@@ -21,69 +12,71 @@
 <script constexpr src="/static/js/constexpr/renderer.js"></script>
 
 <script>
-  const orig_bg = document.querySelector('#main_bg')
   function initHover() {
-      const logos = document.querySelectorAll('#logos img')
-      for (let i=0; i<logos.length; i++) {
-        let selectors = `img#logo_bg_${logos[i].title.replaceAll('.', '_')}`;
-        const m_bg = document.querySelector(selectors)
-        logos[i].addEventListener('mouseover', () => {
-          orig_bg.style.opacity = '0'
-          m_bg.style.opacity = '1'
-        })
-        logos[i].addEventListener('mouseout', () => {
-          orig_bg.style.opacity = '1'
-          m_bg.style.opacity = '0'
-        })
-      }
+    const logos = document.querySelectorAll('#logos img')
+    for (let i = 0; i < logos.length; i++) {
+      let selectors = `img#logo_bg_${logos[i].title.replaceAll('.', '_')}`;
+      const m_bg = document.querySelector(selectors)
+      logos[i].addEventListener('mouseover', () => {
+        document.querySelector('#main_bg').style.opacity = '0'
+        m_bg.style.opacity = '1'
+      })
+      logos[i].addEventListener('mouseout', () => {
+        document.querySelector('#main_bg').style.opacity = '1'
+        m_bg.style.opacity = '0'
+      })
     }
+  }
 </script>
 
 <script constexpr>
-  function last(l) {
-    return l[l.length - 1]
-  }
+  async function page_specific_stuff() {
+    await render_page()
 
-  function make_view(url) {
-    const name = last(url.split('/')).replace('.png', '')
+    function last(l) {
+      return l[l.length - 1]
+    }
 
-    const str = `
+    function make_view(url) {
+      const name = last(url.split('/')).replace('.png', '')
+
+      const str = `
 <li>
     <img src="${url}" title="${name}" />
     <div class="name">${name}</div>
     <div class="divider"></div>
 </li>
 `
-    const result = make_element(str)
+      const result = make_element(str)
 
-    const m_bg = orig_bg.cloneNode(true)
-    m_bg.id = `logo_bg_${name.replaceAll('.', '_')}`
-    m_bg.src = url;
-    m_bg.style.opacity = '0';
-    insertBefore(orig_bg, m_bg)
+      const m_bg = document.querySelector('#main_bg').cloneNode(true)
+      m_bg.id = `logo_bg_${name.replaceAll('.', '_')}`
+      m_bg.src = url;
+      m_bg.style.opacity = '0';
+      insertBefore(document.querySelector('#main_bg'), m_bg)
 
-    return result
+      return result
+    }
+
+    const list = document.querySelector('#logos')
+    const res = await fetch('/collections/intellij_logos.json')
+    const logos = await res.json()
+    logos
+      .map(make_view)
+      .forEach(v => list.appendChild(v))
+    console.log('ok')
+    document.querySelector('#logos li:last-child .divider').remove()
+    const init = document.createElement('script')
+    init.innerText = 'initHover()'
+    document.querySelector('body').appendChild(init)
   }
-
-  const list = document.querySelector('#logos')
-
-  startLoading()
-  fetch('/collections/intellij_logos.json')
-    .then(res => res.json())
-    .then(ll => {
-      ll.map(make_view)
-        .forEach(v => list.appendChild(v))
-    })
-    .then(() => {
-      document.querySelector('#logos li:last-child .divider').remove()
-    })
-    .then(() => {
-      const init = document.createElement('script')
-      init.innerText = 'initHover()'
-      document.querySelector('html').appendChild(init)
-    })
-    .then(finishLoading)
 </script>
+
+<script constexpr>
+  Promise.all([page_specific_stuff()])
+    .then(window._ConstexprJS_.compile())
+</script>
+
 
 <style>
     #logos {

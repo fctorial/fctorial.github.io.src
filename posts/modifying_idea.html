@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Modifying Intellij Idea</title>
-</head>
 <body>
 <article>
-    <header>
-        <h3 id="main_title">Modifying Intellij Idea without using SDK or compiling it from source</h3>
-    </header>
     <p>
         You can modify the behavior of Intellij IDEA using a mechanism similar to videogame patching. This guide shows how
         to change the startup splash screen.
@@ -38,6 +32,16 @@
 <script constexpr src="/static/js/constexpr/lib.js"></script>
 <script constexpr src="/static/js/constexpr/index.js"></script>
 <script constexpr src="/static/js/constexpr/renderer.js"></script>
+
+<script constexpr>
+  async function page_specific_stuff() {
+  }
+</script>
+
+<script constexpr>
+  Promise.all([render_page(), page_specific_stuff()])
+    .then(window._ConstexprJS_.compile())
+</script>
 
 <style>
     ol li {

@@ -15,38 +15,41 @@
 <script constexpr src="/static/js/constexpr/lib.js"></script>
 <script constexpr src="/static/js/constexpr/index.js"></script>
 <script constexpr src="/static/js/constexpr/renderer.js"></script>
+
 <script constexpr>
-  startLoading()
-  fetch("/collections/projects.json")
-    .then(res => res.json())
-    .then(ps => {
-      const list = document.querySelector('#proj_list')
-      ps.forEach(
-        p => {
-          const container = make_element(
-            `
+  async function page_specific_stuff() {
+    const projects = await (await fetch("/collections/projects.json")).json()
+    const list = document.querySelector('#proj_list')
+    projects.forEach(
+      p => {
+        const container = make_element(
+          `
           <div>
               <li class="title"><a href="${p.url}">${p.name}</a></li>
               <li class="desc">${p.description}</li>
           </div>
           `,
-            "table"
-          );
-          [...container.children].forEach(
-            ch => list.appendChild(ch)
+          "table"
+        );
+        [...container.children].forEach(
+          ch => list.appendChild(ch)
+        )
+        list.appendChild(
+          make_element(
+            `<li class="divider"/>`
           )
-          list.appendChild(
-            make_element(
-              `<li class="divider"/>`
-            )
-          )
-        }
-      )
-      article.appendChild(list)
-    })
-    .then(finishLoading)
-
+        )
+      }
+    )
+    article.appendChild(list)
+  }
 </script>
+
+<script constexpr>
+  Promise.all([render_page(), page_specific_stuff()])
+    .then(window._ConstexprJS_.compile())
+</script>
+
 <style>
     ol {
         width: 100%;

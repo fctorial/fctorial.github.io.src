@@ -12,8 +12,19 @@
 </body>
 <script constexpr src="/static/js/constexpr/lib.js"></script>
 <script constexpr src="/static/js/constexpr/index.js"></script>
-<script constexpr>
-  abortCompilation("is a template")
-</script>
 <script constexpr src="/static/js/constexpr/renderer.js"></script>
+<script constexpr>
+  window._ConstexprJS_.abort("is a template")
+</script>
+
+<script constexpr>
+  async function page_specific_stuff() {
+  }
+</script>
+
+<script constexpr>
+  Promise.all([render_page(), page_specific_stuff()])
+    .then(window._ConstexprJS_.compile())
+</script>
+
 </html>

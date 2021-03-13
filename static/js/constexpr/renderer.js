@@ -1,8 +1,7 @@
 const article = document.querySelector('article');
-const header = document.querySelector('header');
+let header = document.querySelector('header');
 
-function render_base_page() {
-  startLoading()
+async function render_base_page() {
   document.head.appendChild(
     make_element(
       `<meta charset="UTF-8">`
@@ -32,56 +31,67 @@ function render_base_page() {
 </style>
   `)
   )
+  if (! header) {
+    const posts = await (await fetch('/collections/posts.json')).json()
+    const this_post = posts.filter(p => p.url === document.location.pathname)[0]
+    let title
+    if (this_post) {
+      title = this_post.title
+    }
+    if (title) {
+      header = make_element(`<header><h3 id="main_title">${title}</h3></header>`)
+    } else {
+      header = make_element(`<header><h3 id="main_title"></h3></header>`)
+    }
+    insertFirst(article, header)
+  }
+  document.head.appendChild(
+    make_element(`<title>${header.innerText}</title>`)
+  )
   insertFirst(document.body, make_element(`<noscript constexpr>Please enable javascript</noscript>`))
   insertAfter(header, make_element(`<div style="width: 100%; height: 5px; margin: 1em 0 2em; border: solid black; border-width: 1px 0;"></div>`))
+
   const ne = document.createElement("nav")
-  fetch("/collections/nav.json")
-    .then(res => res.json())
-    .then(nav_items => Object.keys(nav_items).forEach(name => {
-      const item = make_element(
-        `
+  const nav_items = await (await fetch("/collections/nav.json")).json()
+  Object.keys(nav_items).forEach(name => {
+    const item = make_element(
+      `
           <a href="${nav_items[name]}">
               ${name}
           </a>
           `
-      )
-      if (nav_items[name] === window.location.pathname || nav_items[name] + 'index.html' === window.location.pathname) {
-        item.classList.add("current")
-      }
-      article.parentElement.insertBefore(ne, article)
-      ne.appendChild(item)
-    }))
-    .then(() => finishLoading())
+    )
+    if (nav_items[name] === window.location.pathname || nav_items[name] + 'index.html' === window.location.pathname) {
+      item.classList.add("current")
+    }
+    insertBefore(article, ne)
+    ne.appendChild(item)
+  })
 }
 
 function setup_bg() {
   insertFirst(document.body, make_element('<img class="bg" id="main_bg" src="/static/img/bg.jpg" />'))
 }
 
-function syntax_highlight() {
-  startLoading()
+async function syntax_highlight() {
   document.head.appendChild(
     make_element(`<link rel="stylesheet" href="/static/css/prism.css">`)
   )
-  window.Prism = {manual: true}
-  fetch("/static/js/constexpr/third_party/prism.js")
-    .then(res => res.text())
-    .then(code => eval(code))
-    .then(() => {
-      Promise.all([...document.querySelectorAll('prog[class]')].map(
-        el => new Promise((resolve) => {
-          el.textContent = el.textContent.trim()
-          Prism.highlightElement(el, null, () => resolve())
-        })
-      )).then(() => finishLoading())
+  window.Prism = {manual: true};
+  const code = await (await fetch("/static/js/constexpr/third_party/prism.js")).text()
+  eval(code)
+  await Promise.all([...document.querySelectorAll('prog[class]')].map(
+    el => new Promise((resolve) => {
+      el.textContent = el.textContent.trim()
+      Prism.highlightElement(el, null, () => resolve())
     })
+  ))
 }
 
-(() => {
-  render_base_page()
+async function render_page() {
   setup_bg()
-  syntax_highlight()
-})()
+  await Promise.all([render_base_page(), syntax_highlight()])
+}
 
 window.onfocus = () => {
   setTimeout(() => window.location.reload(), 100)

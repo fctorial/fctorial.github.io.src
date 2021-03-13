@@ -18,3 +18,7 @@ function trace(data) {
   console.log(JSON.stringify(data, null, 4))
   return data
 }
+
+async function sleep(n) {
+  return new Promise((resolve) => setTimeout(() => resolve(), n))
+}

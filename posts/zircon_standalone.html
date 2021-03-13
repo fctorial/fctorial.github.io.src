@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Zircon Standalone</title>
-</head>
 <body>
 <article>
-    <header>
-        <h3 id="main_title">Zircon Standalone</h3>
-    </header>
     <p>
         <a href="https://github.com/fctorial/zircon_standalone">Zircon Standalone</a> is a framework
         for running programs on <a href="https://fuchsia.dev/fuchsia-src/concepts/kernel">the zircon kernel</a>.
@@ -102,15 +96,20 @@
 <script constexpr src="/static/js/constexpr/renderer.js"></script>
 <script constexpr>
   function watchdog() {
-    const bge = document.querySelector('#main_bg')
-    if (bge) {
-      bge.src = '/static/img/fuchsia.svg'
-      finishLoading()
-    } else {
-      setTimeout(watchdog, 100)
-    }
   }
-  startLoading()
-  watchdog()
 </script>
+
+<script constexpr>
+  async function page_specific_stuff() {
+    await render_page()
+    const bge = document.querySelector('#main_bg')
+    bge.src = '/static/img/fuchsia.svg'
+  }
+</script>
+
+<script constexpr>
+  Promise.all([page_specific_stuff()])
+    .then(window._ConstexprJS_.compile())
+</script>
+
 </html>

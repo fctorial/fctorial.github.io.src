@@ -1,92 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>constexpr.js</title>
-</head>
 <body>
 <article>
-    <header>
-        <h3 id="main_title">constexpr.js</h3>
-    </header>
     <h4>What is constexpr?</h4>
     <p>
         Constexpr is a feature in programming languages that allows evaluation of parts of code at compile time.
     </p>
     <h4>What is constexpr.js?</h4>
     <p>
-        <a href="https://github.com/fctorial/ConstexprJS">constexpr.js</a> is a static site generator which doesn't force you to learn a domain specific language.
+        <a href="https://github.com/fctorial/ConstexprJS">constexpr.js</a> is a static site generator which doesn't
+        force you to learn a domain specific language.
         When using this tool, you use javascript and usual DOM manipulation methods to generate the website. The tool
         will render the page using chrome, and once it has finished rendering, it will save the rendered state of the
-        page as a new html file. This new html file will look exactly like the original page after it has finished rendering.
+        page as a new html file. This new html file will look exactly like the original page after it has finished
+        rendering.
         This website is built using constexpr.js.
         <br/>
         <br/>
-        It also strips the constexpr javascript out, potentially reducing download size for the website users drastically. Any piece of javascript
+        It also strips the constexpr javascript out, potentially reducing download size for the website users
+        drastically. Any piece of javascript
         code that just generates some html can be made constexpr.
         <br/>
         <br/>
-        The generated page doesn't have to be completely static. For example, try hovering over the images on <a href="/posts/intellij_logos.html">this</a> page.
+        The generated page doesn't have to be completely static. For example, try hovering over the images on <a
+            href="/posts/intellij_logos.html">this</a> page.
     </p>
 
     <h4>How to use it?</h4>
 
     <p>
         You will have to divide the javascript being used in your page into two groups. Runtime javascript and
-        compile time javascript, and annotate all compile time script tags with <progi>constexpr</progi> attribute:
+        compile time javascript, and annotate all compile time script tags with
+        <progi>constexpr</progi>
+        attribute:
         <prog class="language-html">
 &lt;script constexpr>
-    ...
+...
 &lt;/script>
 &lt;script constexpr src="/generate_page.js">&lt;/script>
-        </prog><br/>
-        Runtime code must not depend on the compile time code, since that code will be stripped out before writing the output file.
+        </prog>
+        <br/>
+        Runtime code must not depend on the compile time code, since that code will be stripped out before writing the
+        output file.
         See <a href="/posts/runtime_compiletime_constexpr.js.html">this guide</a> for code management
         tips for constexpr.js.
     </p>
 
     <p>
-        Once the HTML generation code has finished rendering, it must call the <progi>window._ConstexprJS_.compile()</progi>
+        Once the HTML generation code has finished rendering, it must call the
+        <progi>window._ConstexprJS_.compile()</progi>
         function. This function is injected into the page by the compiler.
     </p>
 
     <p>
-        The compiler can be installed like this: <prog class="language-bash">npm i -g constexpr.js</prog><br/>
+        The compiler can be installed like this:
+        <prog class="language-bash">npm i -g constexpr.js</prog>
+        <br/>
 
         Command line usage:
-        <prog class="language-bash">constexpr.js --input="&lt;input_directory>" --output="&lt;output_directory>" [--exclusions=path1:path2] [--verbose] [--jobs=n] [--noheadless] [--jobtimeout] [--depfile=&lt;depfile>]</prog><br/>
+        <prog class="language-bash">
+constexpr.js --input="&lt;input_directory>" --output="&lt;output_directory>" [--exclusions=path1:path2] [--verbose] [--jobs=n] [--noheadless] [--jobtimeout] [--depfile=&lt;depfile>]
+        </prog>
+        <br/>
 
         This is what an invocation looks like:
 
-        <div id="asciinema_cont">
-            <asciinema-player speed="10" rows="110" src="/static/files/build.cast"></asciinema-player>
-        </div>
+    <div id="asciinema_cont">
+        <asciinema-player speed="10" rows="110" src="/static/files/build.cast"></asciinema-player>
+    </div>
 
-        The tool also copies resources (<progi>css</progi>, <progi>images</progi> etcetra)
-        that are requested by pages being rendered. HTML files/resources inside paths given in <progi>--exclusions</progi> are not processed/copied.
-        <br/>
+    The tool also copies resources (
+    <progi>css</progi>
+    ,
+    <progi>images</progi>
+    etcetra)
+    that are requested by pages being rendered. HTML files/resources inside paths given in
+    <progi>--exclusions</progi>
+    are not processed/copied.
+    <br/>
 
-        A json object with the command line args, compilation results and dependencies will be written to the path specified by <progi>--depfile</progi> option.
+    A json object with the command line args, compilation results and dependencies will be written to the path specified
+    by
+    <progi>--depfile</progi>
+    option.
     </p>
 
     <h4>Notes</h4>
 
     <ol>
         <li>
-            You can use any web development technology (and any number of technologies) to generate the html without any fear
-            of bloat. Just make sure that <progi>window._ConstexprJS_.compile()</progi> is called <em>after</em>
+            You can use any web development technology (and any number of technologies) to generate the html without any
+            fear
+            of bloat. Just make sure that
+            <progi>window._ConstexprJS_.compile()</progi>
+            is called <em>after</em>
             the page has finished rendering.
             <br/>
             <br/>
             Pivottable.js demo:
             <br/>
-            <br />
+            <br/>
             <div id="pt_output"></div>
             <br/>
-            This page also uses prism.js for syntax highlighting and asciinema-player for the <progi>./build.sh</progi> output, along with jquery and papaparse.
+            This page also uses prism.js for syntax highlighting and asciinema-player for the
+            <progi>./build.sh</progi>
+            output, along with jquery and papaparse.
             A total of 1.1mb of javascript that you don't have to download because it's constexpr.
         </li>
         <li>
-            You can mark tags other than <progi>script</progi> with <progi>constexpr</progi> as well.
+            You can mark tags other than
+            <progi>script</progi>
+            with
+            <progi>constexpr</progi>
+            as well.
             In the above example, the box at the top is marked constexpr, so it isn't present in the output page.
             This can be used to differentiate original website from generated website:
             <prog class="language-html">
@@ -98,55 +124,71 @@ body {
             </prog>
         </li>
         <li>
-            Client code in the page can signal the compiler to skip the current file by calling <progi>window._ConstexprJS_.abort(message)</progi>.
+            Client code in the page can signal the compiler to skip the current file by calling
+            <progi>window._ConstexprJS_.abort(message)</progi>
+            .
         </li>
         <li>
-            In the original webpage, you'll see a console error when the code tries to call the compilation trigger functions,
+            In the original webpage, you'll see a console error when the code tries to call the compilation trigger
+            functions,
             since those functions are injected by the compiler. You can add this snippet near the top to fix that error:
 
             <prog class="language-js">
 &lt;script constexpr>
-  if (!window._ConstexprJS_) {
+if (!window._ConstexprJS_) {
     window._ConstexprJS_ = {
-      compile: () => {},
-      abort: () => {}
+        compile: () => {},
+        abort: () => {}
     }
-  }
+}
 &lt;/script>
             </prog>
         </li>
         <li>
-            There might be multiple rendering tasks running in your page. You can manage all those tasks using <a href="https://github.com/fctorial/fctorial.github.io.src/blob/master/static/js/constexpr/index.js">this</a>
+            There might be multiple rendering tasks running in your page. You can manage all those tasks using <a
+                href="https://github.com/fctorial/fctorial.github.io.src/blob/master/static/js/constexpr/index.js">this</a>
             refcounting mechanism.
 
-            All the tasks will call <progi>startLoading()</progi> when they begin loading, and <progi>endLoading()</progi>
+            All the tasks will call
+            <progi>startLoading()</progi>
+            when they begin loading, and
+            <progi>endLoading()</progi>
             when they've finished loading. The compilation will be triggered when all the tasks have finished.
         </li>
         <li>
-            You should keep all list data separate from the html in <a href="https://github.com/fctorial/fctorial.github.io.src/tree/master/collections">json files</a>.
-            <progi>constexpr</progi> code in the html will fetch these json files and render the page using them.
-            The directory containing this data should be excluded using <progi>--exclusions</progi> flag, so that the
+            You should keep all list data separate from the html in <a
+                href="https://github.com/fctorial/fctorial.github.io.src/tree/master/collections">json files</a>.
+            <progi>constexpr</progi>
+            code in the html will fetch these json files and render the page using them.
+            The directory containing this data should be excluded using
+            <progi>--exclusions</progi>
+            flag, so that the
             resources inside it aren't copied over.
         </li>
         <li>
-            You can include dev utilites like <a href="https://github.com/fctorial/fctorial.github.io.src/blob/master/static/js/constexpr/renderer.js#L86">this</a> in the
-            original website. It reloads the page whenever it's focused. It won't be in the output since it's used as constexpr.
+            You can include dev utilites like <a
+                href="https://github.com/fctorial/fctorial.github.io.src/blob/master/static/js/constexpr/renderer.js#L86">this</a>
+            in the
+            original website. It reloads the page whenever it's focused. It won't be in the output since it's used as
+            constexpr.
         </li>
         <li>
-            This whole website is rendered using javascript and constexpr.js The html files contains only the page specific stuff. (Mostly article text and page specific CSS)
-            All of the styling and theming is done by constexpr code. Nothing other than the image background switching on <a href="/posts/intellij_logos.html">this</a> page
+            This whole website is rendered using javascript and constexpr.js The html files contains only the page
+            specific stuff. (Mostly article text and page specific CSS)
+            All of the styling and theming is done by constexpr code. Nothing other than the image background switching
+            on <a href="/posts/intellij_logos.html">this</a> page
             uses runtime javascript:
             <prog>
 $ tokei -t=html,javascript
 ===============================================================================
-Language            Files        Lines         Code     Comments       Blanks
+Language Files Lines Code Comments Blanks
 ===============================================================================
-HTML                    7          665          613            0           52
-|- CSS                  4           55           51            0            4
-|- JavaScript           1           17           17            0            0
-(Total)                            737          681            0           56
+HTML 7 665 613 0 52
+|- CSS 4 55 51 0 4
+|- JavaScript 1 17 17 0 0
+(Total) 737 681 0 56
 ===============================================================================
-Total                   7          737          681            0           56
+Total 7 737 681 0 56
 ===============================================================================
             </prog>
             The original sources can be found <a href="https://github.com/fctorial/fctorial.github.io.src">here</a>.
@@ -163,59 +205,79 @@ Total                   7          737          681            0           56
 <script constexpr src="/static/js/constexpr/third_party/pivot.js"></script>
 <script constexpr src="/static/js/constexpr/third_party/papaparse.js"></script>
 <script constexpr>
-    startLoading()
-    $(function(){
+  async function render_pivottable() {
+    return new Promise((resolve) => {
       Papa.parse("/static/files/tips.csv", {
         download: true,
         skipEmptyLines: true,
-        complete: function(parsed){
+        complete: function (parsed) {
           $("#pt_output").pivot(parsed.data, {
             rows: ["sex", "smoker"],
             cols: ["day"],
             renderer: $.pivotUtilities.renderers["Heatmap"],
             aggregator: $.pivotUtilities.aggregators.Sum(["tip"])
           });
-          finishLoading()
+          resolve()
         }
       });
-    });
+    })
+  }
 </script>
-<link rel="stylesheet" type="text/css" href="/static/css/asciinema-player.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/asciinema-player.css"/>
 <script constexpr src="/static/js/constexpr/third_party/asciinema-player.js"></script>
 <script constexpr>
-    startLoading()
-    setTimeout(() => {
+  async function do_asciinema() {
+    await sleep(0)
+    return new Promise((resolve) => {
       const player = document.querySelector('asciinema-player')
       player.querySelector('.play-button').click()
+
       function checker() {
         if (player.innerHTML.indexOf('ALL_DONE') !== -1) {
           const lines = player.querySelectorAll('.line')
-          for (let i=0; i<lines.length; i++) {
+          for (let i = 0; i < lines.length; i++) {
             const line = lines[i]
-            const last = line.children[line.children.length-1]
+            const last = line.children[line.children.length - 1]
             last.innerText = last.innerText.trim() + ' '
           }
           player.innerHTML = player.innerHTML.replace('ALL_DONE', '')
-          finishLoading()
+          resolve()
         } else {
           setTimeout(checker, 200)
         }
       }
+
       checker()
-    }, 0)
+    })
+  }
 </script>
+
+<script constexpr>
+  async function page_specific_stuff() {
+    await Promise.all([do_asciinema(), render_pivottable()])
+  }
+</script>
+
+<script constexpr>
+  Promise.all([render_page(), page_specific_stuff()])
+    .then(window._ConstexprJS_.compile())
+</script>
+
 <style>
     ol li {
         margin: 2em 0;
     }
+
     #asciinema_cont {
         width: 100%;
         height: 400px;
         overflow-y: auto;
     }
+
     asciinema-player .control-bar {
         display: none;
     }
+
     asciinema-player .asciinema-player {
         overflow-x: auto !important;
     }
