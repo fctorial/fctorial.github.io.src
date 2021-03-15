@@ -35,5 +35,13 @@
     "tags": [
       "zircon_standalone"
     ]
+  },
+  {
+    "title": "Generator pages in constexpr.js",
+    "url": "/posts/constexprjs_generator_pages.html",
+    "tags": [
+      "constexpr.js",
+      "javascript"
+    ]
   }
 ]

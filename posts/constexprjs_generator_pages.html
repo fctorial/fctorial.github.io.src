@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<article>
+    <p>
+        Generator pages is a feature in constexpr.js that allows you to generate an arbitrary number of pages from a single
+        page. For example, you might want to generate a webpage for each tag in your blog, or you might want to paginate
+        the list of posts in your blog.
+    </p>
+    <p>
+        The main entry point for this feature is the <progi>window._ConstexprJS_.addPaths</progi> function. By default,
+        constexpr.js compiler creates one output page for each html file in the input directory (unless <progi>abort</progi>
+        is called). This function takes an array as input and adds an additional page for each entry in that array. The
+        array elements must be objects with two keys, <progi>generator</progi> and <progi>output</progi>:
+    </p>
+    <prog class="language-js">
+window._ConstexprJS_.addPaths(
+    [
+        {
+            generator: "/posts/generator_from_date.html?2021-jan",
+            output: "/posts/2021-jan.html"
+        },
+        {
+            generator: "/posts/generator_from_date.html?2021-feb",
+            output: "/posts/2021-feb.html"
+        }
+    ]
+)
+    </prog>
+    <p>
+        This tells the compiler to render the page <progi>/posts/generator_from_date.html?2021-jan</progi> and save it's
+        result to <progi>/posts/2021-jan.html</progi>.
+    </p>
+    <p>
+        This is how the tag specific pages are generator on this website.
+    </p>
+    <h4>Links to generated pages</h4>
+    <p>
+        The compiler also maps all the links to generator page (<progi>/posts/generator_from_date.html?2021-jan</progi>)
+        to the correct output HTMLs (<progi>/posts/2021-jan.html</progi>). This ensures that the original and the final
+        website look and work exactly the same even if you use this feature.
+    </p>
+</article>
+</body>
+<script constexpr src="/static/js/constexpr/lib.js"></script>
+<script constexpr src="/static/js/constexpr/index.js"></script>
+<script constexpr src="/static/js/constexpr/renderer.js"></script>
+
+<script constexpr>
+  async function page_specific_stuff() {
+  }
+</script>
+
+<script constexpr>
+  Promise.all([render_page(), page_specific_stuff()])
+    .then(() => window._ConstexprJS_.compile())
+</script>
+
+</html>
