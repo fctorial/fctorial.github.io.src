@@ -109,7 +109,7 @@
 
 <script constexpr>
   Promise.all([page_specific_stuff()])
-    .then(window._ConstexprJS_.compile())
+    .then(() => window._ConstexprJS_.compile())
 </script>
 
 </html>

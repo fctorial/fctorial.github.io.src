@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<article>
+    <header>
+        <h3 id="main_title">Tags</h3>
+    </header>
+    <ul>
+    </ul>
+</article>
+</body>
+<script constexpr src="/static/js/constexpr/lib.js"></script>
+<script constexpr src="/static/js/constexpr/index.js"></script>
+<script constexpr src="/static/js/constexpr/renderer.js"></script>
+
+<script constexpr>
+  async function page_specific_stuff() {
+    const posts = await (await fetch('/collections/posts.json')).json()
+    const tags = new Set()
+    posts.forEach(p => p.tags.forEach(tag => tags.add(tag)))
+    const list = document.querySelector('ul')
+    tags.forEach(tag => {
+      list.appendChild(make_element(`<li><a href="/tags/generator.html?${tag}">${tag}</a></li>`))
+    })
+    window._ConstexprJS_.addPaths(Array.from(tags).map(tag => ({generator: `/tags/generator.html?${tag}`, output: `/tags/${tag}.html`})))
+  }
+</script>
+
+<script constexpr>
+  Promise.all([render_page(), page_specific_stuff()])
+    .then(() => window._ConstexprJS_.compile())
+</script>
+
+</html>

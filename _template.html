@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Template</title>
-</head>
 <body>
 <article>
     <header>
@@ -24,7 +21,7 @@
 
 <script constexpr>
   Promise.all([render_page(), page_specific_stuff()])
-    .then(window._ConstexprJS_.compile())
+    .then(() => window._ConstexprJS_.compile())
 </script>
 
 </html>

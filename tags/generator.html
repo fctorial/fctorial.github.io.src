@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<article>
+    <ul>
+
+    </ul>
+</article>
+</body>
+<script constexpr src="/static/js/constexpr/lib.js"></script>
+<script constexpr src="/static/js/constexpr/index.js"></script>
+<script constexpr src="/static/js/constexpr/renderer.js"></script>
+
+<script constexpr>
+  async function page_specific_stuff() {
+    await render_page()
+    const tagName = window.location.search.substring(1)
+    document.querySelector('header h3').textContent = tagName
+    document.querySelector('head title').textContent = tagName
+    const posts = await (await fetch('/collections/posts.json')).json()
+    const list = document.querySelector('ul')
+    posts.filter(p => p.tags.indexOf(tagName) !== -1)
+      .forEach(p => list.appendChild(make_element(`<li><a href="${p.url}">${p.title}</a></li>`)))
+  }
+</script>
+
+<script constexpr>
+  Promise.all([page_specific_stuff()])
+    .then(() => window._ConstexprJS_.compile())
+</script>
+
+</html>
