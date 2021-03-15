@@ -31,9 +31,10 @@ async function render_base_page() {
 </style>
   `)
   )
+  let this_post
   if (! header) {
     const posts = await (await fetch('/collections/posts.json')).json()
-    const this_post = posts.filter(p => p.url === document.location.pathname)[0]
+    this_post = posts.filter(p => p.url === document.location.pathname)[0]
     let title
     if (this_post) {
       title = this_post.title
@@ -49,7 +50,14 @@ async function render_base_page() {
     make_element(`<title>${header.innerText}</title>`)
   )
   insertFirst(document.body, make_element(`<noscript constexpr>Please enable javascript</noscript>`))
+
   insertAfter(header, make_element(`<div style="width: 100%; height: 5px; margin: 1em 0 2em; border: solid black; border-width: 1px 0;"></div>`))
+
+  if (this_post) {
+    const tags_el = make_element(`<div id="tags_list"></div>`)
+    this_post.tags.forEach(tag => tags_el.appendChild(make_element(`<a href="/tags/generator.html?${tag}"><div>${tag}</div></a>`)))
+    insertAfter(header, tags_el)
+  }
 
   const ne = document.createElement("nav")
   const nav_items = await (await fetch("/collections/nav.json")).json()
