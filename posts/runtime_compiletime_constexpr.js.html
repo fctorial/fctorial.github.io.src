@@ -3,9 +3,9 @@
 <body>
 <article>
     <p>
-        <a href="/posts/constexpr.js.html">constexpr.js</a> is a static site generator. However, the sites generated with constexpr.js don't have to be
+        <a href="/posts/constexpr.js.html">constexpr.js</a> is a static site generator. However, the sites generated with it don't have to be
         completely javascript free. Try hovering over the images in <a href="/posts/intellij_logos.html">this</a> page.
-        The html in this page is generated statically with constexpr.js but the background is being manipulated at runtime with javascript.
+        The images list in this page is generated statically with constexpr.js but the background is being manipulated at runtime with javascript.
     </p>
     <p>
         The constexpr code used for generating html is stripped out during site generation, so the runtime code must not
@@ -28,25 +28,22 @@
         toggle the <progi>opacity</progi> value for the background images. This function is supposed to trigger the runtime javascript.
     </p>
     <p>
-        Once the html generation code has done it's job, it appends a script tag that calls the initialization function
-        right before it signals to the compiler that it has finished:
+        Once the html generation code has done it's job, it appends a script tag that calls the initialization function:
         <prog class="language-javascript">
 ...
-.then(() => {
     const init = document.createElement('script')
     init.innerText = 'initHover()'
     document.querySelector('html').appendChild(init)
-})
-.then(finishLoading)
+...
         </prog>
         Always add new script tags at the end of the document (or at least after the last script tag). This ensures that the
         resulting page state is what you would've gotten if you'd loaded a document containing the final HTML. Do not
         use <progi>defer</progi> attribute on script tags. Keep the javascript execution as predictable as possible.
     </p>
     <p>
-        The <a href="https://github.com/fctorial/fctorial.github.io/blob/master/posts/intellij_logos.html">output HTML</a> will
-        contain the generated list of images, a script tag defining the initialization function, and a script tag calling the
-        initialization function. All the <em>compilation/generation</em> code will be stripped out.
+        The <a href="https://github.com/fctorial/fctorial.github.io/blob/master/posts/intellij_logos.html">output HTML</a>
+        contains the generated list of images, a script tag defining the initialization function, and a script tag calling the
+        initialization function. All the compilation/generation code is stripped out.
     </p>
 </article>
 </body>

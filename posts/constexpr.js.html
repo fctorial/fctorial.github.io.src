@@ -2,29 +2,48 @@
 <html lang="en">
 <body>
 <article>
+    <p>
+        In this article I'm going to talk about <a href="https://github.com/fctorial/ConstexprJS">constexpr.js</a>, which is a tool
+        that allows you to use zero cost abstractions when developing websites.
+    </p>
     <h4>What is constexpr?</h4>
     <p>
-        Constexpr is a feature in programming languages that allows evaluation of parts of code at compile time.
+        Constexpr is a feature found in statically compiled programming languages that allows evaluation of expressions a
+        program at compile time. Different languages have use different terminology for it. For example,
+        in zig lang, it's called <progi>comptime</progi>. Common lisp macros, in lisps that compile to native code, might
+        also be grouped in this category.
+    </p>
+    <p>
+        This allows automatic generation of complex static data at compile time, and the runtime code can just use the
+        result of that compile time evaluated data. Variable inlining is a simple form of compile time evaluation.<br/>
+        Ideally, the language/compiler should make it possible to turn any eligible piece of code "constexpr" with some
+        annotations. The eligibility criteria being that the code must not depend on any runtime data.
     </p>
     <h4>What is constexpr.js?</h4>
     <p>
-        <a href="https://github.com/fctorial/ConstexprJS">constexpr.js</a> is a static site generator which doesn't
-        force you to learn a domain specific language.
-        When using this tool, you use javascript and usual DOM manipulation methods to generate the website. The tool
-        will render the page using chrome, and once it has finished rendering, it will save the rendered state of the
-        page as a new html file. This new html file will look exactly like the original page after it has finished
-        rendering.
-        This website is built using constexpr.js.
-        <br/>
-        <br/>
-        It also strips the constexpr javascript out, potentially reducing download size for the website users
-        drastically. Any piece of javascript
-        code that just generates some html can be made constexpr.
-        <br/>
-        <br/>
-        The generated page doesn't have to be completely static. For example, try hovering over the images on <a
+        <a href="https://github.com/fctorial/ConstexprJS">constexpr.js</a> is a static site generator. It's different
+        from SSE's like Jakyll in that it doesn't force you to learn a dedicated domain specific language. There already exists a
+        dedicated languages for dealing with DOM and websites, javascript. With constexpr.js, you use javascript and usual
+        DOM manipulation methods to generate the website. The whole browser runtime is available at your disposal when
+        generating sites with constexpr.js.
+    </p>
+
+    <h4>Demo</h4>
+    <p>This whole website is built using constexpr.js.</p>
+
+    <h4>How does it work?</h4>
+    <p>
+        The compiler renders the pages using chrome, and once they finish rendering, it saves the rendered state
+        as new pages. It also strips the constexpr javascript out, potentially reducing download size for the website users
+        drastically. Any piece of javascript code that just generates some html can be made constexpr.
+    </p>
+    <p>
+        The generated pages don't have to be completely static. For example, try hovering over the images on <a
             href="/posts/intellij_logos.html">this</a> page.
     </p>
+    <blockquote>These new pages will look exactly like the original pages after they finish rendering. This is one of the
+        basic principles of constexpr.js. So you can keep building your website as usual and run the compiler once
+        you're happy with the results, and you'll get a leaner, faster version of your website as output.</blockquote>
 
     <h4>How to use it?</h4>
 
@@ -42,7 +61,7 @@
         <br/>
         Runtime code must not depend on the compile time code, since that code will be stripped out before writing the
         output file.
-        See <a href="/posts/runtime_compiletime_constexpr.js.html">this guide</a> for code management
+        See <a href="/posts/runtime_compiletime_constexpr.js.html">this guide</a> for code organization
         tips for constexpr.js.
     </p>
 
@@ -56,63 +75,46 @@
         The compiler can be installed like this:
         <prog class="language-bash">npm i -g constexpr.js</prog>
         <br/>
+    </p>
 
+    <p>
         Command line usage:
         <prog class="language-bash">
 constexpr.js --input="&lt;input_directory>" --output="&lt;output_directory>" [--exclusions=path1:path2] [--verbose] [--jobs=n] [--noheadless] [--jobtimeout] [--depfile=&lt;depfile>]
         </prog>
-        <br/>
-
+    </p>
+    <p>
         This is what an invocation looks like:
-
+    </p>
     <div id="asciinema_cont">
-        <asciinema-player speed="10" rows="110" src="/static/files/build.cast"></asciinema-player>
+        <asciinema-player speed="100" rows="110" src="/static/files/build.cast"></asciinema-player>
     </div>
-
-    The tool also copies resources (
-    <progi>css</progi>
-    ,
-    <progi>images</progi>
-    etcetra)
-    that are requested by pages being rendered. HTML files/resources inside paths given in
-    <progi>--exclusions</progi>
-    are not processed/copied.
-    <br/>
-
-    A json object with the command line args, compilation results and dependencies will be written to the path specified
-    by
-    <progi>--depfile</progi>
-    option.
+    <p>
+        The tool also copies resources (<progi>css</progi>, <progi>images</progi> etcetra)
+        that are requested by pages being rendered. HTML files/resources inside paths given in <progi>--exclusions</progi>
+        are not processed/copied.
+    </p>
+    <p>
+        A json object with the command line args, compilation results and dependencies will be written to the path specified
+        by <progi>--depfile</progi> option.
     </p>
 
+    <h4>Plugins</h4>
+    <p>
+        You can use any web development technology (and any number of technologies) to generate the html without any
+        fear of bloat. Pivottable.js demo:
+    </p>
+    <div id="pt_output"></div>
+    <p>
+        This page also uses prism.js for syntax highlighting and asciinema-player for the
+        <progi>./build.sh</progi> output, along with jquery and papaparse. A total of 1.1mb of javascript that you don't
+        have to download because it's constexpr.<br/>
+    </p>
     <h4>Notes</h4>
 
     <ol>
         <li>
-            You can use any web development technology (and any number of technologies) to generate the html without any
-            fear
-            of bloat. Just make sure that
-            <progi>window._ConstexprJS_.compile()</progi>
-            is called <em>after</em>
-            the page has finished rendering.
-            <br/>
-            <br/>
-            Pivottable.js demo:
-            <br/>
-            <br/>
-            <div id="pt_output"></div>
-            <br/>
-            This page also uses prism.js for syntax highlighting and asciinema-player for the
-            <progi>./build.sh</progi>
-            output, along with jquery and papaparse.
-            A total of 1.1mb of javascript that you don't have to download because it's constexpr.
-        </li>
-        <li>
-            You can mark tags other than
-            <progi>script</progi>
-            with
-            <progi>constexpr</progi>
-            as well.
+            You can mark tags other than <progi>script</progi> with <progi>constexpr</progi> as well.
             In the above example, the box at the top is marked constexpr, so it isn't present in the output page.
             This can be used to differentiate original website from generated website:
             <prog class="language-html">
@@ -122,38 +124,35 @@ body {
 }
 &lt;/style>
             </prog>
+            This code will add a red border to your page which will only appear on the original website.
         </li>
         <li>
             Client code in the page can signal the compiler to skip the current file by calling
-            <progi>window._ConstexprJS_.abort(message)</progi>
-            .
+            <progi>window._ConstexprJS_.abort(message)</progi>.
         </li>
         <li>
             In the original webpage, you'll see a console error when the code tries to call the compilation trigger
             functions,
             since those functions are injected by the compiler. You can add this snippet near the top to fix that error:
 
-            <prog class="language-js">
+            <prog class="language-html">
 &lt;script constexpr>
 if (!window._ConstexprJS_) {
     window._ConstexprJS_ = {
         compile: () => {},
-        abort: () => {}
+        abort: () => {},
+        addPaths: () => {}
     }
 }
 &lt;/script>
             </prog>
         </li>
         <li>
-            There might be multiple rendering tasks running in your page. You can manage all those tasks using <a
-                href="https://github.com/fctorial/fctorial.github.io.src/blob/master/static/js/constexpr/index.js">this</a>
-            refcounting mechanism.
-
-            All the tasks will call
-            <progi>startLoading()</progi>
-            when they begin loading, and
-            <progi>endLoading()</progi>
-            when they've finished loading. The compilation will be triggered when all the tasks have finished.
+            There might be multiple rendering tasks running in your page. You can manage them using promises:
+            <prog class="language-js">
+Promise.all([render_task_1(), render_task_2()])
+    .then(() => window._ConstexprJS_.compile())
+            </prog>
         </li>
         <li>
             You should keep all list data separate from the html in <a
@@ -173,27 +172,29 @@ if (!window._ConstexprJS_) {
             constexpr.
         </li>
         <li>
-            This whole website is rendered using javascript and constexpr.js The html files contains only the page
+            This whole website is rendered using javascript and constexpr.js. The html files contains only the page
             specific stuff. (Mostly article text and page specific CSS)
             All of the styling and theming is done by constexpr code. Nothing other than the image background switching
-            on <a href="/posts/intellij_logos.html">this</a> page
-            uses runtime javascript:
+            on <a href="/posts/intellij_logos.html">this</a> page uses runtime javascript:
             <prog>
 $ tokei -t=html,javascript
 ===============================================================================
-Language Files Lines Code Comments Blanks
+Language            Files        Lines         Code     Comments       Blanks
 ===============================================================================
-HTML 7 665 613 0 52
-|- CSS 4 55 51 0 4
-|- JavaScript 1 17 17 0 0
-(Total) 737 681 0 56
+HTML                   13          938          815            0          123
+|- CSS                  4           55           51            0            4
+|- JavaScript           1           16           16            0            0
+(Total)                           1009          882            0          127
 ===============================================================================
-Total 7 737 681 0 56
+Total                  13         1009          882            0          127
 ===============================================================================
             </prog>
-            The original sources can be found <a href="https://github.com/fctorial/fctorial.github.io.src">here</a>.
+            The original sources for this website can be found <a href="https://github.com/fctorial/fctorial.github.io.src">here</a>.
         </li>
     </ol>
+    <blockquote>
+        See pages tagged with <a href="/tags/generator.html?constexpr.js">constexpr.js</a> for more guides.
+    </blockquote>
 </article>
 </body>
 <script constexpr src="/static/js/constexpr/lib.js"></script>
@@ -281,5 +282,6 @@ Total 7 737 681 0 56
     asciinema-player .asciinema-player {
         overflow-x: auto !important;
     }
+
 </style>
 </html>
