@@ -54,8 +54,8 @@ async function render_base_page() {
   insertAfter(header, make_element(`<div style="width: 100%; height: 5px; margin: 1em 0 2em; border: solid black; border-width: 1px 0;"></div>`))
 
   if (this_post) {
-    const tags_el = make_element(`<div id="tags_list"></div>`)
-    this_post.tags.forEach(tag => tags_el.appendChild(make_element(`<a href="/tags/generator.html?${tag}"><div>${tag}</div></a>`)))
+    const tags_el = make_element(`<ul id="tags_list"></ul>`)
+    this_post.tags.forEach(tag => tags_el.appendChild(make_element(`<li class="tag_element"><a href="/tags/generator.html?${tag}">${tag}</a></li>`)))
     insertAfter(header, tags_el)
   }
 

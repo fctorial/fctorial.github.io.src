@@ -3,8 +3,8 @@
 <body>
 <article>
     <p>
-        Generator pages is a feature in constexpr.js that allows you to generate an arbitrary number of pages from a single
-        page. For example, you might want to generate a webpage for each tag in your blog, or you might want to paginate
+        Generator pages is a feature in constexpr.js that allows you to generate an arbitrary number of pages.
+        For example, you might want to generate a webpage for each tag in your blog, or you might want to paginate
         the list of posts in your blog.
     </p>
     <p>
@@ -32,8 +32,13 @@ window._ConstexprJS_.addPaths(
         result to <progi>/posts/2021-jan.html</progi>.
     </p>
     <p>
-        This is how the tag specific pages are generator on this website.
+        Think of the generator html as a function that takes input in url parameters/hash and produces the intended
+        page as output. Try to make this a pure function.
     </p>
+    <p>
+        Generator pages are used to build the tag specific pages on this website.
+    </p>
+
     <h4>Links to generated pages</h4>
     <p>
         The compiler also maps all the links to generator page (<progi>/posts/generator_from_date.html?2021-jan</progi>)

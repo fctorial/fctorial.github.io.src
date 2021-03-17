@@ -20,7 +20,7 @@
     posts.forEach(p => p.tags.forEach(tag => tags.add(tag)))
     const list = document.querySelector('ul')
     tags.forEach(tag => {
-      list.appendChild(make_element(`<li><a href="/tags/generator.html?${tag}"><div>${tag}</div></a></li>`))
+      list.appendChild(make_element(`<li class="tag_element"><a href="/tags/generator.html?${tag}"><div>${tag}</div></a></li>`))
     })
     window._ConstexprJS_.addPaths(Array.from(tags).map(tag => ({generator: `/tags/generator.html?${tag}`, output: `/tags/${tag}.html`})))
   }
@@ -33,10 +33,7 @@
 
 <style>
     ul {
-        display: flex;
         flex-direction: column;
-        padding: 0;
-        list-style-type: none;
     }
 </style>
 
