@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<article>
+    <p>
+        I used to encounter a bug in youtube website a couple of years ago. In this article, I'm going to talk about a
+        possible cause of that bug.
+    </p>
+    <p>
+        I believe this bug slipped past the QA because it only manifests itself only when you're on a flaky 2G connection
+        (<50kbps), and apparently all the web developers/testers use a 1GB connection with 5ms ping, that never disconnects. However, I have to
+        say that youtube webapp is one of the highest quality websites I've seen. It handles network disconnects and
+        reconnects flawlessly, and keyboard controls are better than any other streaming platform.
+    </p>
+    <h4>The bug</h4>
+    <p>
+        The bug was that if you were watching videos at 144p (which is the only option at that bandwidth), and the network
+        disconnects, after the reconnection, the quality setting on the video changes to the highest quality. The cause
+        of this bug is obvious if you know that the youtube backend is written in python.
+    </p>
+    <h4>The cause</h4>
+    <p>
+        In python, you can index an array with a negative number to index it in reverse.
+    </p>
+    <prog class="language-python">
+>>> a=[144, 240, 360, 480, 720, 1080]
+>>> a[0]
+144
+>>> a[-1]
+1080
+    </prog>
+    <p>
+        I think what use to happen was that I'd selected index <progi>0</progi> as my preferred quality setting. The
+        backend saw that my bandwidth wasn't good enough, and decremented my quality setting to <progi>-1</progi>. Which
+        just caused the video to lag even more.
+    </p>
+    <p>
+        I think this bug is still there. I remember seeing this bug a couple months ago (I'm not sure). You see, bandwidth
+        isn't the only reason to play videos in lowest quality. Playing HD video takes a non trivial amount of cpu, so I
+        switch the quality on music videos to lowest whenever I'm compiling something.
+    </p>
+</article>
+</body>
+<script constexpr src="/static/js/constexpr/lib.js"></script>
+<script constexpr src="/static/js/constexpr/index.js"></script>
+<script constexpr src="/static/js/constexpr/renderer.js"></script>
+
+<script constexpr>
+  async function page_specific_stuff() {
+  }
+</script>
+
+<script constexpr>
+  Promise.all([render_page(), page_specific_stuff()])
+    .then(() => window._ConstexprJS_.compile())
+</script>
+
+</html>

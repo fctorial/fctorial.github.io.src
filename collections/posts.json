@@ -43,5 +43,13 @@
       "constexpr.js",
       "javascript"
     ]
+  },
+  {
+    "title": "Reading the tea leaves",
+    "url": "/posts/youtube_python_bug.html",
+    "tags": [
+      "python",
+      "youtube"
+    ]
   }
 ]
