@@ -207,13 +207,7 @@ Total                  16         1185         1023            0          162
 <script>
   function initRT() {
     const bg = document.querySelector('#main_bg')
-    const thanos = bg.cloneNode(true)
-    thanos.setAttribute('id', null)
-    thanos.style.opacity = '0'
-    thanos.style.filter = 'none'
-    thanos.style['object-position'] = 'left'
-    thanos.setAttribute('src', '/static/img/stones.jpg')
-    insertAfter(bg, thanos)
+    const thanos = document.querySelector('#thanos_bg')
     window.onscroll = () => {
       const maxScroll = document.body.offsetHeight - window.innerHeight
       const curScroll = window.scrollY
@@ -286,13 +280,25 @@ Total                  16         1185         1023            0          162
 
 <script constexpr>
   async function page_specific_stuff() {
-    await Promise.all([do_asciinema(), render_pivottable()])
+    const bg = document.querySelector('#main_bg')
+    const thanos = bg.cloneNode(true)
+    thanos.setAttribute('id', 'thanos_bg')
+    thanos.style.opacity = '0'
+    thanos.style.filter = 'none'
+    thanos.style['object-position'] = 'left'
+    thanos.setAttribute('src', '/static/img/stones.jpg')
+    insertAfter(bg, thanos)
+    await Promise.all([fetch('/static/img/stones.jpg'), do_asciinema(), render_pivottable()])
   }
 </script>
 
 <script constexpr>
   Promise.all([render_page(), page_specific_stuff()])
-    .then(initRT)
+    .then(() => {
+      const init = document.createElement('script')
+      init.innerText = 'initRT()'
+      document.querySelector('body').appendChild(init)
+    })
     .then(() => window._ConstexprJS_.compile())
 </script>
 
