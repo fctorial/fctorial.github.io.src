@@ -19,7 +19,13 @@
     const posts = await (await fetch('/collections/posts.json')).json()
     const list = document.querySelector('ul')
     posts.filter(p => p.tags.indexOf(tagName) !== -1)
-      .forEach(p => list.appendChild(make_element(`<li><a href="${p.url}">${p.title}</a></li>`)))
+      .forEach(p => {
+        let tags = ''
+        p.tags.forEach(tag => {
+          tags += `<a class="tag_element" href="/tags/generator.html?${tag}">${tag}</a> `
+        })
+        list.appendChild(make_element(`<li><a href="${p.url}">${p.title}</a> ${tags}</li>`))
+      })
   }
 </script>
 
@@ -27,5 +33,15 @@
   Promise.all([page_specific_stuff()])
     .then(() => window._ConstexprJS_.compile())
 </script>
+
+<style>
+    ul {
+        margin-top: 2em;
+    }
+    ul li {
+        margin: 1em;
+    }
+</style>
+
 
 </html>

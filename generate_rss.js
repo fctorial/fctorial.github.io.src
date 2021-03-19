@@ -12,12 +12,19 @@ let result = `<?xml version="1.0" encoding="UTF-8" ?>
 `
 
 posts.forEach(
-  post => result += `
+  post => {
+    let tags = ''
+    post.tags.forEach(tag => {
+      tags += `
+      <category>${tag}</category>`
+    })
+    result += `
   <item>
       <title>${post.title}</title>
       <link>https://fctorial.github.io${post.url}</link>
+      ${tags}
   </item>`
-)
+  })
 
 result += `
 

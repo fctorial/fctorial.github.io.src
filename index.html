@@ -26,7 +26,11 @@
     const postsEl = document.querySelector('#posts')
     const posts = await (await fetch("/collections/posts.json")).json()
     posts.forEach(post => {
-      const el = make_element("<li><a></a></li>")
+      let tags = ''
+      post.tags.forEach(tag => {
+        tags += `<a class="tag_element" href="/tags/generator.html?${tag}">${tag}</a> `
+      })
+      const el = make_element(`<li><a></a> ${tags}</li>`)
       const link = el.querySelector('a')
       link.setAttribute('href', post.url)
       link.innerText = post.title
