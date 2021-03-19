@@ -173,23 +173,29 @@ Promise.all([render_task_1(), render_task_2()])
         </li>
         <li>
             This whole website is rendered using javascript and constexpr.js. The html files contains only the page
-            specific stuff. (Mostly article text and page specific CSS)
+            specific stuff. (article text and page specific styling).
             All of the styling and theming is done by constexpr code. Nothing other than the image background switching
-            on <a href="/posts/intellij_logos.html">this</a> page uses runtime javascript:
+            uses runtime javascript:
             <prog>
-$ tokei -t=html,javascript
+$ tokei -t=html
 ===============================================================================
 Language            Files        Lines         Code     Comments       Blanks
 ===============================================================================
-HTML                   13          938          815            0          123
-|- CSS                  4           55           51            0            4
-|- JavaScript           1           16           16            0            0
-(Total)                           1009          882            0          127
+HTML                   16         1072          918            0          154
+|- CSS                  6           76           68            0            8
+|- JavaScript           2           37           37            0            0
+(Total)                           1185         1023            0          162
 ===============================================================================
-Total                  13         1009          882            0          127
+Total                  16         1185         1023            0          162
 ===============================================================================
             </prog>
             The original sources for this website can be found <a href="https://github.com/fctorial/fctorial.github.io.src">here</a>.
+        </li>
+        <li>
+            Use this if you love javascript
+        </li>
+        <li>
+            Use this if you hate javascript
         </li>
     </ol>
     <blockquote>
@@ -197,6 +203,31 @@ Total                  13         1009          882            0          127
     </blockquote>
 </article>
 </body>
+
+<script>
+  function initRT() {
+    const bg = document.querySelector('#main_bg')
+    const thanos = bg.cloneNode(true)
+    thanos.setAttribute('id', null)
+    thanos.style.opacity = '0'
+    thanos.style.filter = 'none'
+    thanos.style['object-position'] = 'left'
+    thanos.setAttribute('src', '/static/img/stones.jpg')
+    insertAfter(bg, thanos)
+    window.onscroll = () => {
+      const maxScroll = document.body.offsetHeight - window.innerHeight
+      const curScroll = window.scrollY
+      if (maxScroll - curScroll < 100) {
+        thanos.style.opacity = '1'
+        bg.style.opacity = '0'
+      } else {
+        thanos.style.opacity = '0'
+        bg.style.opacity = '1'
+      }
+    }
+  }
+</script>
+
 <script constexpr src="/static/js/constexpr/lib.js"></script>
 <script constexpr src="/static/js/constexpr/index.js"></script>
 <script constexpr src="/static/js/constexpr/renderer.js"></script>
@@ -261,6 +292,7 @@ Total                  13         1009          882            0          127
 
 <script constexpr>
   Promise.all([render_page(), page_specific_stuff()])
+    .then(initRT)
     .then(() => window._ConstexprJS_.compile())
 </script>
 

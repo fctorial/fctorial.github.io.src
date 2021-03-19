@@ -8,7 +8,12 @@
     <header>
         <h3 id="main_title">My Website</h3>
     </header>
-    <a href="mailto:fctorial@gmail.com?subject=I want to subscribe&body=I want to subscribe">Drop a mail if you would like to recieve email notification of new posts</a>
+    <p>
+        <a href="mailto:fctorial@gmail.com?subject=I want to subscribe&body=I want to subscribe">Drop a mail if you would like to recieve email notification of new posts</a>
+    </p>
+    <p>
+        Or use <a href="/static/rss.xml">this rss feed</a>
+    </p>
     <ul id="posts"></ul>
 </article>
 </body>
@@ -31,7 +36,10 @@
 </script>
 
 <script constexpr>
-  Promise.all([render_page(), page_specific_stuff()])
+  Promise.all([
+    fetch('/static/rss.xml'), fetch('/favicon.ico'),
+    render_page(), page_specific_stuff()
+  ])
     .then(() => window._ConstexprJS_.compile())
 </script>
 
