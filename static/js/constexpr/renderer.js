@@ -82,6 +82,7 @@ function setup_bg() {
 }
 
 async function evalScript(path) {
+  window._ConstexprJS_.addExclusions([path])
   eval(await (await fetch(path)).text())
 }
 

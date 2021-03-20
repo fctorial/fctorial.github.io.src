@@ -1,7 +1,9 @@
 if (!window._ConstexprJS_) {
   window._ConstexprJS_ = {
     compile: () => {},
-    abort: () => {}
+    abort: () => {},
+    addPath: () => {},
+    addExclusions: () => {}
   }
 }
 
