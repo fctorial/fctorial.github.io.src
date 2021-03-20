@@ -82,18 +82,23 @@ function setup_bg() {
 }
 
 async function syntax_highlight() {
-  document.head.appendChild(
-    make_element(`<link rel="stylesheet" href="/static/css/prism.css">`)
-  )
+  document.querySelectorAll('prog').forEach(el => {
+    el.textContent = el.textContent.trim()
+  })
   window.Prism = {manual: true};
-  const code = await (await fetch("/static/js/constexpr/third_party/prism.js")).text()
-  eval(code)
+  eval(await (await fetch("/static/js/constexpr/third_party/prism.js")).text())
+  let did_highlight = false
   await Promise.all([...document.querySelectorAll('prog[class]')].map(
     el => new Promise((resolve) => {
-      el.textContent = el.textContent.trim()
+      did_highlight = true
       Prism.highlightElement(el, null, () => resolve())
     })
   ))
+  if (did_highlight) {
+    document.head.appendChild(
+      make_element(`<link rel="stylesheet" href="/static/css/prism.css">`)
+    )
+  }
 }
 
 async function render_page() {

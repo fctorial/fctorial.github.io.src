@@ -51,5 +51,13 @@
       "web",
       "python"
     ]
+  },
+  {
+    "title": "Syntax Highlighting in a Webpage Without Javascript",
+    "url": "/posts/syntax_highlighting_nojs.html",
+    "tags": [
+      "constexpr.js",
+      "web"
+    ]
   }
 ]
