@@ -106,17 +106,36 @@ constexpr.js --input="&lt;input_directory>" --output="&lt;output_directory>" [--
     </p>
     <div id="pt_output"></div>
     <p>
-        This page also uses prism.js for syntax highlighting and asciinema-player for the
-        <progi>./build.sh</progi> output, along with jquery and papaparse. A total of 1.1mb of javascript that you don't
-        have to download because it's constexpr.<br/>
+        This page also uses prism.js for syntax highlighting, katex for math formulae and asciinema-player for the
+        <progi>./build.sh</progi> output, along with jquery and papaparse. A total of 2.5mb of javascript that you don't
+        have to download or execute because it's constexpr.<br/>
+    </p>
+
+    <h4>Performance</h4>
+    <p>
+        Compiler performance should never be an issue, since, as I mentioned above, the original website (the one that contains
+        constexpr code) should look and work exactly the same as the output website (the one with the rendering result and
+        constexpr code stripped out), so you should have to run the compiler only once per deployment.
+    </p>
+    <p>
+        However, the compiler doesn't have any noticeable overhead. Also:
+    </p>
+        <formula>
+$$compilation\_time = {max\left(
+            average\_rendering\_time \times {total\_number\_of\_pages \over job\_count},
+            slowest\_rendering\_page
+        \right)}$$
+        </formula>
+    <p>
+        So you can increase the job count using <progi>--jobs</progi> parameters if you have a ton of cores. The sweet
+        spot is around 1.5X the number of cores/threads.
     </p>
     <h4>Notes</h4>
 
     <ol>
         <li>
             You can mark tags other than <progi>script</progi> with <progi>constexpr</progi> as well.
-            In the above example, the box at the top is marked constexpr, so it isn't present in the output page.
-            This can be used to differentiate original website from generated website:
+            Add this code to your page to differentiate original page from the generated page:
             <prog class="language-html">
 &lt;style constexpr>
 body {
@@ -157,12 +176,12 @@ Promise.all([render_task_1(), render_task_2()])
         <li>
             You should keep all list data separate from the html in <a
                 href="https://github.com/fctorial/fctorial.github.io.src/tree/master/collections">json files</a>.
-            <progi>constexpr</progi>
-            code in the html will fetch these json files and render the page using them.
-            The directory containing this data should be excluded using
-            <progi>--exclusions</progi>
-            flag, so that the
+            <progi>constexpr</progi> code in the html will fetch these json files and render the page using them.
+            The directory containing this data should be excluded using <progi>--exclusions</progi> flag, so that the
             resources inside it aren't copied over.
+            <br/>
+            Hell, you can even use a real database if you're thinking about scalability. constexpr.js gives you a turing
+            complete templating language, so you can do anything you want.
         </li>
         <li>
             You can include dev utilites like <a

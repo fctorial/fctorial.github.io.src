@@ -81,12 +81,16 @@ function setup_bg() {
   insertFirst(document.body, make_element('<img class="bg" id="main_bg" src="/static/img/bg.jpg" />'))
 }
 
+async function evalScript(path) {
+  eval(await (await fetch(path)).text())
+}
+
 async function syntax_highlight() {
   document.querySelectorAll('prog').forEach(el => {
     el.textContent = el.textContent.trim()
   })
   window.Prism = {manual: true};
-  eval(await (await fetch("/static/js/constexpr/third_party/prism.js")).text())
+  await evalScript("/static/js/constexpr/third_party/prism.js")
   let did_highlight = false
   await Promise.all([...document.querySelectorAll('prog[class]')].map(
     el => new Promise((resolve) => {
@@ -101,11 +105,21 @@ async function syntax_highlight() {
   }
 }
 
+async function render_latex() {
+  const blocks = document.querySelectorAll('formula')
+  if (blocks.length > 0) {
+    await evalScript("/static/packages/katex/katex.js")
+    await evalScript("/static/packages/katex/contrib/auto-render.js")
+    document.head.appendChild(make_element(`<link rel="stylesheet" href="/static/packages/katex/katex.css">`))
+    blocks.forEach(block => renderMathInElement(block))
+  }
+}
+
 async function render_page() {
   setup_bg()
-  await Promise.all([render_base_page(), syntax_highlight()])
+  await Promise.all([render_base_page(), syntax_highlight(), render_latex()])
 }
 
 window.onfocus = () => {
-  setTimeout(() => window.location.reload(), 100)
+  // setTimeout(() => window.location.reload(), 100)
 }
