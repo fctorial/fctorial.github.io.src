@@ -81,7 +81,7 @@ async function syntax_highlight() {
     el.textContent = el.textContent.trim()
   })
   window.Prism = {manual: true};
-  eval(await (await fetch("/static/js/constexpr/third_party/prism.js")).text())
+  await evalScript("/static/js/constexpr/third_party/prism.js")
   let did_highlight = false
   await Promise.all([...document.querySelectorAll('prog[class]')].map(
     el => new Promise((resolve) => {
@@ -97,8 +97,20 @@ async function syntax_highlight() {
 }
     </prog>
     <p>
-        As you can see, it's regular javascript code that uses the prism.js api.
+        As you can see, it's regular javascript code that uses the prism.js api. Using <progi>katex</progi> for rendering
+        math formulae is just as simple:
     </p>
+    <prog class="language-js">
+async function render_latex() {
+  const blocks = document.querySelectorAll('formula')
+  if (blocks.length > 0) {
+    await evalScript("/static/packages/katex/katex.js")
+    await evalScript("/static/packages/katex/contrib/auto-render.js")
+    document.head.appendChild(make_element(`&lt;link rel="stylesheet" href="/static/packages/katex/katex.css">`))
+    blocks.forEach(block => renderMathInElement(block))
+  }
+}
+    </prog>
     <blockquote>
         See pages tagged with <a class="tag_element" href="/tags/generator.html?constexpr.js">constexpr.js</a> for more guides.
     </blockquote>
@@ -109,29 +121,12 @@ async function syntax_highlight() {
 <script constexpr src="/static/js/constexpr/renderer.js"></script>
 
 <script constexpr>
-  var tagsToReplace = {
-    // '&': '&amp;',
-    '<': '&lt;'
-    // '>': '&gt;'
-  };
-
-  function replaceTag(tag) {
-    return tagsToReplace[tag] || tag;
-  }
-
-  function safe_tags_replace(str) {
-    return str.replace(/[&<>]/g, replaceTag);
-  }
-
   async function page_specific_stuff() {
-    // const html = document.querySelector('prog.language-html')
-    // html.textContent = safe_tags_replace(html.innerHTML)
-    await render_page()
   }
 </script>
 
 <script constexpr>
-  Promise.all([page_specific_stuff()])
+  Promise.all([render_page(), page_specific_stuff()])
     .then(() => window._ConstexprJS_.compile())
 </script>
 
