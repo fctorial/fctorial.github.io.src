@@ -59,5 +59,13 @@
       "constexpr.js",
       "web"
     ]
+  },
+  {
+    "title": "Constexpr.js API Documentation",
+    "url": "/posts/constexprjs_api_docs.html",
+    "tags": [
+      "constexpr.js",
+      "web"
+    ]
   }
 ]
