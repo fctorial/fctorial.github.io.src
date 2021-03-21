@@ -90,16 +90,15 @@ async function syntax_highlight() {
   document.querySelectorAll('prog').forEach(el => {
     el.textContent = el.textContent.trim()
   })
-  window.Prism = {manual: true};
-  await evalScript("/static/js/constexpr/third_party/prism.js")
-  let did_highlight = false
-  await Promise.all([...document.querySelectorAll('prog[class]')].map(
-    el => new Promise((resolve) => {
-      did_highlight = true
-      Prism.highlightElement(el, null, () => resolve())
-    })
-  ))
-  if (did_highlight) {
+  const els = [...document.querySelectorAll('prog[class]')]
+  if (els.length > 0) {
+    window.Prism = {manual: true};
+    await evalScript("/static/js/constexpr/third_party/prism.js")
+    await Promise.all(els.map(
+      el => new Promise((resolve) => {
+        Prism.highlightElement(el, null, () => resolve())
+      })
+    ))
     document.head.appendChild(
       make_element(`<link rel="stylesheet" href="/static/css/prism.css">`)
     )
