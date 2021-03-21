@@ -113,22 +113,23 @@ constexpr.js --input="&lt;input_directory>" --output="&lt;output_directory>" [--
 
     <h4>Performance</h4>
     <p>
-        Compiler performance should never be an issue, since, as I mentioned above, the original website (the one that contains
-        constexpr code) should look and work exactly the same as the output website (the one with the rendering result and
-        constexpr code stripped out), so you should have to run the compiler only once per deployment.
+        The compiler doesn't have any noticeable overhead. So the compilation time depends on how fast chrome can
+        render all the pages in your website:
     </p>
-    <p>
-        However, the compiler doesn't have any noticeable overhead. Also:
-    </p>
-        <formula>
-$$compilation\_time = {max\left(
-            average\_rendering\_time \times {total\_number\_of\_pages \over job\_count},
-            slowest\_rendering\_page
-        \right)}$$
-        </formula>
+    <formula>
+$$compilation\_time = {
+            average\_rendering\_time \times {total\_number\_of\_pages \over job\_count}
+        }$$
+    </formula>
     <p>
         So you can increase the job count using <progi>--jobs</progi> parameters if you have a ton of cores. The sweet
-        spot is around 1.5X the number of cores/threads.
+        spot is around 2X the number of cores/threads.
+    </p>
+    <p>
+        However, the compiler performance shouldn't be an issue even if you're compiling 10,000 pages. Because, as I
+        mentioned above, the original website (the one you wrote) will look and work exactly the same
+        as the output website (the one with the rendering result and constexpr code stripped out), so you will have to
+        run the compiler only once per deployment.
     </p>
     <h4>Notes</h4>
 

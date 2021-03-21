@@ -18,7 +18,7 @@
 
 <script constexpr>
   Promise.all([render_page(), page_specific_stuff()])
-    .then(() => window._ConstexprJS_.abort())
+    .then(() => window._ConstexprJS_.abort("is a template"))
 </script>
 
 </html>
