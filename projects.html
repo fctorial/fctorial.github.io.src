@@ -46,7 +46,7 @@
 </script>
 
 <script constexpr>
-  Promise.all([render_page(), page_specific_stuff()])
+  Promise.all([site_global_rendering(), page_specific_stuff()])
     .then(() => window._ConstexprJS_.compile())
 </script>
 

@@ -12,14 +12,14 @@
 <script constexpr src="/static/js/constexpr/renderer.js"></script>
 
 <script constexpr>
-  async function page_specific_rendering() {
-    const base_page_render = render_page()
+  async function render_page() {
+    const base_page_render = site_global_rendering()
     await base_page_render
   }
 </script>
 
 <script constexpr>
-  page_specific_rendering()
+  render_page()
     .then(() => window._ConstexprJS_.abort("is a template"))
 </script>
 

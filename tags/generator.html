@@ -12,7 +12,7 @@
 
 <script constexpr>
   async function page_specific_stuff() {
-    await render_page()
+    await site_global_rendering()
     const tagName = window.location.search.substring(1)
     document.querySelector('header h3').textContent = 'Tag: ' + tagName
     document.querySelector('head title').textContent = 'Tag: ' + tagName

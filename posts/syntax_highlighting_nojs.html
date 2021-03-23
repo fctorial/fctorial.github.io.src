@@ -96,7 +96,7 @@ function calculate(n) {
   async function page_specific_stuff() {
     document.querySelector('#syntax_highlight_code').textContent = syntax_highlight.toString()
     document.querySelector('#render_latex_code').textContent = render_latex.toString()
-    await render_page()
+    await site_global_rendering()
   }
 </script>
 

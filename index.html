@@ -42,7 +42,7 @@
 <script constexpr>
   Promise.all([
     fetch('/static/rss.xml'), fetch('/favicon.ico'),
-    render_page(), page_specific_stuff()
+    site_global_rendering(), page_specific_stuff()
   ])
     .then(() => window._ConstexprJS_.compile())
 </script>

@@ -115,7 +115,7 @@ async function render_latex() {
   }
 }
 
-async function render_page() {
+async function site_global_rendering() {
   setup_bg()
   await Promise.all([render_base_page(), syntax_highlight(), render_latex()])
 }

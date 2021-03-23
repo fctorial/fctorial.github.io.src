@@ -313,7 +313,7 @@ Total                  16         1185         1023            0          162
 </script>
 
 <script constexpr>
-  Promise.all([render_page(), page_specific_stuff()])
+  Promise.all([site_global_rendering(), page_specific_stuff()])
     .then(() => {
       const init = document.createElement('script')
       init.innerText = 'initRT()'

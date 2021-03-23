@@ -55,7 +55,7 @@
 
 <script constexpr>
   async function page_specific_stuff() {
-    await render_page()
+    await site_global_rendering()
     document.querySelector('#main_bg')
       .setAttribute('src', '/static/img/win8.jpg')
   }
