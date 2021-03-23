@@ -121,5 +121,5 @@ async function render_page() {
 }
 
 window.onfocus = () => {
-  setTimeout(() => window.location.reload(), 100)
+  setTimeout(() => window.location.reload(), 150)
 }

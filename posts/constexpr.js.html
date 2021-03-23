@@ -15,17 +15,18 @@
     </p>
     <p>
         This feature allows automatic generation of complex static data at compile time, and the runtime code can just use the
-        result of that compile time evaluated data. Variable inlining is a simple form of compile time evaluation.<br/>
-        Ideally, the language/compiler should make it possible to turn any eligible piece of code "constexpr" with some
+        result of compile time evaluated data. Variable inlining is a simple form of compile time evaluation.<br/>
+        Ideally, the language/compiler should allow the users to turn any eligible piece of code "constexpr" with some
         annotations. The eligibility criteria being that the code must not depend on any runtime data.
     </p>
     <h4>What is constexpr.js?</h4>
     <p>
-        <a href="https://github.com/fctorial/ConstexprJS">constexpr.js</a> is a static site generator. It's different
-        from SSG's like Jakyll in that it doesn't force you to learn a dedicated domain specific language. There already exists a
-        dedicated languages for dealing with DOM and websites, javascript. With constexpr.js, you use javascript and usual
-        DOM manipulation methods to generate the website. The whole browser runtime is available at your disposal when
-        generating sites with constexpr.js.
+        <a href="https://github.com/fctorial/ConstexprJS">constexpr.js</a> is a tool that allows you to execute parts of
+        javascript in your website at compile time. It can be used like a static site generator, however, this isn't the
+        only use case it allows. It's different from SSG's like Jakyll in that it doesn't force you to learn a dedicated
+        domain specific language. There already exists a dedicated languages for dealing with DOM and websites,
+        javascript. With constexpr.js, you use javascript and usual DOM manipulation methods to generate the website.
+        The whole browser runtime is available at your disposal when generating sites with constexpr.js.
     </p>
 
     <h4>Demo</h4>
@@ -34,24 +35,26 @@
     <h4>How does it work?</h4>
     <p>
         The compiler renders the pages using chrome, and once they finish rendering, it saves the rendered state
-        as new pages. It also strips the constexpr javascript out, potentially reducing download size for the website users
-        drastically. Any piece of javascript code that just generates some html can be made constexpr.
+        as new pages. It also strips out the javascript that was marked as constexpr, potentially reducing download size
+        for the website users drastically. Any piece of javascript code that just generates some html can be made
+        constexpr.
     </p>
     <p>
         The generated pages don't have to be completely static. For example, try hovering over the images on <a
             href="/posts/intellij_logos.html">this</a> page.
     </p>
-    <blockquote>These new pages will look exactly like the original pages after they finish rendering. This is one of the
+    <blockquote>
+        The new website will look exactly like the original website after the pages finish rendering. This is one of the
         basic principles of constexpr.js. So you can keep building your website as usual and run the compiler once
-        you're happy with the results, and you'll get a leaner, faster version of your website as output.</blockquote>
+        you're happy with the results, and you'll get a leaner, faster version of your website as output.
+    </blockquote>
 
     <h4>How to use it?</h4>
 
     <p>
         You will have to divide the javascript being used in your page into two groups. Runtime javascript and
         compile time javascript, and annotate all compile time script tags with
-        <progi>constexpr</progi>
-        attribute:
+        <progi>constexpr</progi> attribute:
         <prog class="language-html">
 &lt;script constexpr>
 ...
@@ -60,8 +63,7 @@
         </prog>
         <br/>
         Runtime code must not depend on the compile time code, since that code will be stripped out before writing the
-        output file.
-        See <a href="/posts/runtime_compiletime_constexpr.js.html">this guide</a> for code organization
+        output file. See <a href="/posts/runtime_compiletime_constexpr.js.html">this guide</a> for code organization
         tips for constexpr.js.
     </p>
 
@@ -72,7 +74,7 @@
     </p>
 
     <p>
-        The compiler can be installed like this:
+        The compiler can be installed from npm:
         <prog class="language-bash">npm i -g constexpr.js@latest</prog>
         <br/>
     </p>
@@ -91,7 +93,7 @@ constexpr.js --input="&lt;input_directory>" --output="&lt;output_directory>" [--
     </div>
     <p>
         The tool also copies resources (<progi>css</progi>, <progi>images</progi> etcetra)
-        that are requested by pages being rendered. HTML files/resources inside paths given in <progi>--exclusions</progi>
+        that are requestead by pages being rendered. HTML files/resources inside paths given in <progi>--exclusions</progi>
         are not processed/copied.
     </p>
     <p>
@@ -128,8 +130,7 @@ $$compilation\_time = {
     <p>
         However, the compiler performance shouldn't be an issue even if you're compiling 10,000 pages. Because, as I
         mentioned above, the original website (the one you wrote) will look and work exactly the same
-        as the output website (the one with the rendering result and constexpr code stripped out), so you will have to
-        run the compiler only once per deployment.
+        as the generated website, so you will only have to run the compiler once per deployment.
     </p>
     <h4>Notes</h4>
 
@@ -152,8 +153,8 @@ body {
         </li>
         <li>
             In the original webpage, you'll see a console error when the code tries to call the compilation trigger
-            functions,
-            since those functions are injected by the compiler. You can add this snippet near the top to fix that error:
+            functions. Because those functions are injected by the compiler. You can add this snippet near the top to
+            fix that error:
 
             <prog class="language-html">
 &lt;script constexpr>
@@ -181,21 +182,20 @@ Promise.all([render_task_1(), render_task_2()])
             The directory containing this data should be excluded using <progi>--exclusions</progi> flag, so that the
             resources inside it aren't copied over.
             <br/>
-            Hell, you can even use a real database if you're thinking about scalability. constexpr.js gives you a turing
+            You can even use a real database if you're thinking about scalability. constexpr.js gives you a turing
             complete templating language, so you can do anything you want.
         </li>
         <li>
-            You can include dev utilites like <a
-                href="https://github.com/fctorial/fctorial.github.io.src/blob/master/static/js/constexpr/renderer.js#L86">this</a>
-            in the
-            original website. It reloads the page whenever it's focused. It won't be in the output since it's used as
-            constexpr.
+            You can include dev utilites like
+            <a href="https://github.com/fctorial/fctorial.github.io.src/blob/627558ff17fae0b5b5dbdb93510f08e8e7065aad/static/js/constexpr/renderer.js#L123">this</a>
+            in the original website. It reloads the page whenever it's focused. It won't be in the output since it's
+            used as constexpr.
         </li>
         <li>
-            This whole website is rendered using javascript and constexpr.js. The html files contains only the page
+            This whole website is rendered using javascript and constexpr.js. The html files contain only the page
             specific stuff. (article text and page specific styling).
-            All of the styling and theming is done by constexpr code. Nothing other than the image background switching
-            uses runtime javascript:
+            All of the styling and theming is done by constexpr code. The whole website contains 37 lines of javascript
+            (for some optional dynamic functionality in some pages):
             <prog>
 $ tokei -t=html
 ===============================================================================

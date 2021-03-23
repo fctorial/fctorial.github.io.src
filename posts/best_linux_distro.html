@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<article>
+    <p>
+        Most article that compares linux distributions start with a statement like this one:
+    </p>
+    <blockquote>
+        There is no definite answer to that question.
+    </blockquote>
+    <p>
+        This statement is false and deceptive. People use this statement when they are trying to avoid offending the
+        reader. Human beings get offended whenever someone tries to criticise anything they're related to. That's just
+        how humans act. People have a subconscious desire to hear things that validate their own believes, and a
+        subconscious repulsion to things that attack their believes. So the author can avoid the reader from going away
+        by making a neutral statement.
+    </p>
+    <p>
+        Coming back to the question in the title, there is a linux distribution that I think is objectively better than
+        any other linux distribution that exists.
+    </p>
+
+    <h4>NixOS</h4>
+    <p>
+
+    </p>
+</article>
+</body>
+<script constexpr src="/static/js/constexpr/lib.js"></script>
+<script constexpr src="/static/js/constexpr/index.js"></script>
+<script constexpr src="/static/js/constexpr/renderer.js"></script>
+
+<script constexpr>
+  async function page_specific_stuff() {
+    await render_page()
+    document.querySelector('#main_bg')
+      .setAttribute('src', '/static/img/nixos.svg')
+  }
+</script>
+
+<script constexpr>
+  Promise.all([page_specific_stuff()])
+    .then(() => window._ConstexprJS_.abort("is a template"))
+</script>
+
+</html>
