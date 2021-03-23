@@ -75,40 +75,13 @@ function calculate(n) {
         use <em>any</em> javascript library/framework. This code is all you need to integrate prism.js
         in your website.
     </p>
-    <prog class="language-js">
-async function syntax_highlight() {
-  document.querySelectorAll('prog').forEach(el => {
-    el.textContent = el.textContent.trim()
-  })
-  const els = [...document.querySelectorAll('prog[class]')]
-  if (els.length > 0) {
-    window.Prism = {manual: true};
-    await evalScript("/static/js/constexpr/third_party/prism.js")
-    await Promise.all(els.map(
-      el => new Promise((resolve) => {
-        Prism.highlightElement(el, null, () => resolve())
-      })
-    ))
-    document.head.appendChild(
-      make_element(`<link rel="stylesheet" href="/static/css/prism.css">`)
-    )
-  }
-}
+    <prog id="syntax_highlight_code" class="language-js">
     </prog>
     <p>
         As you can see, it's regular javascript code that uses the prism.js api. Using <progi>katex</progi> for rendering
         math formulae is just as simple:
     </p>
-    <prog class="language-js">
-async function render_latex() {
-  const blocks = document.querySelectorAll('formula')
-  if (blocks.length > 0) {
-    await evalScript("/static/packages/katex/katex.js")
-    await evalScript("/static/packages/katex/contrib/auto-render.js")
-    document.head.appendChild(make_element(`&lt;link rel="stylesheet" href="/static/packages/katex/katex.css">`))
-    blocks.forEach(block => renderMathInElement(block))
-  }
-}
+    <prog id="render_latex_code" class="language-js">
     </prog>
     <blockquote>
         See pages tagged with <a class="tag_element" href="/tags/generator.html?constexpr.js">constexpr.js</a> for more guides.
@@ -121,11 +94,14 @@ async function render_latex() {
 
 <script constexpr>
   async function page_specific_stuff() {
+    document.querySelector('#syntax_highlight_code').textContent = syntax_highlight.toString()
+    document.querySelector('#render_latex_code').textContent = render_latex.toString()
+    await render_page()
   }
 </script>
 
 <script constexpr>
-  Promise.all([render_page(), page_specific_stuff()])
+  Promise.all([page_specific_stuff()])
     .then(() => window._ConstexprJS_.compile())
 </script>
 
