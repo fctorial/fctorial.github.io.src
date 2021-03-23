@@ -12,12 +12,14 @@
 <script constexpr src="/static/js/constexpr/renderer.js"></script>
 
 <script constexpr>
-  async function page_specific_stuff() {
+  async function page_specific_rendering() {
+    const base_page_render = render_page()
+    await base_page_render
   }
 </script>
 
 <script constexpr>
-  Promise.all([render_page(), page_specific_stuff()])
+  page_specific_rendering()
     .then(() => window._ConstexprJS_.abort("is a template"))
 </script>
 
