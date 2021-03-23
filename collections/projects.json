@@ -1,7 +1,7 @@
 [
   {
     "name": "constexpr.js",
-    "description": "A static site generator without a DSL",
+    "description": "Evaluate parts of javascript in your page statically",
     "url": "/tags/generator.html?constexpr.js"
   },
   {
