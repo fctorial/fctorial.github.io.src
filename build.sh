@@ -1,2 +1,2 @@
 rm -rf ../fctorial.github.io/*
-../ConstexprJS/constexpr.js "$@" --input=. --output=../fctorial.github.io --jobs 10 --exclusions=/collections:/tags/generator.html:/static/files --force --verbose --depfile deps.json
+../ConstexprJS/constexpr.js "$@" --input=. --output=../fctorial.github.io --entry /index.html --jobcount 10 --exclusion /collections --depfile deps.json

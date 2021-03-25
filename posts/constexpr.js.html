@@ -313,6 +313,11 @@ Total                  16         1185         1023            0          162
 </script>
 
 <script constexpr>
+  window._ConstexprJS_.addExclusions([
+    '/static/files/build.cast',
+    '/static/files/tips.csv'
+  ])
+
   Promise.all([site_global_rendering(), page_specific_stuff()])
     .then(() => {
       const init = document.createElement('script')

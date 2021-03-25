@@ -81,9 +81,13 @@ function setup_bg() {
   insertFirst(document.body, make_element('<img class="bg" id="main_bg" src="/static/img/bg.jpg" />'))
 }
 
+async function fetchFile(path) {
+  return await (await fetch(path)).text()
+}
+
 async function evalScript(path) {
   window._ConstexprJS_.addExclusions([path])
-  eval(await (await fetch(path)).text())
+  eval(await fetchFile(path))
 }
 
 async function syntax_highlight() {
