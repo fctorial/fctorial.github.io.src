@@ -2,10 +2,6 @@
 <html lang="en">
 <body>
 <article>
-    <p>
-        In this article I'm going to talk about <a href="https://github.com/fctorial/ConstexprJS">constexpr.js</a>, which is a tool
-        that allows you to use zero cost abstractions when developing websites.
-    </p>
     <h4>What is constexpr?</h4>
     <p>
         Constexpr is a feature found in statically compiled programming languages that allows evaluation of expressions in a
@@ -22,9 +18,9 @@
     <h4>What is constexpr.js?</h4>
     <p>
         <a href="https://github.com/fctorial/ConstexprJS">constexpr.js</a> is a tool that allows you to execute parts of
-        javascript in your website at compile time. It can be used like a static site generator, however, this isn't the
-        only use case it allows. It's different from SSG's like Jakyll in that it doesn't force you to learn a dedicated
-        domain specific language. There already exists a dedicated languages for dealing with DOM and websites,
+        javascript in your website before deployment. You can use it like a static site generator, as I do for this
+        website. It's different from SSG's like Jakyll in that it doesn't force you to learn a dedicated
+        domain specific language. There already exists a dedicated languages for dealing with DOM and webpages,
         javascript. With constexpr.js, you use javascript and usual DOM manipulation methods to generate the website.
         The whole browser runtime is available at your disposal when generating sites with constexpr.js.
     </p>
@@ -35,8 +31,8 @@
     <h4>How does it work?</h4>
     <p>
         The compiler renders the pages using chrome, and once they finish rendering, it saves the rendered state
-        as new pages. It also strips out the javascript that was marked as constexpr, potentially reducing download size
-        for the website users drastically. Any piece of javascript code that just generates some html can be made
+        as new pages. It also strips out the javascript that was used for generating HTML, potentially reducing download
+        size for the website users drastically. Any piece of javascript code that just generates some HTML can be made
         constexpr.
     </p>
     <p>
@@ -45,7 +41,7 @@
     </p>
     <blockquote>
         The new website will look exactly like the original website after the pages finish rendering. This is one of the
-        basic principles of constexpr.js. So you can keep building your website as usual and run the compiler once
+        basic principles of constexpr.js. So you can build your website as usual and run the compiler once
         you're happy with the results, and you'll get a leaner, faster version of your website as output.
     </blockquote>
 
@@ -68,8 +64,7 @@
     </p>
 
     <p>
-        Once the HTML generation code has finished rendering, it must call the
-        <progi>window._ConstexprJS_.compile()</progi>
+        Once the HTML generation code has finished rendering, it must call the <progi>window._ConstexprJS_.compile()</progi>
         function. This function is injected into the page by the compiler.
     </p>
 
@@ -81,8 +76,28 @@
 
     <p>
         Command line usage:
-        <prog class="language-bash">
-constexpr.js --input="&lt;input_directory>" --output="&lt;output_directory>" [--exclusions=path1:path2] [--verbose] [--jobs=n] [--noheadless] [--jobtimeout] [--depfile=&lt;depfile>]
+        <prog>
+$ ./constexpr.js --help
+usage: constexpr.js [-h] [-v] --input INPUT_DIRECTORY --output OUTPUT_DIRECTORY [--entry ENTRYPOINTS] [--exclusion EXCLUSIONS] [--jobcount JOBCOUNT] [--jobtimeout JOBTIMEOUT] [--depfile DEPFILE] [--noheadless] [--verbose]
+
+Zero cost abstractions for web development
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --version         show program's version number and exit
+  --input INPUT_DIRECTORY
+                        Input website root directory
+  --output OUTPUT_DIRECTORY
+                        Output directory
+  --entry ENTRYPOINTS   Add an HTML file to be used as entry point, paths must be relative to the website root, can be used multiple times
+  --exclusion EXCLUSIONS
+                        Add a path to exclusions list, HTML files inside it aren't processed and resources inside it aren't copied, can be used multiple times
+  --jobcount JOBCOUNT   Number of compilation jobs to run in parallel
+  --jobtimeout JOBTIMEOUT
+                        Time in milliseconds for which the compiler will wait for the pages to render
+  --depfile DEPFILE     A JSON object containing the command line arguments, file dependency, compilation results will be written to this path
+  --noheadless          Do not run chrome in headless mode, can be used for debugging using browser console
+  --verbose             Enable verbose logging
         </prog>
     </p>
     <p>
@@ -96,14 +111,10 @@ constexpr.js --input="&lt;input_directory>" --output="&lt;output_directory>" [--
         that are requestead by pages being rendered. HTML files/resources inside paths given in <progi>--exclusions</progi>
         are not processed/copied.
     </p>
-    <p>
-        A json object with the command line args, compilation results and dependencies will be written to the path specified
-        by <progi>--depfile</progi> option.
-    </p>
 
     <h4>Plugins</h4>
     <p>
-        You can use any web development technology (and any number of technologies) to generate the html without any
+        You can use any web development technology (and any number of technologies) to generate the HTML without any
         fear of bloat. Pivottable.js demo:
     </p>
     <div id="pt_output"></div>
@@ -113,24 +124,39 @@ constexpr.js --input="&lt;input_directory>" --output="&lt;output_directory>" [--
         have to download or execute because it's constexpr.<br/>
     </p>
 
+    <h4>Ecosystem</h4>
+    <p>
+        Since you can use <em>any</em> javascript library, no strings attached, you could argue that the ecosystem for
+        constexpr.js is bigger than that of other static site generators like Jekyll, Hugo etc.
+    </p>
+
     <h4>Performance</h4>
     <p>
         The compiler doesn't have any noticeable overhead. So the compilation time depends on how fast chrome can
         render all the pages in your website:
     </p>
     <formula>
-$$compilation\_time = {
+$$compilation\_time \approx {
             average\_rendering\_time \times {total\_number\_of\_pages \over job\_count}
         }$$
     </formula>
     <p>
-        So you can increase the job count using <progi>--jobs</progi> parameters if you have a ton of cores. The sweet
+        So you can increase the job count using <progi>--jobcount</progi> parameters if you have a ton of cores. The sweet
         spot is around 2X the number of cores/threads.
     </p>
     <p>
-        However, the compiler performance shouldn't be an issue even if you're compiling 10,000 pages. Because, as I
-        mentioned above, the original website (the one you wrote) will look and work exactly the same
+        However, compilation time shouldn't be an issue regardless of the size of your website. Because, as I
+        mentioned above, the original website (the one you write) will look and work exactly the same
         as the generated website, so you will only have to run the compiler once per deployment.
+    </p>
+    <p>
+        On my 4 core / 4 thread 3.5 GHz machine, the amortized compilation time is 100ms per page, and it should scale down
+        linearly with the number of cores/threads/jobs. So that puts it's performance in the same ballpark as Jekyll.
+    </p>
+    <p>
+        If that doesn't work for you, you can use <progi>--entry</progi> option to compile a small
+        number of pages in your website. See <a href="/posts/constexprjs_entry_points.html">this guide</a> for more
+        information.
     </p>
     <h4>Notes</h4>
 
@@ -148,12 +174,8 @@ body {
             This code will add a red border to your page which will only appear on the original website.
         </li>
         <li>
-            Client code in the page can signal the compiler to skip the current file by calling
-            <progi>window._ConstexprJS_.abort(message)</progi>.
-        </li>
-        <li>
             In the original webpage, you'll see a console error when the code tries to call the compilation trigger
-            functions. Because those functions are injected by the compiler. You can add this snippet near the top to
+            functions. Because those functions are injected by the compiler. You can add this snippet to
             fix that error:
 
             <prog class="language-html">
@@ -162,14 +184,15 @@ if (!window._ConstexprJS_) {
     window._ConstexprJS_ = {
         compile: () => {},
         abort: () => {},
-        addPaths: () => {}
+        addPaths: () => {},
+        addExclusions: () => {}
     }
 }
 &lt;/script>
             </prog>
         </li>
         <li>
-            There might be multiple rendering tasks running in your page. You can manage them using promises:
+            You can manage multiple rendering task in your page using promises:
             <prog class="language-js">
 Promise.all([render_task_1(), render_task_2()])
     .then(() => window._ConstexprJS_.compile())
