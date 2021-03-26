@@ -3,7 +3,8 @@ if (!window._ConstexprJS_) {
     compile: () => {},
     abort: () => {},
     addPaths: () => {},
-    addExclusions: () => {}
+    addExclusions: () => {},
+    log: () => {}
   }
 }
 

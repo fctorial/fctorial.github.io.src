@@ -76,5 +76,14 @@
       "ui",
       "essay"
     ]
+  },
+  {
+    "title": "Entry Points in constexpr.js",
+    "url": "/posts/constexprjs_entry_points.html",
+    "tags": [
+      "constexpr.js",
+      "web",
+      "essay"
+    ]
   }
 ]

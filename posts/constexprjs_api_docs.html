@@ -15,7 +15,7 @@
             </p>
         </li>
         <li>
-            <prog class="language-js">window._ConstexprJS_.abort()</prog>
+            <prog class="language-js">window._ConstexprJS_.abort(message)</prog>
             <p>
                 Call this method if you want the compiler to skip this page. The page will be killed shortly after.
             </p>
@@ -42,6 +42,13 @@
             </p>
             <p>
                 You can use this method to mark certain paths as <progi>constexpr</progi>, so that they aren't copied.
+            </p>
+        </li>
+        <li>
+            <prog class="language-js">window._ConstexprJS_.log(message)</prog>
+            <p>
+                Queue a message to be printed on the compiler stdout. The message is prefixed with the generator path
+                before printing.
             </p>
         </li>
     </ul>
