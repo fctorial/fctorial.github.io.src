@@ -96,6 +96,26 @@
             ]
         },
         {
+            "generator": "/projects.html",
+            "output": "/projects.html",
+            "logs": [],
+            "idx": 1,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/css/global_styles.css",
+                "/collections/nav.json",
+                "/collections/projects.json",
+                "/static/img/bg.jpg"
+            ]
+        },
+        {
             "generator": "/tags.html",
             "output": "/tags.html",
             "logs": [],
@@ -145,26 +165,6 @@
             ]
         },
         {
-            "generator": "/projects.html",
-            "output": "/projects.html",
-            "logs": [],
-            "idx": 1,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/css/global_styles.css",
-                "/collections/nav.json",
-                "/collections/projects.json",
-                "/static/img/bg.jpg"
-            ]
-        },
-        {
             "generator": "/404.html",
             "output": "/404.html",
             "logs": [],
@@ -181,6 +181,122 @@
                 "/static/css/global_styles.css",
                 "/collections/nav.json",
                 "/static/img/bg.jpg"
+            ]
+        },
+        {
+            "generator": "/posts/youtube_python_bug.html",
+            "output": "/posts/youtube_python_bug.html",
+            "logs": [],
+            "idx": 10,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/css/global_styles.css",
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/collections/nav.json",
+                "/static/css/prism.css"
+            ]
+        },
+        {
+            "generator": "/posts/zircon_standalone.html",
+            "output": "/posts/zircon_standalone.html",
+            "logs": [],
+            "idx": 8,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/css/global_styles.css",
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/collections/nav.json",
+                "/static/css/prism.css",
+                "/static/img/fuchsia.svg"
+            ]
+        },
+        {
+            "generator": "/posts/constexprjs_generator_pages.html",
+            "output": "/posts/constexprjs_generator_pages.html",
+            "logs": [],
+            "idx": 9,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/css/global_styles.css",
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/collections/nav.json",
+                "/static/css/prism.css"
+            ]
+        },
+        {
+            "generator": "/posts/modifying_idea.html",
+            "output": "/posts/modifying_idea.html",
+            "logs": [],
+            "idx": 5,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/css/global_styles.css",
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/collections/nav.json",
+                "/static/css/prism.css"
+            ]
+        },
+        {
+            "generator": "/posts/runtime_compiletime_constexpr.js.html",
+            "output": "/posts/runtime_compiletime_constexpr.js.html",
+            "logs": [],
+            "idx": 7,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/css/global_styles.css",
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/collections/nav.json",
+                "/static/css/prism.css"
             ]
         },
         {
@@ -271,14 +387,12 @@
             ]
         },
         {
-            "generator": "/posts/zircon_standalone.html",
-            "output": "/posts/zircon_standalone.html",
+            "generator": "/posts/ui_api.html",
+            "output": "/posts/ui_api.html",
             "logs": [],
-            "idx": 8,
+            "idx": 13,
             "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
+            "addedExclusions": [],
             "deducedExclusions": [
                 "/static/js/constexpr/lib.js",
                 "/static/js/constexpr/index.js",
@@ -290,38 +404,14 @@
                 "/collections/posts.json",
                 "/static/img/bg.jpg",
                 "/collections/nav.json",
-                "/static/css/prism.css",
-                "/static/img/fuchsia.svg"
+                "/static/img/win8.jpg"
             ]
         },
         {
-            "generator": "/posts/modifying_idea.html",
-            "output": "/posts/modifying_idea.html",
+            "generator": "/posts/constexprjs_api_docs.html",
+            "output": "/posts/constexprjs_api_docs.html",
             "logs": [],
-            "idx": 5,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/css/global_styles.css",
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/collections/nav.json",
-                "/static/css/prism.css"
-            ]
-        },
-        {
-            "generator": "/posts/youtube_python_bug.html",
-            "output": "/posts/youtube_python_bug.html",
-            "logs": [],
-            "idx": 10,
+            "idx": 12,
             "addedPaths": [],
             "addedExclusions": [
                 "/static/js/constexpr/third_party/prism.js"
@@ -341,33 +431,10 @@
             ]
         },
         {
-            "generator": "/posts/runtime_compiletime_constexpr.js.html",
-            "output": "/posts/runtime_compiletime_constexpr.js.html",
+            "generator": "/posts/syntax_highlighting_nojs.html",
+            "output": "/posts/syntax_highlighting_nojs.html",
             "logs": [],
-            "idx": 7,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/css/global_styles.css",
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/collections/nav.json",
-                "/static/css/prism.css"
-            ]
-        },
-        {
-            "generator": "/posts/constexprjs_generator_pages.html",
-            "output": "/posts/constexprjs_generator_pages.html",
-            "logs": [],
-            "idx": 9,
+            "idx": 11,
             "addedPaths": [],
             "addedExclusions": [
                 "/static/js/constexpr/third_party/prism.js"
@@ -428,98 +495,12 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?intellij",
-            "output": "/tags/intellij.html",
-            "logs": [],
-            "idx": 15,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
+            "generator": "/tags/generator.html?python",
+            "output": "/tags/python.html",
+            "logs": [
+                "only one post found with tag: \"python\""
             ],
-            "status": "ok",
-            "deps": [
-                "/static/css/global_styles.css",
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/collections/nav.json",
-                "/collections/posts.json"
-            ]
-        },
-        {
-            "generator": "/posts/ui_api.html",
-            "output": "/posts/ui_api.html",
-            "logs": [],
-            "idx": 13,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/css/global_styles.css",
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/collections/nav.json",
-                "/static/img/win8.jpg"
-            ]
-        },
-        {
-            "generator": "/posts/syntax_highlighting_nojs.html",
-            "output": "/posts/syntax_highlighting_nojs.html",
-            "logs": [],
-            "idx": 11,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/css/global_styles.css",
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/collections/nav.json",
-                "/static/css/prism.css"
-            ]
-        },
-        {
-            "generator": "/posts/constexprjs_api_docs.html",
-            "output": "/posts/constexprjs_api_docs.html",
-            "logs": [],
-            "idx": 12,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/css/global_styles.css",
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/collections/nav.json",
-                "/static/css/prism.css"
-            ]
-        },
-        {
-            "generator": "/tags/generator.html?web",
-            "output": "/tags/web.html",
-            "logs": [],
-            "idx": 17,
+            "idx": 19,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -560,12 +541,10 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?python",
-            "output": "/tags/python.html",
-            "logs": [
-                "only one post found with tag: \"python\""
-            ],
-            "idx": 19,
+            "generator": "/tags/generator.html?web",
+            "output": "/tags/web.html",
+            "logs": [],
+            "idx": 17,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -583,10 +562,10 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?essay",
-            "output": "/tags/essay.html",
+            "generator": "/tags/generator.html?intellij",
+            "output": "/tags/intellij.html",
             "logs": [],
-            "idx": 20,
+            "idx": 15,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -610,6 +589,27 @@
                 "only one post found with tag: \"ui\""
             ],
             "idx": 21,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/css/global_styles.css",
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/collections/nav.json",
+                "/collections/posts.json"
+            ]
+        },
+        {
+            "generator": "/tags/generator.html?essay",
+            "output": "/tags/essay.html",
+            "logs": [],
+            "idx": 20,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -657,8 +657,8 @@
                 "/static/img/stones.jpg",
                 "/static/img/bg.jpg",
                 "/static/img/stones.jpg",
-                "/static/css/prism.css",
                 "/collections/nav.json",
+                "/static/css/prism.css",
                 "/static/packages/katex/katex.css",
                 "/static/packages/katex/fonts/KaTeX_Main-Regular.woff2",
                 "/static/packages/katex/fonts/KaTeX_Math-Italic.woff2"
