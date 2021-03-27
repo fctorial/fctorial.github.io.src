@@ -47,6 +47,10 @@
       link.innerText = post.title
       postsEl.appendChild(el)
     })
+
+    // Github pages doesn't reindex the site if index.html hasn't changed
+    // this will force every index.html build to be different.
+    document.body.appendChild(make_element(`<div style="display: none;">${+ new Date()}</div>`))
   }
 </script>
 
