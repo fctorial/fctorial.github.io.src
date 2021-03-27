@@ -14,6 +14,7 @@ posts.forEach(
     result = `
   <item>
       <title>${post.title}</title>
+      <pubDate>${post.date}</pubDate>
       <link>https://fctorial.github.io${post.url}</link>
       ${tags}
   </item>` + result

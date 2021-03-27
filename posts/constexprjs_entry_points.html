@@ -4,9 +4,8 @@
 <article>
     <p>
         <progi>constexpr.js</progi> executable requires two mandatory arguments, <progi>--input</progi> and
-        <progi>--output</progi>. By default, it searches the input directory for HTML files, processes them, and writes
-        the result to corresponding paths in the output directory. This is what happens when the <progi>--entry</progi>
-        option is not used.
+        <progi>--output</progi>. By default (when <progi>--entry</progi> option isn't used), it searches the input
+        directory for HTML files, processes them, and writes the result to corresponding paths in the output directory.
     </p>
     <p>
         <progi>--entry</progi> option can be used multiple times in an invocation. It's values must be paths of HTML
@@ -39,8 +38,9 @@ constexpr.js --input=. --output=../deployment --entry /index.html --entry /subsi
     </p>
     <p>
         On the contrary, constexpr.js is just a tool for executing (and stripping) javascript ahead of time. It just
-        happens to be the case that one of the its main use cases is to generate HTML, which is what SSGs do. You can
-        think of constexpr.js as a tool for building SSGs, which is surprisingly easy to do with constexpr.js because you'll
+        happens to be the case that one of the its main use cases is to generate HTML, which is what SSGs do. All of
+        your web development knowledge and experience transfers over seamlessly once you start using constexpr.js.
+        You can think of constexpr.js as a tool for building SSGs, which is surprisingly easy to do because you'll
         be using a language and runtime whose sole purpose is to deal with HTML and the DOM.
     </p>
     <p>
