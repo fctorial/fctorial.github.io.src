@@ -75,6 +75,21 @@ async function render_base_page() {
     insertBefore(article, ne)
     ne.appendChild(item)
   })
+
+  const footer = make_element(`
+<footer>
+    <div class="social">
+        <a href="https://github.com/fctorial" class="svg-icon github"></a>
+        <a href="https://twitter.com/fctorial1" class="svg-icon twitter"></a>
+        <a href="mailto:fctorial@gmail.com" class="svg-icon email"></a>
+        <a href="/static/rss.xml" class="svg-icon rss"></a>
+    </div>
+</footer>
+`)
+  if (this_post) {
+    footer.appendChild(make_element(`<a class="discussion" target="_blank" href="${this_post.discussion}">Join the discussion here</a>`))
+  }
+  insertAfter(article, footer)
 }
 
 function setup_bg() {

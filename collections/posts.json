@@ -3,6 +3,7 @@
     "title": "All Intellij Idea CE Logos",
     "url": "/posts/intellij_logos.html",
     "date": "16 Mar 2021",
+    "discussion": "https://fctorial.github.io/posts/intellij_logos.html",
     "tags": [
       "intellij"
     ]
@@ -11,6 +12,7 @@
     "title": "Modifying Intellij Idea without using SDK or compiling it from source",
     "url": "/posts/modifying_idea.html",
     "date": "17 Mar 2021",
+    "discussion": "https://www.reddit.com/r/fctorial/comments/me5ev6/modifying_intellij_idea_without_using_sdk_or/",
     "tags": [
       "intellij"
     ]
@@ -19,6 +21,7 @@
     "title": "Zero Cost Abstractions in Web Development",
     "url": "/posts/constexpr.js.html",
     "date": "18 Mar 2021",
+    "discussion": "https://www.reddit.com/r/fctorial/comments/me5f1y/zero_cost_abstractions_in_web_development/",
     "tags": [
       "constexpr.js",
       "web"
@@ -28,6 +31,7 @@
     "title": "Runtime/Compile time code separation with constexpr.js",
     "url": "/posts/runtime_compiletime_constexpr.js.html",
     "date": "19 Mar 2021",
+    "discussion": "https://www.reddit.com/r/fctorial/comments/me5f4s/runtimecompile_time_code_separation_with/",
     "tags": [
       "constexpr.js",
       "web"
@@ -37,6 +41,7 @@
     "title": "Zircon Standalone",
     "url": "/posts/zircon_standalone.html",
     "date": "20 Mar 2021",
+    "discussion": "https://www.reddit.com/r/fctorial/comments/me5f8w/zircon_standalone/",
     "tags": [
       "zircon_standalone"
     ]
@@ -45,6 +50,7 @@
     "title": "Generator pages in constexpr.js",
     "url": "/posts/constexprjs_generator_pages.html",
     "date": "21 Mar 2021",
+    "discussion": "https://www.reddit.com/r/fctorial/comments/me5fcr/generator_pages_in_constexprjs/",
     "tags": [
       "constexpr.js",
       "web"
@@ -54,6 +60,7 @@
     "title": "Reading The Tea Leaves",
     "url": "/posts/youtube_python_bug.html",
     "date": "22 Mar 2021",
+    "discussion": "https://www.reddit.com/r/fctorial/comments/me5fg2/reading_the_tea_leaves/",
     "tags": [
       "web",
       "python",
@@ -64,6 +71,7 @@
     "title": "Syntax Highlighting in a Webpage Without Javascript",
     "url": "/posts/syntax_highlighting_nojs.html",
     "date": "23 Mar 2021",
+    "discussion": "https://www.reddit.com/r/fctorial/comments/me5fl7/syntax_highlighting_in_a_webpage_without/",
     "tags": [
       "constexpr.js",
       "web"
@@ -73,6 +81,7 @@
     "title": "Constexpr.js API Documentation",
     "url": "/posts/constexprjs_api_docs.html",
     "date": "24 Mar 2021",
+    "discussion": "https://www.reddit.com/r/fctorial/comments/me5fp2/constexprjs_api_documentation/",
     "tags": [
       "constexpr.js",
       "web"
@@ -82,6 +91,7 @@
     "title": "User Interface as an API for Humans",
     "url": "/posts/ui_api.html",
     "date": "25 Mar 2021",
+    "discussion": "https://www.reddit.com/r/fctorial/comments/me5fsz/user_interface_as_an_api_for_humans/",
     "tags": [
       "ui",
       "essay"
@@ -91,6 +101,7 @@
     "title": "Entry Points in constexpr.js",
     "url": "/posts/constexprjs_entry_points.html",
     "date": "27 Mar 2021",
+    "discussion": "https://www.reddit.com/r/fctorial/comments/me5fxy/entry_points_in_constexprjs/",
     "tags": [
       "constexpr.js",
       "web",
