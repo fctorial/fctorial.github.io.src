@@ -79,10 +79,10 @@ async function render_base_page() {
   const footer = make_element(`
 <footer>
     <div class="social">
-        <a href="https://github.com/fctorial" class="svg-icon github"></a>
-        <a href="https://twitter.com/fctorial1" class="svg-icon twitter"></a>
-        <a href="mailto:fctorial@gmail.com" class="svg-icon email"></a>
-        <a href="/static/rss.xml" class="svg-icon rss"></a>
+        <a title="github" href="https://github.com/fctorial" class="svg-icon github"></a>
+        <a title="twitter" href="https://twitter.com/fctorial1" class="svg-icon twitter"></a>
+        <a title="email" href="mailto:fctorial@gmail.com" class="svg-icon email"></a>
+        <a title="rss" href="/static/rss.xml" class="svg-icon rss"></a>
     </div>
 </footer>
 `)
@@ -90,6 +90,8 @@ async function render_base_page() {
     footer.appendChild(make_element(`<a class="discussion" target="_blank" href="${this_post.discussion}">Join the discussion here</a>`))
   }
   insertAfter(article, footer)
+
+  document.querySelectorAll('img:not([alt])').forEach(el => el.setAttribute('alt', ''))
 }
 
 function setup_bg() {
