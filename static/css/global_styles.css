@@ -58,6 +58,9 @@ table {
 
 body {
     overflow-y: scroll;
+}
+
+#body_wrapper {
     width: 50%;
     min-width: 600px;
     margin: auto;
@@ -126,7 +129,7 @@ em {
 }
 
 @media (max-width: 800px) {
-    body {
+    #body_wrapper {
         width: 100%;
         font-size: 1.2em;
         padding-top: 0;
@@ -148,12 +151,8 @@ em {
 }
 
 @media (min-width: 800px) {
-    :root {
-        padding: 1em;
-    }
-
     body {
-        box-shadow: 0 0 50px #222222;
+        padding: 1em;
     }
 }
 

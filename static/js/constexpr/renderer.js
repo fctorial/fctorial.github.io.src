@@ -93,8 +93,12 @@ async function render_base_page() {
     footer.appendChild(make_element(`<a class="discussion" target="_blank" href="${this_post.discussion}">Join the discussion here</a>`))
   }
 
-  insertBefore(article, header)
-  insertAfter(article, footer)
+  const bw = make_element(`<div id="body_wrapper"></div>`)
+  bw.appendChild(header)
+  bw.appendChild(article)
+  bw.appendChild(footer)
+
+  document.body.appendChild(bw)
 
   document.querySelectorAll('img:not([alt])').forEach(el => el.setAttribute('alt', ''))
 }
