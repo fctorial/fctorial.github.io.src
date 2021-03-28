@@ -1,5 +1,7 @@
+let body_wrapper
 const header = document.createElement('header')
-const article = document.querySelector('article');
+const article = document.querySelector('article')
+let footer
 
 async function render_base_page() {
   document.head.appendChild(
@@ -47,8 +49,8 @@ async function render_base_page() {
     } else {
       heading = make_element(`<h1 id="main_title"></h1>`)
     }
-    header.appendChild(heading)
   }
+  header.appendChild(heading)
   document.head.appendChild(
     make_element(`<title>${heading.textContent}</title>`)
   )
@@ -79,7 +81,7 @@ async function render_base_page() {
   insertFirst(header, ne)
 
 
-  const footer = make_element(`
+  footer = make_element(`
 <footer>
     <div class="social">
         <a title="github" href="https://github.com/fctorial" class="svg-icon github"></a>
@@ -93,12 +95,13 @@ async function render_base_page() {
     footer.appendChild(make_element(`<a class="discussion" target="_blank" href="${this_post.discussion}">Join the discussion here</a>`))
   }
 
-  const bw = make_element(`<div id="body_wrapper"></div>`)
-  bw.appendChild(header)
-  bw.appendChild(article)
-  bw.appendChild(footer)
+  article.remove()
+  body_wrapper = make_element(`<div id="body_wrapper"></div>`)
+  body_wrapper.appendChild(header)
+  body_wrapper.appendChild(article)
+  body_wrapper.appendChild(footer)
 
-  document.body.appendChild(bw)
+  document.body.appendChild(body_wrapper)
 
   document.querySelectorAll('img:not([alt])').forEach(el => el.setAttribute('alt', ''))
 }
