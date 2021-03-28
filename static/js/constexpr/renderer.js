@@ -1,5 +1,5 @@
+const header = document.createElement('header')
 const article = document.querySelector('article');
-let header = document.querySelector('header');
 
 async function render_base_page() {
   document.head.appendChild(
@@ -31,36 +31,38 @@ async function render_base_page() {
 </style>
   `)
   )
-  let this_post
-  if (! header) {
-    const posts = await (await fetch('/collections/posts.json')).json()
-    this_post = posts.filter(p => p.url === document.location.pathname)[0]
+  insertFirst(document.body, make_element(`<noscript constexpr>Please enable javascript</noscript>`))
+
+  const all_posts = await fetch('/collections/posts.json').then(res => res.json())
+  const this_post = all_posts.filter(p => p.url === document.location.pathname)[0]
+
+  let heading = document.querySelector('#main_title');
+  if (! heading) {
     let title
     if (this_post) {
       title = this_post.title
     }
     if (title) {
-      header = make_element(`<header><h3 id="main_title">${title}</h3></header>`)
+      heading = make_element(`<h1 id="main_title">${title}</h1>`)
     } else {
-      header = make_element(`<header><h3 id="main_title"></h3></header>`)
+      heading = make_element(`<h1 id="main_title"></h1>`)
     }
-    insertFirst(article, header)
+    header.appendChild(heading)
   }
   document.head.appendChild(
-    make_element(`<title>${header.innerText}</title>`)
+    make_element(`<title>${heading.textContent}</title>`)
   )
-  insertFirst(document.body, make_element(`<noscript constexpr>Please enable javascript</noscript>`))
-
-  insertAfter(header, make_element(`<div style="width: 100%; height: 5px; margin: 1em 0 2em; border: solid black; border-width: 1px 0;"></div>`))
 
   if (this_post) {
     const tags_el = make_element(`<ul class="tags_list"></ul>`)
     this_post.tags.forEach(tag => tags_el.appendChild(make_element(`<li><a class="tag_element" href="/tags/generator.html?${tag}">${tag}</a></li>`)))
-    insertAfter(header, tags_el)
+    header.appendChild(tags_el)
   }
 
+  header.appendChild(make_element(`<div style="width: 100%; height: 5px; margin: 1em 0 0; border: solid black; border-width: 1px 0;"></div>`))
+
   const ne = document.createElement("nav")
-  const nav_items = await (await fetch("/collections/nav.json")).json()
+  const nav_items = await fetch("/collections/nav.json").then(res => res.json())
   Object.keys(nav_items).forEach(name => {
     const item = make_element(
       `
@@ -72,9 +74,10 @@ async function render_base_page() {
     if (nav_items[name] === window.location.pathname || nav_items[name] + 'index.html' === window.location.pathname) {
       item.classList.add("current")
     }
-    insertBefore(article, ne)
     ne.appendChild(item)
   })
+  insertFirst(header, ne)
+
 
   const footer = make_element(`
 <footer>
@@ -89,6 +92,8 @@ async function render_base_page() {
   if (this_post) {
     footer.appendChild(make_element(`<a class="discussion" target="_blank" href="${this_post.discussion}">Join the discussion here</a>`))
   }
+
+  insertBefore(article, header)
   insertAfter(article, footer)
 
   document.querySelectorAll('img:not([alt])').forEach(el => el.setAttribute('alt', ''))
@@ -142,5 +147,5 @@ async function site_global_rendering() {
 }
 
 window.onfocus = () => {
-  setTimeout(() => window.location.reload(), 150)
+  // setTimeout(() => window.location.reload(), 150)
 }

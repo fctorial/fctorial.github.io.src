@@ -100,21 +100,22 @@ article {
     padding: 2em;
 }
 
-header {
+#main_title {
     width: 100%;
     text-align: center;
+    margin-top: 1em;
 }
 
-h3 {
+h1 {
     font-size: 2em;
 }
 
-h4 {
+h2 {
     font-size: 1.5em;
     color: #655ff5;
 }
 
-h3, h4 {
+h1, h2 {
     line-height: 1em;
     font-weight: bold;
     word-break: break-word;
@@ -141,12 +142,8 @@ em {
         width: 100%;
     }
 
-    header > * {
+    #main_title > * {
         margin-top: 0.5em;
-    }
-
-    #main_title {
-        order: 1;
     }
 }
 
@@ -219,7 +216,7 @@ blockquote {
     text-align: center;
     cursor: pointer;
     min-width: 8em;
-    padding: 0.2em 1em;
+    padding: 0.5em 1em;
     font-size: 0.8em;
     border-radius: 10em;
     background: #bcbcec;

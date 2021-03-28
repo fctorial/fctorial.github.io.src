@@ -14,13 +14,13 @@
         However, I have to say that youtube webapp is one of the highest quality websites I've seen. It handles network
         disconnects and reconnects flawlessly, and keyboard controls are better than any other streaming platform.
     </p>
-    <h4>The bug</h4>
+    <h2>The bug</h2>
     <p>
         The bug was that if you were watching videos at 144p (which is the only option at that bandwidth), and the network
         disconnects, after the reconnection, the quality setting on the video changes to the highest quality. The cause
         of this bug is obvious if you know that the youtube backend is written in python.
     </p>
-    <h4>The cause</h4>
+    <h2>The cause</h2>
     <p>
         In python, you can index an array with a negative number to index it in reverse.
     </p>

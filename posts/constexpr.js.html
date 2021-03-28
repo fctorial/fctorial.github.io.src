@@ -2,7 +2,7 @@
 <html lang="en">
 <body>
 <article>
-    <h4>What is constexpr?</h4>
+    <h2>What is constexpr?</h2>
     <p>
         Constexpr is a feature found in statically compiled programming languages that allows evaluation of expressions in a
         program at compile time. Different languages have different terminology for it. For example,
@@ -15,7 +15,7 @@
         Ideally, the language/compiler should allow the users to turn any eligible piece of code "constexpr" with some
         annotations. The eligibility criteria being that the code must not depend on any runtime data.
     </p>
-    <h4>What is constexpr.js?</h4>
+    <h2>What is constexpr.js?</h2>
     <p>
         <a href="https://github.com/fctorial/ConstexprJS">constexpr.js</a> is a tool that allows you to execute parts of
         javascript in your website before deployment. You can use it like a static site generator, as I do for this
@@ -25,10 +25,10 @@
         The whole browser runtime is available at your disposal when generating sites with constexpr.js.
     </p>
 
-    <h4>Demo</h4>
+    <h2>Demo</h2>
     <p>This whole website is built using constexpr.js.</p>
 
-    <h4>How does it work?</h4>
+    <h2>How does it work?</h2>
     <p>
         The compiler renders the pages using chrome, and once they finish rendering, it saves the rendered state
         as new pages. It also strips out the javascript that was used for generating HTML, potentially reducing download
@@ -45,7 +45,7 @@
         you're happy with the results, and you'll get a leaner, faster version of your website as output.
     </blockquote>
 
-    <h4>How to use it?</h4>
+    <h2>How to use it?</h2>
 
     <p>
         You will have to divide the javascript being used in your page into two groups. Runtime javascript and
@@ -112,7 +112,7 @@ optional arguments:
         are not processed/copied.
     </p>
 
-    <h4>Plugins</h4>
+    <h2>Plugins</h2>
     <p>
         You can use any web development technology (and any number of technologies) to generate the HTML without any
         fear of bloat. Pivottable.js demo:
@@ -124,13 +124,13 @@ optional arguments:
         have to download or execute because it's constexpr.<br/>
     </p>
 
-    <h4>Ecosystem</h4>
+    <h2>Ecosystem</h2>
     <p>
         Since you can use <em>any</em> javascript library, no strings attached, you could argue that the ecosystem for
         constexpr.js is bigger than that of other static site generators like Jekyll, Hugo etc.
     </p>
 
-    <h4>Performance</h4>
+    <h2>Performance</h2>
     <p>
         The compiler doesn't have any noticeable overhead. So the compilation time depends on how fast chrome can
         render all the pages in your website:
@@ -159,7 +159,7 @@ $$compilation\_time \approx {
         number of pages in your website. See <a href="/posts/constexprjs_entry_points.html">this guide</a> for more
         information.
     </p>
-    <h4>Notes</h4>
+    <h2>Notes</h2>
 
     <ol>
         <li>

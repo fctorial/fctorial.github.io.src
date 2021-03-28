@@ -14,7 +14,7 @@
         on. Zircon standalone is like a bare bone fuchsia product containing just the kernel and a framework for compiling
         userspace programs, along with some utility libraries.
     </p>
-    <h4>Why?</h4>
+    <h2>Why?</h2>
     <p>
         Main advantages is build time. The smallest fuchsia product is "bringup" and it's 10-20 times bigger than the kernel.
         Building it takes around 30 minutes on a 4 core machine. Zircon Standalone might provice a more pleasant experience
@@ -32,7 +32,7 @@
         system calls. For fuchsia project, zircon is a means to an end, the end being the complete operating system. Zircon
         standalone focuses on zircon as an end in itself.
     </p>
-    <h4>Setup</h4>
+    <h2>Setup</h2>
     <ol>
         <li>
             Clone the <a href="https://github.com/fctorial/zircon_standalone">repository</a>.
@@ -67,7 +67,7 @@
             </prog>
         </li>
     </ol>
-    <h4>Dependencies on Fuchsia project</h4>
+    <h2>Dependencies on Fuchsia project</h2>
     <ul>
         <li>
             The init process code depends on zircon headers in
@@ -84,7 +84,7 @@
             There's a makefile target for that.
         </li>
     </ul>
-    <h4>Building on ARM host</h4>
+    <h2>Building on ARM host</h2>
     <p>
         I don't have an ARM workstation. PRs are welcome for adding support for ARM host. (Preferably as an environment
         variable <progi>HOST_IS_ARM</progi>)
