@@ -61,7 +61,7 @@ async function render_base_page() {
     header.appendChild(tags_el)
   }
 
-  header.appendChild(make_element(`<div style="width: 100%; height: 5px; margin: 1em 0 0; border: solid black; border-width: 1px 0;"></div>`))
+  header.appendChild(make_element(`<div style="width: calc(100% - 2em); height: 5px; margin: 1em auto 0; border: solid black; border-width: 1px 0;"></div>`))
 
   const ne = document.createElement("nav")
   const nav_items = await fetch("/collections/nav.json").then(res => res.json())
