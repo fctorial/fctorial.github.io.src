@@ -294,10 +294,9 @@ Total                  16         1185         1023            0          162
   }
 </script>
 <link rel="stylesheet" type="text/css" href="/static/css/asciinema-player.css"/>
-<script constexpr src="/static/js/constexpr/third_party/asciinema-player.js"></script>
 <script constexpr>
   async function do_asciinema() {
-    await sleep(100)
+    await evalScript('/static/js/constexpr/third_party/asciinema-player.js')
     return new Promise((resolve) => {
       const player = document.querySelector('asciinema-player')
       player.querySelector('.play-button').click()
@@ -323,7 +322,9 @@ Total                  16         1185         1023            0          162
 </script>
 
 <script constexpr>
-  async function page_specific_stuff() {
+  async function render_page() {
+    const task = site_global_rendering()
+    await task
     const bg = document.querySelector('#main_bg')
     const thanos = bg.cloneNode(true)
     thanos.setAttribute('id', 'thanos_bg')
@@ -342,7 +343,7 @@ Total                  16         1185         1023            0          162
     '/static/files/tips.csv'
   ])
 
-  Promise.all([site_global_rendering(), page_specific_stuff()])
+  render_page()
     .then(() => {
       const init = document.createElement('script')
       init.innerText = 'initRT()'
