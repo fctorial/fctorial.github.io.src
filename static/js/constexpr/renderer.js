@@ -151,8 +151,9 @@ async function render_latex() {
 async function site_global_rendering() {
   setup_bg()
   await Promise.all([render_base_page(), syntax_highlight(), render_latex()])
-}
-
-window.onfocus = () => {
-  // setTimeout(() => window.location.reload(), 150)
+  if (window.location.hash === '#reload') {
+    window.onfocus = () => {
+      setTimeout(() => window.location.reload(), 150)
+    }
+  }
 }

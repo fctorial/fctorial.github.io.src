@@ -65,9 +65,12 @@ body {
     align-items: center;
 }
 
-#body_wrapper {
+body > div {
     width: 50%;
     min-width: 600px;
+}
+
+#body_wrapper {
     background: #e7e3e3;
     padding-top: 1em;
 }
@@ -132,10 +135,13 @@ em {
 }
 
 @media (max-width: 800px) {
-    #body_wrapper {
+    body > div {
         width: 100%;
         min-width: 0;
-        font-size: 0.9em;
+        font-size: 1em;
+    }
+
+    #body_wrapper {
         padding-top: 0;
     }
 
@@ -220,7 +226,8 @@ blockquote {
     text-align: center;
     cursor: pointer;
     min-width: 8em;
-    padding: 0.2em 1em;
+    line-height: 1rem;
+    padding: 0.5em 1em;
     font-size: 0.8em;
     border-radius: 10em;
     background: #bcbcec;

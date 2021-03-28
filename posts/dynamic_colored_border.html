@@ -14,7 +14,7 @@
     const base_page_render = site_global_rendering()
     await base_page_render
 
-    const dw = make_element(`<div id="disco_wrapper"></div>`)
+    const dw = make_element(`<div id="disco_wrapper"><div id="disco_ball"></div></div>`)
     dw.appendChild(body_wrapper)
     document.body.appendChild(dw)
   }
@@ -26,10 +26,46 @@
 </script>
 
 <style>
+
     #disco_wrapper {
-        padding: 2px;
-        background: green;
+        overflow: hidden;
+        --borderWidth: 3px;
+        padding: var(--borderWidth);
+        position: relative;
     }
+
+    @keyframes animatedgradient {
+        0% {
+            background-position: 0 50%;
+        }
+        50% {
+            background-position: 50% 50%;
+        }
+        100% {
+            background-position: 100% 50%;
+        }
+    }
+
+    #disco_wrapper:after {
+        content: '';
+        position: absolute;
+        top: calc(-1 * var(--borderWidth));
+        left: calc(-1 * var(--borderWidth));
+        height: calc(100% + var(--borderWidth) * 2);
+        width: calc(100% + var(--borderWidth) * 2);
+        background: linear-gradient(
+                45deg,
+                red, yellow, green, cyan, blue, magenta,
+                red, yellow, green, cyan, blue, magenta,
+                red, yellow, green, cyan, blue, magenta,
+                red, yellow, green, cyan, blue, magenta
+        );
+        border-radius: calc(2 * var(--borderWidth));
+        z-index: -1;
+        animation: animatedgradient 16s linear normal infinite;
+        background-size: 300% 300%;
+    }
+
 </style>
 
 </html>
