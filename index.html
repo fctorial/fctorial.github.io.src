@@ -50,7 +50,7 @@
 
     // Github pages doesn't reindex the site if index.html hasn't changed
     // this will force every index.html build to be different.
-    document.body.appendChild(make_element(`<div style="display: none;">${new Date()}</div>`))
+    document.body.appendChild(make_element(`<div id="timestamp" style="display: none;">${new Date()}</div>`))
 
     document.head.appendChild(make_element(`<meta name="google-site-verification" content="d25Puo7RcT1XRfGE5SsZVxPntEUmQdILgIWWd7zO8SM" />`))
   }

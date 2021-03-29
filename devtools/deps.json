@@ -99,10 +99,10 @@
             ]
         },
         {
-            "generator": "/404.html",
-            "output": "/404.html",
+            "generator": "/projects.html",
+            "output": "/projects.html",
             "logs": [],
-            "idx": 3,
+            "idx": 1,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -113,6 +113,7 @@
             "status": "ok",
             "deps": [
                 "/collections/posts.json",
+                "/collections/projects.json",
                 "/static/img/bg.jpg",
                 "/static/css/global_styles.css",
                 "/collections/nav.json"
@@ -173,10 +174,10 @@
             ]
         },
         {
-            "generator": "/projects.html",
-            "output": "/projects.html",
+            "generator": "/404.html",
+            "output": "/404.html",
             "logs": [],
-            "idx": 1,
+            "idx": 3,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -187,33 +188,9 @@
             "status": "ok",
             "deps": [
                 "/collections/posts.json",
-                "/collections/projects.json",
                 "/static/img/bg.jpg",
                 "/static/css/global_styles.css",
                 "/collections/nav.json"
-            ]
-        },
-        {
-            "generator": "/posts/modifying_idea.html",
-            "output": "/posts/modifying_idea.html",
-            "logs": [],
-            "idx": 5,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/static/css/global_styles.css",
-                "/collections/nav.json",
-                "/static/css/prism.css"
             ]
         },
         {
@@ -234,9 +211,9 @@
             "deps": [
                 "/collections/posts.json",
                 "/static/img/bg.jpg",
+                "/static/css/prism.css",
                 "/static/css/global_styles.css",
-                "/collections/nav.json",
-                "/static/css/prism.css"
+                "/collections/nav.json"
             ]
         },
         {
@@ -257,9 +234,32 @@
             "deps": [
                 "/collections/posts.json",
                 "/static/img/bg.jpg",
+                "/static/css/prism.css",
                 "/static/css/global_styles.css",
-                "/collections/nav.json",
-                "/static/css/prism.css"
+                "/collections/nav.json"
+            ]
+        },
+        {
+            "generator": "/posts/youtube_python_bug.html",
+            "output": "/posts/youtube_python_bug.html",
+            "logs": [],
+            "idx": 10,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/static/css/prism.css",
+                "/static/css/global_styles.css",
+                "/collections/nav.json"
             ]
         },
         {
@@ -350,10 +350,10 @@
             ]
         },
         {
-            "generator": "/posts/youtube_python_bug.html",
-            "output": "/posts/youtube_python_bug.html",
+            "generator": "/posts/modifying_idea.html",
+            "output": "/posts/modifying_idea.html",
             "logs": [],
-            "idx": 10,
+            "idx": 5,
             "addedPaths": [],
             "addedExclusions": [
                 "/static/js/constexpr/third_party/prism.js"
@@ -367,9 +367,9 @@
             "deps": [
                 "/collections/posts.json",
                 "/static/img/bg.jpg",
+                "/static/css/prism.css",
                 "/static/css/global_styles.css",
-                "/collections/nav.json",
-                "/static/css/prism.css"
+                "/collections/nav.json"
             ]
         },
         {
@@ -390,30 +390,10 @@
             "deps": [
                 "/collections/posts.json",
                 "/static/img/bg.jpg",
+                "/static/css/prism.css",
                 "/static/css/global_styles.css",
                 "/collections/nav.json",
-                "/static/css/prism.css",
                 "/static/img/fuchsia.svg"
-            ]
-        },
-        {
-            "generator": "/posts/constexprjs_entry_points.html",
-            "output": "/posts/constexprjs_entry_points.html",
-            "logs": [],
-            "idx": 14,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/static/css/global_styles.css",
-                "/collections/nav.json"
             ]
         },
         {
@@ -484,14 +464,32 @@
             ]
         },
         {
-            "generator": "/posts/dynamic_colored_border.html",
-            "output": "/posts/dynamic_colored_border.html",
+            "generator": "/posts/constexprjs_entry_points.html",
+            "output": "/posts/constexprjs_entry_points.html",
             "logs": [],
-            "idx": 15,
+            "idx": 14,
             "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
             ],
+            "status": "ok",
+            "deps": [
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/collections/nav.json"
+            ]
+        },
+        {
+            "generator": "/tags/generator.html?web",
+            "output": "/tags/web.html",
+            "logs": [],
+            "idx": 18,
+            "addedPaths": [],
+            "addedExclusions": [],
             "deducedExclusions": [
                 "/static/js/constexpr/lib.js",
                 "/static/js/constexpr/index.js",
@@ -503,7 +501,7 @@
                 "/static/img/bg.jpg",
                 "/static/css/global_styles.css",
                 "/collections/nav.json",
-                "/static/css/prism.css"
+                "/collections/posts.json"
             ]
         },
         {
@@ -572,12 +570,14 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?web",
-            "output": "/tags/web.html",
+            "generator": "/posts/dynamic_colored_border.html",
+            "output": "/posts/dynamic_colored_border.html",
             "logs": [],
-            "idx": 18,
+            "idx": 15,
             "addedPaths": [],
-            "addedExclusions": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
             "deducedExclusions": [
                 "/static/js/constexpr/lib.js",
                 "/static/js/constexpr/index.js",
@@ -589,7 +589,7 @@
                 "/static/img/bg.jpg",
                 "/static/css/global_styles.css",
                 "/collections/nav.json",
-                "/collections/posts.json"
+                "/static/css/prism.css"
             ]
         },
         {
@@ -708,9 +708,9 @@
                 "/static/css/asciinema-player.css",
                 "/collections/posts.json",
                 "/static/img/bg.jpg",
+                "/static/css/prism.css",
                 "/static/css/global_styles.css",
                 "/collections/nav.json",
-                "/static/css/prism.css",
                 "/static/packages/katex/katex.css",
                 "/static/img/stones.jpg",
                 "/static/img/stones.jpg",
