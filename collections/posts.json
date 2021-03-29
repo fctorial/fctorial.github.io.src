@@ -4,6 +4,7 @@
     "url": "/posts/intellij_logos.html",
     "date": "16 Mar 2021",
     "discussion": "https://fctorial.github.io/posts/intellij_logos.html",
+    "description": "A list of all Intellij Idea Community Edition splash screens that were pushed to intellij-community github repository",
     "tags": [
       "intellij"
     ]
@@ -13,6 +14,7 @@
     "url": "/posts/modifying_idea.html",
     "date": "17 Mar 2021",
     "discussion": "https://www.reddit.com/r/fctorial/comments/me5ev6/modifying_intellij_idea_without_using_sdk_or/",
+    "description": "A guide about modifying the behavior of intellij idea without writing a plugin or compiling the ide from source",
     "tags": [
       "intellij"
     ]
@@ -22,6 +24,7 @@
     "url": "/posts/constexpr.js.html",
     "date": "18 Mar 2021",
     "discussion": "https://www.reddit.com/r/fctorial/comments/me5f1y/zero_cost_abstractions_in_web_development/",
+    "description": "An introduction of constexpr.js, which is a flexible static site generator which uses javascript for generating HTML",
     "tags": [
       "constexpr.js",
       "web"
@@ -32,6 +35,7 @@
     "url": "/posts/runtime_compiletime_constexpr.js.html",
     "date": "19 Mar 2021",
     "discussion": "https://www.reddit.com/r/fctorial/comments/me5f4s/runtimecompile_time_code_separation_with/",
+    "description": "Some tips for organizing code when using constexpr.js, a static site generator which uses javascript for generating HTML",
     "tags": [
       "constexpr.js",
       "web"
@@ -42,6 +46,7 @@
     "url": "/posts/zircon_standalone.html",
     "date": "20 Mar 2021",
     "discussion": "https://www.reddit.com/r/fctorial/comments/me5f8w/zircon_standalone/",
+    "description": "A framework for writing programs for zircon, the kernel of upcoming fuchsia operating system",
     "tags": [
       "zircon_standalone"
     ]
@@ -51,6 +56,7 @@
     "url": "/posts/constexprjs_generator_pages.html",
     "date": "21 Mar 2021",
     "discussion": "https://www.reddit.com/r/fctorial/comments/me5fcr/generator_pages_in_constexprjs/",
+    "description": "A guide about generator pages in constexpr.js, a static site generator which uses javascript for generating HTML",
     "tags": [
       "constexpr.js",
       "web"
@@ -61,6 +67,7 @@
     "url": "/posts/youtube_python_bug.html",
     "date": "22 Mar 2021",
     "discussion": "https://www.reddit.com/r/fctorial/comments/me5fg2/reading_the_tea_leaves/",
+    "description": "Description of a rare bug in youtube website, and a possible cause of that bug",
     "tags": [
       "web",
       "python",
@@ -72,6 +79,7 @@
     "url": "/posts/syntax_highlighting_nojs.html",
     "date": "23 Mar 2021",
     "discussion": "https://www.reddit.com/r/fctorial/comments/me5fl7/syntax_highlighting_in_a_webpage_without/",
+    "description": "This guide describes how you can use constexpr.js to highlight code in your website without using javascript",
     "tags": [
       "constexpr.js",
       "web"
@@ -82,6 +90,7 @@
     "url": "/posts/constexprjs_api_docs.html",
     "date": "24 Mar 2021",
     "discussion": "https://www.reddit.com/r/fctorial/comments/me5fp2/constexprjs_api_documentation/",
+    "description": "Description of API hooks provided by constexpr.js to the compiler code",
     "tags": [
       "constexpr.js",
       "web"
@@ -92,6 +101,7 @@
     "url": "/posts/ui_api.html",
     "date": "25 Mar 2021",
     "discussion": "https://www.reddit.com/r/fctorial/comments/me5fsz/user_interface_as_an_api_for_humans/",
+    "description": "A case study of windows 8, linux desktop environments, and some tips on how to build good user interfaces",
     "tags": [
       "ui",
       "essay"
@@ -102,6 +112,7 @@
     "url": "/posts/constexprjs_entry_points.html",
     "date": "27 Mar 2021",
     "discussion": "https://www.reddit.com/r/fctorial/comments/me5fxy/entry_points_in_constexprjs/",
+    "description": "How to use entry points in constexpr.js, a static site generator which uses javascript for generating HTML",
     "tags": [
       "constexpr.js",
       "web",
@@ -113,6 +124,7 @@
     "url": "/posts/dynamic_colored_border.html",
     "date": "28 Mar 2021",
     "discussion": "https://www.reddit.com/r/fctorial/comments/mexe2n/holi_special/",
+    "description": "How to add animated colored borders to an element on your website.",
     "tags": [
       "ui",
       "constexpr.js",

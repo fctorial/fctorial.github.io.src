@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const posts = require('./collections/posts.json')
+const posts = require('../collections/posts.json')
 const fs = require('fs')
 
 let result = ''
@@ -11,11 +11,21 @@ posts.forEach(
       tags += `
       <category>${tag}</category>`
     })
+    let description = ''
+    if (post.description) {
+      description = `<description>${post.description}</description>`
+    }
+    let comments = ''
+    if (post.discussion) {
+      comments = `<comments>${post.discussion}</comments>`
+    }
     result = `
   <item>
       <title>${post.title}</title>
       <pubDate>${post.date}</pubDate>
       <link>https://fctorial.github.io${post.url}</link>
+      ${description}
+      ${comments}
       ${tags}
   </item>` + result
   })

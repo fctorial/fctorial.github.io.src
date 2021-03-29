@@ -4,6 +4,9 @@ const article = document.querySelector('article')
 let footer
 
 async function render_base_page() {
+  const all_posts = await fetch('/collections/posts.json').then(res => res.json())
+  const this_post = all_posts.filter(p => p.url === document.location.pathname)[0]
+
   document.head.appendChild(
     make_element(
       `<meta charset="UTF-8">`
@@ -24,6 +27,18 @@ async function render_base_page() {
       `<link rel="stylesheet" href="/static/css/global_styles.css">`
     )
   )
+  if (this_post) {
+    document.head.appendChild(
+      make_element(
+        `<meta name="description" content="${this_post.description}">`
+      )
+    )
+    document.head.appendChild(
+      make_element(
+        `<meta name="keywords" content="${this_post.tags.join(',')}">`
+      )
+    )
+  }
   document.head.appendChild(
     make_element(`
 <style constexpr>
@@ -34,9 +49,6 @@ async function render_base_page() {
   `)
   )
   insertFirst(document.body, make_element(`<noscript constexpr>Please enable javascript</noscript>`))
-
-  const all_posts = await fetch('/collections/posts.json').then(res => res.json())
-  const this_post = all_posts.filter(p => p.url === document.location.pathname)[0]
 
   let heading = document.querySelector('#main_title');
   if (! heading) {
