@@ -99,6 +99,101 @@
             ]
         },
         {
+            "generator": "/404.html",
+            "output": "/404.html",
+            "logs": [],
+            "idx": 3,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/css/global_styles.css",
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/collections/nav.json"
+            ]
+        },
+        {
+            "generator": "/projects.html",
+            "output": "/projects.html",
+            "logs": [],
+            "idx": 1,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/css/global_styles.css",
+                "/collections/posts.json",
+                "/collections/projects.json",
+                "/static/img/bg.jpg",
+                "/collections/nav.json"
+            ]
+        },
+        {
+            "generator": "/tags.html",
+            "output": "/tags.html",
+            "logs": [],
+            "idx": 2,
+            "addedPaths": [
+                {
+                    "generator": "/tags/generator.html?intellij",
+                    "output": "/tags/intellij.html"
+                },
+                {
+                    "generator": "/tags/generator.html?constexpr.js",
+                    "output": "/tags/constexpr.js.html"
+                },
+                {
+                    "generator": "/tags/generator.html?web",
+                    "output": "/tags/web.html"
+                },
+                {
+                    "generator": "/tags/generator.html?zircon_standalone",
+                    "output": "/tags/zircon_standalone.html"
+                },
+                {
+                    "generator": "/tags/generator.html?python",
+                    "output": "/tags/python.html"
+                },
+                {
+                    "generator": "/tags/generator.html?essay",
+                    "output": "/tags/essay.html"
+                },
+                {
+                    "generator": "/tags/generator.html?ui",
+                    "output": "/tags/ui.html"
+                },
+                {
+                    "generator": "/tags/generator.html?css",
+                    "output": "/tags/css.html"
+                }
+            ],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/css/global_styles.css",
+                "/collections/posts.json",
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/collections/nav.json"
+            ]
+        },
+        {
             "generator": "/posts/modifying_idea.html",
             "output": "/posts/modifying_idea.html",
             "logs": [],
@@ -117,8 +212,8 @@
                 "/static/css/global_styles.css",
                 "/collections/posts.json",
                 "/static/img/bg.jpg",
-                "/collections/nav.json",
-                "/static/css/prism.css"
+                "/static/css/prism.css",
+                "/collections/nav.json"
             ]
         },
         {
@@ -209,6 +304,30 @@
             ]
         },
         {
+            "generator": "/posts/zircon_standalone.html",
+            "output": "/posts/zircon_standalone.html",
+            "logs": [],
+            "idx": 8,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/css/global_styles.css",
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/static/css/prism.css",
+                "/collections/nav.json",
+                "/static/img/fuchsia.svg"
+            ]
+        },
+        {
             "generator": "/posts/runtime_compiletime_constexpr.js.html",
             "output": "/posts/runtime_compiletime_constexpr.js.html",
             "logs": [],
@@ -227,48 +346,7 @@
                 "/static/css/global_styles.css",
                 "/collections/posts.json",
                 "/static/img/bg.jpg",
-                "/collections/nav.json",
-                "/static/css/prism.css"
-            ]
-        },
-        {
-            "generator": "/projects.html",
-            "output": "/projects.html",
-            "logs": [],
-            "idx": 1,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/css/global_styles.css",
-                "/collections/posts.json",
-                "/collections/projects.json",
-                "/static/img/bg.jpg",
-                "/collections/nav.json"
-            ]
-        },
-        {
-            "generator": "/404.html",
-            "output": "/404.html",
-            "logs": [],
-            "idx": 3,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/css/global_styles.css",
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
+                "/static/css/prism.css",
                 "/collections/nav.json"
             ]
         },
@@ -296,60 +374,6 @@
             ]
         },
         {
-            "generator": "/tags.html",
-            "output": "/tags.html",
-            "logs": [],
-            "idx": 2,
-            "addedPaths": [
-                {
-                    "generator": "/tags/generator.html?intellij",
-                    "output": "/tags/intellij.html"
-                },
-                {
-                    "generator": "/tags/generator.html?constexpr.js",
-                    "output": "/tags/constexpr.js.html"
-                },
-                {
-                    "generator": "/tags/generator.html?web",
-                    "output": "/tags/web.html"
-                },
-                {
-                    "generator": "/tags/generator.html?zircon_standalone",
-                    "output": "/tags/zircon_standalone.html"
-                },
-                {
-                    "generator": "/tags/generator.html?python",
-                    "output": "/tags/python.html"
-                },
-                {
-                    "generator": "/tags/generator.html?essay",
-                    "output": "/tags/essay.html"
-                },
-                {
-                    "generator": "/tags/generator.html?ui",
-                    "output": "/tags/ui.html"
-                },
-                {
-                    "generator": "/tags/generator.html?css",
-                    "output": "/tags/css.html"
-                }
-            ],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/css/global_styles.css",
-                "/collections/posts.json",
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/collections/nav.json"
-            ]
-        },
-        {
             "generator": "/posts/youtube_python_bug.html",
             "output": "/posts/youtube_python_bug.html",
             "logs": [],
@@ -373,30 +397,6 @@
             ]
         },
         {
-            "generator": "/posts/zircon_standalone.html",
-            "output": "/posts/zircon_standalone.html",
-            "logs": [],
-            "idx": 8,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/css/global_styles.css",
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/collections/nav.json",
-                "/static/img/fuchsia.svg"
-            ]
-        },
-        {
             "generator": "/posts/ui_api.html",
             "output": "/posts/ui_api.html",
             "logs": [],
@@ -415,52 +415,6 @@
                 "/static/img/bg.jpg",
                 "/collections/nav.json",
                 "/static/img/win8.jpg"
-            ]
-        },
-        {
-            "generator": "/posts/syntax_highlighting_nojs.html",
-            "output": "/posts/syntax_highlighting_nojs.html",
-            "logs": [],
-            "idx": 11,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/css/global_styles.css",
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/collections/nav.json",
-                "/static/css/prism.css"
-            ]
-        },
-        {
-            "generator": "/posts/constexprjs_api_docs.html",
-            "output": "/posts/constexprjs_api_docs.html",
-            "logs": [],
-            "idx": 12,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/css/global_styles.css",
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/collections/nav.json",
-                "/static/css/prism.css"
             ]
         },
         {
@@ -505,10 +459,10 @@
             ]
         },
         {
-            "generator": "/posts/dynamic_colored_border.html",
-            "output": "/posts/dynamic_colored_border.html",
+            "generator": "/posts/constexprjs_api_docs.html",
+            "output": "/posts/constexprjs_api_docs.html",
             "logs": [],
-            "idx": 15,
+            "idx": 12,
             "addedPaths": [],
             "addedExclusions": [
                 "/static/js/constexpr/third_party/prism.js"
@@ -549,12 +503,33 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?zircon_standalone",
-            "output": "/tags/zircon_standalone.html",
-            "logs": [
-                "only one post found with tag: \"zircon_standalone\""
+            "generator": "/posts/syntax_highlighting_nojs.html",
+            "output": "/posts/syntax_highlighting_nojs.html",
+            "logs": [],
+            "idx": 11,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
             ],
-            "idx": 19,
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/css/global_styles.css",
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/collections/nav.json",
+                "/static/css/prism.css"
+            ]
+        },
+        {
+            "generator": "/tags/generator.html?web",
+            "output": "/tags/web.html",
+            "logs": [],
+            "idx": 18,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -572,10 +547,35 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?web",
-            "output": "/tags/web.html",
+            "generator": "/posts/dynamic_colored_border.html",
+            "output": "/posts/dynamic_colored_border.html",
             "logs": [],
-            "idx": 18,
+            "idx": 15,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/css/global_styles.css",
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/collections/nav.json",
+                "/static/css/prism.css"
+            ]
+        },
+        {
+            "generator": "/tags/generator.html?zircon_standalone",
+            "output": "/tags/zircon_standalone.html",
+            "logs": [
+                "only one post found with tag: \"zircon_standalone\""
+            ],
+            "idx": 19,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -637,10 +637,12 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?ui",
-            "output": "/tags/ui.html",
-            "logs": [],
-            "idx": 22,
+            "generator": "/tags/generator.html?css",
+            "output": "/tags/css.html",
+            "logs": [
+                "only one post found with tag: \"css\""
+            ],
+            "idx": 23,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -658,12 +660,10 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?css",
-            "output": "/tags/css.html",
-            "logs": [
-                "only one post found with tag: \"css\""
-            ],
-            "idx": 23,
+            "generator": "/tags/generator.html?ui",
+            "output": "/tags/ui.html",
+            "logs": [],
+            "idx": 22,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -709,8 +709,8 @@
                 "/static/css/global_styles.css",
                 "/collections/posts.json",
                 "/static/img/bg.jpg",
-                "/static/css/prism.css",
                 "/collections/nav.json",
+                "/static/css/prism.css",
                 "/static/packages/katex/katex.css",
                 "/static/img/stones.jpg",
                 "/static/img/stones.jpg",

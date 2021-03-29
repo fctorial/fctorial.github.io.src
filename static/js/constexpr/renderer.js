@@ -121,6 +121,11 @@ async function evalScript(path) {
 
 async function syntax_highlight() {
   document.querySelectorAll('prog').forEach(el => {
+    el.setAttribute('role', 'figure')
+    el.textContent = el.textContent.trim()
+  })
+  document.querySelectorAll('progi').forEach(el => {
+    el.setAttribute('role', 'figure')
     el.textContent = el.textContent.trim()
   })
   const els = [...document.querySelectorAll('prog[class]')]
