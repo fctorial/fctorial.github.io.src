@@ -5,7 +5,7 @@
     <p>
         In today's article, I'm going to describe how to add dynamic colored borders to an element in your webpage,
         similar to the one you see on this page. After that, I'll talk about some details specific to the implementation
-        in this page, which is statically generated with constexpr.js.
+        in this page, which is statically generated with constexpr.js. The CSS used
     </p>
     <p>
         Let's say this is the element you want to add a dynamic border to:
@@ -15,8 +15,20 @@
             Content
         </div>
     </div>
+    <prog class="language-css">
+.main_content {
+    background: lightgrey;
+    width: 10em;
+    height: 10em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    </prog>
+    <div class="divider"></div>
     <p>
-        First thing your should do is wrap this element inside another div, and add a tiny amount of padding to the
+        1. First thing your should do is wrap this element inside another div, and add a tiny amount of padding to the
         outer div. That padding will act as the border you see on this page.
     </p>
     <div class="diagram">
@@ -26,8 +38,16 @@
             </div>
         </div>
     </div>
+    <prog class="language-css">
+.wstage1 {
+    display: inline-block;
+    padding: 5px;
+    background: white;
+}
+    </prog>
+    <div class="divider"></div>
     <p>
-        You should be able to see where this is going. Let's try coloring the background of outer div:
+        2. After that add some colors to the wrapper div. A linear-gradient should do the job:
     </p>
     <div class="diagram">
         <div class="wstage1 wstage2">
@@ -36,8 +56,22 @@
             </div>
         </div>
     </div>
+    <prog class="language-css">
+.wstage2 {
+    background: linear-gradient(
+            45deg,
+            red, blue, green,
+            red, blue, green,
+            red, blue, green,
+            red, blue, green,
+            red, blue, green
+    );
+    background-size: 300% 300%;
+}
+    </prog>
+    <div class="divider"></div>
     <p>
-        The only thing left to do is animating the background:
+        3. Now we animate the background:
     </p>
     <div class="diagram">
         <div class="wstage1 wstage2 wstage3">
@@ -46,6 +80,23 @@
             </div>
         </div>
     </div>
+    <prog class="language-css">
+@keyframes animatedgradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+.wstage3 {
+    animation: animatedgradient 8s linear alternate infinite;
+}
+    </prog>
+
     <p>
         To be honest, this looks more like diwali material than holi material, but whatever.
     </p>
@@ -223,6 +274,13 @@
         );
         animation: animatedgradient 8s linear alternate infinite;
         background-size: 600% 600%;
+    }
+
+    .divider {
+        width: 80%;
+        margin: auto;
+        height: 2px;
+        background: #a7a5a5;
     }
 
 </style>
