@@ -24,7 +24,7 @@ async function render_base_page() {
   )
   document.head.appendChild(
     make_element(
-      `<link rel="stylesheet" href="/static/css/global_styles.css">`
+          `<style>${await fetch('/static/css/global_styles.css').then(res => res.text())}</style>`
     )
   )
   if (this_post) {
@@ -51,7 +51,7 @@ async function render_base_page() {
   insertFirst(document.body, make_element(`<noscript constexpr>Please enable javascript</noscript>`))
 
   let heading = document.querySelector('#main_title');
-  if (! heading) {
+  if (!heading) {
     let title
     if (this_post) {
       title = this_post.title
