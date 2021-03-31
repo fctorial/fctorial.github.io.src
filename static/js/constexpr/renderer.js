@@ -24,7 +24,7 @@ async function render_base_page() {
   )
   document.head.appendChild(
     make_element(
-          `<style>${await fetch('/static/css/global_styles.css').then(res => res.text())}</style>`
+      `<style>${await fetch('/static/css/global_styles.css').then(res => res.text())}</style>`
     )
   )
   if (this_post) {
@@ -103,7 +103,7 @@ async function render_base_page() {
     </div>
 </footer>
 `)
-  if (this_post) {
+  if (this_post && this_post.discussion) {
     footer.appendChild(make_element(`<a class="discussion" target="_blank" href="${this_post.discussion}">Join the discussion here</a>`))
   }
 
@@ -168,9 +168,7 @@ async function render_latex() {
 async function site_global_rendering() {
   setup_bg()
   await Promise.all([render_base_page(), syntax_highlight(), render_latex()])
-  if (window.location.hash === '#reload') {
-    window.onfocus = () => {
-      setTimeout(() => window.location.reload(), 150)
-    }
+  window.onfocus = () => {
+    setTimeout(() => window.location.reload(), 200)
   }
 }

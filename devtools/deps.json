@@ -79,6 +79,10 @@
                 {
                     "generator": "/posts/dynamic_colored_border.html",
                     "output": "/posts/dynamic_colored_border.html"
+                },
+                {
+                    "generator": "/posts/wisdom_teeth.html",
+                    "output": "/posts/wisdom_teeth.html"
                 }
             ],
             "addedExclusions": [],
@@ -92,26 +96,6 @@
                 "/static/rss.xml",
                 "/favicon.ico",
                 "/collections/posts.json",
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/static/css/global_styles.css",
-                "/collections/nav.json"
-            ]
-        },
-        {
-            "generator": "/404.html",
-            "output": "/404.html",
-            "logs": [],
-            "idx": 3,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
                 "/collections/posts.json",
                 "/static/img/bg.jpg",
                 "/static/css/global_styles.css",
@@ -134,6 +118,26 @@
             "deps": [
                 "/collections/posts.json",
                 "/collections/projects.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/collections/nav.json"
+            ]
+        },
+        {
+            "generator": "/404.html",
+            "output": "/404.html",
+            "logs": [],
+            "idx": 3,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/posts.json",
                 "/static/img/bg.jpg",
                 "/static/css/global_styles.css",
                 "/collections/nav.json"
@@ -176,6 +180,10 @@
                 {
                     "generator": "/tags/generator.html?css",
                     "output": "/tags/css.html"
+                },
+                {
+                    "generator": "/tags/generator.html?health",
+                    "output": "/tags/health.html"
                 }
             ],
             "addedExclusions": [],
@@ -281,29 +289,6 @@
             ]
         },
         {
-            "generator": "/posts/constexprjs_generator_pages.html",
-            "output": "/posts/constexprjs_generator_pages.html",
-            "logs": [],
-            "idx": 9,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/global_styles.css",
-                "/collections/nav.json"
-            ]
-        },
-        {
             "generator": "/posts/zircon_standalone.html",
             "output": "/posts/zircon_standalone.html",
             "logs": [],
@@ -321,8 +306,8 @@
             "deps": [
                 "/collections/posts.json",
                 "/static/img/bg.jpg",
-                "/static/css/prism.css",
                 "/static/css/global_styles.css",
+                "/static/css/prism.css",
                 "/collections/nav.json",
                 "/static/img/fuchsia.svg"
             ]
@@ -345,9 +330,55 @@
             "deps": [
                 "/collections/posts.json",
                 "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/static/css/prism.css",
+                "/collections/nav.json"
+            ]
+        },
+        {
+            "generator": "/posts/runtime_compiletime_constexpr.js.html",
+            "output": "/posts/runtime_compiletime_constexpr.js.html",
+            "logs": [],
+            "idx": 7,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
                 "/static/css/prism.css",
                 "/static/css/global_styles.css",
                 "/collections/nav.json"
+            ]
+        },
+        {
+            "generator": "/posts/constexprjs_generator_pages.html",
+            "output": "/posts/constexprjs_generator_pages.html",
+            "logs": [],
+            "idx": 9,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/collections/nav.json",
+                "/static/css/prism.css"
             ]
         },
         {
@@ -374,29 +405,6 @@
             ]
         },
         {
-            "generator": "/posts/runtime_compiletime_constexpr.js.html",
-            "output": "/posts/runtime_compiletime_constexpr.js.html",
-            "logs": [],
-            "idx": 7,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/static/css/global_styles.css",
-                "/static/css/prism.css",
-                "/collections/nav.json"
-            ]
-        },
-        {
             "generator": "/posts/ui_api.html",
             "output": "/posts/ui_api.html",
             "logs": [],
@@ -415,6 +423,26 @@
                 "/static/css/global_styles.css",
                 "/collections/nav.json",
                 "/static/img/win8.jpg"
+            ]
+        },
+        {
+            "generator": "/posts/constexprjs_entry_points.html",
+            "output": "/posts/constexprjs_entry_points.html",
+            "logs": [],
+            "idx": 14,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/collections/nav.json"
             ]
         },
         {
@@ -464,26 +492,6 @@
             ]
         },
         {
-            "generator": "/posts/constexprjs_entry_points.html",
-            "output": "/posts/constexprjs_entry_points.html",
-            "logs": [],
-            "idx": 14,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/static/css/global_styles.css",
-                "/collections/nav.json"
-            ]
-        },
-        {
             "generator": "/posts/dynamic_colored_border.html",
             "output": "/posts/dynamic_colored_border.html",
             "logs": [],
@@ -507,8 +515,8 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?intellij",
-            "output": "/tags/intellij.html",
+            "generator": "/posts/wisdom_teeth.html",
+            "output": "/posts/wisdom_teeth.html",
             "logs": [],
             "idx": 16,
             "addedPaths": [],
@@ -520,41 +528,18 @@
             ],
             "status": "ok",
             "deps": [
+                "/static/img/wisdom_troll.jpg",
                 "/collections/posts.json",
                 "/static/img/bg.jpg",
                 "/static/css/global_styles.css",
-                "/collections/nav.json",
-                "/collections/posts.json"
+                "/collections/nav.json"
             ]
         },
         {
-            "generator": "/tags/generator.html?constexpr.js",
-            "output": "/tags/constexpr.js.html",
+            "generator": "/tags/generator.html?intellij",
+            "output": "/tags/intellij.html",
             "logs": [],
             "idx": 17,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/static/css/global_styles.css",
-                "/collections/nav.json",
-                "/collections/posts.json"
-            ]
-        },
-        {
-            "generator": "/tags/generator.html?zircon_standalone",
-            "output": "/tags/zircon_standalone.html",
-            "logs": [
-                "only one post found with tag: \"zircon_standalone\""
-            ],
-            "idx": 19,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -575,7 +560,7 @@
             "generator": "/tags/generator.html?web",
             "output": "/tags/web.html",
             "logs": [],
-            "idx": 18,
+            "idx": 19,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -593,10 +578,10 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?essay",
-            "output": "/tags/essay.html",
+            "generator": "/tags/generator.html?constexpr.js",
+            "output": "/tags/constexpr.js.html",
             "logs": [],
-            "idx": 21,
+            "idx": 18,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -619,6 +604,29 @@
             "logs": [
                 "only one post found with tag: \"python\""
             ],
+            "idx": 21,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/collections/nav.json",
+                "/collections/posts.json"
+            ]
+        },
+        {
+            "generator": "/tags/generator.html?zircon_standalone",
+            "output": "/tags/zircon_standalone.html",
+            "logs": [
+                "only one post found with tag: \"zircon_standalone\""
+            ],
             "idx": 20,
             "addedPaths": [],
             "addedExclusions": [],
@@ -639,6 +647,27 @@
         {
             "generator": "/tags/generator.html?ui",
             "output": "/tags/ui.html",
+            "logs": [],
+            "idx": 23,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/collections/nav.json",
+                "/collections/posts.json"
+            ]
+        },
+        {
+            "generator": "/tags/generator.html?essay",
+            "output": "/tags/essay.html",
             "logs": [],
             "idx": 22,
             "addedPaths": [],
@@ -663,7 +692,30 @@
             "logs": [
                 "only one post found with tag: \"css\""
             ],
-            "idx": 23,
+            "idx": 24,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/collections/nav.json",
+                "/collections/posts.json"
+            ]
+        },
+        {
+            "generator": "/tags/generator.html?health",
+            "output": "/tags/health.html",
+            "logs": [
+                "only one post found with tag: \"health\""
+            ],
+            "idx": 25,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -711,9 +763,9 @@
                 "/static/css/global_styles.css",
                 "/static/css/prism.css",
                 "/static/packages/katex/katex.css",
-                "/collections/nav.json",
                 "/static/packages/katex/fonts/KaTeX_Main-Regular.woff2",
                 "/static/packages/katex/fonts/KaTeX_Math-Italic.woff2",
+                "/collections/nav.json",
                 "/static/img/stones.jpg",
                 "/static/img/stones.jpg"
             ]
