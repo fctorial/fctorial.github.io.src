@@ -288,13 +288,23 @@ footer .discussion:hover {
     opacity: 85%;
 }
 
+.social {
+    text-align: center;
+}
+
+.social .footer-title{
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    color: #032a71;
+}
+
 .social > * {
     margin: 0 0.5em;
 }
 
 .svg-icon {
-    width: 3em;
-    height: 3em;
+    width: 2em;
+    height: 2em;
     background-size: contain;
     display: inline-block;
 }

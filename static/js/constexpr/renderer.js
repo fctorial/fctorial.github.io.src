@@ -3,8 +3,19 @@ const header = document.createElement('header')
 const article = document.querySelector('article')
 let footer
 
+let global_cfg
+let all_posts
+let nav_items
+
 async function render_base_page() {
-  const all_posts = await fetch('/collections/posts.json').then(res => res.json())
+  [global_cfg, all_posts, nav_items] = await Promise.all(
+    [
+      fetch('/collections/config.json'),
+      fetch('/collections/posts.json'),
+      fetch("/collections/nav.json")
+    ].map(p => p.then(res => res.json()))
+  )
+
   const this_post = all_posts.filter(p => p.url === document.location.pathname)[0]
 
   document.head.appendChild(
@@ -76,7 +87,6 @@ async function render_base_page() {
   header.appendChild(make_element(`<div style="width: calc(100% - 2em); height: 5px; margin: 1em auto 0; border: solid black; border-width: 1px 0;"></div>`))
 
   const ne = document.createElement("nav")
-  const nav_items = await fetch("/collections/nav.json").then(res => res.json())
   Object.keys(nav_items).forEach(name => {
     const item = make_element(
       `
@@ -96,11 +106,17 @@ async function render_base_page() {
   footer = make_element(`
 <footer>
     <div class="social">
+        <div class="footer-title">My online presence:</div>
         <a title="github" href="https://github.com/fctorial" class="svg-icon github"></a>
         <a title="twitter" href="https://twitter.com/fctorial1" class="svg-icon twitter"></a>
         <a title="email" href="mailto:fctorial@gmail.com" class="svg-icon email"></a>
-        <a title="rss" href="/static/rss.xml" class="svg-icon rss"></a>
     </div>
+    <div class="share social">
+        <div class="footer-title">Share this page:</div>
+        <a title="twitter" class="svg-icon twitter" target="_blank" href="https://twitter.com/share?text=${document.querySelector('title').textContent}&url=${global_cfg.url + window.location.pathname}"></a>
+        <a title="facebook" class="svg-icon facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=${global_cfg.url + window.location.pathname}"></a>
+    </div>
+</div>
 </footer>
 `)
   if (this_post && this_post.discussion) {
