@@ -102,11 +102,10 @@ async function render_base_page() {
   })
   insertFirst(header, ne)
 
-
   footer = make_element(`
 <footer>
     <div class="social">
-        <div class="footer-title">My online presence:</div>
+        <div class="footer-title">Contacts:</div>
         <a title="github" href="https://github.com/fctorial" class="svg-icon github"></a>
         <a title="twitter" href="https://twitter.com/fctorial1" class="svg-icon twitter"></a>
         <a title="email" href="mailto:fctorial@gmail.com" class="svg-icon email"></a>
