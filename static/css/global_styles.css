@@ -278,8 +278,8 @@ footer .discussion {
     text-decoration: none;
     padding: 1em;
     background: #70aef8;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #808080;
+    border-radius: 3px;
+    box-shadow: 0 0 5px #808080;
     transition-property: opacity;
     transition-duration: 0.3s;
 }
@@ -288,12 +288,23 @@ footer .discussion:hover {
     opacity: 85%;
 }
 
-.social {
-    text-align: center;
+footer .links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 3em;
+}
+
+@media (max-width: 800px) {
+    footer .links {
+        flex-direction: column;
+        grid-gap: 2em;
+    }
 }
 
 .social .footer-title{
-    font-size: 1em;
+    font-size: 1.2em;
+    font-weight: bold;
     margin-bottom: 0.5em;
     color: #032a71;
 }
