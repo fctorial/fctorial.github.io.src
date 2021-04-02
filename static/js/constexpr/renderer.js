@@ -114,6 +114,7 @@ async function render_base_page() {
         <div class="footer-title">Share this page:</div>
         <a title="twitter" class="svg-icon twitter" target="_blank" href="https://twitter.com/share?text=${document.querySelector('title').textContent}&url=${global_cfg.url + window.location.pathname}"></a>
         <a title="facebook" class="svg-icon facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=${global_cfg.url + window.location.pathname}"></a>
+        <a title="reddit" class="svg-icon reddit" target="_blank" href="https://www.reddit.com/submit?title=${document.querySelector('title').textContent}&url=${global_cfg.url + window.location.pathname}"></a>
     </div>
 </div>
 </footer>
@@ -184,6 +185,6 @@ async function site_global_rendering() {
   setup_bg()
   await Promise.all([render_base_page(), syntax_highlight(), render_latex()])
   window.onfocus = () => {
-    setTimeout(() => window.location.reload(), 200)
+    // setTimeout(() => window.location.reload(), 200)
   }
 }
