@@ -35,7 +35,7 @@ async function render_base_page() {
   )
   document.head.appendChild(
     make_element(
-      `<style>${await fetch('/static/css/global_styles.css').then(res => res.text())}</style>`
+          `<link rel="stylesheet" href='/static/css/global_styles.css'>`
     )
   )
   if (this_post) {
