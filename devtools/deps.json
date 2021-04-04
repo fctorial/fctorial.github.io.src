@@ -83,6 +83,10 @@
                 {
                     "generator": "/posts/wisdom_teeth.html",
                     "output": "/posts/wisdom_teeth.html"
+                },
+                {
+                    "generator": "/posts/tst.html",
+                    "output": "/posts/tst.html"
                 }
             ],
             "addedExclusions": [],
@@ -95,6 +99,104 @@
             "deps": [
                 "/static/rss.xml",
                 "/favicon.ico",
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/collections/posts.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/email.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg"
+            ]
+        },
+        {
+            "generator": "/404.html",
+            "output": "/404.html",
+            "logs": [],
+            "idx": 3,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/email.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg"
+            ]
+        },
+        {
+            "generator": "/tags.html",
+            "output": "/tags.html",
+            "logs": [],
+            "idx": 2,
+            "addedPaths": [
+                {
+                    "generator": "/tags/generator.html?web",
+                    "output": "/tags/web.html"
+                },
+                {
+                    "generator": "/tags/generator.html?constexpr.js",
+                    "output": "/tags/constexpr.js.html"
+                },
+                {
+                    "generator": "/tags/generator.html?essay",
+                    "output": "/tags/essay.html"
+                },
+                {
+                    "generator": "/tags/generator.html?intellij",
+                    "output": "/tags/intellij.html"
+                },
+                {
+                    "generator": "/tags/generator.html?ui",
+                    "output": "/tags/ui.html"
+                },
+                {
+                    "generator": "/tags/generator.html?zircon_standalone",
+                    "output": "/tags/zircon_standalone.html"
+                },
+                {
+                    "generator": "/tags/generator.html?python",
+                    "output": "/tags/python.html"
+                },
+                {
+                    "generator": "/tags/generator.html?css",
+                    "output": "/tags/css.html"
+                },
+                {
+                    "generator": "/tags/generator.html?health",
+                    "output": "/tags/health.html"
+                },
+                {
+                    "generator": "/tags/generator.html?clojure",
+                    "output": "/tags/clojure.html"
+                },
+                {
+                    "generator": "/tags/generator.html?testing",
+                    "output": "/tags/testing.html"
+                }
+            ],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
                 "/collections/config.json",
                 "/collections/posts.json",
                 "/collections/nav.json",
@@ -136,61 +238,6 @@
             ]
         },
         {
-            "generator": "/404.html",
-            "output": "/404.html",
-            "logs": [],
-            "idx": 3,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/static/img/bg.jpg",
-                "/static/css/global_styles.css",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/email.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg"
-            ]
-        },
-        {
-            "generator": "/posts/constexprjs_generator_pages.html",
-            "output": "/posts/constexprjs_generator_pages.html",
-            "logs": [],
-            "idx": 9,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/global_styles.css",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/email.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg"
-            ]
-        },
-        {
             "generator": "/posts/modifying_idea.html",
             "output": "/posts/modifying_idea.html",
             "logs": [],
@@ -210,8 +257,8 @@
                 "/collections/posts.json",
                 "/collections/nav.json",
                 "/static/img/bg.jpg",
-                "/static/css/prism.css",
                 "/static/css/global_styles.css",
+                "/static/css/prism.css",
                 "/static/img/logos/github.svg",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/email.svg",
@@ -268,11 +315,6 @@
                 "/static/img/bg.jpg",
                 "/static/css/global_styles.css",
                 "/collections/intellij_logos.json",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/email.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg",
                 "/static/img/intellij_logos/2009.09.01.png",
                 "/static/img/intellij_logos/2009.09.09.png",
                 "/static/img/intellij_logos/2009.09.13.png",
@@ -338,95 +380,7 @@
                 "/static/img/intellij_logos/2020.00.21.png",
                 "/static/img/intellij_logos/2020.04.21.png",
                 "/static/img/intellij_logos/2020.08.16.png",
-                "/static/img/intellij_logos/2021.00.21.png"
-            ]
-        },
-        {
-            "generator": "/tags.html",
-            "output": "/tags.html",
-            "logs": [],
-            "idx": 2,
-            "addedPaths": [
-                {
-                    "generator": "/tags/generator.html?web",
-                    "output": "/tags/web.html"
-                },
-                {
-                    "generator": "/tags/generator.html?constexpr.js",
-                    "output": "/tags/constexpr.js.html"
-                },
-                {
-                    "generator": "/tags/generator.html?essay",
-                    "output": "/tags/essay.html"
-                },
-                {
-                    "generator": "/tags/generator.html?intellij",
-                    "output": "/tags/intellij.html"
-                },
-                {
-                    "generator": "/tags/generator.html?ui",
-                    "output": "/tags/ui.html"
-                },
-                {
-                    "generator": "/tags/generator.html?zircon_standalone",
-                    "output": "/tags/zircon_standalone.html"
-                },
-                {
-                    "generator": "/tags/generator.html?python",
-                    "output": "/tags/python.html"
-                },
-                {
-                    "generator": "/tags/generator.html?css",
-                    "output": "/tags/css.html"
-                },
-                {
-                    "generator": "/tags/generator.html?health",
-                    "output": "/tags/health.html"
-                }
-            ],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/static/css/global_styles.css",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/email.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg"
-            ]
-        },
-        {
-            "generator": "/posts/youtube_python_bug.html",
-            "output": "/posts/youtube_python_bug.html",
-            "logs": [],
-            "idx": 10,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/global_styles.css",
+                "/static/img/intellij_logos/2021.00.21.png",
                 "/static/img/logos/github.svg",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/email.svg",
@@ -465,6 +419,64 @@
             ]
         },
         {
+            "generator": "/posts/youtube_python_bug.html",
+            "output": "/posts/youtube_python_bug.html",
+            "logs": [],
+            "idx": 10,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/prism.css",
+                "/static/css/global_styles.css",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/email.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg"
+            ]
+        },
+        {
+            "generator": "/posts/constexprjs_generator_pages.html",
+            "output": "/posts/constexprjs_generator_pages.html",
+            "logs": [],
+            "idx": 9,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/prism.css",
+                "/static/css/global_styles.css",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/email.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg"
+            ]
+        },
+        {
             "generator": "/posts/ui_api.html",
             "output": "/posts/ui_api.html",
             "logs": [],
@@ -484,35 +496,6 @@
                 "/static/img/bg.jpg",
                 "/static/css/global_styles.css",
                 "/static/img/win8.jpg",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/email.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg"
-            ]
-        },
-        {
-            "generator": "/posts/syntax_highlighting_nojs.html",
-            "output": "/posts/syntax_highlighting_nojs.html",
-            "logs": [],
-            "idx": 11,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/global_styles.css",
                 "/static/img/logos/github.svg",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/email.svg",
@@ -550,32 +533,6 @@
             ]
         },
         {
-            "generator": "/posts/constexprjs_entry_points.html",
-            "output": "/posts/constexprjs_entry_points.html",
-            "logs": [],
-            "idx": 14,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/static/img/bg.jpg",
-                "/static/css/global_styles.css",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/email.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg"
-            ]
-        },
-        {
             "generator": "/posts/wisdom_teeth.html",
             "output": "/posts/wisdom_teeth.html",
             "logs": [],
@@ -603,6 +560,61 @@
             ]
         },
         {
+            "generator": "/posts/constexprjs_entry_points.html",
+            "output": "/posts/constexprjs_entry_points.html",
+            "logs": [],
+            "idx": 14,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/email.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg"
+            ]
+        },
+        {
+            "generator": "/posts/syntax_highlighting_nojs.html",
+            "output": "/posts/syntax_highlighting_nojs.html",
+            "logs": [],
+            "idx": 11,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/static/css/prism.css",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/email.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg"
+            ]
+        },
+        {
             "generator": "/posts/dynamic_colored_border.html",
             "output": "/posts/dynamic_colored_border.html",
             "logs": [],
@@ -622,8 +634,8 @@
                 "/collections/posts.json",
                 "/collections/nav.json",
                 "/static/img/bg.jpg",
-                "/static/css/prism.css",
                 "/static/css/global_styles.css",
+                "/static/css/prism.css",
                 "/static/img/logos/github.svg",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/email.svg",
@@ -632,12 +644,14 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?web",
-            "output": "/tags/web.html",
+            "generator": "/posts/tst.html",
+            "output": "/posts/tst.html",
             "logs": [],
             "idx": 17,
             "addedPaths": [],
-            "addedExclusions": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
             "deducedExclusions": [
                 "/static/js/constexpr/lib.js",
                 "/static/js/constexpr/index.js",
@@ -650,7 +664,7 @@
                 "/collections/nav.json",
                 "/static/img/bg.jpg",
                 "/static/css/global_styles.css",
-                "/collections/posts.json",
+                "/static/css/prism.css",
                 "/static/img/logos/github.svg",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/email.svg",
@@ -659,8 +673,8 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?constexpr.js",
-            "output": "/tags/constexpr.js.html",
+            "generator": "/tags/generator.html?web",
+            "output": "/tags/web.html",
             "logs": [],
             "idx": 18,
             "addedPaths": [],
@@ -689,33 +703,6 @@
             "generator": "/tags/generator.html?essay",
             "output": "/tags/essay.html",
             "logs": [],
-            "idx": 19,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/static/img/bg.jpg",
-                "/static/css/global_styles.css",
-                "/collections/posts.json",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/email.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg"
-            ]
-        },
-        {
-            "generator": "/tags/generator.html?intellij",
-            "output": "/tags/intellij.html",
-            "logs": [],
             "idx": 20,
             "addedPaths": [],
             "addedExclusions": [],
@@ -740,12 +727,10 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?python",
-            "output": "/tags/python.html",
-            "logs": [
-                "only one post found with tag: \"python\""
-            ],
-            "idx": 23,
+            "generator": "/tags/generator.html?constexpr.js",
+            "output": "/tags/constexpr.js.html",
+            "logs": [],
+            "idx": 19,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -772,7 +757,7 @@
             "generator": "/tags/generator.html?ui",
             "output": "/tags/ui.html",
             "logs": [],
-            "idx": 21,
+            "idx": 22,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -801,7 +786,7 @@
             "logs": [
                 "only one post found with tag: \"zircon_standalone\""
             ],
-            "idx": 22,
+            "idx": 23,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -825,12 +810,39 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?health",
-            "output": "/tags/health.html",
-            "logs": [
-                "only one post found with tag: \"health\""
+            "generator": "/tags/generator.html?intellij",
+            "output": "/tags/intellij.html",
+            "logs": [],
+            "idx": 21,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
             ],
-            "idx": 25,
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/collections/posts.json",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/email.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg"
+            ]
+        },
+        {
+            "generator": "/tags/generator.html?python",
+            "output": "/tags/python.html",
+            "logs": [
+                "only one post found with tag: \"python\""
+            ],
+            "idx": 24,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -859,7 +871,7 @@
             "logs": [
                 "only one post found with tag: \"css\""
             ],
-            "idx": 24,
+            "idx": 25,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -912,8 +924,8 @@
                 "/collections/posts.json",
                 "/collections/nav.json",
                 "/static/img/bg.jpg",
-                "/static/css/prism.css",
                 "/static/css/global_styles.css",
+                "/static/css/prism.css",
                 "/static/packages/katex/katex.css",
                 "/static/img/stones.jpg",
                 "/static/img/stones.jpg",
@@ -924,6 +936,93 @@
                 "/static/img/logos/reddit.svg",
                 "/static/packages/katex/fonts/KaTeX_Main-Regular.woff2",
                 "/static/packages/katex/fonts/KaTeX_Math-Italic.woff2"
+            ]
+        },
+        {
+            "generator": "/tags/generator.html?health",
+            "output": "/tags/health.html",
+            "logs": [
+                "only one post found with tag: \"health\""
+            ],
+            "idx": 26,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/collections/posts.json",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/email.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg"
+            ]
+        },
+        {
+            "generator": "/tags/generator.html?clojure",
+            "output": "/tags/clojure.html",
+            "logs": [
+                "only one post found with tag: \"clojure\""
+            ],
+            "idx": 27,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/collections/posts.json",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/email.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg"
+            ]
+        },
+        {
+            "generator": "/tags/generator.html?testing",
+            "output": "/tags/testing.html",
+            "logs": [
+                "only one post found with tag: \"testing\""
+            ],
+            "idx": 28,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/collections/posts.json",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/email.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg"
             ]
         }
     ]

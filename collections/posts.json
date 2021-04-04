@@ -147,7 +147,7 @@
     "title": "An REPL oriented testing framework for clojure and clojurescript",
     "url": "/posts/tst.html",
     "date": "4 Apr 2021",
-    "discussion": "",
+    "discussion": "https://www.reddit.com/r/fctorial/comments/mk039d/an_repl_oriented_testing_framework_for_clojure/",
     "description": "A guide for \"tst\", an REPL oriented testing framework for clojure and clojurescript",
     "tags": [
       "clojure",
