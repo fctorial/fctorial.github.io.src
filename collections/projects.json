@@ -11,7 +11,7 @@
   },
   {
     "name": "tst",
-    "description": "Minimalist functional repl oriented testing framework for clojure(script)",
+    "description": "An REPL oriented testing framework for clojure(script)",
     "url": "https://github.com/fctorial/tst"
   },
   {

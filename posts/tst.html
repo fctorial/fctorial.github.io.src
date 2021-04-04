@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<article>
+    <p>
+        <a href="https://github.com/fctorial/tst">tst</a> is a testing library for clojure(script) that is designed to be
+        used from the REPL. In this article, I'm going to describe how to use it.
+    </p>
+    <p>
+        The base API consists of two entities, the macro <progi>testing</progi> and the function <progi>run-test</progi>.
+    </p>
+    <h2>Defining a test suite</h2>
+    <p>
+        <progi>testing</progi> macro is used to define the test suite tree. The leaf nodes in this tree will contain the
+        testing logic and the inner nodes will be used to group multiple test suites. An invocation of the
+        <progi>testing</progi> macro returns a test suite as a value:
+    </p>
+    <prog>
+(def suite1 (testing :test []
+                    {:result :OK
+                     :message "A simple test suite"))
+    </prog>
+    <p>
+        The first argument to the macro is the name of the test suite (<progi>:test</progi> in this case). How the rest
+        of the arguments are interpreted depends on whether the test suite is a leaf node or an inner node.
+    </p>
+    <h4>Leaf Nodes</h4>
+    <p>
+        Leaf nodes must have a vector after the name. The above example is a leaf node. As you can see, it looks a lot
+        like a function call. You are supposed to put all the testing logic inside these "functions". It must return a
+        clojure map with <progi>:result</progi> as a key. It can throw an error too.
+    </p>
+    <h4>Inner Nodes</h4>
+    <p>
+        Inner nodes must contain nested <progi>testing</progi> macro calls following the name:
+    </p>
+    <prog>
+(def suite2 (testing :a
+                     (testing :b []
+                              {:result :OK})
+                     (testing :c []
+                              {:result  :ERR
+                               :message "failing test"})
+                     (testing :d []
+                              (throw (new Error))
+                              {:result  :OK
+                               :message "ignored"}) ))
+    </prog>
+    <h2>Manipulating test suites</h2>
+    <p>
+        You can combine multiple test suites into a single suite using <progi>combine-tests</progi> function:
+    </p>
+    <prog>
+(def combined (combine-tests [suite1 suite2]))
+    </prog>
+    <p>
+        A common pattern is to define parts of test suite in different modules and combining them into one big suite in
+        the main testing module.
+    </p>
+    <p>
+        You can also pull out parts of the test suite as if it were a regular clojure map (it is a regular clojure map):
+    </p>
+    <prog>
+(def suite3 (get combined :test))
+(def suite4 (get-in combined [:a :c]))
+    </prog>
+    <p>
+        This can be used to run a subset of the full test suite.
+    </p>
+    <h2>Running test suites</h2>
+    <p>
+        <progi>run-test</progi> function can be used to execute a test suite. It returns a result tree whose structure
+        matches that of the given test suite.
+    </p>
+    <prog>
+(run-test combined)
+{:test {:result :OK,
+        :message "A simple test suite"},
+ :a {:b {:result :OK},
+     :c {:result :ERR,
+         :message "failing test"},
+     :d {:result :EXCEPTION,
+         :exception #error}}}
+
+(run-test (get-in combined [:a :c]))
+{:result :ERR, :message "failing test", :state {}}
+    </prog>
+
+    <h2>Test state</h2>
+    <p>
+        Consider the following test unit:
+    </p>
+    <prog>
+(testing :suite []
+         (let [a (get-a)
+               b (get-b a)]
+           (if (= a b)
+             {:result :OK}
+             {:result :ERR
+              :cause  "a and b not equal"
+              :a      a
+              :b      b})))
+    </prog>
+    <p>
+        What if <progi>get-b</progi> throws an exception. You'll get the following result when you execute this test:
+    </p>
+    <prog>
+{:result    :EXCEPTION
+ :exception #error}
+    </prog>
+    <p>
+        The exception info will contain the stack trace, but not the value of local variable <progi>a</progi> that
+        caused <progi>get-b</progi> to throw an exception.
+    </p>
+    <p>
+        You can resolve this dilemma by using state variables. The state variables for a test unit are declared in the
+        argument vector of the "function" for that test unit:
+    </p>
+    <prog>
+(testing :suite [val-a]
+         (let [a (get-a)
+               _ (reset! val-a a)
+               b (get-b a)]
+           (if (= a b)
+             {:result :OK}
+             {:result :ERR
+              :cause  "a and b not equal"
+              :a      a
+              :b      b})))
+    </prog>
+    <p>
+        The execution context of the test unit will have an atom for each state variable that is declared. You can store
+        intermediate state of the test unit inside these atoms, and this state will be available in the test result:
+    </p>
+    <prog>
+{:suite {:result :EXCEPTION,
+         :exception #error,
+         :state {val-a 1}}}
+    </prog>
+
+    <h2>Navigating the test result tree</h2>
+    <p>
+        You can use the function <progi>get-failed</progi> function to filter tests with
+        <progi>(not= status :OK)</progi>:
+    </p>
+    <prog>
+(get-failed (run-test combined))
+{:a {:c {:result :ERR, :message "failing test", :state {}},
+     :d {:result :EXCEPTION,
+         :exception #error}}}
+    </prog>
+    <p>
+        You can use functions <progi>flatten-result</progi> and <progi>treefy-result</progi> if your need more granularity:
+    </p>
+    <prog>
+(->> (run-test combined)
+     flatten-result
+     (filter my-result-filter)
+     treefy-result)
+    </prog>
+    <p>
+        <progi>flatten-result</progi> turns a result tree into a sequence of results and <progi>treefy-result</progi>
+        turns a sequence of results back into a tree:
+    </p>
+    <prog>
+(def failed (flatten-result (get-failed (run-test combined))))
+
+; number of failed results
+(count failed)
+
+; first failed test:
+(first failed)
+
+; stats about test results
+(frequencies (map :result (flatten-result (run-test combined))))
+{:OK 2, :ERR 1, :EXCEPTION 1}
+    </prog>
+</article>
+</body>
+<script constexpr src="/static/js/constexpr/lib.js"></script>
+<script constexpr src="/static/js/constexpr/index.js"></script>
+<script constexpr src="/static/js/constexpr/renderer.js"></script>
+
+<script constexpr>
+  async function render_page() {
+    document.querySelectorAll('prog').forEach(el => el.classList.add('language-clojure'))
+    const base_page_render = site_global_rendering()
+    await base_page_render
+  }
+</script>
+
+<script constexpr>
+  render_page()
+    .then(() => window._ConstexprJS_.compile())
+</script>
+<style>
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0.5em 0;
+    }
+    prog {
+        background: #efefef;
+    }
+</style>
+</html>
