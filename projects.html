@@ -16,10 +16,10 @@
 
 <script constexpr>
   async function page_specific_stuff() {
-    const projects = await (await fetch("/collections/projects.json")).json()
+    const projects = await fetch("/collections/projects.json").then(res => res.json())
     const list = document.querySelector('#proj_list')
     projects.forEach(
-      p => {
+      (p, idx) => {
         const container = make_element(
           `
           <div>
@@ -32,11 +32,13 @@
         [...container.children].forEach(
           ch => list.appendChild(ch)
         )
-        list.appendChild(
-          make_element(
-            `<li class="divider"/>`
+        if (idx !== projects.length - 1) {
+          list.appendChild(
+            make_element(
+              `<li class="divider"/>`
+            )
           )
-        )
+        }
       }
     )
     article.appendChild(list)
