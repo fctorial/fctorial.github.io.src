@@ -5,14 +5,14 @@
     "url": "/tags/generator.html?constexpr.js"
   },
   {
+    "name": "tst",
+    "description": "An REPL oriented testing framework for clojure(script)",
+    "url": "/posts/tst.html"
+  },
+  {
     "name": "Zircon Standalone",
     "description": "Run code on zircon kernel",
     "url": "/posts/zircon_standalone.html"
-  },
-  {
-    "name": "tst",
-    "description": "An REPL oriented testing framework for clojure(script)",
-    "url": "https://github.com/fctorial/tst"
   },
   {
     "name": "parse_struct",

@@ -93,12 +93,12 @@
     </p>
     <prog>
 (testing :suite []
-         (let [a (get-a)
-               b (get-b a)]
-           (if (= a b)
+         (let [a (get_a)
+               b (get_b a)]
+           (if (valid_value? b)
              {:result :OK}
              {:result :ERR
-              :cause  "a and b not equal"
+              :cause  "Invalid result"
               :a      a
               :b      b})))
     </prog>
@@ -118,14 +118,14 @@
         argument vector of the "function" for that test unit:
     </p>
     <prog>
-(testing :suite [val-a]
-         (let [a (get-a)
-               _ (reset! val-a a)
-               b (get-b a)]
-           (if (= a b)
+(testing :suite [val_a]
+         (let [a (get_a)
+               _ (reset! val_a a)
+               b (get_b a)]
+           (if (valid_value? b)
              {:result :OK}
              {:result :ERR
-              :cause  "a and b not equal"
+              :cause  "Invalid result"
               :a      a
               :b      b})))
     </prog>
@@ -136,7 +136,7 @@
     <prog>
 {:suite {:result :EXCEPTION,
          :exception #error,
-         :state {val-a 1}}}
+         :state {val_a 1}}}
     </prog>
 
     <h2>Navigating the test result tree</h2>
