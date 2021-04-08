@@ -212,19 +212,18 @@ Promise.all([render_task_1(), render_task_2()])
         <li>
             This whole website is rendered using javascript and constexpr.js. The html files contain only the page
             specific stuff. (article text and page specific styling).
-            All of the styling and theming is done by constexpr code. The whole website contains 37 lines of javascript
-            (for some optional dynamic functionality in some pages):
+            All of the styling and theming is done by constexpr code. The whole website contains 57 lines of javascript
+            (for disqus and some optional dynamic functionality):
             <prog>
-$ tokei -t=html
 ===============================================================================
 Language            Files        Lines         Code     Comments       Blanks
 ===============================================================================
-HTML                   16         1072          918            0          154
-|- CSS                  6           76           68            0            8
-|- JavaScript           2           37           37            0            0
-(Total)                           1185         1023            0          162
+HTML                   34         2729         2329            0          400
+|- CSS                 22          255          234            0           21
+|- JavaScript           4           61           57            0            4
+(Total)                           3045         2620            0          425
 ===============================================================================
-Total                  16         1185         1023            0          162
+Total                  34         3045         2620            0          425
 ===============================================================================
             </prog>
             The original sources for this website can be found <a href="https://github.com/fctorial/fctorial.github.io.src">here</a>.

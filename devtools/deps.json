@@ -113,6 +113,32 @@
             ]
         },
         {
+            "generator": "/404.html",
+            "output": "/404.html",
+            "logs": [],
+            "idx": 3,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/email.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg"
+            ]
+        },
+        {
             "generator": "/tags.html",
             "output": "/tags.html",
             "logs": [],
@@ -185,10 +211,39 @@
             ]
         },
         {
-            "generator": "/404.html",
-            "output": "/404.html",
+            "generator": "/posts/modifying_idea.html",
+            "output": "/posts/modifying_idea.html",
             "logs": [],
-            "idx": 3,
+            "idx": 5,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/prism.css",
+                "/static/css/global_styles.css",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/email.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg"
+            ]
+        },
+        {
+            "generator": "/projects.html",
+            "output": "/projects.html",
+            "logs": [],
+            "idx": 1,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -201,7 +256,37 @@
                 "/collections/config.json",
                 "/collections/posts.json",
                 "/collections/nav.json",
+                "/collections/projects.json",
                 "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/email.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg"
+            ]
+        },
+        {
+            "generator": "/posts/youtube_python_bug.html",
+            "output": "/posts/youtube_python_bug.html",
+            "logs": [],
+            "idx": 10,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/prism.css",
                 "/static/css/global_styles.css",
                 "/static/img/logos/github.svg",
                 "/static/img/logos/twitter.svg",
@@ -230,11 +315,6 @@
                 "/static/img/bg.jpg",
                 "/static/css/global_styles.css",
                 "/collections/intellij_logos.json",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/email.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg",
                 "/static/img/intellij_logos/2009.09.01.png",
                 "/static/img/intellij_logos/2009.09.09.png",
                 "/static/img/intellij_logos/2009.09.13.png",
@@ -300,87 +380,7 @@
                 "/static/img/intellij_logos/2020.00.21.png",
                 "/static/img/intellij_logos/2020.04.21.png",
                 "/static/img/intellij_logos/2020.08.16.png",
-                "/static/img/intellij_logos/2021.00.21.png"
-            ]
-        },
-        {
-            "generator": "/posts/modifying_idea.html",
-            "output": "/posts/modifying_idea.html",
-            "logs": [],
-            "idx": 5,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/global_styles.css",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/email.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg"
-            ]
-        },
-        {
-            "generator": "/posts/youtube_python_bug.html",
-            "output": "/posts/youtube_python_bug.html",
-            "logs": [],
-            "idx": 10,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/static/img/bg.jpg",
-                "/static/css/global_styles.css",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/email.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg",
-                "/static/css/prism.css"
-            ]
-        },
-        {
-            "generator": "/projects.html",
-            "output": "/projects.html",
-            "logs": [],
-            "idx": 1,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/collections/projects.json",
-                "/static/img/bg.jpg",
-                "/static/css/global_styles.css",
+                "/static/img/intellij_logos/2021.00.21.png",
                 "/static/img/logos/github.svg",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/email.svg",
@@ -477,6 +477,33 @@
             ]
         },
         {
+            "generator": "/posts/ui_api.html",
+            "output": "/posts/ui_api.html",
+            "logs": [],
+            "idx": 13,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
+                "/static/img/win8.jpg",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/email.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg"
+            ]
+        },
+        {
             "generator": "/posts/syntax_highlighting_nojs.html",
             "output": "/posts/syntax_highlighting_nojs.html",
             "logs": [],
@@ -496,8 +523,8 @@
                 "/collections/posts.json",
                 "/collections/nav.json",
                 "/static/img/bg.jpg",
-                "/static/css/prism.css",
                 "/static/css/global_styles.css",
+                "/static/css/prism.css",
                 "/static/img/logos/github.svg",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/email.svg",
@@ -525,8 +552,8 @@
                 "/collections/posts.json",
                 "/collections/nav.json",
                 "/static/img/bg.jpg",
-                "/static/css/prism.css",
                 "/static/css/global_styles.css",
+                "/static/css/prism.css",
                 "/static/img/logos/github.svg",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/email.svg",
@@ -540,7 +567,9 @@
             "logs": [],
             "idx": 14,
             "addedPaths": [],
-            "addedExclusions": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
             "deducedExclusions": [
                 "/static/js/constexpr/lib.js",
                 "/static/js/constexpr/index.js",
@@ -553,6 +582,7 @@
                 "/collections/nav.json",
                 "/static/img/bg.jpg",
                 "/static/css/global_styles.css",
+                "/static/css/prism.css",
                 "/static/img/logos/github.svg",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/email.svg",
@@ -561,12 +591,14 @@
             ]
         },
         {
-            "generator": "/posts/ui_api.html",
-            "output": "/posts/ui_api.html",
+            "generator": "/posts/dynamic_colored_border.html",
+            "output": "/posts/dynamic_colored_border.html",
             "logs": [],
-            "idx": 13,
+            "idx": 15,
             "addedPaths": [],
-            "addedExclusions": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
             "deducedExclusions": [
                 "/static/js/constexpr/lib.js",
                 "/static/js/constexpr/index.js",
@@ -579,7 +611,7 @@
                 "/collections/nav.json",
                 "/static/img/bg.jpg",
                 "/static/css/global_styles.css",
-                "/static/img/win8.jpg",
+                "/static/css/prism.css",
                 "/static/img/logos/github.svg",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/email.svg",
@@ -615,14 +647,12 @@
             ]
         },
         {
-            "generator": "/posts/dynamic_colored_border.html",
-            "output": "/posts/dynamic_colored_border.html",
+            "generator": "/tags/generator.html?web",
+            "output": "/tags/web.html",
             "logs": [],
-            "idx": 15,
+            "idx": 18,
             "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
+            "addedExclusions": [],
             "deducedExclusions": [
                 "/static/js/constexpr/lib.js",
                 "/static/js/constexpr/index.js",
@@ -634,8 +664,8 @@
                 "/collections/posts.json",
                 "/collections/nav.json",
                 "/static/img/bg.jpg",
-                "/static/css/prism.css",
                 "/static/css/global_styles.css",
+                "/collections/posts.json",
                 "/static/img/logos/github.svg",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/email.svg",
@@ -663,35 +693,8 @@
                 "/collections/posts.json",
                 "/collections/nav.json",
                 "/static/img/bg.jpg",
+                "/static/css/global_styles.css",
                 "/static/css/prism.css",
-                "/static/css/global_styles.css",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/email.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg"
-            ]
-        },
-        {
-            "generator": "/tags/generator.html?web",
-            "output": "/tags/web.html",
-            "logs": [],
-            "idx": 18,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/static/img/bg.jpg",
-                "/static/css/global_styles.css",
-                "/collections/posts.json",
                 "/static/img/logos/github.svg",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/email.svg",
@@ -754,10 +757,10 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?ui",
-            "output": "/tags/ui.html",
+            "generator": "/tags/generator.html?intellij",
+            "output": "/tags/intellij.html",
             "logs": [],
-            "idx": 22,
+            "idx": 21,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -781,10 +784,10 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?intellij",
-            "output": "/tags/intellij.html",
+            "generator": "/tags/generator.html?ui",
+            "output": "/tags/ui.html",
             "logs": [],
-            "idx": 21,
+            "idx": 22,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -1011,18 +1014,18 @@
                 "/collections/posts.json",
                 "/collections/nav.json",
                 "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/packages/katex/katex.css",
                 "/static/css/global_styles.css",
-                "/static/img/stones.jpg",
-                "/static/img/stones.jpg",
-                "/static/packages/katex/fonts/KaTeX_Main-Regular.woff2",
-                "/static/packages/katex/fonts/KaTeX_Math-Italic.woff2",
+                "/static/css/prism.css",
                 "/static/img/logos/github.svg",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/email.svg",
                 "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg"
+                "/static/img/logos/reddit.svg",
+                "/static/packages/katex/katex.css",
+                "/static/img/stones.jpg",
+                "/static/img/stones.jpg",
+                "/static/packages/katex/fonts/KaTeX_Main-Regular.woff2",
+                "/static/packages/katex/fonts/KaTeX_Math-Italic.woff2"
             ]
         }
     ]
