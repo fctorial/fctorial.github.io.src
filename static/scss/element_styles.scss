@@ -56,12 +56,8 @@ prog * {
 progi {
   font-family: 'Ubuntu Mono', monospace;
   background: #dddbff;
-  overflow-x: auto;
-  white-space: nowrap;
-  max-width: 100%;
-  display: inline-block;
-  position: relative;
-  top: 0.5em;
+  overflow-wrap: anywhere;
+  display: inline;
   padding: 0 0.5em;
 }
 

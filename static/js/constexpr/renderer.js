@@ -165,11 +165,7 @@ async function evalScript(path) {
 }
 
 async function syntax_highlight() {
-  document.querySelectorAll('prog').forEach(el => {
-    el.setAttribute('role', 'figure')
-    el.textContent = el.textContent.trim()
-  })
-  document.querySelectorAll('progi').forEach(el => {
+  document.querySelectorAll('prog, progi').forEach(el => {
     el.setAttribute('role', 'figure')
     el.textContent = el.textContent.trim()
   })
@@ -177,14 +173,14 @@ async function syntax_highlight() {
   if (els.length > 0) {
     window.Prism = {manual: true};
     await evalScript("/static/js/constexpr/third_party/prism.js")
+    document.head.appendChild(
+      make_element(`<link rel="stylesheet" href="/static/css/prism.css">`)
+    )
     await Promise.all(els.map(
       el => new Promise((resolve) => {
         Prism.highlightElement(el, null, () => resolve())
       })
     ))
-    document.head.appendChild(
-      make_element(`<link rel="stylesheet" href="/static/css/prism.css">`)
-    )
   }
 }
 
