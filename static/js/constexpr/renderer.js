@@ -121,23 +121,23 @@ async function render_base_page() {
 <footer>
     <div class="links">
         <div class="social">
-            <div class="footer-title">Contacts:</div>
-            <a title="github" href="https://github.com/fctorial" class="svg-icon github"></a>
-            <a title="twitter" href="https://twitter.com/fctorial1" class="svg-icon twitter"></a>
-            <a title="email" href="mailto:fctorial@gmail.com" class="svg-icon email"></a>
-        </div>
-        <div class="share social">
             <div class="footer-title">Share this page:</div>
-            <a title="twitter" class="svg-icon twitter" target="_blank" href="https://twitter.com/share?text=${document.querySelector('title').textContent}&url=${global_cfg.url + window.location.pathname}"></a>
-            <a title="facebook" class="svg-icon facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=${global_cfg.url + window.location.pathname}"></a>
-            <a title="reddit" class="svg-icon reddit" target="_blank" href="https://www.reddit.com/submit?title=${document.querySelector('title').textContent}&url=${global_cfg.url + window.location.pathname}"></a>
+            <a rel="noopener" title="twitter" class="svg-icon twitter" target="_blank" href="https://twitter.com/share?text=${document.querySelector('title').textContent}&url=${global_cfg.url + window.location.pathname}"></a>
+            <a rel="noopener" title="facebook" class="svg-icon facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=${global_cfg.url + window.location.pathname}"></a>
+            <a rel="noopener" title="reddit" class="svg-icon reddit" target="_blank" href="https://www.reddit.com/submit?title=${document.querySelector('title').textContent}&url=${global_cfg.url + window.location.pathname}"></a>
+        </div>
+        <div class="social">
+            <div class="footer-title">Contacts:</div>
+            <a rel="noopener" title="github" href="https://github.com/fctorial" class="svg-icon github"></a>
+            <a rel="noopener" title="twitter" href="https://twitter.com/fctorial1" class="svg-icon twitter"></a>
+            <a rel="noopener" title="email" href="mailto:fctorial@gmail.com" class="svg-icon email"></a>
         </div>
     </div>
 </div>
 </footer>
 `)
   if (this_post && this_post.discussion) {
-    footer.appendChild(make_element(`<a class="discussion" target="_blank" href="${this_post.discussion}">Join the discussion here</a>`))
+    footer.appendChild(make_element(`<a rel="noopener" class="discussion" target="_blank" href="${this_post.discussion}">Join the discussion here</a>`))
   }
 
   article.remove()

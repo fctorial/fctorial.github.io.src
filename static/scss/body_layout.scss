@@ -18,7 +18,23 @@ body {
     padding-top: 1em;
   }
 
+  @media (max-width: 800px) {
+    > .first_body_wrapper {
+      width: 100%;
+      min-width: 0;
+      font-size: 0.8em;
+    }
+
+    #body_wrapper {
+      padding-top: 0;
+    }
+  }
+
+  @media (min-width: 800px) {
+    padding: 1em;
+  }
 }
+
 .bg {
   z-index: -2;
   position: fixed;
@@ -29,23 +45,4 @@ body {
   object-fit: cover;
   filter: brightness(20%);
   transition: opacity 500ms;
-}
-
-@media (max-width: 800px) {
-  body {
-    > .first_body_wrapper {
-      width: 100%;
-      min-width: 0;
-      font-size: 0.6em;
-    }
-    #body_wrapper {
-      padding-top: 0;
-    }
-  }
-}
-
-@media (min-width: 800px) {
-  body {
-    padding: 1em;
-  }
 }

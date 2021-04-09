@@ -24,14 +24,14 @@
         The first argument to the macro is the name of the test suite (<progi>:test</progi> in this case). How the rest
         of the arguments are interpreted depends on whether the test suite is a leaf node or an inner node.
     </p>
-    <h4>Leaf Nodes</h4>
+    <h3>Leaf Nodes</h3>
     <p>
         Leaf nodes must have a vector after the name. The above example is a leaf node. As you can see, it looks a lot
         like a function call. You are supposed to put all the testing logic inside these "functions". It must return a
         clojure map with <progi>:result</progi> as a key. It can throw an error too.<br/>
         The empty vector isn't there just for marking the leaf nodes. I'll describe how to use them a little later.
     </p>
-    <h4>Inner Nodes</h4>
+    <h3>Inner Nodes</h3>
     <p>
         Inner nodes must contain nested <progi>testing</progi> macro calls following the name:
     </p>
