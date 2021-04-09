@@ -23,9 +23,9 @@
   font-size: 0.8em;
   border-radius: 10em;
   background: #bcbcec;
-  text-decoration: none !important;
   color: inherit !important;
-  :hover {
+  &:hover {
+    text-decoration: none;
     background: #a3a3e5;
   }
 }
