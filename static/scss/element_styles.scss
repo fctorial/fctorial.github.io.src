@@ -33,16 +33,14 @@
 a {
   color: #f200ff;
   text-decoration: none;
+  text-transform: uppercase;
 }
 a:visited {
   color: #7d04a8;
 }
-a:hover {
-  text-decoration: underline;
-}
 
 prog, formula {
-  font-family: monospace;
+  font-family: 'Ubuntu Mono', monospace;
   display: block;
   white-space: pre;
   padding: 0.5em;
@@ -56,7 +54,7 @@ prog * {
 }
 
 progi {
-  font-family: monospace;
+  font-family: 'Ubuntu Mono', monospace;
   background: #dddbff;
   overflow-x: auto;
   white-space: nowrap;
