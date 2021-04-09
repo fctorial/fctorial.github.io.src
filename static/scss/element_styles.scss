@@ -56,9 +56,12 @@ prog * {
 progi {
   font-family: 'Ubuntu Mono', monospace;
   background: #dddbff;
-  overflow-wrap: anywhere;
-  display: inline;
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 100%;
+  display: inline-block;
   padding: 0 0.5em;
+  vertical-align: top;
 }
 
 blockquote {
