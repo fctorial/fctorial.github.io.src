@@ -35,7 +35,7 @@ async function render_base_page() {
   )
   document.head.appendChild(
     make_element(
-          `<link rel="stylesheet" href='/static/css/global_styles.css'>`
+          `<link rel="stylesheet" href='/static/css/styles.css'>`
     )
   )
   if (this_post) {
@@ -126,7 +126,7 @@ async function render_base_page() {
   }
 
   article.remove()
-  body_wrapper = make_element(`<div id="body_wrapper"></div>`)
+  body_wrapper = make_element(`<div id="body_wrapper" class="first_body_wrapper"></div>`)
   body_wrapper.appendChild(header)
   body_wrapper.appendChild(article)
   body_wrapper.appendChild(footer)

@@ -1,0 +1,51 @@
+
+#body_wrapper {
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    grid-gap: 1em;
+
+    a {
+      text-decoration: none !important;
+      color: inherit !important;
+      padding: 0.5em 1em;
+      background: #c7c5c5;
+      min-width: 10em;
+      text-align: center;
+      border: 1px solid #8d8a8a;
+
+      &.current {
+        background: #a2c0ff;
+      }
+    }
+
+  }
+
+  #main_title {
+    width: 100%;
+    text-align: center;
+    margin-top: 1em;
+  }
+
+  article {
+    line-height: 1.6;
+    padding: 2em;
+
+    p, prog, blockquote {
+      margin: 1rem 0;
+    }
+  }
+}
+
+.bg {
+  z-index: -2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(20%);
+  transition: opacity 500ms;
+}
