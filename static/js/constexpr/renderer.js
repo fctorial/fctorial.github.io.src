@@ -38,6 +38,16 @@ async function render_base_page() {
           `<link rel="stylesheet" href='/static/css/styles.css'>`
     )
   )
+  document.head.appendChild(
+    make_element(
+      `<link rel="preconnect" href="https://fonts.gstatic.com">`
+    )
+  )
+  document.head.appendChild(
+    make_element(
+      `<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">`
+    )
+  )
   if (this_post) {
     document.head.appendChild(
       make_element(
