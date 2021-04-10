@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<article>
+    <p>
+        Rust is considered by many to be one of the hardest mainstream programming languages. Many beginners struggle a
+        lot when learning rust, despite the excellent tooling, decent standard library, and painless package
+        management. That means there is something inherently difficult/tricky about the core language itself that
+        newcomers find very difficult to come to terms with.
+    </p>
+    <p>
+        Rust is a huge language and it's increasing in size everyday. It has a lot of complicated features like
+        generics, metaprogramming, build scripts etcetra. In this article, I'm going to focus only on the borrow
+        checker and the type system, since these are the first core features of the language that trip up newcomers.
+    </p>
+    <p>
+        Take a look at this function:
+    </p>
+    <prog class="language-rust">
+fn process(file: String, processor: fn(&str) -> bool, finalizer: fn() -> ()) {
+    let p = Path::new(&file);
+    if let Ok(_) = read_to_string(p)
+        .and_then(|content| {
+            let mut line_iter = content.split("\n");
+            line_iter.next();
+            if line_iter
+                .map(|s| processor(s))
+                .reduce(|a, b| a && b).unwrap_or(true) {
+                return Ok(());
+            } else {
+                return Err(Error::new(ErrorKind::Other, ""));
+            }
+        }) {
+        finalizer();
+    }
+}
+    </prog>
+    <p>
+        It reads a file, splits it into lines, skips the first line, processes the rest of the lines, and calls a
+        finalizer if all the processing operations succeeded. These are some of the noteworthy things about this code:
+    </p>
+
+    <ul>
+        <li>
+            <p>
+                There are exactly three type annotations in this function, all in the function signature. The
+                compiler infers everything else on its own.
+            </p>
+        </li>
+        <li>
+            <p>
+                A lot of objects are being created in this function. Some of them own resources
+                (<progi>read_to_string()</progi>). Others hold references to resource owners (<progi>line_iter</progi>).
+                The compilers (specifically, the borrow checker), ensures that all the resources are freed correctly and
+                verifies that all the references are used only within the lifetime of the owner. <em>All of that happens
+                automagically from the point of view of the programmer.</em> This is RAII on steroids.
+            </p>
+        </li>
+    </ul>
+    <p>
+        Because of the borrow checker and the type deduction system, programming in rust feels eerily similar to
+        a high level language like javascript. You could say that rust lang comes with a compile time garbage collector.
+        In fact, you can go very far by programming in rust like it's nodejs, which is what I suspect beginners do. But,
+        sooner or later, you'll hit the limits of the borrow checker. And when that happens, you'll have to start
+        thinking about resources and lifetimes. I believe this is the number one gotcha that trips up rust noobies.
+    </p>
+    <p>
+        So noobies find rust difficult <em>because</em> of how marvellous and helpful the borrow checker is, not
+        because of the borrow checker being too strict.
+    </p>
+    <blockquote>
+        Rust is not a high level language. It is a low level language without a garbage collector.
+    </blockquote>
+</article>
+</body>
+<script constexpr src="/static/js/constexpr/lib.js"></script>
+<script constexpr src="/static/js/constexpr/index.js"></script>
+<script constexpr src="/static/js/constexpr/renderer.js"></script>
+
+<script constexpr>
+  async function render_page() {
+    const base_page_render = site_global_rendering()
+    await base_page_render
+  }
+</script>
+
+<script constexpr>
+  render_page()
+    .then(() => window._ConstexprJS_.compile())
+</script>
+
+</html>

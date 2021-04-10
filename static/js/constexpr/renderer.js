@@ -198,6 +198,6 @@ async function site_global_rendering() {
   setup_bg()
   await Promise.all([render_base_page(), syntax_highlight(), render_latex()])
   window.onfocus = () => {
-    // setTimeout(() => window.location.reload(), 200)
+    setTimeout(() => window.location.reload(), 200)
   }
 }

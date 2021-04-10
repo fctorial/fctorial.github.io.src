@@ -153,5 +153,16 @@
       "clojure",
       "testing"
     ]
+  },
+  {
+    "title": "Why is rust so difficult?",
+    "url": "/posts/rust_difficult.html",
+    "date": "10 Apr 2021",
+    "discussion": "",
+    "description": "In this article I try to describe why rust and its ownership system so difficult to learn",
+    "tags": [
+      "rust",
+      "essay"
+    ]
   }
 ]
