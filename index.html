@@ -25,17 +25,17 @@
 
 <script constexpr>
   async function page_specific_stuff() {
-    window._ConstexprJS_.addPaths(['/projects.html', '/tags.html', '/404.html'].map(path => ({
+    ['/projects.html', '/tags.html', '/404.html'].map(path => window._ConstexprJS_.addPath({
       generator: path,
       output: path
-    })))
+    }))
 
     const postsEl = document.querySelector('#posts')
     const posts = await (await fetch("/collections/posts.json")).json()
-    window._ConstexprJS_.addPaths(posts.map(post => ({
+    posts.forEach(post => window._ConstexprJS_.addPath({
       generator: post.url,
       output: post.url
-    })))
+    }))
     posts.forEach(post => {
       let tags = ''
       post.tags.forEach(tag => {

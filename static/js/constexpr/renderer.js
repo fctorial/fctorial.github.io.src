@@ -160,7 +160,7 @@ async function fetchFile(path) {
 }
 
 async function evalScript(path) {
-  window._ConstexprJS_.addExclusions([path])
+  window._ConstexprJS_.addExclusion(path)
   eval(await fetchFile(path))
 }
 

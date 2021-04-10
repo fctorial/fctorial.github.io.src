@@ -331,10 +331,8 @@ Total                  34         3045         2620            0          425
 </script>
 
 <script constexpr>
-  window._ConstexprJS_.addExclusions([
-    '/static/files/build.cast',
-    '/static/files/tips.csv'
-  ])
+  window._ConstexprJS_.addExclusion('/static/files/build.cast')
+  window._ConstexprJS_.addExclusion('/static/files/tips.csv')
 
   render_page()
     .then(() => {

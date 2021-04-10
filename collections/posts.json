@@ -158,7 +158,7 @@
     "title": "Rust is a low level language",
     "url": "/posts/rust_difficult.html",
     "date": "10 Apr 2021",
-    "discussion": "",
+    "discussion": "https://www.reddit.com/r/fctorial/comments/mo5jk7/rust_is_a_low_level_language/",
     "description": "In this article I try to describe why rust and its ownership system are so difficult to learn",
     "tags": [
       "rust",
