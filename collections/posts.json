@@ -155,11 +155,11 @@
     ]
   },
   {
-    "title": "Why is rust so difficult?",
+    "title": "Rust is a low level language",
     "url": "/posts/rust_difficult.html",
     "date": "10 Apr 2021",
     "discussion": "",
-    "description": "In this article I try to describe why rust and its ownership system so difficult to learn",
+    "description": "In this article I try to describe why rust and its ownership system are so difficult to learn",
     "tags": [
       "rust",
       "essay"

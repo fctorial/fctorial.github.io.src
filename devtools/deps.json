@@ -87,6 +87,10 @@
                 {
                     "generator": "/posts/tst.html",
                     "output": "/posts/tst.html"
+                },
+                {
+                    "generator": "/posts/rust_difficult.html",
+                    "output": "/posts/rust_difficult.html"
                 }
             ],
             "addedExclusions": [],
@@ -103,33 +107,6 @@
                 "/collections/posts.json",
                 "/collections/nav.json",
                 "/collections/posts.json",
-                "/static/img/bg.jpg",
-                "/static/css/styles.css",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/email.svg"
-            ]
-        },
-        {
-            "generator": "/projects.html",
-            "output": "/projects.html",
-            "logs": [],
-            "idx": 1,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/collections/projects.json",
                 "/static/img/bg.jpg",
                 "/static/css/styles.css",
                 "/static/img/logos/twitter.svg",
@@ -188,6 +165,10 @@
                 {
                     "generator": "/tags/generator.html?testing",
                     "output": "/tags/testing.html"
+                },
+                {
+                    "generator": "/tags/generator.html?rust",
+                    "output": "/tags/rust.html"
                 }
             ],
             "addedExclusions": [],
@@ -212,12 +193,14 @@
             ]
         },
         {
-            "generator": "/404.html",
-            "output": "/404.html",
+            "generator": "/posts/zircon_standalone.html",
+            "output": "/posts/zircon_standalone.html",
             "logs": [],
-            "idx": 3,
+            "idx": 8,
             "addedPaths": [],
-            "addedExclusions": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
             "deducedExclusions": [
                 "/static/js/constexpr/lib.js",
                 "/static/js/constexpr/index.js",
@@ -229,7 +212,9 @@
                 "/collections/posts.json",
                 "/collections/nav.json",
                 "/static/img/bg.jpg",
+                "/static/css/prism.css",
                 "/static/css/styles.css",
+                "/static/img/fuchsia.svg",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/facebook.svg",
                 "/static/img/logos/reddit.svg",
@@ -257,11 +242,6 @@
                 "/static/img/bg.jpg",
                 "/static/css/styles.css",
                 "/collections/intellij_logos.json",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/email.svg",
                 "/static/img/intellij_logos/2009.09.01.png",
                 "/static/img/intellij_logos/2009.09.09.png",
                 "/static/img/intellij_logos/2009.09.13.png",
@@ -327,60 +307,7 @@
                 "/static/img/intellij_logos/2020.00.21.png",
                 "/static/img/intellij_logos/2020.04.21.png",
                 "/static/img/intellij_logos/2020.08.16.png",
-                "/static/img/intellij_logos/2021.00.21.png"
-            ]
-        },
-        {
-            "generator": "/posts/modifying_idea.html",
-            "output": "/posts/modifying_idea.html",
-            "logs": [],
-            "idx": 5,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/styles.css",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/email.svg"
-            ]
-        },
-        {
-            "generator": "/posts/runtime_compiletime_constexpr.js.html",
-            "output": "/posts/runtime_compiletime_constexpr.js.html",
-            "logs": [],
-            "idx": 7,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/styles.css",
+                "/static/img/intellij_logos/2021.00.21.png",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/facebook.svg",
                 "/static/img/logos/reddit.svg",
@@ -408,7 +335,89 @@
                 "/collections/posts.json",
                 "/collections/nav.json",
                 "/static/img/bg.jpg",
+                "/static/css/styles.css",
                 "/static/css/prism.css",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/email.svg"
+            ]
+        },
+        {
+            "generator": "/posts/runtime_compiletime_constexpr.js.html",
+            "output": "/posts/runtime_compiletime_constexpr.js.html",
+            "logs": [],
+            "idx": 7,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/styles.css",
+                "/static/css/prism.css",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/email.svg"
+            ]
+        },
+        {
+            "generator": "/404.html",
+            "output": "/404.html",
+            "logs": [],
+            "idx": 3,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/styles.css",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/email.svg"
+            ]
+        },
+        {
+            "generator": "/projects.html",
+            "output": "/projects.html",
+            "logs": [],
+            "idx": 1,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/collections/projects.json",
+                "/static/img/bg.jpg",
                 "/static/css/styles.css",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/facebook.svg",
@@ -447,10 +456,10 @@
             ]
         },
         {
-            "generator": "/posts/zircon_standalone.html",
-            "output": "/posts/zircon_standalone.html",
+            "generator": "/posts/modifying_idea.html",
+            "output": "/posts/modifying_idea.html",
             "logs": [],
-            "idx": 8,
+            "idx": 5,
             "addedPaths": [],
             "addedExclusions": [
                 "/static/js/constexpr/third_party/prism.js"
@@ -466,9 +475,8 @@
                 "/collections/posts.json",
                 "/collections/nav.json",
                 "/static/img/bg.jpg",
-                "/static/css/styles.css",
                 "/static/css/prism.css",
-                "/static/img/fuchsia.svg",
+                "/static/css/styles.css",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/facebook.svg",
                 "/static/img/logos/reddit.svg",
@@ -496,6 +504,35 @@
                 "/static/img/bg.jpg",
                 "/static/css/styles.css",
                 "/static/img/win8.jpg",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/email.svg"
+            ]
+        },
+        {
+            "generator": "/posts/syntax_highlighting_nojs.html",
+            "output": "/posts/syntax_highlighting_nojs.html",
+            "logs": [],
+            "idx": 11,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/styles.css",
+                "/static/css/prism.css",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/facebook.svg",
                 "/static/img/logos/reddit.svg",
@@ -533,10 +570,10 @@
             ]
         },
         {
-            "generator": "/posts/syntax_highlighting_nojs.html",
-            "output": "/posts/syntax_highlighting_nojs.html",
+            "generator": "/posts/constexprjs_entry_points.html",
+            "output": "/posts/constexprjs_entry_points.html",
             "logs": [],
-            "idx": 11,
+            "idx": 14,
             "addedPaths": [],
             "addedExclusions": [
                 "/static/js/constexpr/third_party/prism.js"
@@ -589,35 +626,6 @@
             ]
         },
         {
-            "generator": "/posts/constexprjs_entry_points.html",
-            "output": "/posts/constexprjs_entry_points.html",
-            "logs": [],
-            "idx": 14,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/styles.css",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/email.svg"
-            ]
-        },
-        {
             "generator": "/posts/dynamic_colored_border.html",
             "output": "/posts/dynamic_colored_border.html",
             "logs": [],
@@ -639,33 +647,6 @@
                 "/static/img/bg.jpg",
                 "/static/css/prism.css",
                 "/static/css/styles.css",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/email.svg"
-            ]
-        },
-        {
-            "generator": "/tags/generator.html?constexpr.js",
-            "output": "/tags/constexpr.js.html",
-            "logs": [],
-            "idx": 19,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/static/img/bg.jpg",
-                "/static/css/styles.css",
-                "/collections/posts.json",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/facebook.svg",
                 "/static/img/logos/reddit.svg",
@@ -706,7 +687,7 @@
             "generator": "/tags/generator.html?web",
             "output": "/tags/web.html",
             "logs": [],
-            "idx": 18,
+            "idx": 19,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -730,8 +711,8 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?essay",
-            "output": "/tags/essay.html",
+            "generator": "/tags/generator.html?constexpr.js",
+            "output": "/tags/constexpr.js.html",
             "logs": [],
             "idx": 20,
             "addedPaths": [],
@@ -757,8 +738,8 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?intellij",
-            "output": "/tags/intellij.html",
+            "generator": "/tags/generator.html?essay",
+            "output": "/tags/essay.html",
             "logs": [],
             "idx": 21,
             "addedPaths": [],
@@ -787,6 +768,33 @@
             "generator": "/tags/generator.html?ui",
             "output": "/tags/ui.html",
             "logs": [],
+            "idx": 23,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/styles.css",
+                "/collections/posts.json",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/email.svg"
+            ]
+        },
+        {
+            "generator": "/tags/generator.html?intellij",
+            "output": "/tags/intellij.html",
+            "logs": [],
             "idx": 22,
             "addedPaths": [],
             "addedExclusions": [],
@@ -811,12 +819,41 @@
             ]
         },
         {
+            "generator": "/posts/rust_difficult.html",
+            "output": "/posts/rust_difficult.html",
+            "logs": [],
+            "idx": 18,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/styles.css",
+                "/static/css/prism.css",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/email.svg"
+            ]
+        },
+        {
             "generator": "/tags/generator.html?zircon_standalone",
             "output": "/tags/zircon_standalone.html",
             "logs": [
                 "only one post found with tag: \"zircon_standalone\""
             ],
-            "idx": 23,
+            "idx": 24,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -845,7 +882,7 @@
             "logs": [
                 "only one post found with tag: \"python\""
             ],
-            "idx": 24,
+            "idx": 25,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -874,7 +911,7 @@
             "logs": [
                 "only one post found with tag: \"css\""
             ],
-            "idx": 25,
+            "idx": 26,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -903,36 +940,7 @@
             "logs": [
                 "only one post found with tag: \"health\""
             ],
-            "idx": 26,
-            "addedPaths": [],
-            "addedExclusions": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/collections/config.json",
-                "/collections/posts.json",
-                "/collections/nav.json",
-                "/static/img/bg.jpg",
-                "/static/css/styles.css",
-                "/collections/posts.json",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/email.svg"
-            ]
-        },
-        {
-            "generator": "/tags/generator.html?testing",
-            "output": "/tags/testing.html",
-            "logs": [
-                "only one post found with tag: \"testing\""
-            ],
-            "idx": 28,
+            "idx": 27,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
@@ -961,7 +969,65 @@
             "logs": [
                 "only one post found with tag: \"clojure\""
             ],
-            "idx": 27,
+            "idx": 28,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/styles.css",
+                "/collections/posts.json",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/email.svg"
+            ]
+        },
+        {
+            "generator": "/tags/generator.html?testing",
+            "output": "/tags/testing.html",
+            "logs": [
+                "only one post found with tag: \"testing\""
+            ],
+            "idx": 29,
+            "addedPaths": [],
+            "addedExclusions": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/collections/config.json",
+                "/collections/posts.json",
+                "/collections/nav.json",
+                "/static/img/bg.jpg",
+                "/static/css/styles.css",
+                "/collections/posts.json",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/email.svg"
+            ]
+        },
+        {
+            "generator": "/tags/generator.html?rust",
+            "output": "/tags/rust.html",
+            "logs": [
+                "only one post found with tag: \"rust\""
+            ],
+            "idx": 30,
             "addedPaths": [],
             "addedExclusions": [],
             "deducedExclusions": [
