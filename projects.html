@@ -16,7 +16,7 @@
 
 <script constexpr>
   async function page_specific_stuff() {
-    const projects = await fetch("/collections/projects.json").then(res => res.json())
+    const projects = await fetch('/collections/projects.json').then(res => res.json())
     const list = document.querySelector('#proj_list')
     projects.forEach(
       (p, idx) => {

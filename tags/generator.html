@@ -16,7 +16,7 @@
     const tagName = window.location.search.substring(1)
     document.querySelector('#main_title').textContent = 'Tag: ' + tagName
     document.querySelector('head title').textContent = 'Tag: ' + tagName
-    const posts = await (await fetch('/collections/posts.json')).json()
+    const posts = await fetch('/collections/posts.json').then(res => res.json())
     const list = document.querySelector('ul')
     let postCount = 0
     posts.filter(p => p.tags.indexOf(tagName) !== -1)

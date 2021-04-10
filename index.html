@@ -31,7 +31,7 @@
     }))
 
     const postsEl = document.querySelector('#posts')
-    const posts = await (await fetch("/collections/posts.json")).json()
+    const posts = await fetch('/collections/posts.json').then(res => res.json())
     posts.forEach(post => window._ConstexprJS_.addPath({
       generator: post.url,
       output: post.url
