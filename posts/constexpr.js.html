@@ -104,7 +104,7 @@ optional arguments:
         This is what an invocation looks like:
     </p>
     <div id="asciinema_cont">
-        <asciinema-player speed="100" rows="136" src="/static/files/build.cast"></asciinema-player>
+        <asciinema-player speed="100" rows="202" src="/static/files/build.cast"></asciinema-player>
     </div>
     <p>
         The tool also copies resources (<progi>css</progi>, <progi>images</progi> etcetra)
@@ -299,8 +299,12 @@ Total                  34         3045         2620            0          425
           const lines = player.querySelectorAll('.line')
           for (let i = 0; i < lines.length; i++) {
             const line = lines[i]
-            const last = line.children[line.children.length - 1]
-            last.innerText = last.innerText.trim() + ' '
+            if (lines.length - i <= 5) {
+              line.remove()
+            } else {
+              const last = line.children[line.children.length - 1]
+              last.innerText = last.innerText.trim() + ' '
+            }
           }
           player.innerHTML = player.innerHTML.replace('ALL_DONE', '')
           resolve()
