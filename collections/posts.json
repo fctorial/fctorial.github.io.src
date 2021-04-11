@@ -155,7 +155,7 @@
     "title": "Dependency resolution in constexpr.js",
     "url": "/posts/constexprjs_dependency_resolution.html",
     "date": "13 Apr 2021",
-    "discussion": "",
+    "discussion": "https://www.reddit.com/r/fctorial/comments/mp0tge/dependency_resolution_in_constexprjs/",
     "description": "This page talks describes how constexpr.js figures how the dependencies of a page",
     "tags": [
       "constexpr.js"
