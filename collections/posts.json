@@ -37,8 +37,7 @@
     "discussion": "https://www.reddit.com/r/fctorial/comments/me5f4s/runtimecompile_time_code_separation_with/",
     "description": "Some tips for organizing code when using constexpr.js, a static site generator which uses javascript for generating HTML",
     "tags": [
-      "constexpr.js",
-      "web"
+      "constexpr.js"
     ]
   },
   {
@@ -81,8 +80,7 @@
     "discussion": "https://www.reddit.com/r/fctorial/comments/me5fp2/constexprjs_api_documentation/",
     "description": "Description of API hooks provided by constexpr.js to the compiler code",
     "tags": [
-      "constexpr.js",
-      "web"
+      "constexpr.js"
     ]
   },
   {
@@ -104,7 +102,6 @@
     "description": "How to use entry points in constexpr.js, a static site generator which uses javascript for generating HTML",
     "tags": [
       "constexpr.js",
-      "web",
       "essay"
     ]
   },
@@ -152,6 +149,16 @@
     "tags": [
       "rust",
       "essay"
+    ]
+  },
+  {
+    "title": "Dependency resolution in constexpr.js",
+    "url": "/posts/constexprjs_dependency_resolution.html",
+    "date": "13 Apr 2021",
+    "discussion": "",
+    "description": "This page talks describes how constexpr.js figures how the dependencies of a page",
+    "tags": [
+      "constexpr.js"
     ]
   }
 ]
