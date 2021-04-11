@@ -46,7 +46,7 @@ prog, formula {
   padding: 0.5em;
   overflow-x: auto;
   margin-top: 5px;
-  background: #efefef;
+  background: #ffffff;
 }
 
 prog * {
@@ -104,4 +104,10 @@ h6 {
 
 em {
   font-style: italic;
+}
+
+.graphviz {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
 }

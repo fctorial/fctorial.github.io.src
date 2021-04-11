@@ -52,17 +52,6 @@
     ]
   },
   {
-    "title": "Generator pages in constexpr.js",
-    "url": "/posts/constexprjs_generator_pages.html",
-    "date": "21 Mar 2021",
-    "discussion": "https://www.reddit.com/r/fctorial/comments/me5fcr/generator_pages_in_constexprjs/",
-    "description": "A guide about generator pages in constexpr.js, a static site generator which uses javascript for generating HTML",
-    "tags": [
-      "constexpr.js",
-      "web"
-    ]
-  },
-  {
     "title": "Reading The Tea Leaves",
     "url": "/posts/youtube_python_bug.html",
     "date": "22 Mar 2021",

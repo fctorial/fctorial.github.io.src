@@ -21,18 +21,19 @@
             </p>
         </li>
         <li>
-            <prog class="language-js">window._ConstexprJS_.addPaths(paths)</prog>
+            <prog class="language-js">window._ConstexprJS_.addPath(path)</prog>
             <p>
                 Use this method to tell the compiler that it needs to generate additional HTML files in the output directory.
-                This method doesn't affect the current page in any way. See <a href="/posts/constexprjs_generator_pages.html">this page</a>
+                This method doesn't affect the current page in any way. See <a href="/posts/constexprjs_entry_points.html">this page</a>
                 for detailed documentation.
             </p>
         </li>
         <li>
-            <prog class="language-js">window._ConstexprJS_.addExclusions(paths)</prog>
+            <prog class="language-js">window._ConstexprJS_.addExclusion(paths)</prog>
+            <prog class="language-js">window._ConstexprJS_.addDependency(path)</prog>
             <p>
-                The argument is a list of strings. Use this method to tell the compiler to remove given paths from the
-                dependency list of the current file.
+                Manage dependencies of current page. Read <a>this page</a> to learn how the compiler resolves dependencies
+                of a page.
             </p>
             <p>
                 The compiler uses HTTP requests made by the page to figure out the dependencies that it needs to copy. Also,

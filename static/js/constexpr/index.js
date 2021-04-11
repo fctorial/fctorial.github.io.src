@@ -4,6 +4,7 @@ if (!window._ConstexprJS_) {
     abort: () => {},
     addPath: () => {},
     addExclusion: () => {},
+    addDependency: () => {},
     log: () => {}
   }
 }

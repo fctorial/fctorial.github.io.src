@@ -168,8 +168,11 @@ async function fetchFile(path) {
 }
 
 async function evalScript(path) {
+  console.log(path)
   window._ConstexprJS_.addExclusion(path)
-  eval(await fetchFile(path))
+  let t = await fetchFile(path)
+  // console.log(t)
+  eval(t)
 }
 
 async function syntax_highlight() {
@@ -202,10 +205,25 @@ async function render_latex() {
   }
 }
 
+async function render_graphviz() {
+  const blocks = document.querySelectorAll('.graphviz')
+  if (blocks.length > 0) {
+    await evalScript('/static/packages/vizjs/viz.js')
+    await evalScript('/static/packages/vizjs/full.render.js')
+
+    for (const block of blocks) {
+      const viz = new Viz()
+      const vizel = await viz.renderSVGElement(block.textContent)
+      block.textContent = ''
+      block.appendChild(vizel)
+    }
+  }
+}
+
 async function site_global_rendering() {
   setup_bg()
-  await Promise.all([render_base_page(), syntax_highlight(), render_latex()])
+  await Promise.all([render_base_page(), syntax_highlight(), render_latex(), render_graphviz()])
   window.onfocus = () => {
     // setTimeout(() => window.location.reload(), 200)
-  }
+}
 }
