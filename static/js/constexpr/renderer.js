@@ -15,6 +15,7 @@ async function render_base_page() {
     '/collections/posts.json',
     '/collections/projects.json'
   ].forEach(p => window._ConstexprJS_.addExclusion(p));
+
   [global_cfg, all_posts, nav_items] = await Promise.all(
     [
       fetch('/collections/config.json'),
