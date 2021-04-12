@@ -58,14 +58,14 @@ progi {
   background: #ffffff;
   padding: 0 0.5em;
 
-  display: inline;
-  word-break: break-all;
+  //display: inline;
+  //word-break: break-all;
 
-  //overflow-x: auto;
-  //white-space: nowrap;
-  //max-width: 100%;
-  //display: inline-block;
-  //vertical-align: top;
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 100%;
+  display: inline-block;
+  vertical-align: top;
 }
 
 blockquote {

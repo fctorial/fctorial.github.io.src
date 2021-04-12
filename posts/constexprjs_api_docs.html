@@ -35,15 +35,6 @@
                 Manage dependencies of current page. Read <a href="/posts/constexprjs_dependency_resolution.html">this page</a>
                 to learn how the compiler resolves dependencies of a page.
             </p>
-            <p>
-                The compiler uses HTTP requests made by the page to figure out the dependencies that it needs to copy. Also,
-                the compiler automatically removes <progi>constexpr</progi> script paths from the dependency list of an HTML file.
-                But if the rendering code uses XHR to fetch a script and then <progi>eval</progi>s it, the compiler will think
-                that the fetched script is a regular resource and copy it over as well.
-            </p>
-            <p>
-                You can use this method to mark certain paths as <progi>constexpr</progi>, so that they aren't copied.
-            </p>
         </li>
         <li>
             <prog class="language-js">window._ConstexprJS_.log(message)</prog>
