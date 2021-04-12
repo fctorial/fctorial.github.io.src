@@ -56,16 +56,14 @@ prog * {
 progi {
   font-family: 'Roboto Mono', monospace;
   background: #ffffff;
-  padding: 0 0.5em;
-
-  //display: inline;
-  //word-break: break-all;
+  padding: 0.3em 0.5em;
 
   overflow-x: auto;
   white-space: nowrap;
   max-width: 100%;
   display: inline-block;
   vertical-align: top;
+  line-height: 1em;
 }
 
 blockquote {

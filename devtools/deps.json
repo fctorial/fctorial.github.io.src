@@ -279,8 +279,45 @@
             "status": "ok",
             "deps": [
                 "/static/img/bg.jpg",
+                "/static/css/styles.css",
                 "/static/css/prism.css",
-                "/static/css/styles.css"
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/email.svg"
+            ]
+        },
+        {
+            "generator": "/posts/syntax_highlighting_nojs.html",
+            "output": "/posts/syntax_highlighting_nojs.html",
+            "logs": [],
+            "idx": 10,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/collections/config.json",
+                "/collections/intellij_logos.json",
+                "/collections/nav.json",
+                "/collections/posts.json",
+                "/collections/projects.json",
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "addedDependencies": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/img/bg.jpg",
+                "/static/css/styles.css",
+                "/static/css/prism.css",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/email.svg"
             ]
         },
         {
@@ -309,33 +346,6 @@
                 "/static/css/prism.css",
                 "/static/css/styles.css",
                 "/static/img/fuchsia.svg"
-            ]
-        },
-        {
-            "generator": "/posts/runtime_compiletime_constexpr.js.html",
-            "output": "/posts/runtime_compiletime_constexpr.js.html",
-            "logs": [],
-            "idx": 7,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/collections/config.json",
-                "/collections/intellij_logos.json",
-                "/collections/nav.json",
-                "/collections/posts.json",
-                "/collections/projects.json",
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "addedDependencies": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/styles.css"
             ]
         },
         {
@@ -458,51 +468,14 @@
             "deps": [
                 "/static/img/bg.jpg",
                 "/static/css/prism.css",
-                "/static/css/styles.css",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/email.svg"
+                "/static/css/styles.css"
             ]
         },
         {
-            "generator": "/posts/syntax_highlighting_nojs.html",
-            "output": "/posts/syntax_highlighting_nojs.html",
+            "generator": "/posts/runtime_compiletime_constexpr.js.html",
+            "output": "/posts/runtime_compiletime_constexpr.js.html",
             "logs": [],
-            "idx": 10,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/collections/config.json",
-                "/collections/intellij_logos.json",
-                "/collections/nav.json",
-                "/collections/posts.json",
-                "/collections/projects.json",
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "addedDependencies": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/styles.css",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/email.svg"
-            ]
-        },
-        {
-            "generator": "/posts/constexprjs_api_docs.html",
-            "output": "/posts/constexprjs_api_docs.html",
-            "logs": [],
-            "idx": 11,
+            "idx": 7,
             "addedPaths": [],
             "addedExclusions": [
                 "/collections/config.json",
@@ -553,7 +526,44 @@
             "deps": [
                 "/static/img/bg.jpg",
                 "/static/css/styles.css",
-                "/static/img/win8.jpg"
+                "/static/img/win8.jpg",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/email.svg"
+            ]
+        },
+        {
+            "generator": "/posts/constexprjs_api_docs.html",
+            "output": "/posts/constexprjs_api_docs.html",
+            "logs": [],
+            "idx": 11,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/collections/config.json",
+                "/collections/intellij_logos.json",
+                "/collections/nav.json",
+                "/collections/posts.json",
+                "/collections/projects.json",
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "addedDependencies": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/img/bg.jpg",
+                "/static/css/styles.css",
+                "/static/css/prism.css",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/email.svg"
             ]
         },
         {
@@ -588,38 +598,6 @@
             ]
         },
         {
-            "generator": "/posts/dynamic_colored_border.html",
-            "output": "/posts/dynamic_colored_border.html",
-            "logs": [],
-            "idx": 14,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/collections/config.json",
-                "/collections/intellij_logos.json",
-                "/collections/nav.json",
-                "/collections/posts.json",
-                "/collections/projects.json",
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "addedDependencies": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/styles.css",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/email.svg"
-            ]
-        },
-        {
             "generator": "/posts/tst.html",
             "output": "/posts/tst.html",
             "logs": [],
@@ -642,8 +620,67 @@
             "status": "ok",
             "deps": [
                 "/static/img/bg.jpg",
+                "/static/css/prism.css",
+                "/static/css/styles.css"
+            ]
+        },
+        {
+            "generator": "/posts/dynamic_colored_border.html",
+            "output": "/posts/dynamic_colored_border.html",
+            "logs": [],
+            "idx": 14,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/collections/config.json",
+                "/collections/intellij_logos.json",
+                "/collections/nav.json",
+                "/collections/posts.json",
+                "/collections/projects.json",
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "addedDependencies": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/img/bg.jpg",
                 "/static/css/styles.css",
                 "/static/css/prism.css",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/email.svg"
+            ]
+        },
+        {
+            "generator": "/posts/rust_difficult.html",
+            "output": "/posts/rust_difficult.html",
+            "logs": [],
+            "idx": 17,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/collections/config.json",
+                "/collections/intellij_logos.json",
+                "/collections/nav.json",
+                "/collections/posts.json",
+                "/collections/projects.json",
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "addedDependencies": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/img/bg.jpg",
+                "/static/css/prism.css",
+                "/static/css/styles.css",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/facebook.svg",
                 "/static/img/logos/reddit.svg",
@@ -712,33 +749,6 @@
             ]
         },
         {
-            "generator": "/posts/constexprjs_dependency_resolution.html",
-            "output": "/posts/constexprjs_dependency_resolution.html",
-            "logs": [],
-            "idx": 18,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/collections/config.json",
-                "/collections/intellij_logos.json",
-                "/collections/nav.json",
-                "/collections/posts.json",
-                "/collections/projects.json",
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "addedDependencies": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/styles.css"
-            ]
-        },
-        {
             "generator": "/tags/generator.html?web",
             "output": "/tags/web.html",
             "logs": [],
@@ -769,38 +779,6 @@
             ]
         },
         {
-            "generator": "/posts/rust_difficult.html",
-            "output": "/posts/rust_difficult.html",
-            "logs": [],
-            "idx": 17,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/collections/config.json",
-                "/collections/intellij_logos.json",
-                "/collections/nav.json",
-                "/collections/posts.json",
-                "/collections/projects.json",
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "addedDependencies": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/styles.css",
-                "/static/img/logos/twitter.svg",
-                "/static/img/logos/facebook.svg",
-                "/static/img/logos/reddit.svg",
-                "/static/img/logos/github.svg",
-                "/static/img/logos/email.svg"
-            ]
-        },
-        {
             "generator": "/tags/generator.html?intellij",
             "output": "/tags/intellij.html",
             "logs": [],
@@ -822,6 +800,38 @@
             "status": "ok",
             "deps": [
                 "/static/img/bg.jpg",
+                "/static/css/styles.css",
+                "/static/img/logos/twitter.svg",
+                "/static/img/logos/facebook.svg",
+                "/static/img/logos/reddit.svg",
+                "/static/img/logos/github.svg",
+                "/static/img/logos/email.svg"
+            ]
+        },
+        {
+            "generator": "/posts/constexprjs_dependency_resolution.html",
+            "output": "/posts/constexprjs_dependency_resolution.html",
+            "logs": [],
+            "idx": 18,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/collections/config.json",
+                "/collections/intellij_logos.json",
+                "/collections/nav.json",
+                "/collections/posts.json",
+                "/collections/projects.json",
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "addedDependencies": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/img/bg.jpg",
+                "/static/css/prism.css",
                 "/static/css/styles.css",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/facebook.svg",
@@ -893,12 +903,12 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?css",
-            "output": "/tags/css.html",
+            "generator": "/tags/generator.html?python",
+            "output": "/tags/python.html",
             "logs": [
-                "only one post found with tag: \"css\""
+                "only one post found with tag: \"python\""
             ],
-            "idx": 26,
+            "idx": 25,
             "addedPaths": [],
             "addedExclusions": [
                 "/collections/config.json",
@@ -925,12 +935,12 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?python",
-            "output": "/tags/python.html",
+            "generator": "/tags/generator.html?css",
+            "output": "/tags/css.html",
             "logs": [
-                "only one post found with tag: \"python\""
+                "only one post found with tag: \"css\""
             ],
-            "idx": 25,
+            "idx": 26,
             "addedPaths": [],
             "addedExclusions": [
                 "/collections/config.json",
@@ -1109,8 +1119,8 @@
             "status": "ok",
             "deps": [
                 "/static/img/bg.jpg",
-                "/static/css/prism.css",
                 "/static/css/styles.css",
+                "/static/css/prism.css",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/facebook.svg",
                 "/static/img/logos/reddit.svg",
@@ -1151,18 +1161,18 @@
                 "/static/css/pivot.css",
                 "/static/css/asciinema-player.css",
                 "/static/img/bg.jpg",
-                "/static/css/prism.css",
                 "/static/css/styles.css",
-                "/static/packages/katex/katex.css",
-                "/static/img/stones.jpg",
-                "/static/img/stones.jpg",
-                "/static/packages/katex/fonts/KaTeX_Main-Regular.woff2",
-                "/static/packages/katex/fonts/KaTeX_Math-Italic.woff2",
+                "/static/css/prism.css",
                 "/static/img/logos/twitter.svg",
                 "/static/img/logos/facebook.svg",
                 "/static/img/logos/reddit.svg",
                 "/static/img/logos/github.svg",
-                "/static/img/logos/email.svg"
+                "/static/img/logos/email.svg",
+                "/static/packages/katex/katex.css",
+                "/static/img/stones.jpg",
+                "/static/img/stones.jpg",
+                "/static/packages/katex/fonts/KaTeX_Main-Regular.woff2",
+                "/static/packages/katex/fonts/KaTeX_Math-Italic.woff2"
             ]
         }
     ]
