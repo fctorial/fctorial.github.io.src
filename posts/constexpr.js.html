@@ -102,7 +102,7 @@ optional arguments:
         This is what an invocation looks like:
     </p>
     <div id="asciinema_cont">
-        <asciinema-player speed="100" rows="202" src="/static/files/build.cast"></asciinema-player>
+        <asciinema-player speed="10" rows="202" src="/static/files/build.cast"></asciinema-player>
     </div>
     <p>
         The tool also copies resources (<progi>css</progi>, <progi>images</progi> etcetra)
@@ -294,7 +294,7 @@ Promise.all([render_task_1(), render_task_2()])
               line.remove()
             } else {
               const last = line.children[line.children.length - 1]
-              last.innerText = last.innerText.trim() + ' '
+              last.innerText = last.innerText.trimEnd() + ' '
             }
           }
           player.innerHTML = player.innerHTML.replace('ALL_DONE', '')
