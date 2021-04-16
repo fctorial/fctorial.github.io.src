@@ -102,8 +102,6 @@ async function render_base_page() {
     header.appendChild(tags_el)
   }
 
-  header.appendChild(make_element(`<div style="width: calc(100% - 2em); height: 5px; margin: 1em auto 0; border: solid black; border-width: 1px 0;"></div>`))
-
   const ne = document.createElement("nav")
   Object.keys(nav_items).forEach(name => {
     const item = make_element(

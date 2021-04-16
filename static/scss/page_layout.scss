@@ -1,6 +1,8 @@
 
 #body_wrapper {
   header {
+    padding: 1em 0;
+    background: #dbdefa;
     #main_title {
       padding: 0 1em;
       width: 100%;
@@ -16,14 +18,18 @@
       a {
         text-decoration: none;
         color: inherit;
+        font-weight: 500;
         padding: 0.5em 1em;
-        background: #c7c5c5;
+        background: #adbffa;
         min-width: 10em;
         text-align: center;
         border: 1px solid #8d8a8a;
 
-        &.current {
-          background: #a2c0ff;
+        transition-property: background;
+        transition-duration: 0.15s;
+
+        &.current, &:hover {
+          background: #4c9bfa;
         }
       }
     }
