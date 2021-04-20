@@ -160,5 +160,15 @@
     "tags": [
       "constexpr.js"
     ]
+  },
+  {
+    "title": "Accessing xorg clipboard from command line",
+    "url": "/posts/clipboard_cli.html",
+    "date": "20 Apr 2021",
+    "discussion": "",
+    "description": "A simple command line utility for working with clipboard on linux",
+    "tags": [
+      "utilities"
+    ]
   }
 ]

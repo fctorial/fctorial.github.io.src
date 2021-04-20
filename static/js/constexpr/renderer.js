@@ -43,7 +43,7 @@ async function render_base_page() {
   )
   document.head.appendChild(
     make_element(
-          `<link rel="stylesheet" href='/static/css/styles.css'>`
+      `<link rel="stylesheet" href='/static/css/styles.css'>`
     )
   )
   document.head.appendChild(
@@ -217,5 +217,5 @@ async function site_global_rendering() {
   await Promise.all([render_base_page(), syntax_highlight(), render_latex(), render_graphviz()])
   window.onfocus = () => {
     // setTimeout(() => window.location.reload(), 200)
-}
+  }
 }
