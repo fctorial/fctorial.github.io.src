@@ -101,8 +101,7 @@
     "discussion": "https://www.reddit.com/r/fctorial/comments/me5fxy/entry_points_in_constexprjs/",
     "description": "How to use entry points in constexpr.js, a static site generator which uses javascript for generating HTML",
     "tags": [
-      "constexpr.js",
-      "essay"
+      "constexpr.js"
     ]
   },
   {
@@ -169,6 +168,16 @@
     "description": "A simple command line utility for working with clipboard on linux",
     "tags": [
       "utilities"
+    ]
+  },
+  {
+    "title": "Constexpr.js hello world",
+    "url": "/posts/constexprjs_hello_world.html",
+    "date": "24 Apr 2021",
+    "discussion": "",
+    "description": "In this article, I build a ",
+    "tags": [
+      "constexpr.js"
     ]
   }
 ]

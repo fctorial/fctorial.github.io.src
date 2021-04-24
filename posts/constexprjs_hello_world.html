@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<article>
+    <p>
+        You'll need the latest version of constexpr.js to follow along with this article:
+    </p>
+    <prog class="language-bash">
+        npm i -g constexpr.js@latest
+    </prog>
+    <p>
+        You'll also need python for serving your website. Create a new directory and start serving that directory over
+        HTTP:
+    </p>
+    <prog class="language-bash">
+mkdir constexprjs_playground
+cd constexprjs_playground
+python -m http.server 3000
+    </prog>
+    <p>
+        We will start by creating a simple webpage. Create an <progi>index.html</progi> inside the directory that is
+        being served:
+    </p>
+    <prog class="language-html">
+<textarea>
+<html>
+<head>
+    <title>Timestamp example</title>
+    <script>
+      function render_page() {
+        const a = parseInt(document.querySelector('#a').textContent)
+        const b = parseInt(document.querySelector('#b').textContent)
+        document.querySelector('#result').textContent = a + b + ''
+
+        document.querySelector('#timestamp').textContent = new Date()
+      }
+      window.onload = render_page
+    </script>
+</head>
+<body>
+<h1>Compile Time Evaluation</h1>
+<p>
+    <span id="a">2</span> + <span id="b">2</span> = <span id="result">?</span>
+</p>
+<p>
+    This page was rendered on : <span id="timestamp"></span>
+</p>
+</body>
+</html>
+</textarea>
+    </prog>
+    <p>
+        Open <a literal>http://localhost:3000</a> in a browser. You should see a page the equation result and the
+        current date-time. Try reloading the page. You should see the timestamp change with each reload.
+    </p>
+    <p>
+        This page contains some javascript, but that javascript doesn't do anything other than taking two numbers from
+        the DOM, adding them, and storing the result back in the DOM. We can use constexpr.js to evaluate and strip the
+        javascript that does this work ahead of time. To do that, mark the script tag that does this work as
+        <progi>constexpr</progi> and modify the code so that it calls the constexpr.js compilation hook after it has
+        done its work:
+    </p>
+    <prog class="language-html">
+<textarea>
+...
+    <script constexpr>
+      function render_page() {
+        const a = parseInt(document.querySelector('#a').textContent)
+        const b = parseInt(document.querySelector('#b').textContent)
+        document.querySelector('#result').textContent = a + b + ''
+
+        document.querySelector('#timestamp').textContent = new Date()
+
+        window._ConstexprJS_.compile()
+      }
+      window.onload = render_page
+    </script>
+...
+</textarea>
+    </prog>
+    <p>
+        And run the constexpr.js compiler:
+    </p>
+    <prog class="language-bash">
+        constexpr.js --input=. --output=_out --entry=/index.html
+    </prog>
+    <p>
+        This will generate a file <progi>_out/index.html</progi>. You can access it at
+        <a literal>http://localhost:3000/_out</a>. This will be the contents of that generated webpage:
+    </p>
+    <prog class="language-html">
+        <textarea>
+<html>
+<head>
+    <title>Timestamp example</title>
+</head>
+<body>
+<h1>Compile Time Evaluation</h1>
+<p>
+    <span id="a">2</span> + <span id="b">2</span> = <span id="result">4</span>
+</p>
+<p>
+    This page was rendered on : <span id="timestamp">Sat Apr 24 2021 17:48:52 GMT+0530 (India Standard Time)</span>
+</p>
+</body>
+</html>
+        </textarea>
+    </prog>
+    <p>
+        As you can see, this page does not have any javascript. Since the javascript that generates the webpage will
+        be stripped out, we don't have to worry about code bloat. Let's include jquery for doing DOM manipulation, even
+        though we'll be using just one function from jquery:
+    </p>
+    <prog class="language-bash">
+        wget https://code.jquery.com/jquery-3.6.0.min.js
+    </prog>
+    <prog class="language-html">
+        <textarea>
+...
+    <script constexpr src="./jquery-3.6.0.min.js"></script>
+    <script constexpr>
+      function render_page() {
+        const a = parseInt($('#a').text())
+        const b = parseInt($('#b').text())
+        $('#result').text(a + b + '')
+
+        $('#timestamp').text(new Date())
+
+        window._ConstexprJS_.compile()
+      }
+      window.onload = render_page
+    </script>
+...
+        </textarea>
+    </prog>
+    <p>
+        Note that we are including the jquery file as constexpr. This new input HTML will generate the exact same HTML
+        as output. Let's now add some styling to our page and extract the rendering code to a separate javascript file
+        named <progi>renderer.js</progi>:
+    </p>
+    <h4>styles.css</h4>
+    <prog class="language-css">
+:root {
+    background: #af7070;
+}
+
+body {
+    width: 50%;
+    margin: auto;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#timestamp, p:nth-child(2) {
+    padding: 3px;
+    background: #f3b0b0;
+    border-radius: 2px;
+}
+    </prog>
+    <prog class="language-html">
+        <textarea>
+...
+    <script constexpr src="./jquery-3.6.0.min.js"></script>
+    <script constexpr src="./renderer.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+...
+        </textarea>
+    </prog>
+    <p>
+        Now when you run the compiler, <progi>styles.css</progi> will be copied to the <progi>_out</progi> directory.
+        <progi>jquery-3.6.0.min.js</progi> and <progi>renderer.js</progi> will not be copied to the output directory
+        since they are included as constexpr. The compiler will copy other resources to the output directory as well.
+    </p>
+    <blockquote>
+        See pages tagged with <a class="tag_element" href="/tags/generator.html?constexpr.js">constexpr.js</a> for more guides.
+    </blockquote>
+</article>
+</body>
+<script constexpr src="/static/js/constexpr/lib.js"></script>
+<script constexpr src="/static/js/constexpr/index.js"></script>
+<script constexpr src="/static/js/constexpr/renderer.js"></script>
+
+<script constexpr>
+  async function render_page() {
+    const base_page_render = site_global_rendering()
+    await base_page_render
+    document.querySelector('prog[highlight]')
+  }
+</script>
+
+<script constexpr>
+  render_page()
+    .then(() => window._ConstexprJS_.compile())
+</script>
+
+<style>
+</style>
+
+</html>

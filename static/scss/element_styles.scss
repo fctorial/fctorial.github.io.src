@@ -38,8 +38,13 @@ a {
 a:visited {
   color: #7d04a8;
 }
+a[literal] {
+  text-transform: none;
+}
 
 prog, formula {
+  font-size: 0.85em;
+  line-height: 1.5em;
   font-family: 'Roboto Mono', monospace;
   display: block;
   white-space: pre;

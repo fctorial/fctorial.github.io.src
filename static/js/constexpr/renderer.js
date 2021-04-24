@@ -212,9 +212,15 @@ async function render_graphviz() {
   }
 }
 
+async function literal_links() {
+  document.querySelectorAll('a[literal]').forEach(
+    el => el.setAttribute('href', el.textContent)
+  )
+}
+
 async function site_global_rendering() {
   setup_bg()
-  await Promise.all([render_base_page(), syntax_highlight(), render_latex(), render_graphviz()])
+  await Promise.all([render_base_page(), syntax_highlight(), render_latex(), render_graphviz(), literal_links()])
   window.onfocus = () => {
     // setTimeout(() => window.location.reload(), 200)
   }

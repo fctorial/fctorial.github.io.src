@@ -313,15 +313,7 @@ Promise.all([render_task_1(), render_task_2()])
   async function render_page() {
     const task = site_global_rendering()
     await task
-    const bg = document.querySelector('#main_bg')
-    const thanos = bg.cloneNode(true)
-    thanos.setAttribute('id', 'thanos_bg')
-    thanos.style.opacity = '0'
-    thanos.style.filter = 'none'
-    thanos.style['object-position'] = 'left'
-    thanos.setAttribute('src', '/static/img/stones.jpg')
-    insertAfter(bg, thanos)
-    await Promise.all([fetch('/static/img/stones.jpg'), do_asciinema(), render_pivottable()])
+    await Promise.all([task, do_asciinema(), render_pivottable()])
   }
 </script>
 
@@ -330,11 +322,6 @@ Promise.all([render_task_1(), render_task_2()])
   window._ConstexprJS_.addExclusion('/static/files/tips.csv')
 
   render_page()
-    .then(() => {
-      const init = document.createElement('script')
-      init.innerText = 'initRT()'
-      document.querySelector('body').appendChild(init)
-    })
     .then(() => window._ConstexprJS_.compile())
 </script>
 
@@ -364,6 +351,7 @@ Promise.all([render_task_1(), render_task_2()])
     #pt_output {
         width: 100%;
         overflow-x: auto;
+        line-height: 1rem;
     }
 
 </style>
