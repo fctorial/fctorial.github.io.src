@@ -50,7 +50,7 @@ python -m http.server 3000
 </textarea>
     </prog>
     <p>
-        Open <a literal>http://localhost:3000</a> in a browser. You should see a page the equation result and the
+        Open <a literal>http://localhost:3000</a> in a browser. You should see a page with the equation result and the
         current date-time. Try reloading the page. You should see the timestamp change with each reload.
     </p>
     <p>
@@ -107,9 +107,9 @@ python -m http.server 3000
         </textarea>
     </prog>
     <p>
-        As you can see, this page does not have any javascript. Since the javascript that generates the webpage will
-        be stripped out, we don't have to worry about code bloat. Let's include jquery for doing DOM manipulation, even
-        though we'll be using just one function from jquery:
+        As you can see, it does not have any javascript. Since the javascript that generates the webpage will
+        be stripped out, we don't have to worry about javascript bloat. Let's include jquery for doing DOM manipulation,
+        even though we'll be using just one function from jquery:
     </p>
     <prog class="language-bash">
         wget https://code.jquery.com/jquery-3.6.0.min.js
@@ -135,8 +135,8 @@ python -m http.server 3000
     </prog>
     <p>
         Note that we are including the jquery file as constexpr. This new input HTML will generate the exact same HTML
-        as output. Let's now add some styling to our page and extract the rendering code to a separate javascript file
-        named <progi>renderer.js</progi>:
+        as output (except the timestamp). Let's now add some styling to our page and extract the rendering code to a
+        separate javascript file:
     </p>
     <h4>styles.css</h4>
     <prog class="language-css">
@@ -159,6 +159,20 @@ body {
     border-radius: 2px;
 }
     </prog>
+    <h4>renderer.js</h4>
+    <prog class="language-js">
+function render_page() {
+  const a = parseInt($('#a').text())
+  const b = parseInt($('#b').text())
+  $('#result').text(a + b + '')
+
+  $('#timestamp').text(new Date())
+
+  window._ConstexprJS_.compile()
+}
+window.onload = render_page
+    </prog>
+    <h4>HTML</h4>
     <prog class="language-html">
         <textarea>
 ...
@@ -171,7 +185,7 @@ body {
     <p>
         Now when you run the compiler, <progi>styles.css</progi> will be copied to the <progi>_out</progi> directory.
         <progi>jquery-3.6.0.min.js</progi> and <progi>renderer.js</progi> will not be copied to the output directory
-        since they are included as constexpr. The compiler will copy other resources to the output directory as well.
+        since they are included as constexpr. The compiler will copy other types of resources as well.
     </p>
     <blockquote>
         See pages tagged with <a class="tag_element" href="/tags/generator.html?constexpr.js">constexpr.js</a> for more guides.
