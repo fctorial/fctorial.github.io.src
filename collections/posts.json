@@ -165,7 +165,7 @@
     "title": "Accessing xorg clipboard from command line",
     "url": "/posts/clipboard_cli.html",
     "date": "20 Apr 2021",
-    "discussion": "",
+    "discussion": "https://www.reddit.com/r/fctorial/comments/mujazd/accessing_xorg_clipboard_from_command_line/",
     "description": "A simple command line utility for working with clipboard on linux",
     "tags": [
       "utilities"
