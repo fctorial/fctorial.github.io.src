@@ -219,7 +219,14 @@ async function literal_links() {
   )
 }
 
+function gen_id(title) {
+  return title.toLowerCase().replace(/[^\w]/g, '').replaceAll(' ', '_')
+}
+
 function create_sections() {
+  if (article.children[0].nodeName !== 'H2') {
+    insertFirst(article, make_element(`<h2 style="display: none;">Top</h2>`))
+  }
   const header_idxs = []
   const nodes = Array.from(article.children)
   nodes.forEach((el, idx) => {
@@ -227,9 +234,6 @@ function create_sections() {
       header_idxs.push(idx)
     }
   })
-  if (header_idxs[0] !== 0) {
-    header_idxs.unshift(0)
-  }
   const sections = []
   for (let i=0; i<header_idxs.length; i++) {
     const sec = make_element(`<section></section>`)
@@ -237,7 +241,13 @@ function create_sections() {
     s_mems.forEach(mem => sec.appendChild(mem))
     sections.push(sec)
   }
-  sections.forEach(sec => article.appendChild(sec))
+  const section_names = []
+  sections.forEach(sec => {
+    const h2 = sec.children[0]
+    section_names.push(h2.innerText)
+    sec.setAttribute('id', gen_id(h2.innerText))
+    article.appendChild(sec)
+  })
 }
 
 async function site_global_rendering() {
