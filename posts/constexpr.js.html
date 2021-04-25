@@ -217,26 +217,16 @@ Promise.all([render_task_1(), render_task_2()])
     <blockquote>
         See pages tagged with <a class="tag_element" href="/tags/generator.html?constexpr.js">constexpr.js</a> for more guides.
     </blockquote>
+    <div id="end_note">
+        <h4 id="repo_link"><a literal>https://github.com/fctorial/ConstexprJS</a></h4>
+        <div id="gh_links">
+            <a class="github-button" href="https://github.com/fctorial/ConstexprJS/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="Watch fctorial/ConstexprJS on GitHub">Watch</a>
+            <a class="github-button" href="https://github.com/fctorial/ConstexprJS" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star fctorial/ConstexprJS on GitHub">Star</a>
+            <a class="github-button" href="https://github.com/fctorial/ConstexprJS/issues" data-icon="octicon-issue-opened" data-size="large" data-show-count="true" aria-label="Issue fctorial/ConstexprJS on GitHub">Issue</a>
+        </div>
+    </div>
 </article>
 </body>
-
-<script>
-  function initRT() {
-    const bg = document.querySelector('#main_bg')
-    const thanos = document.querySelector('#thanos_bg')
-    window.onscroll = () => {
-      const maxScroll = document.body.offsetHeight - window.innerHeight
-      const curScroll = window.scrollY
-      if (maxScroll - curScroll < 100) {
-        thanos.style.opacity = '1'
-        bg.style.opacity = '0'
-      } else {
-        thanos.style.opacity = '0'
-        bg.style.opacity = '1'
-      }
-    }
-  }
-</script>
 
 <script constexpr src="/static/js/constexpr/lib.js"></script>
 <script constexpr src="/static/js/constexpr/index.js"></script>
@@ -310,6 +300,13 @@ Promise.all([render_task_1(), render_task_2()])
   window._ConstexprJS_.addExclusion('/static/files/tips.csv')
 
   render_page()
+    .then(() => {
+      const el = document.createElement('script')
+      el.setAttribute('async', '')
+      el.setAttribute('defer', '')
+      el.setAttribute('src', 'https://buttons.github.io/buttons.js')
+      document.body.appendChild(el)
+    })
     .then(() => window._ConstexprJS_.compile())
 </script>
 
@@ -342,5 +339,26 @@ Promise.all([render_task_1(), render_task_2()])
         line-height: 1rem;
     }
 
+    article {
+        overflow: hidden;
+    }
+
+    #end_note {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        grid-gap: 1em;
+        padding: 1em 1em 0;
+
+        background: linear-gradient(to top, #666666, 20px, #00000000);
+        margin: 0 -1em -1em;
+    }
+    #gh_links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-gap: 1em;
+        flex-wrap: wrap;
+    }
 </style>
 </html>
