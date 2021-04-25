@@ -1,6 +1,7 @@
 let body_wrapper
 const header = document.createElement('header')
 const article = document.querySelector('article')
+article.setAttribute('role', 'main')
 let footer
 
 let global_cfg
