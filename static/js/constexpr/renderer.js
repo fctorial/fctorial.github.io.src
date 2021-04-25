@@ -218,8 +218,30 @@ async function literal_links() {
   )
 }
 
+function create_sections() {
+  const header_idxs = []
+  const nodes = Array.from(article.children)
+  nodes.forEach((el, idx) => {
+    if (el.nodeName === 'H2') {
+      header_idxs.push(idx)
+    }
+  })
+  if (header_idxs[0] !== 0) {
+    header_idxs.unshift(0)
+  }
+  const sections = []
+  for (let i=0; i<header_idxs.length; i++) {
+    const sec = make_element(`<section></section>`)
+    const s_mems = nodes.slice(header_idxs[i], header_idxs[i+1] || 10000)
+    s_mems.forEach(mem => sec.appendChild(mem))
+    sections.push(sec)
+  }
+  sections.forEach(sec => article.appendChild(sec))
+}
+
 async function site_global_rendering() {
   setup_bg()
+  create_sections()
   await Promise.all([render_base_page(), syntax_highlight(), render_latex(), render_graphviz(), literal_links()])
   window.onfocus = () => {
     // setTimeout(() => window.location.reload(), 200)

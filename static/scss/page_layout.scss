@@ -1,5 +1,7 @@
 
 #body_wrapper {
+  background: #ffffff66;
+
   header {
     padding: 1em 0;
     background: #dbdefa;
@@ -34,7 +36,21 @@
       }
     }
   }
+  article {
+    line-height: 2em;
+    padding: 0 1em;
 
+    section {
+      margin: 1em 0;
+      padding: 1em;
+      border-radius: 5px;
+      background: #e7e3e3;
+
+      p, prog, blockquote {
+        margin: 1rem 0;
+      }
+    }
+  }
   @media (max-width: 800px) {
     header {
       padding-top: 0;
@@ -51,15 +67,6 @@
           }
         }
       }
-    }
-  }
-
-  article {
-    line-height: 2em;
-    padding: 2em;
-
-    p, prog, blockquote {
-      margin: 1rem 0;
     }
   }
 }

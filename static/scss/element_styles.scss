@@ -33,13 +33,12 @@
 a {
   color: #f200ff;
   text-decoration: none;
-  text-transform: uppercase;
+}
+a:hover {
+  text-decoration: underline;
 }
 a:visited {
   color: #7d04a8;
-}
-a[literal] {
-  text-transform: none;
 }
 
 prog, formula {
@@ -90,7 +89,12 @@ h1 {
 h2 {
   font-size: 1.5em;
   color: #655ff5;
-  margin-top: 1em;
+  background: #d9d7d7;
+
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 h3 {
