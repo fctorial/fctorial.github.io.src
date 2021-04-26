@@ -127,37 +127,6 @@
             ]
         },
         {
-            "generator": "/projects.html",
-            "output": "/projects.html",
-            "logs": [],
-            "idx": 1,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/collections/config.json",
-                "/collections/intellij_logos.json",
-                "/collections/nav.json",
-                "/collections/posts.json",
-                "/collections/projects.json"
-            ],
-            "addedDependencies": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/img/bg.jpg",
-                "/static/css/styles.css",
-                "/static/img/icons/twitter.svg",
-                "/static/img/icons/facebook.svg",
-                "/static/img/icons/reddit.svg",
-                "/static/img/icons/hn.svg",
-                "/static/img/icons/github.svg",
-                "/static/img/icons/email.svg"
-            ]
-        },
-        {
             "generator": "/tags.html",
             "output": "/tags.html",
             "logs": [],
@@ -242,10 +211,10 @@
             ]
         },
         {
-            "generator": "/404.html",
-            "output": "/404.html",
+            "generator": "/projects.html",
+            "output": "/projects.html",
             "logs": [],
-            "idx": 3,
+            "idx": 1,
             "addedPaths": [],
             "addedExclusions": [
                 "/collections/config.json",
@@ -263,140 +232,7 @@
             "status": "ok",
             "deps": [
                 "/static/img/bg.jpg",
-                "/static/css/styles.css",
-                "/static/img/icons/twitter.svg",
-                "/static/img/icons/facebook.svg",
-                "/static/img/icons/reddit.svg",
-                "/static/img/icons/hn.svg",
-                "/static/img/icons/github.svg",
-                "/static/img/icons/email.svg"
-            ]
-        },
-        {
-            "generator": "/posts/runtime_compiletime_constexpr.js.html",
-            "output": "/posts/runtime_compiletime_constexpr.js.html",
-            "logs": [],
-            "idx": 7,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/collections/config.json",
-                "/collections/intellij_logos.json",
-                "/collections/nav.json",
-                "/collections/posts.json",
-                "/collections/projects.json",
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "addedDependencies": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/styles.css",
-                "/static/img/icons/twitter.svg",
-                "/static/img/icons/facebook.svg",
-                "/static/img/icons/reddit.svg",
-                "/static/img/icons/hn.svg",
-                "/static/img/icons/github.svg",
-                "/static/img/icons/email.svg"
-            ]
-        },
-        {
-            "generator": "/posts/modifying_idea.html",
-            "output": "/posts/modifying_idea.html",
-            "logs": [],
-            "idx": 5,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/collections/config.json",
-                "/collections/intellij_logos.json",
-                "/collections/nav.json",
-                "/collections/posts.json",
-                "/collections/projects.json",
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "addedDependencies": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/img/bg.jpg",
-                "/static/css/styles.css",
-                "/static/css/prism.css",
-                "/static/img/icons/twitter.svg",
-                "/static/img/icons/facebook.svg",
-                "/static/img/icons/reddit.svg",
-                "/static/img/icons/hn.svg",
-                "/static/img/icons/github.svg",
-                "/static/img/icons/email.svg"
-            ]
-        },
-        {
-            "generator": "/posts/zircon_standalone.html",
-            "output": "/posts/zircon_standalone.html",
-            "logs": [],
-            "idx": 8,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/collections/config.json",
-                "/collections/intellij_logos.json",
-                "/collections/nav.json",
-                "/collections/posts.json",
-                "/collections/projects.json",
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "addedDependencies": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/styles.css",
-                "/static/img/fuchsia.svg"
-            ]
-        },
-        {
-            "generator": "/posts/youtube_python_bug.html",
-            "output": "/posts/youtube_python_bug.html",
-            "logs": [],
-            "idx": 9,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/collections/config.json",
-                "/collections/intellij_logos.json",
-                "/collections/nav.json",
-                "/collections/posts.json",
-                "/collections/projects.json",
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "addedDependencies": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/styles.css",
-                "/static/img/icons/twitter.svg",
-                "/static/img/icons/facebook.svg",
-                "/static/img/icons/reddit.svg",
-                "/static/img/icons/hn.svg",
-                "/static/img/icons/github.svg",
-                "/static/img/icons/email.svg"
+                "/static/css/styles.css"
             ]
         },
         {
@@ -497,10 +333,10 @@
             ]
         },
         {
-            "generator": "/posts/syntax_highlighting_nojs.html",
-            "output": "/posts/syntax_highlighting_nojs.html",
+            "generator": "/posts/modifying_idea.html",
+            "output": "/posts/modifying_idea.html",
             "logs": [],
-            "idx": 10,
+            "idx": 5,
             "addedPaths": [],
             "addedExclusions": [
                 "/collections/config.json",
@@ -519,8 +355,8 @@
             "status": "ok",
             "deps": [
                 "/static/img/bg.jpg",
-                "/static/css/styles.css",
                 "/static/css/prism.css",
+                "/static/css/styles.css",
                 "/static/img/icons/twitter.svg",
                 "/static/img/icons/facebook.svg",
                 "/static/img/icons/reddit.svg",
@@ -530,10 +366,74 @@
             ]
         },
         {
-            "generator": "/posts/constexprjs_api_docs.html",
-            "output": "/posts/constexprjs_api_docs.html",
+            "generator": "/404.html",
+            "output": "/404.html",
             "logs": [],
-            "idx": 11,
+            "idx": 3,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/collections/config.json",
+                "/collections/intellij_logos.json",
+                "/collections/nav.json",
+                "/collections/posts.json",
+                "/collections/projects.json"
+            ],
+            "addedDependencies": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/img/bg.jpg",
+                "/static/css/styles.css",
+                "/static/img/icons/twitter.svg",
+                "/static/img/icons/facebook.svg",
+                "/static/img/icons/reddit.svg",
+                "/static/img/icons/hn.svg",
+                "/static/img/icons/github.svg",
+                "/static/img/icons/email.svg"
+            ]
+        },
+        {
+            "generator": "/posts/runtime_compiletime_constexpr.js.html",
+            "output": "/posts/runtime_compiletime_constexpr.js.html",
+            "logs": [],
+            "idx": 7,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/collections/config.json",
+                "/collections/intellij_logos.json",
+                "/collections/nav.json",
+                "/collections/posts.json",
+                "/collections/projects.json",
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "addedDependencies": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/img/bg.jpg",
+                "/static/css/prism.css",
+                "/static/css/styles.css",
+                "/static/img/icons/twitter.svg",
+                "/static/img/icons/facebook.svg",
+                "/static/img/icons/reddit.svg",
+                "/static/img/icons/hn.svg",
+                "/static/img/icons/github.svg",
+                "/static/img/icons/email.svg"
+            ]
+        },
+        {
+            "generator": "/posts/youtube_python_bug.html",
+            "output": "/posts/youtube_python_bug.html",
+            "logs": [],
+            "idx": 9,
             "addedPaths": [],
             "addedExclusions": [
                 "/collections/config.json",
@@ -554,6 +454,34 @@
                 "/static/img/bg.jpg",
                 "/static/css/prism.css",
                 "/static/css/styles.css"
+            ]
+        },
+        {
+            "generator": "/posts/zircon_standalone.html",
+            "output": "/posts/zircon_standalone.html",
+            "logs": [],
+            "idx": 8,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/collections/config.json",
+                "/collections/intellij_logos.json",
+                "/collections/nav.json",
+                "/collections/posts.json",
+                "/collections/projects.json",
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "addedDependencies": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/img/bg.jpg",
+                "/static/css/prism.css",
+                "/static/css/styles.css",
+                "/static/img/fuchsia.svg"
             ]
         },
         {
@@ -579,7 +507,34 @@
             "deps": [
                 "/static/img/bg.jpg",
                 "/static/css/styles.css",
-                "/static/img/win8.jpg",
+                "/static/img/win8.jpg"
+            ]
+        },
+        {
+            "generator": "/posts/constexprjs_api_docs.html",
+            "output": "/posts/constexprjs_api_docs.html",
+            "logs": [],
+            "idx": 11,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/collections/config.json",
+                "/collections/intellij_logos.json",
+                "/collections/nav.json",
+                "/collections/posts.json",
+                "/collections/projects.json",
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "addedDependencies": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/img/bg.jpg",
+                "/static/css/styles.css",
+                "/static/css/prism.css",
                 "/static/img/icons/twitter.svg",
                 "/static/img/icons/facebook.svg",
                 "/static/img/icons/reddit.svg",
@@ -589,10 +544,10 @@
             ]
         },
         {
-            "generator": "/posts/dynamic_colored_border.html",
-            "output": "/posts/dynamic_colored_border.html",
+            "generator": "/posts/syntax_highlighting_nojs.html",
+            "output": "/posts/syntax_highlighting_nojs.html",
             "logs": [],
-            "idx": 14,
+            "idx": 10,
             "addedPaths": [],
             "addedExclusions": [
                 "/collections/config.json",
@@ -612,7 +567,13 @@
             "deps": [
                 "/static/img/bg.jpg",
                 "/static/css/prism.css",
-                "/static/css/styles.css"
+                "/static/css/styles.css",
+                "/static/img/icons/twitter.svg",
+                "/static/img/icons/facebook.svg",
+                "/static/img/icons/reddit.svg",
+                "/static/img/icons/hn.svg",
+                "/static/img/icons/github.svg",
+                "/static/img/icons/email.svg"
             ]
         },
         {
@@ -638,34 +599,13 @@
             "deps": [
                 "/static/img/wisdom_troll.jpg",
                 "/static/img/bg.jpg",
-                "/static/css/styles.css"
-            ]
-        },
-        {
-            "generator": "/posts/rust_difficult.html",
-            "output": "/posts/rust_difficult.html",
-            "logs": [],
-            "idx": 17,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/collections/config.json",
-                "/collections/intellij_logos.json",
-                "/collections/nav.json",
-                "/collections/posts.json",
-                "/collections/projects.json",
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "addedDependencies": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/styles.css"
+                "/static/css/styles.css",
+                "/static/img/icons/twitter.svg",
+                "/static/img/icons/facebook.svg",
+                "/static/img/icons/reddit.svg",
+                "/static/img/icons/hn.svg",
+                "/static/img/icons/github.svg",
+                "/static/img/icons/email.svg"
             ]
         },
         {
@@ -692,7 +632,34 @@
             "deps": [
                 "/static/img/bg.jpg",
                 "/static/css/prism.css",
+                "/static/css/styles.css"
+            ]
+        },
+        {
+            "generator": "/posts/dynamic_colored_border.html",
+            "output": "/posts/dynamic_colored_border.html",
+            "logs": [],
+            "idx": 14,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/collections/config.json",
+                "/collections/intellij_logos.json",
+                "/collections/nav.json",
+                "/collections/posts.json",
+                "/collections/projects.json",
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "addedDependencies": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/img/bg.jpg",
                 "/static/css/styles.css",
+                "/static/css/prism.css",
                 "/static/img/icons/twitter.svg",
                 "/static/img/icons/facebook.svg",
                 "/static/img/icons/reddit.svg",
@@ -725,13 +692,88 @@
             "deps": [
                 "/static/img/bg.jpg",
                 "/static/css/prism.css",
-                "/static/css/styles.css",
-                "/static/img/icons/twitter.svg",
-                "/static/img/icons/facebook.svg",
-                "/static/img/icons/reddit.svg",
-                "/static/img/icons/hn.svg",
-                "/static/img/icons/github.svg",
-                "/static/img/icons/email.svg"
+                "/static/css/styles.css"
+            ]
+        },
+        {
+            "generator": "/posts/clipboard_cli.html",
+            "output": "/posts/clipboard_cli.html",
+            "logs": [],
+            "idx": 19,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/collections/config.json",
+                "/collections/intellij_logos.json",
+                "/collections/nav.json",
+                "/collections/posts.json",
+                "/collections/projects.json",
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "addedDependencies": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/img/bg.jpg",
+                "/static/css/prism.css",
+                "/static/css/styles.css"
+            ]
+        },
+        {
+            "generator": "/posts/rust_difficult.html",
+            "output": "/posts/rust_difficult.html",
+            "logs": [],
+            "idx": 17,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/collections/config.json",
+                "/collections/intellij_logos.json",
+                "/collections/nav.json",
+                "/collections/posts.json",
+                "/collections/projects.json",
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "addedDependencies": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/img/bg.jpg",
+                "/static/css/prism.css",
+                "/static/css/styles.css"
+            ]
+        },
+        {
+            "generator": "/posts/constexprjs_hello_world.html",
+            "output": "/posts/constexprjs_hello_world.html",
+            "logs": [],
+            "idx": 20,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/collections/config.json",
+                "/collections/intellij_logos.json",
+                "/collections/nav.json",
+                "/collections/posts.json",
+                "/collections/projects.json",
+                "/static/js/constexpr/third_party/prism.js"
+            ],
+            "addedDependencies": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/img/bg.jpg",
+                "/static/css/prism.css",
+                "/static/css/styles.css"
             ]
         },
         {
@@ -788,72 +830,6 @@
             "deps": [
                 "/static/img/bg.jpg",
                 "/static/css/styles.css",
-                "/static/img/icons/twitter.svg",
-                "/static/img/icons/facebook.svg",
-                "/static/img/icons/reddit.svg",
-                "/static/img/icons/hn.svg",
-                "/static/img/icons/github.svg",
-                "/static/img/icons/email.svg"
-            ]
-        },
-        {
-            "generator": "/posts/clipboard_cli.html",
-            "output": "/posts/clipboard_cli.html",
-            "logs": [],
-            "idx": 19,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/collections/config.json",
-                "/collections/intellij_logos.json",
-                "/collections/nav.json",
-                "/collections/posts.json",
-                "/collections/projects.json",
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "addedDependencies": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/img/bg.jpg",
-                "/static/css/prism.css",
-                "/static/css/styles.css",
-                "/static/img/icons/twitter.svg",
-                "/static/img/icons/facebook.svg",
-                "/static/img/icons/reddit.svg",
-                "/static/img/icons/hn.svg",
-                "/static/img/icons/github.svg",
-                "/static/img/icons/email.svg"
-            ]
-        },
-        {
-            "generator": "/posts/constexprjs_hello_world.html",
-            "output": "/posts/constexprjs_hello_world.html",
-            "logs": [],
-            "idx": 20,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/collections/config.json",
-                "/collections/intellij_logos.json",
-                "/collections/nav.json",
-                "/collections/posts.json",
-                "/collections/projects.json",
-                "/static/js/constexpr/third_party/prism.js"
-            ],
-            "addedDependencies": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/img/bg.jpg",
-                "/static/css/styles.css",
-                "/static/css/prism.css",
                 "/static/img/icons/twitter.svg",
                 "/static/img/icons/facebook.svg",
                 "/static/img/icons/reddit.svg",
@@ -925,6 +901,37 @@
             ]
         },
         {
+            "generator": "/tags/generator.html?ui",
+            "output": "/tags/ui.html",
+            "logs": [],
+            "idx": 25,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/collections/config.json",
+                "/collections/intellij_logos.json",
+                "/collections/nav.json",
+                "/collections/posts.json",
+                "/collections/projects.json"
+            ],
+            "addedDependencies": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/img/bg.jpg",
+                "/static/css/styles.css",
+                "/static/img/icons/twitter.svg",
+                "/static/img/icons/facebook.svg",
+                "/static/img/icons/reddit.svg",
+                "/static/img/icons/hn.svg",
+                "/static/img/icons/github.svg",
+                "/static/img/icons/email.svg"
+            ]
+        },
+        {
             "generator": "/tags/generator.html?zircon_standalone",
             "output": "/tags/zircon_standalone.html",
             "logs": [
@@ -958,10 +965,12 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?ui",
-            "output": "/tags/ui.html",
-            "logs": [],
-            "idx": 25,
+            "generator": "/tags/generator.html?python",
+            "output": "/tags/python.html",
+            "logs": [
+                "only one post found with tag: \"python\""
+            ],
+            "idx": 27,
             "addedPaths": [],
             "addedExclusions": [
                 "/collections/config.json",
@@ -1022,12 +1031,45 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?python",
-            "output": "/tags/python.html",
+            "generator": "/tags/generator.html?health",
+            "output": "/tags/health.html",
             "logs": [
-                "only one post found with tag: \"python\""
+                "only one post found with tag: \"health\""
             ],
-            "idx": 27,
+            "idx": 29,
+            "addedPaths": [],
+            "addedExclusions": [
+                "/collections/config.json",
+                "/collections/intellij_logos.json",
+                "/collections/nav.json",
+                "/collections/posts.json",
+                "/collections/projects.json"
+            ],
+            "addedDependencies": [],
+            "deducedExclusions": [
+                "/static/js/constexpr/lib.js",
+                "/static/js/constexpr/index.js",
+                "/static/js/constexpr/renderer.js"
+            ],
+            "status": "ok",
+            "deps": [
+                "/static/img/bg.jpg",
+                "/static/css/styles.css",
+                "/static/img/icons/twitter.svg",
+                "/static/img/icons/facebook.svg",
+                "/static/img/icons/reddit.svg",
+                "/static/img/icons/hn.svg",
+                "/static/img/icons/github.svg",
+                "/static/img/icons/email.svg"
+            ]
+        },
+        {
+            "generator": "/tags/generator.html?testing",
+            "output": "/tags/testing.html",
+            "logs": [
+                "only one post found with tag: \"testing\""
+            ],
+            "idx": 31,
             "addedPaths": [],
             "addedExclusions": [
                 "/collections/config.json",
@@ -1123,45 +1165,12 @@
             ]
         },
         {
-            "generator": "/tags/generator.html?health",
-            "output": "/tags/health.html",
+            "generator": "/tags/generator.html?rust",
+            "output": "/tags/rust.html",
             "logs": [
-                "only one post found with tag: \"health\""
+                "only one post found with tag: \"rust\""
             ],
-            "idx": 29,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/collections/config.json",
-                "/collections/intellij_logos.json",
-                "/collections/nav.json",
-                "/collections/posts.json",
-                "/collections/projects.json"
-            ],
-            "addedDependencies": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/img/bg.jpg",
-                "/static/css/styles.css",
-                "/static/img/icons/twitter.svg",
-                "/static/img/icons/facebook.svg",
-                "/static/img/icons/reddit.svg",
-                "/static/img/icons/hn.svg",
-                "/static/img/icons/github.svg",
-                "/static/img/icons/email.svg"
-            ]
-        },
-        {
-            "generator": "/tags/generator.html?testing",
-            "output": "/tags/testing.html",
-            "logs": [
-                "only one post found with tag: \"testing\""
-            ],
-            "idx": 31,
+            "idx": 32,
             "addedPaths": [],
             "addedExclusions": [
                 "/collections/config.json",
@@ -1195,39 +1204,6 @@
                 "only one post found with tag: \"utilities\""
             ],
             "idx": 33,
-            "addedPaths": [],
-            "addedExclusions": [
-                "/collections/config.json",
-                "/collections/intellij_logos.json",
-                "/collections/nav.json",
-                "/collections/posts.json",
-                "/collections/projects.json"
-            ],
-            "addedDependencies": [],
-            "deducedExclusions": [
-                "/static/js/constexpr/lib.js",
-                "/static/js/constexpr/index.js",
-                "/static/js/constexpr/renderer.js"
-            ],
-            "status": "ok",
-            "deps": [
-                "/static/img/bg.jpg",
-                "/static/css/styles.css",
-                "/static/img/icons/twitter.svg",
-                "/static/img/icons/facebook.svg",
-                "/static/img/icons/reddit.svg",
-                "/static/img/icons/hn.svg",
-                "/static/img/icons/github.svg",
-                "/static/img/icons/email.svg"
-            ]
-        },
-        {
-            "generator": "/tags/generator.html?rust",
-            "output": "/tags/rust.html",
-            "logs": [
-                "only one post found with tag: \"rust\""
-            ],
-            "idx": 32,
             "addedPaths": [],
             "addedExclusions": [
                 "/collections/config.json",
@@ -1289,13 +1265,13 @@
                 "/static/img/bg.jpg",
                 "/static/css/prism.css",
                 "/static/css/styles.css",
-                "/static/packages/katex/katex.css",
                 "/static/img/icons/twitter.svg",
                 "/static/img/icons/facebook.svg",
                 "/static/img/icons/reddit.svg",
                 "/static/img/icons/hn.svg",
                 "/static/img/icons/github.svg",
                 "/static/img/icons/email.svg",
+                "/static/packages/katex/katex.css",
                 "/static/packages/katex/fonts/KaTeX_Main-Regular.woff2",
                 "/static/packages/katex/fonts/KaTeX_Math-Italic.woff2"
             ]
