@@ -45,7 +45,6 @@
     section {
       margin: 1em 0;
       padding: 1em;
-      border-radius: 5px;
       background: #e7e3e3;
 
       p, prog, blockquote {
@@ -72,9 +71,6 @@
     }
     article {
       padding: 0;
-      section {
-        border-radius: 0;
-      }
     }
   }
 }

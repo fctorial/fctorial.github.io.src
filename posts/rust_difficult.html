@@ -65,6 +65,26 @@ fn process(file: String, processor: fn(&str) -> bool, finalizer: fn() -> ()) {
         thinking about resources and lifetimes. I believe this is the number one gotcha that trips up rust noobs.
     </p>
     <p>
+        It's crazy how similar rust feels to a high level dynamic language. You can even add methods to predefined
+        types:
+    </p>
+    <prog class="language-js">
+String.prototype.boo = function () {
+    console.log("boo")
+}
+    </prog>
+    <prog class="language-rust">
+trait Ghost {
+    fn boo(&self);
+}
+
+impl Ghost for String {
+    fn boo(&self) {
+        println!("boo");
+    }
+}
+    </prog>
+    <p>
         So newcomers find rust difficult <em>because</em> of how marvellous and helpful the borrow checker is. It tricks
         newcomers into thinking that rust is a high level language.
     </p>
