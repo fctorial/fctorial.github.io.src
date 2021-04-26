@@ -11,7 +11,7 @@
 
 <script>
   function initHover() {
-    const logos = document.querySelectorAll('#logos img')
+    const logos = article.querySelectorAll('section img')
     for (let i = 0; i < logos.length; i++) {
       let selectors = `img#logo_bg_${logos[i].title.replaceAll('.', '_')}`;
       const m_bg = document.querySelector(selectors)
@@ -44,11 +44,6 @@
 `
       const result = make_element(str)
 
-      // const m_bg = document.querySelector('#main_bg').cloneNode(true)
-      // m_bg.id = `logo_bg_${name.replaceAll('.', '_')}`
-      // m_bg.src = url;
-      // m_bg.style.opacity = '0';
-      // insertBefore(document.querySelector('#main_bg'), m_bg)
 
       return result
     }
@@ -58,11 +53,22 @@
     logos
       .map(make_view)
       .forEach(v => article.appendChild(v))
-    // const init = document.createElement('script')
-    // init.innerText = 'initHover()'
-    // document.querySelector('body').appendChild(init)
 
     await site_global_rendering()
+
+    logos.forEach(
+      url => {
+            const name = last(url.split('/')).replace('.png', '')
+          const m_bg = document.querySelector('#main_bg').cloneNode(true)
+          m_bg.id = `logo_bg_${name.replaceAll('.', '_')}`
+          m_bg.src = url;
+          m_bg.style.opacity = '0';
+          insertBefore(document.querySelector('#main_bg'), m_bg)
+      }
+    )
+    const init = document.createElement('script')
+    init.innerText = 'initHover()'
+    document.querySelector('body').appendChild(init)
   }
 </script>
 
