@@ -192,7 +192,7 @@
 
     const hw = make_element(`<div id="holi_wrapper" class="first_body_wrapper"></div>`)
     hw.appendChild(body_wrapper)
-    document.body.appendChild(hw)
+    insertAfter(document.querySelector('#left-sidebar'), hw)
   }
 </script>
 

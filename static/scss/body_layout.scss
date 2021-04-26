@@ -2,18 +2,23 @@ body {
   width: 100%;
   overflow-y: scroll;
   font-family: 'Roboto', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
   font-size: 1em;
 
   > .first_body_wrapper {
     width: 50%;
-    min-width: 600px;
+    min-width: 300px;
   }
 
   @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #left-sidebar, #right-sidebar {
+      display: none;
+    }
+
     > .first_body_wrapper {
       width: 100%;
       min-width: 0;
@@ -27,6 +32,26 @@ body {
 
   @media (min-width: 800px) {
     padding: 1em;
+    display: flex;
+    //align-items: flex-start;
+    grid-gap: 1em;
+    .first_body_wrapper {
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+    #left-sidebar, #right-sidebar {
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+    #left-sidebar {
+      //transform: rotate(1turn);
+    }
+    #table-of-content {
+      position: sticky;
+      background: #e7e3e3;
+      top: 30%;
+      width: 100%;
+    }
   }
 }
 

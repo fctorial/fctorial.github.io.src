@@ -13,6 +13,7 @@
     }
     nav {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-around;
       align-items: baseline;
       grid-gap: 1em;

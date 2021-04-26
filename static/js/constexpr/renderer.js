@@ -248,13 +248,22 @@ function create_sections() {
     sec.setAttribute('id', gen_id(h2.innerText))
     article.appendChild(sec)
   })
+  if (section_names.length > 1) {
+    const toc = document.querySelector('#table-of-content')
+    section_names.forEach(
+      sn => toc.appendChild(make_element(`<a href="#${gen_id(sn)}"><div>${sn}</div></a>`))
+    )
+  }
 }
 
 async function site_global_rendering() {
   setup_bg()
-  create_sections()
   await Promise.all([render_base_page(), syntax_highlight(), render_latex(), render_graphviz(), literal_links()])
-  window.onfocus = () => {
-    // setTimeout(() => window.location.reload(), 200)
-  }
+  insertBefore(body_wrapper, make_element(`<div id="left-sidebar"><div id="table-of-content"></div></div>`))
+  insertAfter(body_wrapper, make_element(`<div id="right-sidebar"></div>`))
+  create_sections()
+
+//   window.onfocus = () => {
+//     // setTimeout(() => window.location.reload(), 200)
+//   }
 }
