@@ -69,15 +69,6 @@ async function render_base_page() {
       )
     )
   }
-  document.head.appendChild(
-    make_element(`
-<style constexpr>
-    body {
-        border: 2px solid red;
-    }
-</style>
-  `)
-  )
   insertFirst(document.body, make_element(`<noscript constexpr>Please enable javascript</noscript>`))
 
   let heading = document.querySelector('#main_title');
@@ -224,44 +215,64 @@ function gen_id(title) {
 }
 
 function create_sections() {
-  if (article.children[0].nodeName !== 'H2') {
-    insertFirst(article, make_element(`<h2 style="display: none;">Top</h2>`))
-  }
-  const header_idxs = []
-  const nodes = Array.from(article.children)
-  nodes.forEach((el, idx) => {
-    if (el.nodeName === 'H2') {
-      header_idxs.push(idx)
-    }
-  })
   const sections = []
-  for (let i=0; i<header_idxs.length; i++) {
-    const sec = make_element(`<section></section>`)
-    const s_mems = nodes.slice(header_idxs[i], header_idxs[i+1] || 10000)
-    s_mems.forEach(mem => sec.appendChild(mem))
-    sections.push(sec)
+  if (! article.querySelector('section')) {
+    if (article.children[0].nodeName !== 'H2') {
+      insertFirst(article, make_element(`<h2 style="display: none;">Top</h2>`))
+    }
+    const header_idxs = []
+    const nodes = Array.from(article.children)
+    nodes.forEach((el, idx) => {
+      if (el.nodeName === 'H2') {
+        header_idxs.push(idx)
+      }
+    })
+    for (let i=0; i<header_idxs.length; i++) {
+      const sec = make_element(`<section></section>`)
+      const s_mems = nodes.slice(header_idxs[i], header_idxs[i+1] || 10000)
+      s_mems.forEach(mem => sec.appendChild(mem))
+      sections.push(sec)
+    }
+  } else {
+    article.querySelectorAll('section').forEach(
+      sec => {
+        sec.remove()
+        sections.push(sec)
+      }
+    )
   }
   const section_names = []
   sections.forEach(sec => {
-    const h2 = sec.children[0]
+    const h2 = sec.querySelector('h2')
     section_names.push(h2.innerText)
     sec.setAttribute('id', gen_id(h2.innerText))
     article.appendChild(sec)
   })
+  return section_names
+}
+
+function section_management() {
+  const section_names = create_sections()
   if (section_names.length > 1) {
     const toc = document.querySelector('#table-of-content')
     section_names.forEach(
-      sn => toc.appendChild(make_element(`<a href="#${gen_id(sn)}"><div>${sn}</div></a>`))
+      sn => toc.appendChild(make_element(`<li><a href="#${gen_id(sn)}">${sn}</a></li>`))
     )
+  } else {
+    document.querySelectorAll('#left-sidebar > *').forEach(el => el.style.display = 'none')
   }
 }
 
 async function site_global_rendering() {
   setup_bg()
   await Promise.all([render_base_page(), syntax_highlight(), render_latex(), render_graphviz(), literal_links()])
-  insertBefore(body_wrapper, make_element(`<div id="left-sidebar"><div id="table-of-content"></div></div>`))
+  insertBefore(body_wrapper, make_element(`
+<div id="left-sidebar">
+    <div class="heading">Table of content</div>
+    <ol id="table-of-content"></ol>
+</div>`))
   insertAfter(body_wrapper, make_element(`<div id="right-sidebar"></div>`))
-  create_sections()
+  section_management()
 
 //   window.onfocus = () => {
 //     // setTimeout(() => window.location.reload(), 200)
