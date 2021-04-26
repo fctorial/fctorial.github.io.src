@@ -217,7 +217,7 @@ function gen_id(title) {
 function create_sections() {
   const sections = []
   if (! article.querySelector('section')) {
-    if (article.children[0].nodeName !== 'H2') {
+    if (article.children[0] && article.children[0].nodeName !== 'H2') {
       insertFirst(article, make_element(`<h2 style="display: none;">Top</h2>`))
     }
     const header_idxs = []
