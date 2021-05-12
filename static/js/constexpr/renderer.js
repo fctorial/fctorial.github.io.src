@@ -271,7 +271,7 @@ async function site_global_rendering() {
     <div class="heading">Table of content</div>
     <ol id="table-of-content"></ol>
 </div>`))
-  insertAfter(body_wrapper, make_element(`<div id="right-sidebar"></div>`))
+  insertBefore(body_wrapper, make_element(`<div id="right-sidebar"></div>`))
   section_management()
 
 //   window.onfocus = () => {
