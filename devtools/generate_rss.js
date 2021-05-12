@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const posts = require('../collections/posts.json')
+const config = require('../collections/config.json')
 const fs = require('fs')
 
 let result = ''
@@ -23,7 +24,7 @@ posts.forEach(
   <item>
       <title>${post.title}</title>
       <pubDate>${post.date}</pubDate>
-      <link>https://fctorial.github.io${post.url}</link>
+      <link>${config.url}${post.url}</link>
       ${description}
       ${comments}
       ${tags}
@@ -35,7 +36,7 @@ result = `<?xml version="1.0" encoding="UTF-8" ?>
 
 <channel>
   <title>fctorial</title>
-  <link>https://fctorial.github.io</link>
+  <link>${config.url}</link>
   <description>A blog where I'll post (mostly tech related) stuff</description>
 ` + result
 
