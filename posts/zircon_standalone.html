@@ -41,6 +41,10 @@
             Set the following environment variables:
             <ul>
                 <li>
+                    <progi>ZIRCON_STANDALONE_DIR</progi>
+                    : Path to zircon_standalone repository
+                </li>
+                <li>
                     <progi>FUCHSIA_DIR</progi>
                     : Fuchsia source root.
                 </li>
@@ -55,10 +59,11 @@
             </ul>
         </li>
         <li>
-            Execute this command to compile the kernel and the bootloader:
+            Execute this command in the fuchsia project directory:
             <prog class="language-bash">
-                fx ninja -C $FUCHSIA_OUT `cat build/deps_x64.txt`
+                fx ninja -C $FUCHSIA_OUT `cat $ZIRCON_STANDALONE_DIR/build/deps_x64.txt`
             </prog>
+            It will compile the kernel and the bootloader:
         </li>
         <li>
             <prog class="language-bash">
