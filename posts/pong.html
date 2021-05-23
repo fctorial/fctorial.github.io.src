@@ -1,0 +1,140 @@
+<html>
+<head>
+
+</head>
+<body>
+<div id="paddle">
+    <div id="resizer"></div>
+</div>
+
+<div id="scoreboard">0</div>
+
+<div id="ball"></div>
+
+<div class="marker marker1"></div>
+<div class="marker marker2"></div>
+
+</body>
+<style>
+    :root, body {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    #scoreboard {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.5em;
+        font-weight: bold;
+        background: #00000055;
+        padding: 0.5em;
+    }
+
+    #ball {
+        position: absolute;
+        transform: translateX(-50%) translateY(-50%);
+        border-radius: 10em;
+        width: 20px;
+        height: 20px;
+        background: red;
+        top: 500px;
+        left: 500px;
+    }
+
+    #paddle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    #paddle::-webkit-scrollbar-thumb {
+        background: blue;
+        width: 20px;
+        border-radius: 10em;
+    }
+
+    #resizer {
+        width: 20px;
+        height: 300%;
+    }
+
+    .marker {
+        display: none;
+        position: absolute;
+        right: 10px;
+        width: 10px;
+        height: 2px;
+        background: green;
+    }
+</style>
+<script src="/static/js/constexpr/lib.js"></script>
+<script>
+  function clamp(a, x, b) {
+    if (x < a) {
+      return a;
+    } else if (x > b) {
+      return b;
+    } else {
+      return x;
+    }
+  }
+  let ball = document.querySelector('#ball')
+  let paddle = document.querySelector('#paddle')
+  let width = () => parseInt(window.getComputedStyle(paddle).width);
+  let height = () => parseInt(window.getComputedStyle(paddle).height);
+  let paddleSpan = () => height() / 6;
+  let paddleLoc = () => paddle.scrollTop / paddle.scrollHeight * height() + paddleSpan()
+  let scoreboard = document.querySelector('#scoreboard')
+  async function main() {
+    ball.style.top = '20';
+    ball.style.left = '20';
+
+    let velX = 5;
+    let velY = 2;
+    let score = 0;
+    while (true) {
+      await sleep(16);
+      let ballX = parseInt(ball.style.left)
+      let ballY = parseInt(ball.style.top)
+      let newBallX = clamp(10, ballX + velX, width() - 10);
+      let newBallY = clamp(10, ballY + velY, height() - 10);
+      if (newBallX === width() - 10) {
+        if (newBallY < paddleLoc() - paddleSpan() || newBallY > paddleLoc() + paddleSpan()) {
+          break;
+        } else {
+          score += 1;
+          scoreboard.textContent = score;
+          velX *= -1;
+          let dist = newBallY - paddleLoc();
+          velY += dist / 10;
+        }
+      }
+      if (newBallX === 10) {
+        velX *= -1
+      }
+      if (newBallY === height() - 10 || newBallY === 10) {
+        velY *= -1
+      }
+
+      document.querySelector('.marker1').style.top = paddleLoc() + paddleSpan()
+      document.querySelector('.marker2').style.top = paddleLoc() - paddleSpan()
+      ball.style.left = newBallX;
+      ball.style.top = newBallY;
+    }
+  }
+
+  main()
+
+</script>
+</html>
