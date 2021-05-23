@@ -39,7 +39,7 @@ async function render_base_page() {
   )
   document.head.appendChild(
     make_element(
-      `<meta name="viewport" content="width=device-width, min-width=800">`
+      `<meta name="viewport" content="width=device-width, min-width=600, initial-scale=0.5, minimum-scale=0.5">`
     )
   )
   document.head.appendChild(
@@ -268,11 +268,23 @@ async function site_global_rendering() {
   await Promise.all([render_base_page(), syntax_highlight(), render_latex(), render_graphviz(), literal_links()])
   insertBefore(body_wrapper, make_element(`
 <div id="left-sidebar">
-    <div class="heading">Table of content</div>
-    <ol id="table-of-content"></ol>
+    <div class="dialog">
+        <div class="heading">Table of content</div>
+        <ol id="table-of-content"></ol>
+    </div>
 </div>`))
   insertBefore(body_wrapper, make_element(`<div id="right-sidebar"></div>`))
   section_management()
+
+  async function f() {
+    let n = 0;
+    while (true) {
+      await sleep(16);
+      n += 1;
+      // document.body.style.left = `${(Math.sin(n * Math.PI / 180) - 2) * 100}%`
+    }
+  }
+  f()
 
 //   window.onfocus = () => {
 //     // setTimeout(() => window.location.reload(), 200)
