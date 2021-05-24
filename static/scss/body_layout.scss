@@ -94,27 +94,35 @@ body {
     .dialog {
       .content {
         padding: 1em;
-        label {
-          display: none;
-        }
-        form input[type=email] {
-          padding: 0.5em;
-          font-size: 1.2em;
+        form {
+          label {
+            display: none;
+          }
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          grid-gap: 0.5em;
+
+          input[type=email] {
+            padding: 0.5em;
+            font-size: 1.2em;
+            width: 100%;
+          }
+          input[type=submit] {
+            width: 100%;
+            font-size: 1.1em;
+            padding: 0.3em 1em;
+            color: #655ff5;
+            transition: background 0.1s;
+            &:hover {
+              background: #dbdefa;
+            }
+            font-weight: bold;
+            border: 1px solid #655ff5;
+            border-radius: 2px;
+          }
         }
 
-        form input[type=submit] {
-          margin-top: 0.5em;
-          font-size: 1.1em;
-          padding: 0.3em 1em;
-          color: #655ff5;
-          transition: background 0.1s;
-          &:hover {
-            background: #dbdefa;
-          }
-          font-weight: bold;
-          border: 1px solid #655ff5;
-          border-radius: 2px;
-        }
       }
     }
     .open {

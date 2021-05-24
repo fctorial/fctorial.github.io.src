@@ -282,7 +282,7 @@ async function site_global_rendering() {
         <div class="content">
           <form action="https://fctorial.com/apis/email/register" enctype="text/plain" method="post" target="_blank">
               <label for="subscriber_email">Your Email:</label>
-              <input type="email" placeholder="your email" id="subscriber_email" name="subscriber_email" required><br/>
+              <input type="email" placeholder="your email" id="subscriber_email" name="subscriber_email" required>
               <input type="submit" value="Register">
           </form>
         </div>
