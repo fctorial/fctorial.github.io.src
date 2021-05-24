@@ -303,10 +303,10 @@ async function site_global_rendering() {
       <noscript>
 <style>
   .open, .close {
-      /*display: none;*/
+      display: none;
   }
   #right-sidebar .message {
-      /*display: none;*/
+      display: none;
   }
 </style>
       </noscript>
