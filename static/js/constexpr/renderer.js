@@ -39,7 +39,7 @@ async function render_base_page() {
   )
   document.head.appendChild(
     make_element(
-      `<meta name="viewport" content="width=device-width, min-width=600, initial-scale=0.5, minimum-scale=0.5">`
+      `<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">`
     )
   )
   document.head.appendChild(
@@ -281,10 +281,10 @@ async function site_global_rendering() {
     while (true) {
       await sleep(16);
       n += 1;
-      // document.body.style.left = `${(Math.sin(n * Math.PI / 180) - 2) * 100}%`
+      document.body.style.left = `${(Math.sin(n * Math.PI / 180) - 1) * 100}%`
     }
   }
-  f()
+  // f()
 
 //   window.onfocus = () => {
 //     // setTimeout(() => window.location.reload(), 200)

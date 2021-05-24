@@ -3,84 +3,62 @@
 }
 
 body {
+  user-select: none;
   font-family: 'Roboto', sans-serif;
-
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-
-  font-size: 1em;
+  position: relative;
 
   @media(max-width: 800px) {
     font-size: 0.7em;
+    padding: 0;
+    grid-gap: 0;
     width: 300%;
-
     #left-sidebar, #right-sidebar, > .first_body_wrapper {
       flex-basis: 0;
       flex-grow: 1;
     }
     position: relative;
-    left: -200%;
+    left: -100%;
+  }
+  @media(min-width: 800px) {
+    font-size: 1em;
+    padding: 1em;
+    grid-gap: 1em;
+    width: 100%;
+    #left-sidebar, #right-sidebar, > .first_body_wrapper {
+      flex-basis: 0;
+      flex-grow: 1;
+    }
+    > .first_body_wrapper {
+      flex-grow: 2;
+    }
+  }
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  > .first_body_wrapper {
+    order: 2;
+    user-select: text;
+  }
+  #left-sidebar, #right-sidebar {
+    position: sticky;
+    top: 1em;
+    height: calc(100vh - 2em);
+  }
+  #left-sidebar {
+    order: 1;
+  }
+  #right-sidebar {
+    order: 3;
   }
 }
-
-//body {
-//  font-family: 'Roboto', sans-serif;
-//
-//  @media(max-width: 800px) {
-//    font-size: 0.7em;
-//    padding: 0;
-//    grid-gap: 0;
-//    width: 300%;
-//    #left-sidebar, #right-sidebar, > .first_body_wrapper {
-//      flex-basis: 0;
-//      flex-grow: 1;
-//      //width: 100%;
-//    }
-//    position: relative;
-//    left: -100%;
-//  }
-//  @media(min-width: 800px) {
-//    font-size: 1em;
-//    padding: 1em;
-//    grid-gap: 1em;
-//    width: 100%;
-//    #left-sidebar, #right-sidebar, > .first_body_wrapper {
-//      flex-basis: 0;
-//      flex-grow: 1;
-//    }
-//    > .first_body_wrapper {
-//      flex-grow: 2;
-//    }
-//  }
-//
-//  overflow-y: scroll;
-//  display: flex;
-//  flex-direction: row;
-//  align-items: flex-start;
-//  > .first_body_wrapper {
-//    order: 2;
-//  }
-//  #left-sidebar, #right-sidebar {
-//    position: sticky;
-//    top: 1px;
-//  }
-//  #left-sidebar {
-//    order: 1;
-//    height: calc(100vh - 2em);
-//  }
-//  #right-sidebar {
-//    order: 3;
-//    background: red;
-//    height: 10px;
-//  }
-//}
 
 body {
   #left-sidebar {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-height: 100%;
     .dialog {
       background: #e7e3e3;
       .heading {
@@ -95,7 +73,6 @@ body {
         overflow-y: auto;
         padding-left: 2em;
         margin: 0;
-        user-select: none;
         li {
           line-height: 1.5em;
           margin: 0.5em 0;
