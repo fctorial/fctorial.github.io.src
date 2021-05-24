@@ -283,10 +283,18 @@ async function site_global_rendering() {
   ))
   section_management()
 
+  document.body.appendChild(
+    make_element(`
+      <noscript>
+<style>
+  .open, .close {
+      display: none;
+  }   
+</style>
+      </noscript>
+      `)
+  )
   function runtime_setup() {
-    // document.querySelectorAll('.open, .close').forEach(
-    //   el => el.style = undefined
-    // )
     function addToBodyLeft(n) {
       let curr = document.body.style.left ? parseInt(document.body.style.left) : -100;
       document.body.style.left = `${curr + n}vw`
