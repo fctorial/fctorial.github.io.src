@@ -298,9 +298,9 @@ async function site_global_rendering() {
   ))
   section_management()
 
-  document.body.appendChild(
+  let el = document.createElement('noscript')
+  el.appendChild(
     make_element(`
-      <noscript>
 <style>
   .open, .close {
       display: none;
@@ -309,11 +309,11 @@ async function site_global_rendering() {
       display: none;
   }
 </style>
-      </noscript>
       `)
   )
+  document.body.appendChild(el)
 
-  let el = document.createElement('script')
+  el = document.createElement('script')
   el.src = '/static/js/dynamic.js'
   document.body.appendChild(el)
 
