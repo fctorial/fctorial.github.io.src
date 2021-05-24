@@ -254,7 +254,7 @@ function create_sections() {
 function section_management() {
   const section_names = create_sections()
   if (section_names.length > 1) {
-    const toc = document.querySelector('#table-of-content')
+    const toc = document.querySelector('#left-sidebar .content')
     section_names.forEach(
       sn => toc.appendChild(make_element(`<li><a href="#${gen_id(sn)}">${sn}</a></li>`))
     )
@@ -270,13 +270,23 @@ async function site_global_rendering() {
 <div id="left-sidebar">
     <div class="dialog">
         <div class="heading">Table of content</div>
-        <ol id="table-of-content"></ol>
+        <ol class="content"></ol>
     </div>
     <img src="/static/img/icons/swipe.svg" class="open" />
     <img src="/static/img/icons/swipe.svg" class="close" />
 </div>`))
   insertBefore(body_wrapper, make_element(
     `<div id="right-sidebar">
+    <div class="dialog">
+        <div class="heading">Join the newsletter</div>
+        <div class="content">
+          <form action="https://fctorial.com/apis/email/register" enctype="text/plain" method="post" target="_blank">
+              <label for="subscriber_email">Your Email:</label><br/>
+              <input type="email" id="subscriber_email" name="subscriber_email" required><br/>
+              <input type="submit" value="Register">
+          </form>
+        </div>
+    </div>
     <img src="/static/img/icons/swipe.svg" class="open" />
     <img src="/static/img/icons/swipe.svg" class="close" />
 </div>`
