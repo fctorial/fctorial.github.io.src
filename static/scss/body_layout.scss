@@ -100,7 +100,7 @@ body {
           }
           display: flex;
           flex-direction: column;
-          align-items: flex-end;
+          align-items: flex-start;
           grid-gap: 0.5em;
 
           input[type=email] {
@@ -121,8 +121,13 @@ body {
             border: 1px solid #655ff5;
             border-radius: 2px;
           }
+          .message {
+            border-left: 3px solid #840202;
+            background: #f6c8c8;
+            padding: 1em 0 1em 0.5em;
+            width: 100%;
+          }
         }
-
       }
     }
     .open {
