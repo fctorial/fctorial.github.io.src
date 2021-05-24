@@ -284,6 +284,9 @@ async function site_global_rendering() {
   section_management()
 
   function runtime_setup() {
+    // document.querySelectorAll('.open, .close').forEach(
+    //   el => el.style = undefined
+    // )
     function addToBodyLeft(n) {
       let curr = document.body.style.left ? parseInt(document.body.style.left) : -100;
       document.body.style.left = `${curr + n}vw`
@@ -292,6 +295,16 @@ async function site_global_rendering() {
     document.querySelector('#left-sidebar .close').addEventListener('click', () => addToBodyLeft(-100))
     document.querySelector('#right-sidebar .open').addEventListener('click', () => addToBodyLeft(-100))
     document.querySelector('#right-sidebar .close').addEventListener('click', () => addToBodyLeft(+100))
+
+    if (navigator.userAgent.indexOf('Firefox') !== -1 && window.getComputedStyle(document.querySelector('.open')).display !== "none") {
+      document.querySelectorAll('#left-sidebar li a').forEach(
+        el => {
+          el.addEventListener('click', () => {
+            document.querySelector('#left-sidebar .close').click()
+            setTimeout(() => window.location.href = el.href, 300)
+          })
+        })
+    }
   }
 
   let el = document.createElement('script')
