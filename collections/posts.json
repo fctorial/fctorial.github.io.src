@@ -184,7 +184,7 @@
     "title": "Working with binary data in clojure",
     "url": "/posts/parse_struct.html",
     "date": "24 May 2021",
-    "discussion": "",
+    "discussion": "https://www.reddit.com/r/fctorial/comments/nkbk1x/working_with_binary_data_in_clojure/",
     "description": "Documentation for parse_struct, a binary data serialization and deserialization library for clojure with an API similar to pointer casting in C/C++",
     "tags": [
       "clojure",

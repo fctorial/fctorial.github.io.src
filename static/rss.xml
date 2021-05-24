@@ -7,10 +7,20 @@
   <description>A blog where I'll post (mostly tech related) stuff</description>
 
   <item>
+      <title>Working with binary data in clojure</title>
+      <pubDate>24 May 2021</pubDate>
+      <link>http://fctorial.com/posts/parse_struct.html</link>
+      <description>Documentation for parse_struct, a binary data serialization and deserialization library for clojure with an API similar to pointer casting in C/C++</description>
+      
+      
+      <category>clojure</category>
+      <category>utilities</category>
+  </item>
+  <item>
       <title>Constexpr.js hello world</title>
       <pubDate>24 Apr 2021</pubDate>
       <link>http://fctorial.com/posts/constexprjs_hello_world.html</link>
-      <description>In this article, I build a </description>
+      <description>This article is a tutorial for constexpr.js, a tool for executing javascript in your website ahead of time</description>
       <comments>https://www.reddit.com/r/fctorial/comments/mxjyx1/constexprjs_hello_world/</comments>
       
       <category>constexpr.js</category>
