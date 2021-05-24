@@ -175,9 +175,20 @@
     "url": "/posts/constexprjs_hello_world.html",
     "date": "24 Apr 2021",
     "discussion": "https://www.reddit.com/r/fctorial/comments/mxjyx1/constexprjs_hello_world/",
-    "description": "In this article, I build a ",
+    "description": "This article is a tutorial for constexpr.js, a tool for executing javascript in your website ahead of time",
     "tags": [
       "constexpr.js"
+    ]
+  },
+  {
+    "title": "Working with binary data in clojure",
+    "url": "/posts/parse_struct.html",
+    "date": "24 May 2021",
+    "discussion": "",
+    "description": "Documentation for parse_struct, a binary data serialization and deserialization library for clojure with an API similar to pointer casting in C/C++",
+    "tags": [
+      "clojure",
+      "utilities"
     ]
   }
 ]

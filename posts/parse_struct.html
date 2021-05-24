@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<article>
+    <p>
+        Despite being a very low level language, serializing and deserializing binary data is dead simple in C. It's
+        because C is a weakly/un typed language. In fact, it started out as a simple non-optimizing frontend for
+        assembly. All constructs in C language have straightforward analogues in assembly.
+    </p>
+    <p>
+        So if you have a handle to a memory location in your C program, you can just cast it to a pointer to a struct
+        (a construct defining the structure of a region of memory), and start using the fields of that struct:
+    </p>
+    <prog class="language-c">
+// struct definition
+typedef struct {
+    x i32,
+    y i32,
+    z i32
+} Point;
+
+// get the mean z coordinate of first `n` point in the data blob pointed to by `ptr`
+i32 avg_z(void* ptr, i32 n) {
+    Point* ps = (Point*) ptr;
+    i32 sum = 0;
+    for (int i=0; i&lt;n; i++) {
+        sum += ps[i].z;
+    }
+    return ((float) sum) / n;
+}
+    </prog>
+    <p>
+        <a href="https://github.com/fctorial/parse_struct">parse_struct</a> is a clojure library that allows you to
+        deserialize and serialize binary data using an API as straightforward as the one you would use in C. This page
+        will serve as the guide for this library.
+    </p>
+    <h2>A simple example</h2>
+    <p>
+        I will start by translating the above C program to parse_struct.
+    </p>
+    <h3>Defining structs</h3>
+    <p>
+        Defining the format of your data is the first thing you should do when parsing some data using parse_struct. The
+        definition of the <progi>Point</progi> type in the C example will look like this:
+    </p>
+    <prog class="language-clojure">
+(ns fctorial.demo
+  (:require [parse_struct.common_types :as ct]
+            [parse_struct.core :refer :all]))
+
+(def Point_t {:type       :struct
+              :definition [[:x ct/i32]
+                           [:y ct/i32]
+                           [:z ct/i32]]})
+
+(defn Point_Array_t [n]
+  {:type    :array
+   :element Point_t
+   :len     n})
+    </prog>
+    <p>
+        <progi>parse_struct.common_types</progi> contains all the fundamental data types
+        (1, 2, 4, 8 byte little and big endian, signed and unsigned integers. 4, 8 byte little and big endian floats, and padding).
+        You can combine them using <progi>:struct</progi>s and <progi>:array</progi>s to form more complex data types.
+    </p>
+    <h3>Parsing data</h3>
+    <p>
+        You perform the parsing operation using the <progi>deserialize</progi> function in <progi>parse_struct.core</progi>:
+    </p>
+    <prog class="language-clojure">
+(defn avg_z [ptr n]
+  (let [points (deserialize (Point_Array_t n)
+                            ptr)]
+    (/ (reduce (fn [res nxt]
+                 (+ res (nxt :z)))
+               0
+               points)
+       n)))
+    </prog>
+    <p>
+        The first argument to <progi>deserialize</progi> is a type definition. The second argument is a sequence of bytes.
+        The performance of <progi>deserialize</progi> depends on the byte sequence it is given. Byte arrays perform the
+        best and seqs are the worst.
+    </p>
+    <p>
+        <progi>parse_struct</progi> also comes with a class <a href="https://github.com/fctorial/parse_struct/wiki/ROVec">ROVec</a>
+        that is a clojure friendly sequence type that performs as fast as a byte array.
+    </p>
+
+    <h2>A real world parsing example</h2>
+    <p>
+        Let's now write a program that extracts the list of symbols from an elf file. I will target only the elf64 little
+        endian format, <a href="https://github.com/fctorial/bin_play/blob/472db1e9c21b7b3aa1c2af2524185e176a9602de/src/fctorial/types.clj#L11">but making a program that targets all the types is not too difficult</a>.
+    </p>
+    <p>
+        The complete code can be found in the master branch of above linked repo (<progi>fctorial.demo</progi> namespace).
+    </p>
+    <p>
+        This is the path we'll follow to find the symbols list:
+    </p>
+    <ul>
+        <li>Parse the ELF header and locate the section headers using it</li>
+        <li>Parse the section headers and locate the symbols section and symbol names section</li>
+        <li>Parse both these sections and attach the symbol names to symbols</li>
+    </ul>
+    <p>
+        We will start by defining the aliases used by elf64 specification:
+    </p>
+    <prog>
+(ns fctorial.demo
+  (:require [parse_struct.core :refer :all]
+            [parse_struct.common_types :refer :all]
+            [clojure.pprint :refer [pprint]]
+            [fctorial.utils :refer :all]
+            [fctorial.data :refer [obj]]
+            )
+  (:import (clojure.lang ROVec MMap)))
+
+(def ElfAddr u64)
+(def ElfHalf u16)
+(def ElfOff u64)
+(def ElfWord u32)
+(def ElfXword u64)
+    </prog>
+    <p>
+        <progi>fctorial.data.obj</progi> is a <progi>ROVec</progi> containing a simple executable (compiled with <progi>gcc -c t.c -o data/t.o</progi>).
+    </p>
+    <p>
+        We will start by reading the elf identification segment and verifying that the file is an ELF64LE executable:
+    </p>
+    <prog>
+(def magic_t {:type       :struct
+              :definition [[:ident {:type  :string
+                                    :bytes 4}]
+                           [:class (assoc i8 :adapter {1 :32 2 :64})]
+                           [:data (assoc i8 :adapter {1 :LE 2 :BE})]
+                           [:version i8]]})
+
+(def magic (deserialize magic_t obj))
+
+(assert (= (magic :class) :64))
+(assert (= (magic :data) :LE))
+(assert (= (magic :ident) "\u007FELF"))
+    </prog>
+    <p>
+        Here we see the <progi>:adapter</progi> feature of parse_struct in action. Each type is a clojure map that can
+        optionally have an entry by the name <progi>:adapter</progi>. Its value must be a function which will be applied
+        to the parsed value and the result will be returned instead of the original value. Here we use it to map integers
+        to clojure keywords, which are easier to use.
+    </p>
+    <blockquote>
+        Adapters should be your goto whenever you encounter a type that cannot be represented using the types provided
+        by parse_struct. Just parse that segment of data as an array of bytes and attach a custom parser to that array
+        using <progi>:adapter</progi>.
+    </blockquote>
+    <p>
+        Now we parse the rest of the ELF header.:
+    </p>
+    <prog>
+(def elf_header_t {:type       :struct
+                   :definition [(padding 24)
+                                [:shoff ElfOff] ; section header offset
+                                (padding 10)
+                                [:shentsize ElfHalf] ; section header entry size
+                                [:shnum ElfHalf] ; section headers count
+                                [:shstrndx (assoc ElfHalf :adapter int)]]})
+(def elf_header (deserialize elf_header_t
+                             (ROVec. obj 16)))
+    </prog>
+    <p>
+        We are only interested in the section info so we ignore the rest of the data using <progi>parse_struct.common_types.padding</progi>
+        function. We are also using the <progi>ROVec.</progi> constructor to slice the original blob at byte number 16.
+        <progi>ROVec</progi> class has constructor overloads that can be used like the <progi>vec</progi> function from
+        clojure standard library to slice and dice the blob.
+    </p>
+    <p>
+        Let's do a sanity check on the data we've extracted. Section headers are always at the very tail of an ELF file:
+    </p>
+    <progi>
+(assert (= (+ (elf_header :shoff)
+              (* (elf_header :shentsize)
+                 (elf_header :shnum)))
+           (count obj)))
+    </progi>
+    <p>
+        Now we know where the section headers are. Let's parse them:
+    </p>
+    <progi>
+(def sec_header_t {:type       :struct
+                   :definition [(padding 4)
+                                [:type (assoc ElfWord :adapter #(get [:SectionType/NULL
+                                                                      :SectionType/PROGBITS
+                                                                      :SectionType/SYMTAB
+                                                                      :SectionType/STRTAB
+                                                                      :SectionType/RELA
+                                                                      :SectionType/HASH
+                                                                      :SectionType/DYNAMIC
+                                                                      :SectionType/NOTE
+                                                                      :SectionType/NOBITS
+                                                                      :SectionType/REL
+                                                                      :SectionType/SHLIB
+                                                                      :SectionType/DYNSYM]
+                                                                     %))]
+                                (padding 16)
+                                [:offset ElfOff]
+                                [:size ElfXword]
+                                [:link ElfWord]
+                                (padding 20)]})
+(def secs (deserialize {:type    :array
+                        :len     (elf_header :shnum)
+                        :element sec_header_t
+                        :adapter vec}
+                       (ROVec. obj (elf_header :shoff))))
+(def symtab_header (first (filter #(= (% :type) :SectionType/SYMTAB) secs)))
+(def symnames_header (secs (symtab_header :link))) ; The link field of a symbol table in the index of symbol names section
+
+(def symnames (deserialize {:type  :string
+                            :bytes (symnames_header :size)}
+                           (ROVec. obj (symnames_header :offset))))
+    </progi>
+    <p>
+        Deserialization of an array gives back a lazy seq. Adding an <progi>:adapter vec</progi> will turn it into an
+        eager indexable array.
+    </p>
+    <p>
+        The symbol names section is a blob of ascii strings concatenated with null terminators. Each symbol table entry
+        contains an index into this blob that points to the start of its name. So we use the <progi>:string</progi> type
+        to parse it (java ascii strings can contain any characters).
+    </p>
+    <p>
+        We can now parse the symbol table:
+    </p>
+    <prog>
+(def sym_t {:type       :struct
+            :definition [[:name (assoc ElfWord :adapter (fn [idx]
+                                                          (.substring symnames
+                                                                      idx
+                                                                      (.indexOf symnames 0 idx))))]
+                         (padding 2)
+                         [:shndx ElfHalf]
+                         [:value ElfAddr]
+                         [:size ElfXword]]})
+
+(def symbols (deserialize {:type :array
+                           :len (/ (symtab_header :size)
+                                   (type-size sym_t))
+                           :element sym_t}
+                          (ROVec. obj (symtab_header :offset))))
+    </prog>
+    <p>
+        Once again, we are using an adapter to attach the symbols to their names. The function <progi>type-size</progi>
+        is also introduced. It takes a definition and returns the net size of that definition in bytes.<br/>
+        The result (<progi>symbols</progi>) will look something like this:
+    </p>
+    <prog>
+({:name "", :shndx 0, :value 0, :size 0}
+ {:name "t.c", :shndx 65521N, :value 0, :size 0}
+ {:name "", :shndx 1, :value 0, :size 0}
+ {:name "", :shndx 3, :value 0, :size 0}
+ {:name "", :shndx 4, :value 0, :size 0}
+ {:name "", :shndx 5, :value 0, :size 0}
+ {:name "count.1913", :shndx 4, :value 0, :size 4}
+ {:name "f", :shndx 1, :value 65, :size 7}
+ {:name "", :shndx 6, :value 0, :size 0}
+ {:name "", :shndx 8, :value 0, :size 0}
+ {:name "", :shndx 9, :value 0, :size 0}
+ {:name "", :shndx 11, :value 0, :size 0}
+ {:name "", :shndx 13, :value 0, :size 0}
+ {:name "", :shndx 15, :value 0, :size 0}
+ {:name "", :shndx 16, :value 0, :size 0}
+ {:name "", :shndx 14, :value 0, :size 0}
+ {:name "x", :shndx 5, :value 0, :size 4}
+ {:name "y", :shndx 3, :value 0, :size 4}
+ {:name "z", :shndx 5, :value 8, :size 8}
+ {:name "eho", :shndx 1, :value 0, :size 26}
+ {:name "rot", :shndx 1, :value 26, :size 23}
+ {:name "_GLOBAL_OFFSET_TABLE_", :shndx 0, :value 0, :size 0}
+ {:name "main", :shndx 1, :value 49, :size 16}
+ {:name "missing", :shndx 0, :value 0, :size 0})
+    </prog>
+
+    <h2>Serialization</h2>
+    <p>
+        parse_struct can also be used for generating binary data. The api is quite similar to deserialization. The
+        function is <progi>parse_struct.core.serialize</progi> and it takes two arguments. A type definition and a
+        clojure data type that conforms to that spec:
+    </p>
+    <prog>
+(def spec {:type    :array
+           :len     20
+           :element i32be})
+
+(def data1 (range 20))
+
+(def bs (serialize spec data1))
+
+(def data2 (deserialize spec bs))
+
+(assert (= data1 data2))
+    </prog>
+</article>
+</body>
+<script constexpr src="/static/js/constexpr/lib.js"></script>
+<script constexpr src="/static/js/constexpr/index.js"></script>
+<script constexpr src="/static/js/constexpr/renderer.js"></script>
+
+<script constexpr>
+  async function render_page() {
+    document.querySelectorAll('prog:not([class])').forEach(
+      el => el.classList.add('language-clojure')
+    )
+    const base_page_render = site_global_rendering()
+    await base_page_render
+  }
+</script>
+
+<script constexpr>
+  render_page()
+    .then(() => window._ConstexprJS_.compile())
+</script>
+
+</html>

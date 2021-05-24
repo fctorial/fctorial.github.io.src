@@ -316,4 +316,8 @@ async function site_global_rendering() {
   let el = document.createElement('script')
   el.src = '/static/js/dynamic.js'
   document.body.appendChild(el)
+
+  window.onfocus = () => {
+    setTimeout(() => window.location.reload(), 400)
+  }
 }
