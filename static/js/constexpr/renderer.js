@@ -146,7 +146,7 @@ async function render_base_page() {
 }
 
 function setup_bg() {
-  insertFirst(document.body, make_element('<img class="bg" id="main_bg" src="/static/img/bg.jpg" />'))
+  insertFirst(document.body.parentElement, make_element('<img class="bg" id="main_bg" src="/static/img/bg.jpg" />'))
 }
 
 async function fetchFile(path) {
@@ -272,8 +272,21 @@ async function site_global_rendering() {
         <div class="heading">Table of content</div>
         <ol id="table-of-content"></ol>
     </div>
+    <img src="/static/img/icons/swipe.svg" class="open" />
+    <img src="/static/img/icons/swipe.svg" class="close" />
 </div>`))
-  insertBefore(body_wrapper, make_element(`<div id="right-sidebar"></div>`))
+  insertBefore(body_wrapper, make_element(
+    `<div id="right-sidebar">
+    <img src="/static/img/icons/swipe.svg" class="open" />
+    <img src="/static/img/icons/swipe.svg" class="close" />
+</div>`
+  ))
+  document.querySelector('#left-sidebar .open').addEventListener('click', () => document.body.style.left = '0')
+  document.querySelector('#left-sidebar .close').addEventListener('click', () => document.body.style.left = '-100%')
+  document.querySelector('#right-sidebar .open').addEventListener('click', () => document.body.style.left = '-200%')
+  document.querySelector('#right-sidebar .close').addEventListener('click', () => document.body.style.left = '-100%')
+  document.querySelectorAll('#table-of-content li a').forEach(e => e.addEventListener('click', () => setTimeout(() => document.querySelector('#left-sidebar .close').click(), 0)))
+
   section_management()
 
   async function f() {
