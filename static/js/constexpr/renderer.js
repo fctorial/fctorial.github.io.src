@@ -39,7 +39,7 @@ async function render_base_page() {
   )
   document.head.appendChild(
     make_element(
-      `<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">`
+      `<meta name="viewport" content="width=device-width, min-width=600, initial-scale=1, minimum-scale=1">`
     )
   )
   document.head.appendChild(
@@ -146,7 +146,7 @@ async function render_base_page() {
 }
 
 function setup_bg() {
-  insertFirst(document.body.parentElement, make_element('<img class="bg" id="main_bg" src="/static/img/bg.jpg" />'))
+  document.body.appendChild(make_element('<img class="bg" id="main_bg" src="/static/img/bg.jpg" />'))
 }
 
 async function fetchFile(path) {
@@ -216,7 +216,7 @@ function gen_id(title) {
 
 function create_sections() {
   const sections = []
-  if (! article.querySelector('section')) {
+  if (!article.querySelector('section')) {
     if (article.children[0] && article.children[0].nodeName !== 'H2') {
       insertFirst(article, make_element(`<h2 style="display: none;">Top</h2>`))
     }
@@ -227,9 +227,9 @@ function create_sections() {
         header_idxs.push(idx)
       }
     })
-    for (let i=0; i<header_idxs.length; i++) {
+    for (let i = 0; i < header_idxs.length; i++) {
       const sec = make_element(`<section></section>`)
-      const s_mems = nodes.slice(header_idxs[i], header_idxs[i+1] || 10000)
+      const s_mems = nodes.slice(header_idxs[i], header_idxs[i + 1] || 10000)
       s_mems.forEach(mem => sec.appendChild(mem))
       sections.push(sec)
     }
@@ -281,25 +281,34 @@ async function site_global_rendering() {
     <img src="/static/img/icons/swipe.svg" class="close" />
 </div>`
   ))
-  document.querySelector('#left-sidebar .open').addEventListener('click', () => document.body.style.left = '0')
-  document.querySelector('#left-sidebar .close').addEventListener('click', () => document.body.style.left = '-100%')
-  document.querySelector('#right-sidebar .open').addEventListener('click', () => document.body.style.left = '-200%')
-  document.querySelector('#right-sidebar .close').addEventListener('click', () => document.body.style.left = '-100%')
-  document.querySelectorAll('#table-of-content li a').forEach(e => e.addEventListener('click', () => setTimeout(() => document.querySelector('#left-sidebar .close').click(), 0)))
-
   section_management()
+
+  function runtime_setup() {
+    function addToBodyLeft(n) {
+      let curr = document.body.style.left ? parseInt(document.body.style.left) : -100;
+      document.body.style.left = `${curr + n}vw`
+    }
+    document.querySelector('#left-sidebar .open').addEventListener('click', () => addToBodyLeft(+100))
+    document.querySelector('#left-sidebar .close').addEventListener('click', () => addToBodyLeft(-100))
+    document.querySelector('#right-sidebar .open').addEventListener('click', () => addToBodyLeft(-100))
+    document.querySelector('#right-sidebar .close').addEventListener('click', () => addToBodyLeft(+100))
+  }
+
+  let el = document.createElement('script')
+  el.textContent = runtime_setup.toString()
+  document.body.appendChild(el)
+
+  el = document.createElement('script')
+  el.textContent = 'runtime_setup()'
+  document.body.appendChild(el)
 
   async function f() {
     let n = 0;
     while (true) {
-      await sleep(16);
-      n += 1;
+      await sleep(32);
+      n += 1
       document.body.style.left = `${(Math.sin(n * Math.PI / 180) - 1) * 100}%`
     }
   }
   // f()
-
-//   window.onfocus = () => {
-//     // setTimeout(() => window.location.reload(), 200)
-//   }
 }
