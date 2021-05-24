@@ -1,3 +1,11 @@
+.svg-icon {
+  width: 2em;
+  height: 2em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
 .svg-icon.email {
   background-image: url('/static/img/icons/email.svg');
 }
@@ -21,4 +29,8 @@
 
 .svg-icon.hn {
   background-image: url('/static/img/icons/hn.svg')
+}
+
+.svg-icon.rss {
+  background-image: url('/static/img/icons/rss.svg')
 }
