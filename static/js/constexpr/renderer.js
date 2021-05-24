@@ -259,7 +259,7 @@ function section_management() {
       sn => toc.appendChild(make_element(`<li><a href="#${gen_id(sn)}">${sn}</a></li>`))
     )
   } else {
-    document.querySelectorAll('#left-sidebar > *').forEach(el => el.style.display = 'none')
+    document.querySelector('#left-sidebar .dialog').style.display = 'none'
   }
 }
 
