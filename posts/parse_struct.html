@@ -4,7 +4,7 @@
 <article>
     <p>
         Despite being a very low level language, serializing and deserializing binary data is dead simple in C. It's
-        because C is a weakly/un typed language. In fact, it started out as a simple non-optimizing frontend for
+        because C is a weak/un typed language. In fact, it started out as a simple non-optimizing frontend for
         assembly. All constructs in C language have straightforward analogues in assembly.
     </p>
     <p>
@@ -32,7 +32,7 @@ i32 avg_z(void* ptr, i32 n) {
     <p>
         <a href="https://github.com/fctorial/parse_struct">parse_struct</a> is a clojure library that allows you to
         deserialize and serialize binary data using an API as straightforward as the one you would use in C. This page
-        will serve as the guide for this library.
+        will serve as a guide for this library.
     </p>
     <h2>A simple example</h2>
     <p>
@@ -60,7 +60,7 @@ i32 avg_z(void* ptr, i32 n) {
     </prog>
     <p>
         <progi>parse_struct.common_types</progi> contains all the fundamental data types
-        (1, 2, 4, 8 byte little and big endian, signed and unsigned integers. 4, 8 byte little and big endian floats, and padding).
+        (1, 2, 4, 8 byte little and big endian, signed and unsigned integers, 4, 8 byte little and big endian floats, and padding).
         You can combine them using <progi>:struct</progi>s and <progi>:array</progi>s to form more complex data types.
     </p>
     <h3>Parsing data</h3>
@@ -90,7 +90,7 @@ i32 avg_z(void* ptr, i32 n) {
     <h2>A real world parsing example</h2>
     <p>
         Let's now write a program that extracts the list of symbols from an elf file. I will target only the elf64 little
-        endian format, <a href="https://github.com/fctorial/bin_play/blob/472db1e9c21b7b3aa1c2af2524185e176a9602de/src/fctorial/types.clj#L11">but making a program that targets all the types is not too difficult</a>.
+        endian format, <a href="https://github.com/fctorial/bin_play/blob/472db1e9c21b7b3aa1c2af2524185e176a9602de/src/fctorial/types.clj#L11">but making a program that targets all the formats is not too difficult</a>.
     </p>
     <p>
         The complete code can be found in the master branch of above linked repo (<progi>fctorial.demo</progi> namespace).
@@ -149,7 +149,7 @@ i32 avg_z(void* ptr, i32 n) {
         to clojure keywords, which are easier to use.
     </p>
     <blockquote>
-        Adapters should be your goto whenever you encounter a type that cannot be represented using the types provided
+        Adapters should be your goto whenever you encounter data that cannot be represented using the types provided
         by parse_struct. Just parse that segment of data as an array of bytes and attach a custom parser to that array
         using <progi>:adapter</progi>.
     </blockquote>
@@ -176,16 +176,16 @@ i32 avg_z(void* ptr, i32 n) {
     <p>
         Let's do a sanity check on the data we've extracted. Section headers are always at the very tail of an ELF file:
     </p>
-    <progi>
+    <prog>
 (assert (= (+ (elf_header :shoff)
               (* (elf_header :shentsize)
                  (elf_header :shnum)))
            (count obj)))
-    </progi>
+    </prog>
     <p>
         Now we know where the section headers are. Let's parse them:
     </p>
-    <progi>
+    <prog>
 (def sec_header_t {:type       :struct
                    :definition [(padding 4)
                                 [:type (assoc ElfWord :adapter #(get [:SectionType/NULL
@@ -217,7 +217,7 @@ i32 avg_z(void* ptr, i32 n) {
 (def symnames (deserialize {:type  :string
                             :bytes (symnames_header :size)}
                            (ROVec. obj (symnames_header :offset))))
-    </progi>
+    </prog>
     <p>
         Deserialization of an array gives back a lazy seq. Adding an <progi>:adapter vec</progi> will turn it into an
         eager indexable array.
