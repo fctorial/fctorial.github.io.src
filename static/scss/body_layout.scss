@@ -14,9 +14,9 @@ body {
     grid-gap: 0;
     width: 300vw;
     #left-sidebar, #right-sidebar, > .first_body_wrapper {
-      flex-grow: 0;
+      flex-grow: 1;
       flex-shrink: 0;
-      width: 100vw;
+      width: 0;
     }
     position: relative;
     left: -100%;
@@ -27,8 +27,9 @@ body {
     grid-gap: 1em;
     width: 100%;
     #left-sidebar, #right-sidebar, > .first_body_wrapper {
-      flex-basis: 0;
+      width: 0;
       flex-grow: 1;
+      flex-shrink: 0;
     }
     > .first_body_wrapper {
       flex-grow: 2;
