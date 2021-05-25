@@ -11,7 +11,7 @@
       <pubDate>24 May 2021</pubDate>
       <link>http://fctorial.com/posts/parse_struct.html</link>
       <description>Documentation for parse_struct, a binary data serialization and deserialization library for clojure with an API similar to pointer casting in C/C++</description>
-      
+      <comments>https://www.reddit.com/r/fctorial/comments/nkbk1x/working_with_binary_data_in_clojure/</comments>
       
       <category>clojure</category>
       <category>utilities</category>

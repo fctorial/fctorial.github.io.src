@@ -311,6 +311,10 @@ i32 avg_z(void* ptr, i32 n) {
     )
     const base_page_render = site_global_rendering()
     await base_page_render
+
+    if (window.location.search === '?md') {
+      console.log(dump_markdown())
+    }
   }
 </script>
 
