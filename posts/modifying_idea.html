@@ -20,7 +20,8 @@
     </p>
     <ol>
         <li>Note down the build id of your installation (<progi>grep buildNumber $IDE_ROOT/product-info.json</progi>)</li>
-        <li>Goto <a href="https://github.com/JetBrains/intellij-community/">intellij-community github repo</a>, switch to the branch for your build id, and download the file you wish to change.</li>
+        <li>Goto <a href="https://github.com/JetBrains/intellij-community/">intellij-community github repo</a>, switch to the branch for your build id, and download the class source file you wish to change.</li>
+        <li>Make the changes you wish to make to that class.</li>
         <li>Compile the file and put the output in your patch directory (<progi>javac -cp $IDE_ROOT/lib/\* ModdedClass.java -d $PATCH_DIRECTORY</progi>)</li>
     </ol>
     <p>
