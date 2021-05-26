@@ -1,3 +1,14 @@
+if (!window._ConstexprJS_) {
+  window._ConstexprJS_ = {
+    compile: () => {},
+    abort: () => {},
+    addPath: () => {},
+    addExclusion: () => {},
+    addDependency: () => {},
+    log: () => {}
+  }
+}
+
 function make_element(str) {
   const p = document.createElement("template")
   p.innerHTML = str
