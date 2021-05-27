@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <title>My Website</title>
+    <meta name="google-site-verification" content="d25Puo7RcT1XRfGE5SsZVxPntEUmQdILgIWWd7zO8SM" />
+    <meta name="msvalidate.01" content="BFE5DE50747B2A37392758854ABF90E1" />
 </head>
 <body>
 <h1 id="main_title">My Website</h1>
@@ -36,12 +38,6 @@
       link.innerText = post.title
       postsEl.appendChild(el)
     })
-
-    // Github pages doesn't reindex the site if index.html hasn't changed
-    // this will force every index.html build to be different.
-    document.body.appendChild(make_element(`<div id="timestamp" style="display: none;">${new Date()}</div>`))
-
-    document.head.appendChild(make_element(`<meta name="google-site-verification" content="d25Puo7RcT1XRfGE5SsZVxPntEUmQdILgIWWd7zO8SM" />`))
   }
 </script>
 

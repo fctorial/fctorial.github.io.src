@@ -25,7 +25,7 @@
     </p>
     <ol>
         <li>Note down the build id of your installation (<progi>grep buildNumber $IDE_ROOT/product-info.json</progi>)</li>
-        <li>Goto <a href="https://github.com/JetBrains/intellij-community/">intellij-community github repo</a>, switch to the branch for your build id, and download the class source file you wish to change.</li>
+        <li>Goto <a href="https://github.com/JetBrains/intellij-community/">intellij-community github repo</a>, switch to the branch for your build id, and download the java file you wish to change.</li>
         <li>Make the changes you wish to make to that class.</li>
         <li>Compile the file and put the output in your patch directory (<progi>javac -cp $IDE_ROOT/lib/\* ModdedClass.java -d $PATCH_DIRECTORY</progi>)</li>
     </ol>
@@ -69,12 +69,6 @@ index d96fe17..b035481 100644
     </p>
     <p>
         Once you've added this override to your patch directory, you should be able to override any class in the intellij platform.
-    </p>
-
-    <p>
-        Intellij is a huge project (multi million lines of code), so compiling it is a no go if you don't have a beefy
-        machine. This is a patching mechanism, not a plugin, so you can change the ide in any way you want, however the
-        changes won't be portable.
     </p>
 </article>
 </body>
