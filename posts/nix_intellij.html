@@ -2,10 +2,27 @@
 <html lang="en">
 <body>
 <article>
+    <h2>The Problem</h2>
     <p>
         Nix is a linux package manager that allows users to create programming environments that are completely independent
-        of each other. The manifest of these environments looks like
-        <a href="https://gist.github.com/fctorial/232f616f3d3707717d27510e491ebd26">this</a>. This manifest includes a patched version
+        of each other. The manifests of these environments look like this:
+    </p>
+    <prog class="language-nix">
+let
+  pkgs = import &lt;nixpkgs> {};
+in
+  pkgs.mkShell {
+    buildInputs = [
+      (pkgs.libpqxx.overrideAttrs
+        (oa: {
+          patches = [./bugfix.patch];
+        }))
+    ];
+  }
+
+    </prog>
+    <p>
+        This manifest creates a patched version
         of libpqxx that will only exists inside the environment it will generate. That way users can maintain a separate
         manifest for each project. When they want to work on a project, they can launch a shell in its environment.
         <br/>
@@ -18,15 +35,75 @@
     </ol>
     <p>
         But if I wanted to work on a project whose environment differs from the one in which the current intellij instance is
-        running, I have to kill the current instance and launch another instance in the new environment before I could start
+        running, I had to kill the current instance and launch another instance in the new environment before I could start
         working on that project.
     </p>
 
-    <h2>Semi perfect solution</h2>
-    <a>Enter Nix Shell</a> is an intellij plugin that adds a "run" button to nix files that you open in the ide. When you
-    press this button, the plugin will capture the environment of that nix environment and inject it into the intellij
-    process.
-
+    <h2>Semi-perfect solution</h2>
+    <p>
+        <a>Enter Nix Shell</a> is an intellij plugin that adds a "run" button to nix files that you open in the ide. When you
+        press this button, the plugin will capture the environment of that nix environment and inject it into the intellij
+        process, effectively moving the whole IDE into that nix shell:
+    </p>
+    <video controls>
+        <source src="/terminal.mp4" type="video/mp4" />
+    </video>
+    <p>
+        Obviously any child processes that were already running (daemons, terminals) will not be moved into the
+        nix-shell. You'll have to restart them.
+    </p>
+    <p>
+        I said this solution is not perfect because some intellij tasks and run configuration will not see the new
+        environment under certain circumstances:
+    </p>
+    <video controls>
+        <source src="/semi.mp4" type="video/mp4" />
+    </video>
+    <p>
+        This is happening because those tasks do not use the process environment directly. They use a layer that caches
+        the state of process environment if the environment variable <progi>DESKTOP_STARTUP_ID</progi> is set.
+    </p>
+    <h2>Perfect solution</h2>
+    <p>
+        There are two ways you can fix this issue. First is pretty straightforward. Just put <progi>unset DESKTOP_STARTUP_ID</progi>
+        somewhere in the <progi>idea.sh</progi> startup script. That will make sure that the edge case is never triggered.
+    </p>
+    <p>
+        The second is to patch your ide code. <a href="/posts/modifying_idea.html">This</a> guide describes
+        how to do that without recompiling the ide. You'll have to apply this patch:
+    </p>
+    <prog class="language-diff">
+diff --git a/EnvironmentUtil.java b/EnvironmentUtil.java
+index e2519f0..e4207cd 100644
+--- a/EnvironmentUtil.java
++++ b/EnvironmentUtil.java
+@@ -152,9 +152,13 @@ public final class EnvironmentUtil {
+       // returned by System.getenv(), is captured before the removal.
+       Map&lt;String, String> env = System.getenv();
+       if (env.containsKey(DESKTOP_STARTUP_ID)) {
+-        env = new HashMap<>(env);
+-        env.remove(DESKTOP_STARTUP_ID);
+-        env = Collections.unmodifiableMap(env);
++        try {
++          Class cl = env.getClass();
++          java.lang.reflect.Field m = cl.getDeclaredField("m");
++          m.setAccessible(true);
++          Map wm = (Map) m.get(env) ;
++          wm.remove(DESKTOP_STARTUP_ID);
++        } catch (Exception e) {}
+       }
+       return env;
+     }
+    </prog>
+    <p>
+        Class to patch: <progi>platform/util/src/com/intellij/util/EnvironmentUtil.java</progi>
+    </p>
+    <p>
+        Either way, you'll get a near perfect integration with nix in your ide:
+    </p>
+    <video controls>
+        <source src="/perfect.mp4" type="video/mp4" />
+    </video>
 </article>
 </body>
 <script constexpr src="/static/js/constexpr/lib.js"></script>
@@ -43,5 +120,14 @@
   render_page()
     .then(() => window._ConstexprJS_.compile())
 </script>
+
+<style>
+    video {
+        max-width: 80%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+</style>
 
 </html>
