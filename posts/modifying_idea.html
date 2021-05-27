@@ -2,21 +2,26 @@
 <html lang="en">
 <body>
 <article>
+    <h2>Changing splash screen</h2>
     <p>
-        You can modify the behavior of Intellij IDEA using a mechanism similar to videogame patching. This guide shows how
-        to change the startup splash screen.
+        You can modify the behavior of Intellij IDEA using a mechanism similar to videogame patching. Let's change the
+        startup splash screen for our ide.
     </p>
     <ol>
         <li>Execute
             <prog class="language-bash">jar tf path/to/idea/lib/resources.jar | less </prog>
             and search for "logo.png". Note the file name.</li>
-        <li>Copy the png image you want in some directory with the name you found above. (you can pick one from <a href="/posts/intellij_logos.html">here</a>)</li>
-        <li>Open the idea launcher script (idea.sh) in an editor</li>
+        <li>Copy the png image you want in a new directory with the name you found above. (you can pick one from <a href="/posts/intellij_logos.html">here</a>)</li>
+        <li>Open the idea launcher script (<progi>idea.sh</progi>) in an editor</li>
         <li>Append this directory to the front of classpath: <prog class="language-bash">CLASSPATH="$PATCH_DIRECTORY:$IDE_HOME/lib/bootstrap.jar"</prog></li>
-        <li>Chown this directory to root:root and chmod to 755</li>
     </ol>
     <p>
-        Now the chosen splash screen will be shown on startup. This method can be used to override classfiles as well:
+        Now the chosen splash screen will be shown on startup.
+    </p>
+    <h2>Overriding Classes</h2>
+    <p>
+        This method can be used to override classfiles as well. Although the process is a bit more involved. This is the general
+        procedure to follow when overriding classes:
     </p>
     <ol>
         <li>Note down the build id of your installation (<progi>grep buildNumber $IDE_ROOT/product-info.json</progi>)</li>
@@ -25,9 +30,51 @@
         <li>Compile the file and put the output in your patch directory (<progi>javac -cp $IDE_ROOT/lib/\* ModdedClass.java -d $PATCH_DIRECTORY</progi>)</li>
     </ol>
     <p>
-        Intellij is a huge project (multi million lines of code),
-        so compiling it is a no go if you don't have a beefy machine. This is a patching mechanism, not a plugin, so you can
-        change the ide in any way you want, however the changes won't be portable.
+        Unfortunately that's not all there is to it. This is what the boot process of intellij looks like:
+    </p>
+    <ol>
+        <li>The launcher script starts the intellij <progi>main</progi> class with a couple of utility JARs in the classpath.</li>
+        <li>The bootstrap code switches to a custom intellij classloader.</li>
+    </ol>
+    <p>
+        This new classloader uses a caching algorithm that doesn't respect the order of classpath entries. So you'll
+        have to write a patch for this classloader that disables caching if you want to override classes that will be
+        loaded by this new classloader:
+    </p>
+    <prog class="language-diff">
+diff --git a/ClassPath.java b/ClassPath.java
+index d96fe17..b035481 100644
+--- a/ClassPath.java
++++ b/ClassPath.java
+@@ -175,7 +175,7 @@ public final class ClassPath {
+     try {
+       String fileName = className.replace('.', '/') + CLASS_EXTENSION;
+       int i;
+-      if (useCache) {
++      if (false) {
+         Loader[] loaders = cache.getClassLoadersByName(fileName);
+         if (loaders != null) {
+           for (Loader loader : loaders) {
+@@ -200,7 +200,7 @@ public final class ClassPath {
+
+       Loader loader;
+       while ((loader = getLoader(i++)) != null) {
+-        if (useCache && !loader.containsName(fileName)) {
++        if (!loader.containsName(fileName)) {
+           continue;
+         }
+    </prog>
+    <p>
+        Class being patched: <progi>platform/util-class-loader/src/com/intellij/util/lang/ClassPath.java</progi>
+    </p>
+    <p>
+        Once you've added this override to your patch directory, you should be able to override any class in the intellij platform.
+    </p>
+
+    <p>
+        Intellij is a huge project (multi million lines of code), so compiling it is a no go if you don't have a beefy
+        machine. This is a patching mechanism, not a plugin, so you can change the ide in any way you want, however the
+        changes won't be portable.
     </p>
 </article>
 </body>
@@ -45,8 +92,5 @@
 </script>
 
 <style>
-    ol li {
-        margin: 2em 0;
-    }
 </style>
 </html>
