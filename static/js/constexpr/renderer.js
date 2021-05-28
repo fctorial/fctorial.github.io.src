@@ -311,13 +311,13 @@ async function site_global_rendering() {
 </style>
       `)
   )
-  document.body.appendChild(el)
+  // document.body.appendChild(el)
 
   el = document.createElement('script')
   el.src = '/static/js/dynamic.js'
   document.body.appendChild(el)
 
   window.onfocus = () => {
-    setTimeout(() => window.location.reload(), 400)
+    // setTimeout(() => window.location.reload(), 400)
   }
 }

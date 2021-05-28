@@ -1,23 +1,44 @@
 function swiper_setup() {
-  function addToBodyLeft(n) {
-    let curr = document.body.style.left ? parseInt(document.body.style.left) : -100;
-    document.body.style.left = `${curr + n}vw`
-  }
-  document.querySelector('#left-sidebar .open').addEventListener('click', () => addToBodyLeft(+100))
-  document.querySelector('#left-sidebar .close').addEventListener('click', () => addToBodyLeft(-100))
-  document.querySelector('#right-sidebar .open').addEventListener('click', () => addToBodyLeft(-100))
-  document.querySelector('#right-sidebar .close').addEventListener('click', () => addToBodyLeft(+100))
+  document.querySelector('#left-sidebar .open').addEventListener('click', () => {
+    let curr = document.querySelector('#left-sidebar')
+    let other = document.querySelector('#right-sidebar')
+    let body = document.querySelector('body > .first_body_wrapper')
+    curr.classList.add('up')
+    other.classList.remove('up')
+    other.classList.add('down')
+    body.style.opacity = 0
+  })
+  document.querySelector('#left-sidebar .close').addEventListener('click', () => {
+    let curr = document.querySelector('#left-sidebar')
+    let other = document.querySelector('#right-sidebar')
+    let body = document.querySelector('body > .first_body_wrapper')
+    curr.classList.remove('up')
+    other.classList.remove('down')
+    body.style.opacity = 1
+  })
+  document.querySelector('#right-sidebar .open').addEventListener('click', () => {
+    let curr = document.querySelector('#right-sidebar')
+    let other = document.querySelector('#left-sidebar')
+    let body = document.querySelector('body > .first_body_wrapper')
+    curr.classList.add('up')
+    other.classList.remove('up')
+    other.classList.add('down')
+    body.style.opacity = 0
+  })
+  document.querySelector('#right-sidebar .close').addEventListener('click', () => {
+    let curr = document.querySelector('#right-sidebar')
+    let other = document.querySelector('#left-sidebar')
+    let body = document.querySelector('body > .first_body_wrapper')
+    curr.classList.remove('up')
+    other.classList.remove('down')
+    body.style.opacity = 1
+  })
 
-  if (navigator.userAgent.indexOf('Firefox') !== -1 && window.getComputedStyle(document.querySelector('.open')).display !== "none") {
-    document.querySelectorAll('#left-sidebar li a').forEach(
-      el => {
-        el.addEventListener('click', () => {
-          document.querySelector('#left-sidebar .close').click()
-          setTimeout(() => window.location.href = el.href, 300)
-        })
-      })
-  }
+  document.querySelectorAll('#left-sidebar .dialog a').forEach(e => e.addEventListener('click', () => {
+    document.querySelector('#left-sidebar .close').click()
+  }))
 }
+
 swiper_setup()
 
 function form_ui_setup() {
@@ -31,7 +52,7 @@ function form_ui_setup() {
 
       toast.textContent = 'Please wait...'
       let req = new XMLHttpRequest();
-      req.onreadystatechange = function() {
+      req.onreadystatechange = function () {
         if (this.readyState === 4) {
           if (this.status !== 200) {
             toast.textContent = `Network Error: ${this.status}`
@@ -57,4 +78,5 @@ function form_ui_setup() {
     }
   )
 }
+
 form_ui_setup()
