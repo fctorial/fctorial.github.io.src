@@ -36,8 +36,8 @@
         constexpr.
     </p>
     <p>
-        The generated pages don't have to be completely static. For example, disqus integration in
-        <a href="/raw/constexprjs_now/posts/up_and_running.html">this</a> page.
+        The generated pages don't have to be completely static. For example, the login form ui, mobile view navigation,
+        and disqus integration in <a href="/raw/constexprjs_now/posts/up_and_running.html">this</a> page use javascript.
     </p>
     <blockquote>
         The new website will look exactly like the original website after the pages finish rendering. This is one of the
@@ -152,7 +152,7 @@ $$compilation\_time \approx {
     </p>
     <p>
         There is also an incremental compilation feature in the pipeline. It should be out by the time the page count
-        of this website hits 100 pages (currently at 38).
+        of this website hits 100 pages (currently at <span id="page_count"></span>).
     </p>
     <h2>Notes</h2>
 
@@ -304,6 +304,14 @@ Promise.all([render_task_1(), render_task_2()])
 
   render_page()
     .then(() => {
+      document.querySelector('#page_count').textContent =
+        all_posts.length +
+        all_posts.reduce((res, e) => {
+          e.tags.forEach(t => res.add(t))
+          return res
+        }, new Set()).size +
+        4 + 4
+
       const el = document.createElement('script')
       el.setAttribute('async', '')
       el.setAttribute('defer', '')
