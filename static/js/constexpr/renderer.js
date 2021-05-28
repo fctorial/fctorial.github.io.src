@@ -272,8 +272,8 @@ async function site_global_rendering() {
         <div class="heading">Table of content</div>
         <ol class="content"></ol>
     </div>
-    <img src="/static/img/icons/swipe.svg" class="open" />
-    <img src="/static/img/icons/swipe.svg" class="close" />
+    <img style="display: none;" src="/static/img/icons/swipe.svg" class="open" />
+    <img style="display: none;" src="/static/img/icons/swipe.svg" class="close" />
 </div>`))
   insertBefore(body_wrapper, make_element(
     `<div id="right-sidebar">
@@ -284,7 +284,7 @@ async function site_global_rendering() {
               <label for="subscriber_email">Your Email:</label>
               <input type="email" placeholder="your email" id="subscriber_email" name="subscriber_email" required>
               <input type="submit" value="Register">
-              <div class="message"></div>
+              <div style="display: none;" class="message"></div>
               <div class="reg_footer">
                 <a rel="noopener" title="RSS Feed" class="svg-icon rss" target="_blank" href="/static/rss.xml"></a>
                 <a rel="noopener" title="Subreddit" class="svg-icon reddit" target="_blank" href="https://reddit.com/r/fctorial"></a>
@@ -292,26 +292,11 @@ async function site_global_rendering() {
           </form>
         </div>
     </div>
-    <img src="/static/img/icons/swipe.svg" class="open" />
-    <img src="/static/img/icons/swipe.svg" class="close" />
+    <img style="display: none;" src="/static/img/icons/swipe.svg" class="open" />
+    <img style="display: none;" src="/static/img/icons/swipe.svg" class="close" />
 </div>`
   ))
   section_management()
-
-  let el = document.createElement('noscript')
-  el.appendChild(
-    make_element(`
-<style>
-  .open, .close {
-      display: none;
-  }
-  #right-sidebar .message {
-      display: none;
-  }
-</style>
-      `)
-  )
-  // document.body.appendChild(el)
 
   el = document.createElement('script')
   el.src = '/static/js/dynamic.js'

@@ -1,4 +1,5 @@
 function swiper_setup() {
+  document.querySelectorAll('.open, .close').forEach(e => e.style.display = 'block')
   document.querySelector('#left-sidebar .open').addEventListener('click', () => {
     let curr = document.querySelector('#left-sidebar')
     let other = document.querySelector('#right-sidebar')
@@ -43,6 +44,7 @@ swiper_setup()
 
 function form_ui_setup() {
   let toast = document.querySelector('#right-sidebar .message');
+  toast.style.display = 'block'
   let box = document.querySelector('#right-sidebar input[type=email]')
   document.querySelector('#right-sidebar form').addEventListener(
     'submit',
