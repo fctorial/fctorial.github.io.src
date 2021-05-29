@@ -238,3 +238,10 @@ body {
     }
   }
 }
+@media(min-width: 800px) {
+  body {
+    > .first_body_wrapper {
+      opacity: 1 !important;
+    }
+  }
+}
