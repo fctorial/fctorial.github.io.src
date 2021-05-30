@@ -3,6 +3,7 @@ const header = document.createElement('header')
 const article = document.querySelector('article')
 article.setAttribute('role', 'main')
 let footer
+let el
 
 let global_cfg
 let all_posts
@@ -69,7 +70,6 @@ async function render_base_page() {
       )
     )
   }
-  insertFirst(document.body, make_element(`<noscript constexpr>Please enable javascript</noscript>`))
 
   let heading = document.querySelector('#main_title');
   if (!heading) {
@@ -272,8 +272,8 @@ async function site_global_rendering() {
         <div class="heading">Table of content</div>
         <ol class="content"></ol>
     </div>
-    <img style="display: none;" src="/static/img/icons/swipe.svg" class="open" />
-    <img style="display: none;" src="/static/img/icons/swipe.svg" class="close" />
+    <img src="/static/img/icons/swipe.svg" class="open" />
+    <img src="/static/img/icons/swipe.svg" class="close" />
 </div>`))
   insertBefore(body_wrapper, make_element(
     `<div id="right-sidebar">
@@ -284,7 +284,7 @@ async function site_global_rendering() {
               <label for="subscriber_email">Your Email:</label>
               <input type="email" placeholder="your email" id="subscriber_email" name="subscriber_email" required>
               <input type="submit" value="Register">
-              <div style="display: none;" class="message"></div>
+              <div class="message"></div>
               <div class="reg_footer">
                 <a rel="noopener" title="RSS Feed" class="svg-icon rss" target="_blank" href="/static/rss.xml"></a>
                 <a rel="noopener" title="Subreddit" class="svg-icon reddit" target="_blank" href="https://reddit.com/r/fctorial"></a>
@@ -292,10 +292,20 @@ async function site_global_rendering() {
           </form>
         </div>
     </div>
-    <img style="display: none;" src="/static/img/icons/swipe.svg" class="open" />
-    <img style="display: none;" src="/static/img/icons/swipe.svg" class="close" />
+    <img src="/static/img/icons/swipe.svg" class="open" />
+    <img src="/static/img/icons/swipe.svg" class="close" />
 </div>`
   ))
+  el = document.createElement('noscript')
+  el.textContent = `
+  <style>
+    #left-sidebar .open, #left-sidebar .close, #right-sidebar .open, #right-sidebar .close, #right-sidebar .message {
+      display: none;
+    } 
+  </style>
+  `
+  document.head.appendChild(el)
+
   section_management()
 
   el = document.createElement('script')
