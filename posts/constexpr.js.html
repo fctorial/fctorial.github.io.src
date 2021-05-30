@@ -48,28 +48,6 @@
     <h2>How to use it?</h2>
 
     <p>
-        You will have to divide the javascript being used in your page into two groups. Runtime javascript and
-        compile time javascript, and annotate all compile time script tags with
-        <progi>constexpr</progi> attribute:
-    </p>
-        <prog class="language-html">
-&lt;script constexpr>
-...
-&lt;/script>
-&lt;script constexpr src="/generate_page.js">&lt;/script>
-        </prog>
-    <p>
-        Runtime code must not depend on the compile time code, since that code will be stripped out before writing the
-        output file. See <a href="/posts/runtime_compiletime_constexpr.js.html">this guide</a> for code organization
-        tips for constexpr.js.
-    </p>
-
-    <p>
-        Once the HTML generation code has finished rendering, it must call the <progi>window._ConstexprJS_.compile()</progi>
-        function. This function is injected into the page by the compiler.
-    </p>
-
-    <p>
         The compiler can be installed from npm:
     </p>
     <prog class="language-bash">npm i -g constexpr.js@latest</prog>
@@ -109,6 +87,10 @@ optional arguments:
         that are requestead by pages being rendered (unless <progi>--skip-resources</progi> option is specified.
     </p>
 
+    <p>
+        See <a href="/posts/constexprjs_hello_world.html">this page</a> for a hello world demo of constexpr.js.
+    </p>
+
     <h2>Plugins</h2>
     <p>
         You can use any web development technology (and any number of technologies) to generate the HTML without any
@@ -132,8 +114,8 @@ $$compilation\_time \approx {
         }$$
     </formula>
     <p>
-        So you can increase the job count using <progi>--jobcount</progi> parameters if you have a ton of cores. The sweet
-        spot is around 2X the number of cores/threads.
+        You can increase the job count using <progi>--jobcount</progi> parameters if you have a ton of cores. The sweet
+        spot is around 1.5X the number of cores/threads.
     </p>
     <p>
         However, compilation time shouldn't be an issue regardless of the size of your website. Because, as I
