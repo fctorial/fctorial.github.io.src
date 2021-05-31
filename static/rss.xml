@@ -7,6 +7,16 @@
   <description>A blog where I'll post (mostly tech related) stuff</description>
 
   <item>
+      <title>Seamless nix integration for Intellij IDEA</title>
+      <pubDate>26 May 2021</pubDate>
+      <link>http://fctorial.com/posts/nix_intellij.html</link>
+      <description>Integrate nix package manager with intellij idea</description>
+      <comments>https://www.reddit.com/r/fctorial/comments/npcrhb/seamless_nix_integration_for_intellij_idea/</comments>
+      
+      <category>nix</category>
+      <category>intellij</category>
+  </item>
+  <item>
       <title>Working with binary data in clojure</title>
       <pubDate>24 May 2021</pubDate>
       <link>http://fctorial.com/posts/parse_struct.html</link>

@@ -195,8 +195,8 @@
     "title": "Seamless nix integration for Intellij IDEA",
     "url": "/posts/nix_intellij.html",
     "date": "26 May 2021",
-    "discussion": "Integrate nix package manager with intellij idea",
-    "description": "/C++",
+    "discussion": "https://www.reddit.com/r/fctorial/comments/npcrhb/seamless_nix_integration_for_intellij_idea/",
+    "description": "Integrate nix package manager with intellij idea",
     "tags": [
       "nix",
       "intellij"
