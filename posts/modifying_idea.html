@@ -70,6 +70,18 @@ index d96fe17..b035481 100644
     <p>
         Once you've added this override to your patch directory, you should be able to override any class in the intellij platform.
     </p>
+    <h2>Notes</h2>
+    <p>
+        You might get some errors related to <progi>@NotNull</progi>/<progi>@Nullable</progi> annotations. You can either
+        delete those annotations from the modified files (<progi>s/@NotNull//g</progi>) or add placeholder definitions
+        of those annotations. <a href="https://github.com/fctorial/idea_patch_enter_nix_shell">This</a> repository
+        demonstrates how to patch the ide to improve nix integration for build number <progi>211.7142.45</progi>.
+    </p>
+    <p>
+        Remember that this is a patching mechanism, not a plugin. That means that this method is much more flexible, but
+        the modded classfiles are not guaranteed to work with anything other than the ide build number for which you made
+        this change.
+    </p>
 </article>
 </body>
 <script constexpr src="/static/js/constexpr/lib.js"></script>

@@ -66,7 +66,7 @@ in
     <h2>Perfect solution</h2>
     <p>
         There are two ways you can fix this issue. First is pretty straightforward. Just put <progi>unset DESKTOP_STARTUP_ID</progi>
-        somewhere in the <progi>idea.sh</progi> startup script. That will make sure that the edge case is never triggered.
+        somewhere in the <progi>idea.sh</progi> startup script. That will ensure that the edge case is never triggered.
     </p>
     <p>
         The second is to patch your ide code. <a href="/posts/modifying_idea.html">This</a> guide describes
@@ -109,10 +109,24 @@ index e2519f0..e4207cd 100644
 <script constexpr src="/static/js/constexpr/lib.js"></script>
 <script constexpr src="/static/js/constexpr/renderer.js"></script>
 
+<script>
+    function init_playhelper() {
+      document.querySelectorAll('video').forEach(v => {
+        v.addEventListener('play', () => {
+          v.focus()
+          v.requestFullscreen()
+        })
+      })
+    }
+</script>
+
 <script constexpr>
   async function render_page() {
     const base_page_render = site_global_rendering()
+    let el = document.createElement('script')
+    el.textContent = 'init_playhelper()'
     await base_page_render
+    document.body.appendChild(el)
   }
 </script>
 

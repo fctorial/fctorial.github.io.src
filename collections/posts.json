@@ -190,5 +190,16 @@
       "clojure",
       "utilities"
     ]
+  },
+  {
+    "title": "Seamless nix integration for Intellij IDEA",
+    "url": "/posts/nix_intellij.html",
+    "date": "26 May 2021",
+    "discussion": "Integrate nix package manager with intellij idea",
+    "description": "/C++",
+    "tags": [
+      "nix",
+      "intellij"
+    ]
   }
 ]
