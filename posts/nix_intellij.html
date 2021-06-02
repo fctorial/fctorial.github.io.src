@@ -26,7 +26,7 @@ in
         of libpqxx that will only exists inside the environment it will generate. That way users can maintain a separate
         manifest for each project. When they want to work on a project, they can launch a shell in its environment.
         <br/>
-        Previously my workflow with the nix package manager looks like this:
+        Previously my workflow with the nix package manager looked like this:
     </p>
     <ol>
         <li>Enter the project environment in a shell</li>
@@ -41,7 +41,7 @@ in
 
     <h2>Semi-perfect solution</h2>
     <p>
-        <a>Enter Nix Shell</a> is an intellij plugin that adds a "run" button to nix files that you open in the ide. When you
+        <a href="https://plugins.jetbrains.com/plugin/16864-enter-nix-shell">Enter Nix Shell</a> is an intellij plugin that adds a "run" button to nix files that you open in the ide. When you
         press this button, the plugin will capture the environment of that nix environment and inject it into the intellij
         process, effectively moving the whole IDE into that nix shell:
     </p>
