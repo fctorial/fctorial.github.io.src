@@ -10,6 +10,11 @@
     "url": "/posts/tst.html"
   },
   {
+    "name": "Enter Nix Shell",
+    "description": "Seamless nix integration for Intellij IDEA",
+    "url": "/posts/nix_intellij.html"
+  },
+  {
     "name": "Zircon Standalone",
     "description": "Run code on zircon kernel",
     "url": "/posts/zircon_standalone.html"
