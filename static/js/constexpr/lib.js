@@ -20,7 +20,7 @@ function insertFirst(par, ch) {
 }
 
 function insertBefore(sib, el) {
-  sib.parentNode.insertBefore(el, sib.parentNode.firstChild)
+  sib.parentNode.insertBefore(el, sib)
 }
 
 function insertAfter(sib, el) {

@@ -5,7 +5,7 @@ footer {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 1em;
+  padding: 1em 0 0;
   background: #dbdefa;
   grid-gap: 1em;
 
@@ -23,6 +23,18 @@ footer {
       text-decoration: none;
       opacity: 85%;
     }
+  }
+
+  .power {
+    width: 100%;
+    padding: 1em;
+    font-size: 1em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #015c82;
+    background: #78b4fa;
   }
 
   .links {

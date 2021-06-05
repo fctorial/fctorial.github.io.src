@@ -127,11 +127,16 @@ async function render_base_page() {
             <a rel="noopener" title="email" href="mailto:fctorial@gmail.com" class="svg-icon email"></a>
         </div>
     </div>
+    <div class="power">
+        <p class="line">
+            This website is powered by <a href="/posts/constexpr.js.html">constexpr.js</a>
+        </p>
+    </div>
 </div>
 </footer>
 `)
   if (this_post && this_post.discussion) {
-    footer.appendChild(make_element(`<a rel="noopener" class="discussion" target="_blank" href="${this_post.discussion}">Join the discussion here</a>`))
+    insertBefore(footer.querySelector('.power'), make_element(`<a rel="noopener" class="discussion" target="_blank" href="${this_post.discussion}">Join the discussion here</a>`))
   }
 
   article.remove()
