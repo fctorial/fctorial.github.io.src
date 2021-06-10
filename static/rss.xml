@@ -25,6 +25,7 @@
       
       <category>clojure</category>
       <category>utilities</category>
+      <category>c</category>
   </item>
   <item>
       <title>Constexpr.js hello world</title>
