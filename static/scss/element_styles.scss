@@ -65,6 +65,7 @@ progi {
   border: 2px solid #c1bfbf;
 
   overflow-x: auto;
+  overflow-y: hidden;
   white-space: nowrap;
   max-width: 100%;
   display: inline-block;
@@ -93,8 +94,7 @@ h2 {
   color: #655ff5;
   background: #d9d7d7;
 
-  display: flex;
-  justify-content: center;
+  text-align: center;
   border-radius: 5px;
   padding: 5px;
 }

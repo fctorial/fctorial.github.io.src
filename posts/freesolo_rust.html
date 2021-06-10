@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<article>
+    <p>
+        Rust has a reputation of being a difficult language. Part of the reason for that is the strict type system. In
+        rust, <progi>mutability</progi> and <progi>lifetime</progi> of an object are a part of its type, so you
+        can't call a function with a reference whose lifetime or assigned mutability is incompatible with the signature of
+        that function. The compiler infers the lifetimes of most objects automatically at compile time and reports an
+        error if it cannot prove that every object will be used only within its lifetime. Because of that rust is a lot
+        like a memory managed language in the sense that the programmers don't have to worry about freeing the memory they
+        allocated. The compiler will automatically insert <progi>free</progi> calls at the end of the lifetime of an
+        object.
+    </p>
+    <p>
+        But unfortunately, it isn't all it's cracked up to be. From time to time you'll encounter situations where
+        compiler isn't smart enough to figure out the actual lifetime of an object, or it will stop you from using a
+        reference because that violates one of the mutability invariants.
+    </p>
+
+    <h2><a href="https://doc.rust-lang.org/std/mem/fn.transmute.html"><progi>std::mem::transmute</progi></a></h2>
+    <p>
+        This is the rust equivalent of <progi>reinterpret_cast</progi> of <progi>C++</progi>. You can use it to convert
+        a reference of one type to a reference of another type:
+    </p>
+    <prog class="language-rust">
+        <textarea>
+struct S {}
+
+unsafe fn make_mutable<T>(r : &T) -> &mut T {
+    #[allow(mutable_transmutes)]
+    std::mem::transmute::<_, &mut T>(r)
+}
+
+unsafe fn make_static<T>(r : &T) -> &'static T {
+    std::mem::transmute::<_, &'static T>(r)
+}
+
+unsafe fn test(r : &S) {
+    fn f1(r: &mut S) {}
+    fn f2(r: &'static S) {}
+    fn f3(r: &'static mut S) {}
+
+    f1(make_mutable(r));
+    f2(make_static(r));
+    f3(make_mutable(make_static(r)));
+}
+        </textarea>
+    </prog>
+    <h2><span>Isn't <progi>unsafe</progi> dangerous?</span></h2>
+    <p style="text-align: center;">
+        Yes unsafe is dangerous and water is good for you.
+    </p>
+    <img src="/static/img/drown.jpg">
+    <p>
+        It is dangerous only if you don't know what you're doing, and if you're writing a library, there's a good chance that someone
+        will use it in a way that you didn't think of, and unsafe code might cause issues there. But if you're writing
+        an application that is at the top of dependency tree, there is no reason not to use unsafe when you need to. It
+        makes rust a lot less painful.
+    </p>
+    <p>
+        You could say that it isn't possible to draw a clear boundary between application code and library code. Every
+        non-trivial application contains a bunch of half baked libraries inside it. But these libraries will have a very
+        small number of users and you can actually enforce that it is being used in the correct way everywhere.
+    </p>
+    <h2>"If you're doing that, you might as well be using C/C++"</h2>
+    <p>
+        Borrow checker isn't the only good thing about rust, and it won't turn into C if you mark all your method as
+        <progi>unsafe</progi>. You'll still enjoy the benefits of giant crate ecosystem, tagged unions, cargo, sane
+        metaprogramming and really good tooling. <progi>unsafe</progi> doesn't interfere with these features at all.
+        I've written a couple of apps like this and haven't seen any segmentation faults or concurrency bugs till now.
+    </p>
+</article>
+</body>
+<script constexpr src="/static/js/constexpr/lib.js"></script>
+<script constexpr src="/static/js/constexpr/renderer.js"></script>
+
+<script constexpr>
+  async function render_page() {
+    const base_page_render = site_global_rendering()
+    await base_page_render
+  }
+</script>
+
+<script constexpr>
+  render_page()
+    .then(() => window._ConstexprJS_.compile())
+</script>
+
+<style>
+    article img {
+        max-width: 80%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+</style>
+
+</html>

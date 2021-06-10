@@ -188,7 +188,8 @@
     "description": "Documentation for parse_struct, a binary data serialization and deserialization library for clojure with an API similar to pointer casting in C/C++",
     "tags": [
       "clojure",
-      "utilities"
+      "utilities",
+      "c"
     ]
   },
   {
@@ -200,6 +201,17 @@
     "tags": [
       "nix",
       "intellij"
+    ]
+  },
+  {
+    "title": "Free soloing rust",
+    "url": "/posts/freesolo_rust.html",
+    "date": "10 Jun 2021",
+    "discussion": "",
+    "description": "How to use rust like a better C",
+    "tags": [
+      "rust",
+      "c"
     ]
   }
 ]
