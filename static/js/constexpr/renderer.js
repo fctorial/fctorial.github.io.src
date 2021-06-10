@@ -127,16 +127,11 @@ async function render_base_page() {
             <a rel="noopener" title="email" href="mailto:fctorial@gmail.com" class="svg-icon email"></a>
         </div>
     </div>
-    <div class="power">
-        <p class="line">
-            This website is powered by <a href="/posts/constexpr.js.html">constexpr.js</a>
-        </p>
-    </div>
 </div>
 </footer>
 `)
   if (this_post && this_post.discussion) {
-    insertBefore(footer.querySelector('.power'), make_element(`<a rel="noopener" class="discussion" target="_blank" href="${this_post.discussion}">Join the discussion here</a>`))
+    insertAfter(footer.querySelector('.links'), make_element(`<a rel="noopener" class="discussion" target="_blank" href="${this_post.discussion}">Join the discussion here</a>`))
   }
 
   article.remove()
@@ -282,6 +277,7 @@ async function site_global_rendering() {
 </div>`))
   insertBefore(body_wrapper, make_element(
     `<div id="right-sidebar">
+    <a href="/posts/constexpr.js.html"><img src="/static/img/power.png" class="etopower"></a>
     <div class="dialog">
         <div class="heading">Join the newsletter</div>
         <div class="content">

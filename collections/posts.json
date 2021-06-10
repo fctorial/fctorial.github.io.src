@@ -202,16 +202,5 @@
       "nix",
       "intellij"
     ]
-  },
-  {
-    "title": "Free soloing rust",
-    "url": "/posts/freesolo_rust.html",
-    "date": "10 Jun 2021",
-    "discussion": "",
-    "description": "How to use rust like a better C",
-    "tags": [
-      "rust",
-      "c"
-    ]
   }
 ]
