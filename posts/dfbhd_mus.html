@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<article>
+    <p>
+        <a href="https://github.com/fctorial/dfbhd_mus">The program</a> used to extract these tracks.
+    </p>
+</article>
+</body>
+<script>
+  function audio_helpers() {
+    window.current_track = null
+    document.querySelectorAll('audio').forEach(el => {
+      el.addEventListener('play', () => {
+        if (window.current_track && window.current_track !== el) {
+          window.current_track.pause()
+        }
+        window.current_track = el
+      })
+    })
+  }
+</script>
+
+<script constexpr src="/static/js/constexpr/lib.js"></script>
+<script constexpr src="/static/js/constexpr/renderer.js"></script>
+
+<script constexpr>
+  let tracks = [
+    'BANDIT.mp3',
+    'BE.mp3',
+    'colofail.mp3',
+    'colosucc.mp3',
+    'CRED.mp3',
+    'DIPIM.mp3',
+    'DRMEND.mp3',
+    'ENDWN.mp3',
+    'FAIL_1.mp3',
+    'GASA.mp3',
+    'iranfail.mp3',
+    'iransucc.mp3',
+    'IRENE.mp3',
+    'LOST01.mp3',
+    'm10.mp3',
+    'm11.mp3',
+    'm1.mp3',
+    'm2.mp3',
+    'm3.mp3',
+    'm4.mp3',
+    'm5.mp3',
+    'm6.mp3',
+    'm7.mp3',
+    'm8.mp3',
+    'm9.mp3',
+    'MARKA.mp3',
+    'MENU.mp3',
+    'MOG.mp3',
+    'RADIO.mp3',
+    'RIVER.mp3',
+    'RUSS.mp3',
+    'SHAT.mp3',
+    'SHORE.mp3',
+    'STAND.mp3',
+    'VALIANT0.mp3',
+    'WIN1A.mp3',
+    'WIN_4.mp3',
+    'WIN.mp3',
+  ]
+
+  async function render_page() {
+    for (let track of tracks) {
+      let path = `/static/audio/dfbhd/${track}`
+      article.appendChild(make_element(`<h2>${track}</h2>`))
+      article.appendChild(make_element(`<audio controls src="${path}"></audio>`))
+    }
+    const base_page_render = site_global_rendering()
+    await base_page_render
+
+    let bs = document.createElement('script')
+    bs.textContent = `audio_helpers()`
+    document.body.appendChild(bs)
+  }
+</script>
+
+<script constexpr>
+  render_page()
+    .then(() => window._ConstexprJS_.compile())
+</script>
+
+<style>
+    audio {
+        margin: 1em 0;
+        width: 100%;
+    }
+</style>
+
+</html>
