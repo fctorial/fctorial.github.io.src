@@ -7,6 +7,15 @@
   <description>A blog where I'll post (mostly tech related) stuff</description>
 
   <item>
+      <title>All Delta Force Black Hawk Down OSTs</title>
+      <pubDate>4 Jul 2021</pubDate>
+      <link>http://fctorial.com/posts/dfbhd_mus.html</link>
+      <description>All Delta Force Black Hawk Down OSTs extracted from the SBF assets</description>
+      
+      
+      <category>games</category>
+  </item>
+  <item>
       <title>Seamless nix integration for Intellij IDEA</title>
       <pubDate>26 May 2021</pubDate>
       <link>http://fctorial.com/posts/nix_intellij.html</link>

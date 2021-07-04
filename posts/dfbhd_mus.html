@@ -26,6 +26,14 @@
 
 <script constexpr>
   let tracks = [
+    'MARKA.mp3',
+    'GASA.mp3',
+    'ENDWN.mp3',
+    'FAIL_1.mp3',
+    'WIN_4.mp3',
+    'WIN1A.mp3',
+    'WIN.mp3',
+    'MOG.mp3',
     'BANDIT.mp3',
     'BE.mp3',
     'colofail.mp3',
@@ -33,9 +41,6 @@
     'CRED.mp3',
     'DIPIM.mp3',
     'DRMEND.mp3',
-    'ENDWN.mp3',
-    'FAIL_1.mp3',
-    'GASA.mp3',
     'iranfail.mp3',
     'iransucc.mp3',
     'IRENE.mp3',
@@ -51,9 +56,7 @@
     'm7.mp3',
     'm8.mp3',
     'm9.mp3',
-    'MARKA.mp3',
     'MENU.mp3',
-    'MOG.mp3',
     'RADIO.mp3',
     'RIVER.mp3',
     'RUSS.mp3',
@@ -61,16 +64,14 @@
     'SHORE.mp3',
     'STAND.mp3',
     'VALIANT0.mp3',
-    'WIN1A.mp3',
-    'WIN_4.mp3',
-    'WIN.mp3',
   ]
 
   async function render_page() {
     for (let track of tracks) {
       let path = `/static/audio/dfbhd/${track}`
+      fetch(path);
       article.appendChild(make_element(`<h2>${track}</h2>`))
-      article.appendChild(make_element(`<audio controls src="${path}"></audio>`))
+      article.appendChild(make_element(`<audio controls src="${path}" preload="none"></audio>`))
     }
     const base_page_render = site_global_rendering()
     await base_page_render
